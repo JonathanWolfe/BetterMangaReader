@@ -1,97 +1,77 @@
 [
     {
-        "id": "0",
-        "guid": "a32c024a-1cd2-4b94-b90d-df6b5519be90",
+        "id": "8945",
 		"name": "Nisekoi Komi Naoshi",
-        "url": "http://managahere.co/manga/nisekoi_komi_naoshi/",
+		"mirror": "Manga Here",
+        "url": "http://mangahere.co/manga/nisekoi_komi_naoshi/",
         "urlOfLatestRead": "http://mangahere.co/manga/nisekoi_komi_naoshi/c004",
         "isTracked": true,
         "latestRead": "004",
-        "latest": "058",
+		"latestReadVolume": "0",
+        "latest": "123",
+		"latestVolume": "0",
         "tags": [
-            "sint",
-            "irure",
-            "magna",
-            "anim",
-            "ut",
-            "excepteur",
-            "id"
+            "Action", "Comedy", "Harem", "Romance", "School Life", "Shounen"
         ]
     },
     {
-        "id": "1",
-        "guid": "653dfa45-5296-4cde-bca0-f07414c17523",
+        "id": "8490",
 		"name": "The Breaker: New Waves",
-        "url": "http://managahere.co/manga/the_breaker_new_waves/",
-        "urlOfLatestRead": "http://mangahere.co/manga/the_breaker_new_waves/c006",
+		"mirror": "Manga Here",
+        "url": "http://mangahere.co/manga/the_breaker_new_waves/",
+        "urlOfLatestRead": "http://mangahere.co/manga/the_breaker_new_waves/c161",
         "isTracked": true,
-        "latestRead": "006",
-        "latest": "101",
+        "latestRead": "161",
+		"latestReadVolume": "0",
+        "latest": "161",
+		"latestVolume": "0",
         "tags": [
-            "aute",
-            "cupidatat",
-            "elit",
-            "deserunt",
-            "ut",
-            "ad",
-            "pariatur"
+            "Action", "Comedy", "Drama", "Martial Arts", "Romance", "Shounen"
         ]
     },
     {
-        "id": "2",
-        "guid": "10f2f78d-d704-4fdb-96c9-0e026dd66c12",
+        "id": "9816",
 		"name": "Girl the Wild's",
-        "url": "http://managahere.co/manga/girl_the_wild_s/",
+		"mirror": "Manga Here",
+        "url": "http://mangahere.co/manga/girl_the_wild_s/",
         "urlOfLatestRead": "http://mangahere.co/manga/girl_the_wild_s/c002",
         "isTracked": true,
         "latestRead": "002",
-        "latest": "076",
+		"latestReadVolume": "0",
+        "latest": "139",
+		"latestVolume": "0",
         "tags": [
-            "in",
-            "ad",
-            "pariatur",
-            "exercitation",
-            "officia",
-            "irure",
-            "qui"
+            "Action", "Comedy", "Drama", "Harem", "Martial Arts", "Romance", "School Life", "Shounen"
         ]
     },
     {
-        "id": "3",
-        "guid": "56dd03a8-540e-4fe6-ba87-d63471969ef7",
-		"name": "Akame Ga Kiru",
-        "url": "http://managahere.co/manga/akame_ga_kiru/",
-        "urlOfLatestRead": "http://mangahere.co/manga/akame_ga_kiru/c002",
+        "id": "9229",
+		"name": "Akame Ga Kiru!",
+		"mirror": "Manga Here",
+        "url": "http://mangahere.co/manga/akame_ga_kiru/",
+        "urlOfLatestRead": "http://mangahere.co/manga/akame_ga_kiru/c048",
         "isTracked": false,
-        "latestRead": "002",
-        "latest": "089",
+        "latestRead": "048",
+		"latestReadVolume": "0",
+        "latest": "048",
+		"latestVolume": "0",
         "tags": [
-            "dolore",
-            "quis",
-            "nostrud",
-            "veniam",
-            "proident",
-            "mollit",
-            "exercitation"
+            "Action", "Fantasy", "Horror", "Psychological", "Romance", "Shounen", "Tragedy"
         ]
     },
     {
-        "id": "4",
-        "guid": "42989a85-87c4-48a0-900b-a19bfbc68a6c",
+        "id": "7418",
 		"name": "Sankarea",
-        "url": "http://managahere.co/manga/sankarea/",
+		"mirror": "Manga Here",
+        "url": "http://mangahere.co/manga/sankarea/",
         "urlOfLatestRead": "http://mangahere.co/manga/sankarea/c007",
         "isTracked": true,
         "latestRead": "007",
+		"latestReadVolume": "0",
         "latest": "050",
+		"latestVolume": "0",
         "tags": [
-            "elit",
-            "reprehenderit",
-            "in",
-            "culpa",
-            "mollit",
-            "reprehenderit",
-            "laborum"
+            "Comedy", "Drama", "Horror", "Romance", "School Life", "Shounen", "Supernatural"
         ]
     }
 ]

@@ -3,11 +3,10 @@
 */
 
 /* Move down content because we have a fixed navbar that is 50px tall */
+
 body {
 	padding-top: 50px;
 }
-
-
 /*
 * Global add-ons
 */
@@ -16,9 +15,89 @@ body {
 	padding-bottom: 10px;
 	border-bottom: 1px solid #eee;
 }
-
-
-
+.center-text {
+	text-align: center;
+}
+.glyphicon {
+	padding: 2px;
+}
+.glyphicon::before {
+	position: relative;
+	top: 1px;
+	right: 3px;
+}
+.glyphicon-eye-open {
+	color: #d41b1b;
+}
+.onoffswitch {
+	position: relative;
+	width: 65px;
+	margin: 5px auto;
+	-webkit-user-select: none;
+}
+.onoffswitch-checkbox {
+	display: none;
+}
+.onoffswitch-label {
+	display: block;
+	overflow: hidden;
+	cursor: pointer;
+	border: 2px solid #999999;
+	border-radius: 20px;
+}
+.onoffswitch-inner {
+	display: block;
+	width: 200%;
+	margin-left: -100%;
+	transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before,
+.onoffswitch-inner:after {
+	display: block;
+	float: left;
+	width: 50%;
+	height: 20px;
+	padding: 0;
+	line-height: 20px;
+	font-size: 14px;
+	color: white;
+	font-family: Trebuchet, Arial, sans-serif;
+	font-weight: bold;
+	box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+	content: "ON";
+	padding-left: 10px;
+	background-color: #4cae4c;
+	color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+	content: "OFF";
+	padding-right: 8px;
+	background-color: #EEEEEE;
+	color: #999999;
+	text-align: right;
+}
+.onoffswitch-switch {
+	display: block;
+	width: 24px;
+	margin: 1px;
+	background: #A1A1A1;
+	border: 2px solid #999999;
+	border-radius: 20px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 41px;
+	transition: all 0.3s ease-in 0s;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+	margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+	right: 0px;
+	background-color: #fff;
+}
 /*
 * Main content
 */
@@ -36,6 +115,29 @@ body {
 	margin-top: 0;
 }
 
-.center-text {text-align: center;}
+#manga_table > tbody > tr > td {
+	vertical-align: middle;
+}
+.table>thead>tr>td.disabled, .table>tbody>tr>td.disabled, .table>tfoot>tr>td.disabled, .table>thead>tr>th.disabled, .table>tbody>tr>th.disabled, .table>tfoot>tr>th.disabled, .table>thead>tr.disabled>td, .table>tbody>tr.disabled>td, .table>tfoot>tr.disabled>td, .table>thead>tr.disabled>th, .table>tbody>tr.disabled>th, .table>tfoot>tr.disabled>th {
+	background: #bbb;
+}
 
-.glyphicon {padding: 2px;}
+.tracking {
+	width: 90px;
+}
+
+.controls {
+	width: 173px;
+	padding: 8px 20px !important;
+}
+.controls .btn {
+	padding: 0;
+}
+.controls .dropdown-toggle {
+	padding: 6px 8px;
+}
+.controls a {
+	display: inline-block;
+	padding: 6px 12px;
+	color: #fff;
+}
