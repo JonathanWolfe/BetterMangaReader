@@ -9,5 +9,5 @@ Enjoy a better manga reading experience and with less hassle by letting us keep 
 
 ###To-Do
 - [x] Set-up Skeleton
-- [ ] Determine data design
+- [x] Determine data design
 - [ ] Initial Prototype

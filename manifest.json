@@ -1,49 +1,49 @@
 {
-  "name": "BetterMangaReader",
-  "version": "0.0.1",
-  "manifest_version": 2,
-  "description": "Keep track of your manga, be notified of updates, and have a better reading experience",
-  "homepage_url": "https://github.com/JonathanWolfe/BetterMangaReader",
-  "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
-  },
-  "default_locale": "en",
-  "background": {
-    "page": "src/bg/background.html",
-    "persistent": true
-  },
-  "options_page": "src/options/index.html",
-  "browser_action": {
-    "default_icon": "icons/icon19.png",
-    "default_title": "browser action demo",
-    "default_popup": "src/browser_action/browser_action.html"
-  },
-  "permissions": [
-    "contextMenus",
-    "notifications",
-    "tabs"
-  ],
-  "omnibox": {
-    "keyword": "BMR"
-  },
-  "content_scripts": [
-    {
-      "matches": [
-        "http://mangahere.co/*", "http://*.mangahere.co/*"
-      ],
-      "css": [
-        "src/inject/inject.css"
-      ]
-    },
-    {
-      "matches": [
-        "http://mangahere.co/*", "http://*.mangahere.co/*"
-      ],
-      "js": [
-        "src/inject/inject.js"
-      ]
-    }
-  ]
+	"name": "BetterMangaReader",
+	"version": "0.0.1",
+	"manifest_version": 2,
+	"description": "Keep track of your manga, be notified of updates, and have a better reading experience",
+	"homepage_url": "https://github.com/JonathanWolfe/BetterMangaReader",
+	"icons": {
+		"16": "icons/icon16.png",
+		"48": "icons/icon48.png",
+		"128": "icons/icon128.png"
+	},
+	"default_locale": "en",
+	"background": {
+		"page": "src/bg/background.html",
+		"persistent": true
+	},
+	"options_page": "src/options/index.html",
+	"browser_action": {
+		"default_icon": "icons/icon19.png",
+		"default_title": "browser action demo",
+		"default_popup": "src/browser_action/browser_action.html"
+	},
+	"permissions": [
+		"contextMenus",
+		"notifications",
+		"tabs"
+	],
+	"omnibox": {
+		"keyword": "BMR"
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"http://mangahere.co/*", "http://*.mangahere.co/*"
+			],
+			"css": [
+				"src/inject/inject.css"
+			]
+		},
+		{
+			"matches": [
+				"http://mangahere.co/*", "http://*.mangahere.co/*"
+			],
+			"js": [
+				"src/inject/inject.js"
+			]
+		}
+	]
 }
