@@ -5,7 +5,7 @@ Enjoy a better manga reading experience and with less hassle by letting us keep 
 ###Preview
 *coming soon*
 
-###Current Version - 0.0.0a
+###Current Version - 0.0.1a
 
 ###To-Do
 - [x] Set-up Skeleton

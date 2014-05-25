@@ -2,7 +2,7 @@
   "name": "BetterMangaReader",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "Keep track of your manga, be notified of updates, and have a better reading experienc",
+  "description": "Keep track of your manga, be notified of updates, and have a better reading experience",
   "homepage_url": "https://github.com/JonathanWolfe/BetterMangaReader",
   "icons": {
     "16": "icons/icon16.png",
