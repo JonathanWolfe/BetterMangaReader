@@ -9,12 +9,11 @@
 		"48": "icons/icon48.png",
 		"128": "icons/icon128.png"
 	},
-	"default_locale": "en",
 	"background": {
 		"page": "src/bg/background.html",
 		"persistent": true
 	},
-	"options_page": "src/options/index.html",
+	"options_page": "src/pages/settings.html",
 	"browser_action": {
 		"default_icon": "icons/icon19.png"
 	},
