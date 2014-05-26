@@ -13,14 +13,15 @@
 		"page": "src/bg/background.html",
 		"persistent": true
 	},
-	"options_page": "src/pages/settings.html",
+	"options_page": "src/pages/index.html",
 	"browser_action": {
 		"default_icon": "icons/icon19.png"
 	},
 	"permissions": [
 		"contextMenus",
 		"notifications",
-		"tabs"
+		"tabs",
+		"http://*/"
 	],
 	"omnibox": {
 		"keyword": "BMR"

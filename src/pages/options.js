@@ -113,12 +113,10 @@ function convertAMRBsync(amr) {
 			isTracked: (manga.display === 0 ? true : false),
 			latestRead: (manga.lastChapterReadURL.match(/\/c?([0-9]{1,3})(\.[0-9])?\//))[1],
 			latestReadVolume: (manga.lastChapterReadURL.match(/v([0-9]{1,})/) ? manga.lastChapterReadURL.match(/v([0-9]{1,})/)[1] : 0),
-			latest: 999,
+			latest: Mirror.getChapterList(manga.url),
 			latestVolume: 0,
 			tags: []
 		};
-		
-		console.log(all_converted[key]);
 		
 	});
 			

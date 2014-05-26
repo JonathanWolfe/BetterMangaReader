@@ -5,22 +5,18 @@ var Mirror = {
 	
 	loadedPage: {},
 	
-	ajaxCallback: function(loaded) { Mirror.loadedPage = loaded; },
+	ajaxCallback: function(loaded) { 
+		Mirror.loadedPage = loaded; 
+		console.log(loaded); 
+		return false;
+	},
 	
 	ajaxPage: function(request_url) {
-		$.ajax({
-			
-			url: request_url,
-			cache: false,
-			
-			success: function (returned_data) {
-				var page_html = document.createElement("div");
-				page_html.innerHTML = returned_data;
-				
-				Mirror.ajaxCallback(page_html);
-			}
-			
-		});
+		console.log(request_url);
+		var temp = document.createElement('div');
+		$(temp).load(request_url+" body");
+		console.log($(temp).html());
+		
 	},
 
 	// Return the list of the found manga from the mirror
@@ -46,7 +42,8 @@ var Mirror = {
 	 *  This list must be sorted descending. The first element must be the most recent.
 	 */
 	getChapterList: function (manga) {
-		Mirror.ajaxPage(manga.url);
+		console.log(manga);
+		Mirror.ajaxPage(manga);
 		
 		var chapter_data = [];
 
