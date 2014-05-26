@@ -17,11 +17,13 @@
 	"browser_action": {
 		"default_icon": "icons/icon19.png"
 	},
+	"content_security_policy" : "script-src 'self' ; object-src 'self'",
 	"permissions": [
 		"contextMenus",
 		"notifications",
 		"tabs",
-		"http://*/"
+		"http://*/*",
+		"https://*/*"
 	],
 	"omnibox": {
 		"keyword": "BMR"

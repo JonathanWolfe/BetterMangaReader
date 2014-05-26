@@ -1,8 +1,8 @@
 var data = [];
 
-$.getJSON("../test-amr-json.json", function (json) {
+$.getJSON("../test-amr-json-converted.json", function (json) {
 
-	data = convertAMRBsync(json);
+	data = json;
 
 	$.each(data, function (key, manga) {
 		addMangaToTable(manga, $('#manga_table'));
@@ -96,29 +96,4 @@ function getChapterURL(chapter, manga) {
 	}
 	return manga.url+'c'+desired;
 	
-}
-
-function convertAMRBsync(amr) {
-	
-	var all_converted = [];
-	
-	$.each(amr.mangas, function(key, manga) {
-		
-		all_converted[key] = {
-			id: key,
-			name: manga.name,
-			mirror: manga.mirror,
-			url: manga.url,
-			urlOfLatestRead: manga.lastChapterReadURL,
-			isTracked: (manga.display === 0 ? true : false),
-			latestRead: (manga.lastChapterReadURL.match(/\/c?([0-9]{1,3})(\.[0-9])?\//))[1],
-			latestReadVolume: (manga.lastChapterReadURL.match(/v([0-9]{1,})/) ? manga.lastChapterReadURL.match(/v([0-9]{1,})/)[1] : 0),
-			latest: Mirror.getChapterList(manga.url),
-			latestVolume: 0,
-			tags: []
-		};
-		
-	});
-			
-	return all_converted;
 }

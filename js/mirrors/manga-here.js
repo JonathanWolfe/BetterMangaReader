@@ -2,35 +2,19 @@ var Mirror = {
 
 	mirrorName: "Manga Here",
 	languages: "en",
-	
-	loadedPage: {},
-	
-	ajaxCallback: function(loaded) { 
-		Mirror.loadedPage = loaded; 
-		console.log(loaded); 
-		return false;
-	},
-	
-	ajaxPage: function(request_url) {
-		console.log(request_url);
-		var temp = document.createElement('div');
-		$(temp).load(request_url+" body");
-		console.log($(temp).html());
-		
-	},
 
 	// Return the list of the found manga from the mirror
 	getMangaList: function (manga) {
 		Mirror.ajaxPage("http://www.mangahere.co/search.php?name=" + $(manga.name).serialize());
-		
+
 		var manga_found = [];
-		$(".result_search dl dt a.manga_info", Mirror.loadedPage).each(function() {
+		$(".result_search dl dt a.manga_info", Mirror.loadedPage).each(function () {
 			manga_found = [$(this).text().trim(), $(this).attr("href")];
 		});
 
 		return manga_found;
 	},
-	
+
 	// Gets the chapter list from inside a manga
 	getChaptersFromPage: function (page) {
 		return $('select[onchange="change_chapter(this)]"', page);
@@ -42,15 +26,22 @@ var Mirror = {
 	 *  This list must be sorted descending. The first element must be the most recent.
 	 */
 	getChapterList: function (manga) {
-		console.log(manga);
-		Mirror.ajaxPage(manga);
-		
-		var chapter_data = [];
+		var encodedURL = encodeURIComponent(manga),
+			chapter_data = [];
 
-		$(".detail_list ul li span.left a", Mirror.loadedPage).each(function () {
-			chapter_data.push([$(this).text().trim(), $(this).attr("href")]);
-		});
-		
+		$.ajax({
+			async: false,
+			url: "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22" + encodedURL + "%22"
+		})
+			.done(function (returned_data) {
+
+				$(returned_data).find(".detail_list ul li span.left a").each(function () {
+					chapter_data.push([$(this).text().trim(), $(this).attr("href")]);
+				});
+
+			});
+		console.log(manga);
+		console.log(chapter_data);
 		return chapter_data;
 	},
 
@@ -89,8 +80,8 @@ var Mirror = {
 	},
 
 	// Returns the list of the pages in this chapter to be used later when making the image urls.
-	getPages: function(page) {
-		
+	getPages: function (page) {
+
 		var pages = [];
 		$('select[onchange="change_page(this)"] option', page).each(function () {
 			pages.push($(this).val());
@@ -100,7 +91,7 @@ var Mirror = {
 	},
 
 	//Remove the banners from the current page
-	removeRedundant: function(page) {
+	removeRedundant: function (page) {
 		$(".readpage_top .go-page span.right", page).remove();
 	},
 
@@ -130,7 +121,7 @@ var Mirror = {
 	// Write the image from the the url returned by the getPages() function.
 	getImageFromPage: function (page) {
 		Mirror.ajaxPage(page);
-		
+
 		return $("#image", Mirror.loadedPage).attr("src");
 	},
 
