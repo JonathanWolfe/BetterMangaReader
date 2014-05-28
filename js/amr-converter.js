@@ -4,7 +4,7 @@ module.exports = function (data) {
 	var amr,
 		all_converted = [];
 
-	if (typeof data === "string") {
+	if (typeof data === "array") {
 		var content = data[0].url.substr(17);
 
 		content = content.substr(0, content.length - 28);
@@ -14,11 +14,12 @@ module.exports = function (data) {
 
 		amr = JSON.parse(content);
 	} else {
-		amr = data;
+		amr = JSON.parse(data);
 	}
+	
 	amr.mangas.forEach(function (manga, key) {
 
-		// console.log(manga);
+		console.log(manga);
 
 		all_converted[key] = {
 			id: key,

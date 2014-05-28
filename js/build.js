@@ -1,20 +1,26 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports = function (data) {
+	"use strict";
+
+	var amr,
+		all_converted = [];
+
+	if (typeof data === "array") {
+		var content = data[0].url.substr(17);
+
+		content = content.substr(0, content.length - 28);
+		content = content.replace(/(\\")+/g, '"');
+		content = content.replace(/("\[)+/g, '[');
+		content = content.replace(/(\]")+/g, ']');
+
+		amr = JSON.parse(content);
+	} else {
+		amr = JSON.parse(data);
+	}
 	
-	amr = {},
-	all_converted = [],
-	content = data[0].url.substr(17);
-
-	content = content.substr(0, content.length - 28);
-	content = content.replace(/(\\")+/g, '"');
-	content = content.replace(/("\[)+/g, '[');
-	content = content.replace(/(\]")+/g, ']');
-
-	amr = JSON.parse(content);
-
 	amr.mangas.forEach(function (manga, key) {
 
-		// console.log(manga);
+		console.log(manga);
 
 		all_converted[key] = {
 			id: key,
@@ -31,13 +37,11 @@ module.exports = function (data) {
 	});
 
 	// console.log(all_converted);
-	window.manga_data = all_converted;
+	return all_converted;
 
 }
 },{}],2:[function(require,module,exports){
 window.$ = require('jquery');
-
-window.manga_data = {m: []};
 window.amr_converter = require('./amr-converter');
 },{"./amr-converter":1,"jquery":3}],3:[function(require,module,exports){
 (function (global){
