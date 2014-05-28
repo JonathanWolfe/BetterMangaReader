@@ -8,6 +8,8 @@ $.getJSON("../test-amr-json-converted.json", function (json) {
 		addMangaToTable(manga, $('#manga_table'));
 	});
 	
+	var use_mirror = window.use_mirror;
+	
 	var not_up_to_date = $('#manga_table tr.danger').detach(), not_tracking = $('#manga_table tr.disabled').detach();
 	$('#manga_table tbody').prepend(not_up_to_date);
 	$('#manga_table tbody').append(not_tracking);

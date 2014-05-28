@@ -1,6 +1,6 @@
 var Mirror = {
 
-	mirrorName: "Manga Here",
+	mirrorName: "Mangastream",
 	languages: "en",
 
 	// Return the list of the found manga from the mirror

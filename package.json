@@ -1,0 +1,25 @@
+{
+	"name": "BetterMangaReader",
+	"version": "0.0.1",
+	"description": "Keep track of your manga, be notified of updates, and have a better reading experience",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/JonathanWolfe/BetterMangaReader.git"
+	},
+	"browser": {
+		"jquery": "./node_modules/jquery/dist/jquery.min.js"
+	},
+	"browserify-shim": {
+		"jquery": "$"
+	},
+	"browserify": {
+		"transform": ["browserify-shim"]
+	},
+	"devDependencies": {
+		"browserify": "~3.36.0",
+		"browserify-shim": "~3.5.0",
+		"gulp": "~3.6.0",
+		"jquery": "~2.1.1",
+		"vinyl-source-stream": "~0.1.1"
+	}
+}

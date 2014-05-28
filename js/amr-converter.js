@@ -1,6 +1,6 @@
-function convertAMRBsync(amr) {
+module.exports = function convertAMRBsync(amr) {
 
-	var all_converted = [];
+	var $ = require('jquery'), all_converted = [];
 
 	$.each(amr.mangas, function (key, manga) {
 

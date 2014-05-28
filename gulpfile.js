@@ -1,24 +1,25 @@
-var gulp = require('gulp');
-var browserify = require('gulp-browserify');
-var rename = require('gulp-rename');
+var browserify = require('browserify'),
+	gulp = require('gulp'),
+	source = require('vinyl-source-stream');
 
-// Basic usage
-gulp.task('scripts', function() {
-	// Single entry point to browserify
-	gulp.src('js/app.js')
-		.pipe(browserify({
-			insertGlobals : true,
-			debug : !gulp.env.production
-		}))
-		.pide(rename('build.js')
-		.pipe(gulp.dest('js/build.js')
-	);
+gulp.task('browserify', function () {
+	gulp.task('browserify', function () {
+		var bundleStream = browserify('./js/app.js').bundle();
+
+		bundleStream
+			.pipe(source('./build.js'))
+			.pipe(gulp.dest('./js/'));
+		
+		var buildMirrors = browserify('./js/mirrors/get-all-mirrors.js').bundle();
+		
+		buildMirrors
+			.pipe(source('./all-mirrors.js'))
+			.pipe(gulp.dest('./js/mirrors/'));
+	});
 });
 
-// Watch Files For Changes
-gulp.task('watch', function() {
-	gulp.watch('js/*.js', ['scripts']);
+gulp.task('watch', function () {
+	gulp.watch('./js/**', ['browserify']);
 });
 
-// Default Task
-gulp.task('default', ['scripts', 'watch']);
+gulp.task('default', ['browserify']);
