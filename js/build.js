@@ -1,9 +1,20 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-module.exports = function convertAMRBsync(amr) {
+module.exports = function (data) {
+	
+	amr = {},
+	all_converted = [],
+	content = data[0].url.substr(17);
 
-	var $ = require('jquery'), all_converted = [];
+	content = content.substr(0, content.length - 28);
+	content = content.replace(/(\\")+/g, '"');
+	content = content.replace(/("\[)+/g, '[');
+	content = content.replace(/(\]")+/g, ']');
 
-	$.each(amr.mangas, function (key, manga) {
+	amr = JSON.parse(content);
+
+	amr.mangas.forEach(function (manga, key) {
+
+		// console.log(manga);
 
 		all_converted[key] = {
 			id: key,
@@ -13,19 +24,21 @@ module.exports = function convertAMRBsync(amr) {
 			urlOfLatestRead: manga.lastChapterReadURL,
 			isTracked: (manga.display === 0 ? true : false),
 			latestRead: (manga.lastChapterReadURL.match(/\/c?([0-9]{1,3})(\.[0-9])?\//))[1],
-			latestReadVolume: (manga.lastChapterReadURL.match(/v([0-9]{1,})/) ? manga.lastChapterReadURL.match(/v([0-9]{1,})/)[1] : 0),
-			latest: (manga.mirror === "MangaStream") ? 999 : parseFloat(Mirror.getChapterList(manga.url)[0][0].substr(manga.name.length), 10),
+			latest: '999',
 			tags: manga.cats
 		};
 
 	});
 
-	console.log(JSON.stringify(all_converted));
-	return all_converted;
+	// console.log(all_converted);
+	window.manga_data = all_converted;
+
 }
-},{"jquery":3}],2:[function(require,module,exports){
-var $ = require('jquery');
-var amr_converter = require('./amr-converter');
+},{}],2:[function(require,module,exports){
+window.$ = require('jquery');
+
+window.manga_data = {m: []};
+window.amr_converter = require('./amr-converter');
 },{"./amr-converter":1,"jquery":3}],3:[function(require,module,exports){
 (function (global){
 ;__browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {

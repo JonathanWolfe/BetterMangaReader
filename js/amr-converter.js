@@ -1,8 +1,24 @@
-module.exports = function convertAMRBsync(amr) {
+module.exports = function (data) {
+	"use strict";
 
-	var $ = require('jquery'), all_converted = [];
+	var amr,
+		all_converted = [];
 
-	$.each(amr.mangas, function (key, manga) {
+	if (typeof data === "string") {
+		var content = data[0].url.substr(17);
+
+		content = content.substr(0, content.length - 28);
+		content = content.replace(/(\\")+/g, '"');
+		content = content.replace(/("\[)+/g, '[');
+		content = content.replace(/(\]")+/g, ']');
+
+		amr = JSON.parse(content);
+	} else {
+		amr = data;
+	}
+	amr.mangas.forEach(function (manga, key) {
+
+		// console.log(manga);
 
 		all_converted[key] = {
 			id: key,
@@ -12,13 +28,13 @@ module.exports = function convertAMRBsync(amr) {
 			urlOfLatestRead: manga.lastChapterReadURL,
 			isTracked: (manga.display === 0 ? true : false),
 			latestRead: (manga.lastChapterReadURL.match(/\/c?([0-9]{1,3})(\.[0-9])?\//))[1],
-			latestReadVolume: (manga.lastChapterReadURL.match(/v([0-9]{1,})/) ? manga.lastChapterReadURL.match(/v([0-9]{1,})/)[1] : 0),
-			latest: (manga.mirror === "MangaStream") ? 999 : parseFloat(Mirror.getChapterList(manga.url)[0][0].substr(manga.name.length), 10),
+			latest: '999',
 			tags: manga.cats
 		};
 
 	});
 
-	console.log(JSON.stringify(all_converted));
+	// console.log(all_converted);
 	return all_converted;
+
 }

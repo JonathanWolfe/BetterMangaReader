@@ -22,6 +22,7 @@
 		"contextMenus",
 		"notifications",
 		"tabs",
+		"bookmarks",
 		"http://*/*",
 		"https://*/*"
 	],

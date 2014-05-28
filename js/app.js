@@ -1,2 +1,2 @@
-var $ = require('jquery');
-var amr_converter = require('./amr-converter');
+window.$ = require('jquery');
+window.amr_converter = require('./amr-converter');
