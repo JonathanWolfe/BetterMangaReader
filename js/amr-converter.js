@@ -4,7 +4,7 @@ module.exports = function (data) {
 	var amr,
 		all_converted = [];
 
-	if (typeof data === "array") {
+	if (data instanceof Array) {
 		var content = data[0].url.substr(17);
 
 		content = content.substr(0, content.length - 28);
@@ -38,4 +38,4 @@ module.exports = function (data) {
 	// console.log(all_converted);
 	return all_converted;
 
-}
+};
