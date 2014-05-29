@@ -5,7 +5,7 @@ module.exports = function (data) {
 	var amr,
 		all_converted = [];
 
-	if (typeof data === "array") {
+	if (data instanceof Array) {
 		var content = data[0].url.substr(17);
 
 		content = content.substr(0, content.length - 28);
@@ -39,11 +39,39 @@ module.exports = function (data) {
 	// console.log(all_converted);
 	return all_converted;
 
-}
+};
 },{}],2:[function(require,module,exports){
 window.$ = require('jquery');
 window.amr_converter = require('./amr-converter');
-},{"./amr-converter":1,"jquery":3}],3:[function(require,module,exports){
+window.bmr_storage = require('./storage');
+},{"./amr-converter":1,"./storage":3,"jquery":4}],3:[function(require,module,exports){
+var storage = {
+
+	"setDB": function (data) {
+
+		if (!data) {
+			console.log('No data supplied');
+			return;
+		}
+
+		chrome.storage.local.set({
+			'bmr': JSON.stringify(data)
+		}, storage.getDB);
+
+	},
+
+	"getDB": function () {
+		chrome.storage.local.get('bmr', function (data) {
+			var temp = JSON.parse(data);
+
+			storage.state = JSON.parse(temp.bmr);
+		});
+	}
+
+};
+
+module.exports = storage;
+},{}],4:[function(require,module,exports){
 (function (global){
 ;__browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 /*! jQuery v2.1.1 | (c) 2005, 2014 jQuery Foundation, Inc. | jquery.org/license */

@@ -3,18 +3,6 @@ var Mirror = {
 	mirrorName: "Manga Here",
 	languages: "en",
 
-	// Return the list of the found manga from the mirror
-	getMangaList: function (manga) {
-		Mirror.ajaxPage("http://www.mangahere.co/search.php?name=" + $(manga.name).serialize());
-
-		var manga_found = [];
-		$(".result_search dl dt a.manga_info", Mirror.loadedPage).each(function () {
-			manga_found = [$(this).text().trim(), $(this).attr("href")];
-		});
-
-		return manga_found;
-	},
-
 	// Gets the chapter list from inside a manga
 	getChaptersFromPage: function (page) {
 		return $('select[onchange="change_chapter(this)]"', page);
@@ -22,26 +10,30 @@ var Mirror = {
 
 	/**
 	 *  Find the list of all chapters of the manga represented by the urlManga parameter
-	 *  This list must be an Array of [["chapter name", "url"], ...]
+	 *  This list must be an Array of [["chapter Number", "chapter name", "url"], ...]
 	 *  This list must be sorted descending. The first element must be the most recent.
 	 */
 	getChapterList: function (manga) {
-		var encodedURL = encodeURIComponent(manga),
+		var encodedURL = encodeURIComponent(manga.url),
 			chapter_data = [];
 
 		$.ajax({
 			async: false,
 			url: "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22" + encodedURL + "%22"
 		})
-			.done(function (returned_data) {
+		.done(function (returned_data) {
 
-				$(returned_data).find(".detail_list ul li span.left a").each(function () {
-					chapter_data.push([$(this).text().trim(), $(this).attr("href")]);
-				});
+			$(returned_data).find(".detail_list ul li span.left a").each(function () {
+				var chapter_name = $(this).text().trim(),
+					chapter_num = chapter_name.substr(manga.name.length).trim();
 
+				chapter_data.push([chapter_num, chapter_name, $(this).attr("href")]);
 			});
-		console.log(manga);
-		console.log(chapter_data);
+
+		});
+		
+		// console.log(manga);
+		// console.log(chapter_data);
 		return chapter_data;
 	},
 

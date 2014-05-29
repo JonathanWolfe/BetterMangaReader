@@ -1,16 +1,38 @@
 var table = $('#manga_table');
 
-$.getJSON("../test-amr-json-converted.json", function (json) {
+if(window.bmr_storage.state){
 	
-	json.forEach(function(manga) { addMangaToTable(manga, table); });
+	loadMangaTable(bmr_storage.state, table);
 	
-	var not_up_to_date = $('tr.danger', table).detach(),
+}
+else {
+
+	$.getJSON("../test-json-state-save.json", function (json) {
+		
+		// var expanded = expandMangaData(json);
+		// console.log(expanded);
+
+		window.bmr_storage.setDB(json);
+		window.bmr_storage.state = json;
+
+		loadMangaTable(window.bmr_storage.state, table);
+
+	});
+	
+}
+
+function loadMangaTable(data, table){
+	
+	data.forEach(function(manga) { addMangaToTable(manga, table); });
+	
+	var not_up_to_date = $('tr.danger:not(.disabled)', table).detach(),
 		not_tracking = $('tr.disabled', table).detach();
 
 	table.prepend(not_up_to_date).append(not_tracking);
 
 	$('[data-toggle="tooltip"]').tooltip();
-});
+	
+}
 	
 function addMangaToTable(manga, table) {
 
@@ -64,33 +86,60 @@ function getTrackingButton(manga) {
 	return buttonHTML;
 }
 
-function getChapterURL(chapter, manga) {
-	var desired = '';
+function expandMangaData(mangas) {
 	
-	switch (true) {
-		case chapter === "next":
-			desired = '00' + (parseFloat(manga.latestRead, 10) + 1);
-			desired.substr(desired.length - 2);
-			break;
-		case chapter === "prev":
-			if (parseFloat(desired, 10) === 0) {
-				desired = "#";
-				break;
-			}
-			desired = '00' + (parseFloat(manga.latestRead, 10) - 1);
-			desired.substr(desired.length - 2);
-			break;
-		case chapter === "latest":
-			desired = manga.latest;
-			break;
-		case $.isNumeric(chapter):
-			desired = '00' + chapter;
-			desired.substr(desired.length - 2);
-			break;
-		default:
-			desired = '001';
-			break;
+	mangas.forEach(function(manga){
+		
+		manga.chapter_list = use_mirror[manga.mirror].getChapterList(manga);
+		
+		manga.latest = manga.chapter_list[0][0];
+
+	});
+	
+	return mangas;
+	
+}
+
+function getChapterURL(chapter, manga) {
+
+	if (chapter === "next") {
+		if (parseFloat(manga.latestRead, 10) === parseFloat(manga.chapter_list[0][0], 10)) {
+			return manga.urlOfLatestRead;
+		} else {
+			manga.chapter_list.forEach(function (chapters, index) {
+				if (parseFloat(chapters[0], 10) === parseFloat(manga.latest, 10)) {
+					return chapter[index + 1][2];
+				}
+			});
+		}
 	}
-	return manga.url + 'c' + desired;
+	
+	else if (chapter === "prev") {
+		if (parseFloat(manga.latest, 10) === manga.chapter_list[manga.chapter_list.length - 1][0]) {
+			return manga.urlOfLatestRead;
+		} else {
+			manga.chapter_list.forEach(function (chapters, index) {
+				if (parseFloat(chapter[0], 10) === parseFloat(manga.latest, 10)) {
+					return chapters[index - 1][2];
+				}
+			});
+		}
+	}
+	
+	else if (chapter === "latest") {
+		return manga.urlOfLatestRead;
+	}
+	
+	else if ($.isNumeric(chapter)) {
+		manga.chapter_list.forEach(function (chapters) {
+			if (parseFloat(chapter[0], 10) === parseFloat(chapter, 10)) {
+				return chapters[2];
+			}
+		});
+	}
+	
+	else {
+		return manga.chapter_list[manga.chapter_list.length - 1];
+	}
 
 }
