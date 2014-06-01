@@ -13,7 +13,7 @@ Enjoy a better manga reading experience and with less hassle by letting us keep 
 - [x] Query Manga for information (only Manga Here and Mangastream for first release)
 - [x] Build converter for AMR's bsync
 	- [ ] Get Chrome.bookmarks to work (Piece of #%@!#)
-- [ ] Create database (50%)
+- [x] Create database
 	- [x] Add manga to database as they're imported
 - [x] Finish Manga Listing page
 - [ ] Add options page

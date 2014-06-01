@@ -122,6 +122,8 @@ body {
 	background: #bbb;
 }
 
+tr.disabled .mark-read a {display: none;}
+
 .tracking {
 	width: 90px;
 }

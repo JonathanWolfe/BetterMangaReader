@@ -3,19 +3,32 @@ function backup(data) {
 	chrome.bookmarks.search('BMR Back-up', function (results) {
 		if (results.length > 0) {
 
-			window.bmr_storage.updateBackup(data, results[0]);
+			bmr_storage.updateBackup(data, results[0]);
 
 		} else {
 
-			window.bmr_storage.createBackup(data);
+			bmr_storage.createBackup(data);
 
 		}
 	});
 
 }
 
-window.bmr_storage.loadExample();
+// bmr_storage.loadExample();
+bmr_storage.loadState();
 
-var data = window.bmr_storage.getState();
+(function backgroundInit() {
+	
+	console.log(bmr_storage.state);
+	
+	if (bmr_storage.state.length > 0) {
 
-var backup_interval = window.setInterval(backup(data), 60000); // every min
+		var backup_interval = setInterval(backup(bmr_storage.state), 60000); // every min
+
+	} else {
+
+		console.log('No manga yet. Will try again.');
+		setTimeout(backgroundInit, 300);
+
+	}
+})();

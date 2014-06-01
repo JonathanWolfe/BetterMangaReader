@@ -46,43 +46,21 @@ window.amr_converter = require('./amr-converter');
 window.bmr_storage = require('./storage');
 },{"./amr-converter":1,"./storage":3,"jquery":4}],3:[function(require,module,exports){
 var storage = {
+	
+	"state": [],
 
-	"getState": function (data) {
-
-		var state = "{}",
-			done = false;
+	"loadState": function () {
+		var backup_state = "{}";
 
 		chrome.bookmarks.search('BMR Backup', function (results) {
-			
-			console.log(results);
-			
+
 			if (results.length > 0) {
-				state = results[0].url;
-				state.substr(23, state.length - 2);
-
-				done = true;
+				backup_state = results[0].url.slice(23, -2);
+				storage.state = JSON.parse(backup_state);
 			} else {
-				console.log('No State to get');
-
-				done = true;
+				console.error('No State to get');
 			}
 		});
-
-		function waitForData() {
-			setTimeout(function () {
-				if (!done) {
-					console.log('no data yet');
-					
-					waitForData();
-				} else {
-					return true;
-				}
-			}, 100);
-		}
-		waitForData();
-
-		return JSON.parse(state);
-
 	},
 
 	"createBackup": function (data) {
