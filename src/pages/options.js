@@ -1,23 +1,15 @@
-var table = $('#manga_table');
+var table = $('#manga_table'), state = window.bmr_storage.getState();
 
-if(window.bmr_storage.state){
+console.log(state);
+
+if(state instanceof Array){
 	
-	loadMangaTable(bmr_storage.state, table);
+	loadMangaTable(state, table);
 	
 }
 else {
 
-	$.getJSON("../test-json-state-save.json", function (json) {
-		
-		// var expanded = expandMangaData(json);
-		// console.log(expanded);
-
-		window.bmr_storage.setDB(json);
-		window.bmr_storage.state = json;
-
-		loadMangaTable(window.bmr_storage.state, table);
-
-	});
+	console.log('No manga to show');
 	
 }
 

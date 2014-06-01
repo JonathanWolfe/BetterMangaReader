@@ -1,14 +1,21 @@
-// if you checked "fancy-settings" in extensionizr.com, uncomment this lines
+function backup(data) {
 
-// var settings = new Store("settings", {
-//     "sample_setting": "This is how you use Store.js to remember values"
-// });
+	chrome.bookmarks.search('BMR Back-up', function (results) {
+		if (results.length > 0) {
 
+			window.bmr_storage.updateBackup(data, results[0]);
 
-//example of using a message handler from the inject scripts
-chrome.extension.onMessage.addListener(
-	function(request, sender, sendResponse) {
-		chrome.pageAction.show(sender.tab.id);
-		sendResponse();
-	}
-);
+		} else {
+
+			window.bmr_storage.createBackup(data);
+
+		}
+	});
+
+}
+
+window.bmr_storage.loadExample();
+
+var data = window.bmr_storage.getState();
+
+var backup_interval = window.setInterval(backup(data), 60000); // every min
