@@ -5,18 +5,23 @@ Enjoy a better manga reading experience and with less hassle by letting us keep 
 ###Preview
 *coming soon*
 
-###Current Version - 0.0.3a
+###Current Version - 0.0.5a
 
 ###To-Do
 - [x] Set-up Skeleton
 - [x] Determine data design
-- [x] Query Manga for information (only Manga Here and Mangastream for first release)
+- [ ] Query Manga for information (only Manga Here and Mangastream for first release)
+	- [x] Working skimmers
+	- [ ] Inject skimmers
+- [ ] Change how Manga display on sites
 - [x] Build converter for AMR's bsync
-	- [ ] Get Chrome.bookmarks to work (Piece of #%@!#)
+	- [x] Get Chrome.bookmarks to work
 - [x] Create database
 	- [x] Add manga to database as they're imported
 - [x] Finish Manga Listing page
-- [ ] Add options page
+- [x] Add options page
+- [x] Add import/export page
+- [ ] Automate data updates (50%)
 - [ ] Add Icon number
 - [ ] Add notificiations
 - [ ] Make real icon

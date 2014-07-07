@@ -2,9 +2,9 @@ var background = chrome.extension.getBackgroundPage(),
 	table = $('#manga_table');
 
 (function init() {
-	
-	console.log(background.bmr_storage.state);
-	
+
+	console.log("storage state", background.bmr_storage.state);
+
 	if (background.bmr_storage.state.length > 0) {
 
 		loadMangaTable(background.bmr_storage.state, table);
@@ -15,9 +15,20 @@ var background = chrome.extension.getBackgroundPage(),
 		setTimeout(init, 300);
 
 	}
+
+	document.querySelector('.main .refresh-btn').addEventListener('click', function () {
+		var updated = expandMangaData(background.bmr_storage.state);
+		console.log('updated mangas', updated);
+
+		background.backup(updated);
+
+		loadMangaTable(updated, table);
+	});
 })();
 
 function loadMangaTable(data, table) {
+
+	table.find('tbody').html('');
 
 	data.forEach(function (manga) {
 		addMangaToTable(manga, table);
@@ -37,8 +48,8 @@ function addMangaToTable(manga, table) {
 	var control_buttons = getControlButtons(manga),
 		tracking_button = getTrackingButton(manga);
 
-	table.append('<tr class="' + (manga.latestRead < manga.latest ? "danger" : "success") + (manga.isTracked ? "" : " disabled") + '">' +
-		'<td class="mark-read center-text">' + (manga.latestRead < manga.latest ? "<a href=\"#mark-all-read\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Mark ALL chapters as read\"><span class=\"glyphicon glyphicon-eye-open\"></span></a>" : "") + '</td>' +
+	table.append('<tr class="' + (parseFloat(manga.latestRead, 10) < parseFloat(manga.latest, 10) ? "danger" : "success") + (manga.isTracked ? "" : " disabled") + '">' +
+		'<td class="mark-read center-text">' + (parseFloat(manga.latestRead, 10) < parseFloat(manga.latest, 10) ? "<a href=\"#mark-all-read\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Mark ALL chapters as read\"><span class=\"glyphicon glyphicon-eye-open\"></span></a>" : "") + '</td>' +
 		'<td class="manga-name"><strong><em>' + manga.name + '</em></strong></td>' +
 		'<td class="latest-read center-text"><a href="' + manga.urlOfLatestRead + '" data-toggle="tooltip" data-placement="right" title="Continue reading from here"><span class="glyphicon glyphicon-play">' + parseFloat(manga.latestRead, 10) + '</span></a></td>' +
 		'<td class="latest-chapter center-text">' + parseFloat(manga.latest, 10) + '</td>' +

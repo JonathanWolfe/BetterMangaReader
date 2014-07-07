@@ -143,3 +143,9 @@ tr.disabled .mark-read a {display: none;}
 	padding: 6px 12px;
 	color: #fff;
 }
+
+#import-data, #export-data {
+	font-family: monospace;
+	font-size: .85em;
+	margin-bottom: 15px;
+}

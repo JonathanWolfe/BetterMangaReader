@@ -1,17 +1,17 @@
 var storage = {
-	
+
 	"state": [],
 
 	"loadState": function () {
-		var backup_state = "{}";
 
 		chrome.bookmarks.search('BMR Backup', function (results) {
 
 			if (results.length > 0) {
-				backup_state = results[0].url.slice(23, -2);
-				storage.state = JSON.parse(backup_state);
+				storage.state = JSON.parse(results[0].url.slice(23, -2));
 			} else {
-				console.error('No State to get');
+				console.log('No State to get. Writing new one.');
+				storage.createBackup(JSON.parse('{}'));
+				storage.state.push({});
 			}
 		});
 	},
@@ -25,13 +25,13 @@ var storage = {
 			title: 'BMR Backup.' + date + '.' + revision,
 			url: 'javascript:console.log(' + data + ');'
 		}, function (result) {
-			console.log(result);
+			console.log('created bookmark', result);
 		});
 
 	},
 
 	"updateBackup": function (data, bmr_backup) {
-		console.log(bmr_backup);
+		console.log('bmr_backup', bmr_backup);
 
 		var matched = bmr_backup.title.match(/([0-9])+/g),
 			bmr = {
@@ -61,7 +61,7 @@ var storage = {
 
 		}
 
-		console.log(bmr);
+		console.log('bmr update info', bmr);
 	},
 
 	"loadExample": function () {

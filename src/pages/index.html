@@ -2,27 +2,26 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-		<title>BetterMangaReader - Options</title>
+		<title>BetterMangaReader - Your Manga</title>
 
 		<link rel="stylesheet" href="../../css/bootstrap-3-1-1/bootstrap.min.css">
 		<link rel="stylesheet" href="../../css/bootstrap-3-1-1/bootstrap-theme.min.css">
-		<link rel="stylesheet" href="options.css">
+		<link rel="stylesheet" href="main.css">
 	</head>
 	<body>
 
 		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#">BetterMangaReader</a>
+					<a class="navbar-brand" href="index.html">BetterMangaReader</a>
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="active"><a href="#">Mangas</a></li>
-						<li><a href="#">Settings</a></li>
-						<li><a href="#">Import/Export</a></li>
+						<li class="active"><a href="index.html">Mangas</a></li>
+						<li><a href="settings.html">Settings</a></li>
+						<li><a href="import-export.html">Import/Export</a></li>
 						<li><a href="#">Help</a></li>
 					</ul>
 				</div>
@@ -32,7 +31,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-12 col-md-12 main">
-					<h1 class="page-header">All Mangas</h1>
+					<h1 class="page-header">All Mangas <button class="btn btn-info refresh-btn">Refresh</button></h1>
 					
 					<div class="table-responsive">
 						<table id="manga_table" class="table table-striped">
@@ -60,6 +59,6 @@
 		<script src="../../js/build.js"></script>
 		<script src="../../js/bootstrap-3-1-1/bootstrap.min.js"></script>
 		<script src="../../js/mirrors/all-mirrors.js"></script>
-		<script src="options.js"></script>
+		<script src="main.js"></script>
 	</body>
 </html>
