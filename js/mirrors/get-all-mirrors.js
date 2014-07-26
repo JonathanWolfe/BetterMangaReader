@@ -1,4 +1,4 @@
 window.use_mirror = {
-	"Manga Here": require('./manga-here'),
+	"Manga Here": require('./mangahere'),
 	"MangaStream": require('./mangastream')
 };

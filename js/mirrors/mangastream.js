@@ -1,6 +1,7 @@
 var Mirror = {
 
 	mirrorName: "MangaStream",
+	mirrorUrl: "mangastream.com",
 	languages: "en",
 
 	// Gets the chapter list from inside a manga

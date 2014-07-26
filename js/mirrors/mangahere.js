@@ -1,11 +1,13 @@
 var Mirror = {
 
 	mirrorName: "Manga Here",
+	mirrorUrl: "mangahere.co",
 	languages: "en",
 
 	// Gets the chapter list from inside a manga
 	getChaptersFromPage: function (page) {
-		return $('select[onchange="change_chapter(this)]"', page);
+		var chapters = $(page).find('select[onchange="change_chapter(this)]"');
+		return chapters;
 	},
 
 	/**
@@ -45,13 +47,22 @@ var Mirror = {
 	 *  "currentChapterURL": Url to access current chapter}
 	 */
 	getInformationFromCurrentPage: function (page) {
+
 		var name,
 			currentChapter,
 			currentMangaURL,
 			currentChapterURL,
-			search = $(".readpage_top .title a", page);
-
-
+			search = [];
+		
+		$(page).filter(function(){ 
+			console.log('ran filter');
+			return this.nodeType === 1; 
+		}).find(".readpage_top .title a").each(function(){ 
+			console.log('result', this);
+			search.push(this);
+		});
+		
+		console.log('search', search);
 
 		name = $(search[1]).text().trim();
 

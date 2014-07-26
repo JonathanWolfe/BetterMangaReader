@@ -1,17 +1,19 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 window.use_mirror = {
-	"Manga Here": require('./manga-here'),
+	"Manga Here": require('./mangahere'),
 	"MangaStream": require('./mangastream')
 };
-},{"./manga-here":2,"./mangastream":3}],2:[function(require,module,exports){
+},{"./mangahere":2,"./mangastream":3}],2:[function(require,module,exports){
 var Mirror = {
 
 	mirrorName: "Manga Here",
+	mirrorUrl: "mangahere.co",
 	languages: "en",
 
 	// Gets the chapter list from inside a manga
 	getChaptersFromPage: function (page) {
-		return $('select[onchange="change_chapter(this)]"', page);
+		var chapters = $(page).find('select[onchange="change_chapter(this)]"');
+		return chapters;
 	},
 
 	/**
@@ -51,13 +53,22 @@ var Mirror = {
 	 *  "currentChapterURL": Url to access current chapter}
 	 */
 	getInformationFromCurrentPage: function (page) {
+
 		var name,
 			currentChapter,
 			currentMangaURL,
 			currentChapterURL,
-			search = $(".readpage_top .title a", page);
-
-
+			search = [];
+		
+		$(page).filter(function(){ 
+			console.log('ran filter');
+			return this.nodeType === 1; 
+		}).find(".readpage_top .title a").each(function(){ 
+			console.log('result', this);
+			search.push(this);
+		});
+		
+		console.log('search', search);
 
 		name = $(search[1]).text().trim();
 
@@ -135,6 +146,7 @@ module.exports = Mirror;
 var Mirror = {
 
 	mirrorName: "MangaStream",
+	mirrorUrl: "mangastream.com",
 	languages: "en",
 
 	// Gets the chapter list from inside a manga
