@@ -1,1460 +1,1252 @@
 {
-   "mangas":[
-      {
-         "mirror":"Manga Here",
-         "name":"12 Beast",
-         "url":"http://www.mangahere.co/manga/12_beast/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/12_beast/c003/",
-         "lastChapterReadName":"12 Beast 3",
-         "read":1,
-         "update":1,
-         "ts":1378005043,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"1/2 Prince",
-         "url":"http://www.mangahere.co/manga/1_2_prince/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/1_2_prince/v12/c066/",
-         "lastChapterReadName":"1/2 Prince 66",
-         "read":1,
-         "update":1,
-         "ts":1399143969,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"3D Kanojo",
-         "url":"http://www.mangahere.co/manga/3d_kanojo/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/3d_kanojo/c010/",
-         "lastChapterReadName":"3D Kanojo 10",
-         "read":1,
-         "update":1,
-         "ts":1393344060,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Ability",
-         "url":"http://www.mangahere.co/manga/ability/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/ability/c056/",
-         "lastChapterReadName":"Ability 56",
-         "read":1,
-         "update":1,
-         "ts":1388023337,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Air Gear",
-         "url":"http://www.mangahere.co/manga/air_gear/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/air_gear/v36/c357/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Asu no Yoichi!",
-         "url":"http://www.mangahere.co/manga/asu_no_yoichi/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/asu_no_yoichi/v04/c016/",
-         "lastChapterReadName":"Asu no Yoichi! 16",
-         "read":1,
-         "update":1,
-         "ts":1370109873,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Black Bullet",
-         "url":"http://www.mangahere.co/manga/black_bullet/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/black_bullet/c016/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"MangaStream",
-         "name":"Bleach",
-         "url":"http://mangastream.com/manga/bleach",
-         "lastChapterReadURL":"http://readms.com/r/bleach/581/2384/1?t=2&f=1&e=0",
-         "lastChapterReadName":"581 - The Hero 2",
-         "read":0,
-         "update":1,
-         "ts":1400689041,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Bonnouji",
-         "url":"http://www.mangahere.co/manga/bonnouji/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/bonnouji/v01/c035/",
-         "lastChapterReadName":"Bonnouji 35",
-         "read":1,
-         "update":1,
-         "ts":1387584487,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Cirque Arachne",
-         "url":"http://www.mangahere.co/manga/cirque_arachne/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/cirque_arachne/c006/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"City of Dead Sorcerer",
-         "url":"http://www.mangahere.co/manga/city_of_dead_sorcerer/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/city_of_dead_sorcerer/c086/",
-         "lastChapterReadName":"City of Dead Sorcerer 86",
-         "read":0,
-         "update":1,
-         "ts":1400785859,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"City of Dead Sorcerer",
-         "url":"http://www.mangahere.co/manga/city_of_dead_sorcerer/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/city_of_dead_sorcerer/c086/",
-         "lastChapterReadName":"City of Dead Sorcerer 86",
-         "read":0,
-         "update":1,
-         "ts":1400787087,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Crime Zone",
-         "url":"http://www.mangahere.co/manga/crime_zone/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/crime_zone/c009/",
-         "lastChapterReadName":"Crime Zone 9",
-         "read":1,
-         "update":1,
-         "ts":1354831011,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Dakara Boku Wa, H Ga Dekinai",
-         "url":"http://www.mangahere.co/manga/dakara_boku_wa_h_ga_dekinai/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/dakara_boku_wa_h_ga_dekinai/c020/",
-         "lastChapterReadName":"Dakara Boku Wa, H Ga Dekinai 20",
-         "read":1,
-         "update":1,
-         "ts":1373821243,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Dame na Watashi ni Koishite Kudasai",
-         "url":"http://www.mangahere.co/manga/dame_na_watashi_ni_koishite_kudasai/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/dame_na_watashi_ni_koishite_kudasai/c006/",
-         "lastChapterReadName":"Dame na Watashi ni Koishite Kudasai 6",
-         "read":1,
-         "update":1,
-         "ts":1395597653,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Denpa Kyoushi",
-         "url":"http://www.mangahere.co/manga/denpa_kyoushi/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/denpa_kyoushi/c070/",
-         "lastChapterReadName":"Denpa Kyoushi 70",
-         "read":1,
-         "update":1,
-         "ts":1367204305,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Dracu-Riot!",
-         "url":"http://www.mangahere.co/manga/dracu_riot/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/dracu_riot/c012.5/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Drifters",
-         "url":"http://www.mangahere.co/manga/drifters/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/drifters/c017/",
-         "lastChapterReadName":"Drifters 17",
-         "read":1,
-         "update":1,
-         "ts":1364586163,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Dungeon ni Deai o Motomeru no wa Machigatte Iru Darou ka",
-         "url":"http://www.mangahere.co/manga/dungeon_ni_deai_o_motomeru_no_wa_machigatte_iru_darou_ka/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/dungeon_ni_deai_o_motomeru_no_wa_machigatte_iru_darou_ka/c013/",
-         "lastChapterReadName":"Dungeon ni Deai o Motomeru no wa Machigatte Iru Darou ka 13",
-         "read":0,
-         "update":1,
-         "ts":1400357218,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"MangaStream",
-         "name":"Fairy Tail",
-         "url":"http://mangastream.com/manga/fairy_tail",
-         "lastChapterReadURL":"http://readms.com/r/fairy_tail/385/2387/1?t=2&f=1&e=0",
-         "lastChapterReadName":"385 - Celestial Spirit King vs. Dark King",
-         "read":0,
-         "update":1,
-         "ts":1400860194,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"FamiDol!",
-         "url":"http://www.mangahere.co/manga/famidol/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/famidol/c001/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Frogman",
-         "url":"http://www.mangahere.co/manga/frogman/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/frogman/v06/c058/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Fukashigi Philia",
-         "url":"http://www.mangahere.co/manga/fukashigi_philia/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/fukashigi_philia/c016/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Girl the Wild's",
-         "url":"http://www.mangahere.co/manga/girl_the_wild_s/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/girl_the_wild_s/c122/",
-         "lastChapterReadName":"Girl the Wild's 122",
-         "read":1,
-         "update":1,
-         "ts":1390755520,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Golden Time (Umechazuke)",
-         "url":"http://www.mangahere.co/manga/golden_time_umechazuke/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/golden_time_umechazuke/c016/",
-         "lastChapterReadName":"Golden Time (Umechazuke) 16",
-         "read":1,
-         "update":1,
-         "ts":1379699696,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Hadi Girl",
-         "url":"http://www.mangahere.co/manga/hadi_girl/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/hadi_girl/c011/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Half & Half",
-         "url":"http://www.mangahere.co/manga/half_half/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/half_half/v01/c007/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Hatsukoi Wazurai",
-         "url":"http://www.mangahere.co/manga/hatsukoi_wazurai/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/hatsukoi_wazurai/c003/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Hells Kitchen",
-         "url":"http://www.mangahere.co/manga/hells_kitchen/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/hells_kitchen/c022/",
-         "lastChapterReadName":"Hells Kitchen 22",
-         "read":1,
-         "update":1,
-         "ts":1372557161,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Hetakoi",
-         "url":"http://www.mangahere.co/manga/hetakoi/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/hetakoi/c059/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Hitotsu Yane no Shita no",
-         "url":"http://www.mangahere.co/manga/hitotsu_yane_no_shita_no/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/hitotsu_yane_no_shita_no/c002/",
-         "lastChapterReadName":"Hitotsu Yane no Shita no 2",
-         "read":1,
-         "update":1,
-         "ts":1388023338,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Horimiya",
-         "url":"http://www.mangahere.co/manga/horimiya/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/horimiya/c036/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1400905042,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Horimiya",
-         "url":"http://www.mangahere.co/manga/horimiya/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/horimiya/c036/",
-         "lastChapterReadName":"Horimiya 36",
-         "read":0,
-         "update":1,
-         "ts":1400896110,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Idol Pretender",
-         "url":"http://www.mangahere.co/manga/idol_pretender/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/idol_pretender/c015.5/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Improper Capture Method of Classmates & Labyrinth",
-         "url":"http://www.mangahere.co/manga/improper_capture_method_of_classmates_labyrinth/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/improper_capture_method_of_classmates_labyrinth/c014/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Inari, Konkon, Koi Iroha",
-         "url":"http://www.mangahere.co/manga/inari_konkon_koi_iroha/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/inari_konkon_koi_iroha/c037/",
-         "lastChapterReadName":"Inari, Konkon, Koi Iroha 37",
-         "read":1,
-         "update":1,
-         "ts":1389912940,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Infinity Game",
-         "url":"http://www.mangahere.co/manga/infinity_game/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/infinity_game/c012.5/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Inugamihime no Shimobe",
-         "url":"http://www.mangahere.co/manga/inugamihime_no_shimobe/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/inugamihime_no_shimobe/c015/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Isuca",
-         "url":"http://www.mangahere.co/manga/isuca/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/isuca/v01/c015/",
-         "lastChapterReadName":"Isuca 15",
-         "read":1,
-         "update":1,
-         "ts":1354760599,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Itoshi no Karin",
-         "url":"http://www.mangahere.co/manga/itoshi_no_karin/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/itoshi_no_karin/c013/",
-         "lastChapterReadName":"Itoshi no Karin 13",
-         "read":0,
-         "update":1,
-         "ts":1400471813,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Kagami No Kuni No Harisugawa",
-         "url":"http://www.mangahere.co/manga/kagami_no_kuni_no_harisugawa/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/kagami_no_kuni_no_harisugawa/c029/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Kanojo ni Naru Hi",
-         "url":"http://www.mangahere.co/manga/kanojo_ni_naru_hi/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/kanojo_ni_naru_hi/c005/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Kigurumi",
-         "url":"http://www.mangahere.co/manga/kigurumi/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/kigurumi/c002/",
-         "lastChapterReadName":null,
-         "read":1,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Kikou Shoujo wa Kizutsukanai",
-         "url":"http://www.mangahere.co/manga/kikou_shoujo_wa_kizutsukanai/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/kikou_shoujo_wa_kizutsukanai/v05/c040/",
-         "lastChapterReadName":"Kikou Shoujo wa Kizutsukanai 40",
-         "read":0,
-         "update":1,
-         "ts":1400004770,
-         "display":1,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Kimi ni Happiness",
-         "url":"http://www.mangahere.co/manga/kimi_ni_happiness/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/kimi_ni_happiness/c004.5/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Kimi ni Koishitei desu ka.",
-         "url":"http://www.mangahere.co/manga/kimi_ni_koishitei_desu_ka/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/kimi_ni_koishitei_desu_ka/c007/",
-         "lastChapterReadName":"Kimi ni Koishitei desu ka. 7",
-         "read":1,
-         "update":1,
-         "ts":1392003999,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Kimi no Iru Machi",
-         "url":"http://www.mangahere.co/manga/kimi_no_iru_machi/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/kimi_no_iru_machi/v19/c226/",
-         "lastChapterReadName":"Kimi no Iru Machi 226",
-         "read":1,
-         "update":1,
-         "ts":1367524031,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"KissWood",
-         "url":"http://www.mangahere.co/manga/kisswood/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/kisswood/v01/c029/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Koe no Kitachi",
-         "url":"http://www.mangahere.co/manga/koe_no_kitachi/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/koe_no_kitachi/c035/",
-         "lastChapterReadName":"Koe no Kitachi 35",
-         "read":1,
-         "update":1,
-         "ts":1399436298,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Koetama",
-         "url":"http://www.mangahere.co/manga/koetama/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/koetama/c008/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Koisome Momiji",
-         "url":"http://www.mangahere.co/manga/koisome_momiji/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/koisome_momiji/c031/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Lasboss x Hero",
-         "url":"http://www.mangahere.co/manga/lasboss_x_hero/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/lasboss_x_hero/c013/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Magi - Sinbad no Bouken",
-         "url":"http://www.mangahere.co/manga/magi_sinbad_no_bouken/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/magi_sinbad_no_bouken/c006/",
-         "lastChapterReadName":"Magi - Sinbad no Bouken 6",
-         "read":1,
-         "update":1,
-         "ts":1370296005,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Mahouka Koukou No Rettousei",
-         "url":"http://www.mangahere.co/manga/mahouka_koukou_no_rettousei/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/mahouka_koukou_no_rettousei/c023/",
-         "lastChapterReadName":"Mahouka Koukou No Rettousei 23",
-         "read":1,
-         "update":1,
-         "ts":1393558447,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Mahouka Koukou no Yuutousei",
-         "url":"http://www.mangahere.co/manga/mahouka_koukou_no_yuutousei/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/mahouka_koukou_no_yuutousei/c010/",
-         "lastChapterReadName":"Mahouka Koukou no Yuutousei 10",
-         "read":1,
-         "update":1,
-         "ts":1394083885,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Mahou Sensou",
-         "url":"http://www.mangahere.co/manga/mahou_sensou/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/mahou_sensou/c008/",
-         "lastChapterReadName":"Mahou Sensou 8",
-         "read":1,
-         "update":1,
-         "ts":1390277281,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Mahou Tsukai no Yome",
-         "url":"http://www.mangahere.co/manga/mahou_tsukai_no_yome/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/mahou_tsukai_no_yome/c006/",
-         "lastChapterReadName":"Mahou Tsukai no Yome 6",
-         "read":0,
-         "update":1,
-         "ts":1400385651,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Mangaka-san to Assistant-san to 2",
-         "url":"http://www.mangahere.co/manga/mangaka_san_to_assistant_san_to_2/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/mangaka_san_to_assistant_san_to_2/c003/",
-         "lastChapterReadName":"Mangaka-san to Assistant-san to 2 3",
-         "read":1,
-         "update":1,
-         "ts":1383839138,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Maou na Ano Ko to Murabito A",
-         "url":"http://www.mangahere.co/manga/maou_na_ano_ko_to_murabito_a/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/maou_na_ano_ko_to_murabito_a/c007/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Maou na Ore to Fushihime no Yubiwa",
-         "url":"http://www.mangahere.co/manga/maou_na_ore_to_fushihime_no_yubiwa/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/maou_na_ore_to_fushihime_no_yubiwa/c005/",
-         "lastChapterReadName":"Maou na Ore to Fushihime no Yubiwa 5",
-         "read":1,
-         "update":1,
-         "ts":1390155876,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Masamune-kun no Revenge",
-         "url":"http://www.mangahere.co/manga/masamune_kun_no_revenge/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/masamune_kun_no_revenge/c015/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Minamoto-kun Monogatari",
-         "url":"http://www.mangahere.co/manga/minamoto_kun_monogatari/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/minamoto_kun_monogatari/c124/",
-         "lastChapterReadName":"Minamoto-kun Monogatari 124",
-         "read":0,
-         "update":1,
-         "ts":1400989056,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Mirai Nikki Redial",
-         "url":"http://www.mangahere.co/manga/mirai_nikki_redial/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/mirai_nikki_redial/c002/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Mokushiroku Alice",
-         "url":"http://www.mangahere.co/manga/mokushiroku_alice/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/mokushiroku_alice/c001/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Nagi no Asu kara",
-         "url":"http://www.mangahere.co/manga/nagi_no_asu_kara/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/nagi_no_asu_kara/c003/",
-         "lastChapterReadName":"Nagi no Asu kara 3",
-         "read":1,
-         "update":1,
-         "ts":1385836544,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"MangaStream",
-         "name":"Naruto",
-         "url":"http://mangastream.com/manga/naruto",
-         "lastChapterReadURL":"http://readms.com/r/naruto/677/2383/1?t=2&f=1&e=0",
-         "lastChapterReadName":"677 - Infinite Tsukuyomi",
-         "read":0,
-         "update":1,
-         "ts":1400689041,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Necromancer",
-         "url":"http://www.mangahere.co/manga/necromancer/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/necromancer/c020/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Nisekoi (KOMI Naoshi)",
-         "url":"http://www.mangahere.co/manga/nisekoi_komi_naoshi/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/nisekoi_komi_naoshi/c081/",
-         "lastChapterReadName":"Nisekoi (KOMI Naoshi) 81",
-         "read":1,
-         "update":1,
-         "ts":1373134339,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Nozomi To Kimio",
-         "url":"http://www.mangahere.co/manga/nozomi_to_kimio/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/nozomi_to_kimio/c011/",
-         "lastChapterReadName":"Nozomi To Kimio 11",
-         "read":1,
-         "update":1,
-         "ts":1375660198,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Omae o Otaku ni Shiteyaru kara, Ore o Riajuu ni Shitekure!",
-         "url":"http://www.mangahere.co/manga/omae_o_otaku_ni_shiteyaru_kara_ore_o_riajuu_ni_shitekure/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/omae_o_otaku_ni_shiteyaru_kara_ore_o_riajuu_ni_shitekure/c011/",
-         "lastChapterReadName":"Omae o Otaku ni Shiteyaru kara, Ore o Riajuu ni Shitekure! 11",
-         "read":1,
-         "update":1,
-         "ts":1393990548,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Oukoku Game",
-         "url":"http://www.mangahere.co/manga/oukoku_game/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/oukoku_game/c004/",
-         "lastChapterReadName":"Oukoku Game 4",
-         "read":1,
-         "update":1,
-         "ts":1383839141,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Over Image",
-         "url":"http://www.mangahere.co/manga/over_image/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/over_image/c008/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Pajama na Kanojo",
-         "url":"http://www.mangahere.co/manga/pajama_na_kanojo/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/pajama_na_kanojo/c026/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Propose no Okite",
-         "url":"http://www.mangahere.co/manga/propose_no_okite/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/propose_no_okite/c002/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Pupa",
-         "url":"http://www.mangahere.co/manga/pupa/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/pupa/c015/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Ratman",
-         "url":"http://www.mangahere.co/manga/ratman/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/ratman/c055/",
-         "lastChapterReadName":"Ratman 55",
-         "read":1,
-         "update":1,
-         "ts":1388959622,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"RealPG",
-         "url":"http://www.mangahere.co/manga/realpg/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/realpg/c015/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Renai Boukun",
-         "url":"http://www.mangahere.co/manga/renai_boukun/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/renai_boukun/c002/",
-         "lastChapterReadName":"Renai Boukun 2",
-         "read":1,
-         "update":1,
-         "ts":1369875861,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Renai Shimasen ka?",
-         "url":"http://www.mangahere.co/manga/renai_shimasen_ka/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/renai_shimasen_ka/c015/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Seikoku No Ryuu Kishi",
-         "url":"http://www.mangahere.co/manga/seikoku_no_ryuu_kishi/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/seikoku_no_ryuu_kishi/c019/",
-         "lastChapterReadName":"Seikoku No Ryuu Kishi 19",
-         "read":1,
-         "update":1,
-         "ts":1379356663,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Seishun For-Get!",
-         "url":"http://www.mangahere.co/manga/seishun_for_get/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/seishun_for_get/v03/c020/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Sekai de Ichiban Tadashii Kyuuketsuki no Kaikata",
-         "url":"http://www.mangahere.co/manga/sekai_de_ichiban_tadashii_kyuuketsuki_no_kaikata/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/sekai_de_ichiban_tadashii_kyuuketsuki_no_kaikata/c003/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Shinmai Maou no Keiyakusha",
-         "url":"http://www.mangahere.co/manga/shinmai_maou_no_keiyakusha/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/shinmai_maou_no_keiyakusha/c010/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Shokugeki no Soma",
-         "url":"http://www.mangahere.co/manga/shokugeki_no_soma/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/shokugeki_no_soma/c071/",
-         "lastChapterReadName":"Shokugeki no Soma 71",
-         "read":0,
-         "update":1,
-         "ts":1400987536,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Shurabara!",
-         "url":"http://www.mangahere.co/manga/shurabara/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/shurabara/c002/",
-         "lastChapterReadName":"Shurabara! 2",
-         "read":1,
-         "update":1,
-         "ts":1371694262,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Shuumatsu no Laughter",
-         "url":"http://www.mangahere.co/manga/shuumatsu_no_laughter/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/shuumatsu_no_laughter/c005.5/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Sore wa Totsuzen, Unmei no Aite ga",
-         "url":"http://www.mangahere.co/manga/sore_wa_totsuzen_unmei_no_aite_ga/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/sore_wa_totsuzen_unmei_no_aite_ga/v04/c023/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Soul Cartel",
-         "url":"http://www.mangahere.co/manga/soul_cartel/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/soul_cartel/c124/",
-         "lastChapterReadName":"Soul Cartel 124",
-         "read":0,
-         "update":1,
-         "ts":1400689042,
-         "display":1,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Soul Catcher(S)",
-         "url":"http://www.mangahere.co/manga/soul_catcher_s/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/soul_catcher_s/c004/",
-         "lastChapterReadName":"Soul Catcher(S) 4",
-         "read":1,
-         "update":1,
-         "ts":1385478793,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Soul Eater",
-         "url":"http://www.mangahere.co/manga/soul_eater/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/soul_eater/v16/c113/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"St&rs",
-         "url":"http://www.mangahere.co/manga/st_rs/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/st_rs/c034/",
-         "lastChapterReadName":"St&rs 34",
-         "read":1,
-         "update":1,
-         "ts":1384705619,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"The Gamer",
-         "url":"http://www.mangahere.co/manga/the_gamer/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/the_gamer/c038/",
-         "lastChapterReadName":"The Gamer 38",
-         "read":0,
-         "update":1,
-         "ts":1400785851,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"The Gamer",
-         "url":"http://www.mangahere.co/manga/the_gamer/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/the_gamer/c038/",
-         "lastChapterReadName":"The Gamer 38",
-         "read":0,
-         "update":1,
-         "ts":1400787088,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"The World God Only Knows",
-         "url":"http://www.mangahere.co/manga/the_world_god_only_knows/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/the_world_god_only_knows/v19/c268/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Tokyo Ravens",
-         "url":"http://www.mangahere.co/manga/tokyo_ravens/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/tokyo_ravens/c020/",
-         "lastChapterReadName":"Tokyo Ravens 20",
-         "read":1,
-         "update":1,
-         "ts":1385478791,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"To Love Ru Darkness",
-         "url":"http://www.mangahere.co/manga/to_love_ru_darkness/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/to_love_ru_darkness/v04/c039/",
-         "lastChapterReadName":"To Love Ru Darkness 39",
-         "read":1,
-         "update":1,
-         "ts":1388700349,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Trinity Seven",
-         "url":"http://www.mangahere.co/manga/trinity_seven/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/trinity_seven/c038/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"MangaStream",
-         "name":"UQ Holder",
-         "url":"http://mangastream.com/manga/uq_holder",
-         "lastChapterReadURL":"http://readms.com/r/uq_holder/35/2381/1?t=2&f=1&e=0",
-         "lastChapterReadName":"35 - The Future That Should Be Avoided",
-         "read":0,
-         "update":1,
-         "ts":1400459024,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Wake Up Deadman",
-         "url":"http://www.mangahere.co/manga/wake_up_deadman/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/wake_up_deadman/v03/c065/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Watashi ga Motete Dousunda",
-         "url":"http://www.mangahere.co/manga/watashi_ga_motete_dousunda/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/watashi_ga_motete_dousunda/c004/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Yamada-kun to 7-nin no Majo",
-         "url":"http://www.mangahere.co/manga/yamada_kun_to_7_nin_no_majo/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/yamada_kun_to_7_nin_no_majo/c015/",
-         "lastChapterReadName":"Yamada-kun to 7-nin no Majo 15",
-         "read":1,
-         "update":1,
-         "ts":1393561778,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Yasashii Sekai no Tsukurikata",
-         "url":"http://www.mangahere.co/manga/yasashii_sekai_no_tsukurikata/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/yasashii_sekai_no_tsukurikata/v02/c016/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Yumekui Merry",
-         "url":"http://www.mangahere.co/manga/yumekui_merry/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/yumekui_merry/v08/c065/",
-         "lastChapterReadName":"Yumekui Merry 65",
-         "read":1,
-         "update":1,
-         "ts":1384821030,
-         "display":0,
-         "cats":[
-
-         ]
-      },
-      {
-         "mirror":"Manga Here",
-         "name":"Zettai Renai Program",
-         "url":"http://www.mangahere.co/manga/zettai_renai_program/",
-         "lastChapterReadURL":"http://www.mangahere.co/manga/zettai_renai_program/c005/",
-         "lastChapterReadName":null,
-         "read":0,
-         "update":1,
-         "ts":1399654275,
-         "display":0,
-         "cats":[
-
-         ]
-      }
-   ]
+	"mangas": [
+		{
+			"mirror": "Manga Here",
+			"name": "12 Beast",
+			"url": "http://www.mangahere.co/manga/12_beast/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/12_beast/c003/",
+			"lastChapterReadName": "12 Beast 3",
+			"read": 1,
+			"update": 1,
+			"ts": 1378005043,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "1/2 Prince",
+			"url": "http://www.mangahere.co/manga/1_2_prince/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/1_2_prince/v12/c066/",
+			"lastChapterReadName": "1/2 Prince 66",
+			"read": 1,
+			"update": 1,
+			"ts": 1399143969,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "3D Kanojo",
+			"url": "http://www.mangahere.co/manga/3d_kanojo/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/3d_kanojo/c010/",
+			"lastChapterReadName": "3D Kanojo 10",
+			"read": 1,
+			"update": 1,
+			"ts": 1393344060,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Ability",
+			"url": "http://www.mangahere.co/manga/ability/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/ability/c056/",
+			"lastChapterReadName": "Ability 56",
+			"read": 1,
+			"update": 1,
+			"ts": 1388023337,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Air Gear",
+			"url": "http://www.mangahere.co/manga/air_gear/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/air_gear/v36/c357/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Asu no Yoichi!",
+			"url": "http://www.mangahere.co/manga/asu_no_yoichi/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/asu_no_yoichi/v04/c016/",
+			"lastChapterReadName": "Asu no Yoichi! 16",
+			"read": 1,
+			"update": 1,
+			"ts": 1370109873,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Black Bullet",
+			"url": "http://www.mangahere.co/manga/black_bullet/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/black_bullet/c016/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "MangaStream",
+			"name": "Bleach",
+			"url": "http://mangastream.com/manga/bleach",
+			"lastChapterReadURL": "http://readms.com/r/bleach/581/2384/1?t=2&f=1&e=0",
+			"lastChapterReadName": "581 - The Hero 2",
+			"read": 0,
+			"update": 1,
+			"ts": 1400689041,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Bonnouji",
+			"url": "http://www.mangahere.co/manga/bonnouji/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/bonnouji/v01/c035/",
+			"lastChapterReadName": "Bonnouji 35",
+			"read": 1,
+			"update": 1,
+			"ts": 1387584487,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Cirque Arachne",
+			"url": "http://www.mangahere.co/manga/cirque_arachne/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/cirque_arachne/c006/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "City of Dead Sorcerer",
+			"url": "http://www.mangahere.co/manga/city_of_dead_sorcerer/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/city_of_dead_sorcerer/c086/",
+			"lastChapterReadName": "City of Dead Sorcerer 86",
+			"read": 0,
+			"update": 1,
+			"ts": 1400785859,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "City of Dead Sorcerer",
+			"url": "http://www.mangahere.co/manga/city_of_dead_sorcerer/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/city_of_dead_sorcerer/c086/",
+			"lastChapterReadName": "City of Dead Sorcerer 86",
+			"read": 0,
+			"update": 1,
+			"ts": 1400787087,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Crime Zone",
+			"url": "http://www.mangahere.co/manga/crime_zone/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/crime_zone/c009/",
+			"lastChapterReadName": "Crime Zone 9",
+			"read": 1,
+			"update": 1,
+			"ts": 1354831011,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Dakara Boku Wa, H Ga Dekinai",
+			"url": "http://www.mangahere.co/manga/dakara_boku_wa_h_ga_dekinai/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/dakara_boku_wa_h_ga_dekinai/c020/",
+			"lastChapterReadName": "Dakara Boku Wa, H Ga Dekinai 20",
+			"read": 1,
+			"update": 1,
+			"ts": 1373821243,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Dame na Watashi ni Koishite Kudasai",
+			"url": "http://www.mangahere.co/manga/dame_na_watashi_ni_koishite_kudasai/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/dame_na_watashi_ni_koishite_kudasai/c006/",
+			"lastChapterReadName": "Dame na Watashi ni Koishite Kudasai 6",
+			"read": 1,
+			"update": 1,
+			"ts": 1395597653,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Denpa Kyoushi",
+			"url": "http://www.mangahere.co/manga/denpa_kyoushi/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/denpa_kyoushi/c070/",
+			"lastChapterReadName": "Denpa Kyoushi 70",
+			"read": 1,
+			"update": 1,
+			"ts": 1367204305,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Dracu-Riot!",
+			"url": "http://www.mangahere.co/manga/dracu_riot/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/dracu_riot/c012.5/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Drifters",
+			"url": "http://www.mangahere.co/manga/drifters/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/drifters/c017/",
+			"lastChapterReadName": "Drifters 17",
+			"read": 1,
+			"update": 1,
+			"ts": 1364586163,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Dungeon ni Deai o Motomeru no wa Machigatte Iru Darou ka",
+			"url": "http://www.mangahere.co/manga/dungeon_ni_deai_o_motomeru_no_wa_machigatte_iru_darou_ka/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/dungeon_ni_deai_o_motomeru_no_wa_machigatte_iru_darou_ka/c013/",
+			"lastChapterReadName": "Dungeon ni Deai o Motomeru no wa Machigatte Iru Darou ka 13",
+			"read": 0,
+			"update": 1,
+			"ts": 1400357218,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "MangaStream",
+			"name": "Fairy Tail",
+			"url": "http://mangastream.com/manga/fairy_tail",
+			"lastChapterReadURL": "http://readms.com/r/fairy_tail/385/2387/1?t=2&f=1&e=0",
+			"lastChapterReadName": "385 - Celestial Spirit King vs. Dark King",
+			"read": 0,
+			"update": 1,
+			"ts": 1400860194,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "FamiDol!",
+			"url": "http://www.mangahere.co/manga/famidol/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/famidol/c001/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Frogman",
+			"url": "http://www.mangahere.co/manga/frogman/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/frogman/v06/c058/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Fukashigi Philia",
+			"url": "http://www.mangahere.co/manga/fukashigi_philia/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/fukashigi_philia/c016/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Girl the Wild's",
+			"url": "http://www.mangahere.co/manga/girl_the_wild_s/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/girl_the_wild_s/c122/",
+			"lastChapterReadName": "Girl the Wild's 122",
+			"read": 1,
+			"update": 1,
+			"ts": 1390755520,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Golden Time (Umechazuke)",
+			"url": "http://www.mangahere.co/manga/golden_time_umechazuke/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/golden_time_umechazuke/c016/",
+			"lastChapterReadName": "Golden Time (Umechazuke) 16",
+			"read": 1,
+			"update": 1,
+			"ts": 1379699696,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Hadi Girl",
+			"url": "http://www.mangahere.co/manga/hadi_girl/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/hadi_girl/c011/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Half & Half",
+			"url": "http://www.mangahere.co/manga/half_half/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/half_half/v01/c007/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Hatsukoi Wazurai",
+			"url": "http://www.mangahere.co/manga/hatsukoi_wazurai/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/hatsukoi_wazurai/c003/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Hells Kitchen",
+			"url": "http://www.mangahere.co/manga/hells_kitchen/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/hells_kitchen/c022/",
+			"lastChapterReadName": "Hells Kitchen 22",
+			"read": 1,
+			"update": 1,
+			"ts": 1372557161,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Hetakoi",
+			"url": "http://www.mangahere.co/manga/hetakoi/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/hetakoi/c059/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Hitotsu Yane no Shita no",
+			"url": "http://www.mangahere.co/manga/hitotsu_yane_no_shita_no/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/hitotsu_yane_no_shita_no/c002/",
+			"lastChapterReadName": "Hitotsu Yane no Shita no 2",
+			"read": 1,
+			"update": 1,
+			"ts": 1388023338,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Horimiya",
+			"url": "http://www.mangahere.co/manga/horimiya/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/horimiya/c036/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1400905042,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Horimiya",
+			"url": "http://www.mangahere.co/manga/horimiya/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/horimiya/c036/",
+			"lastChapterReadName": "Horimiya 36",
+			"read": 0,
+			"update": 1,
+			"ts": 1400896110,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Idol Pretender",
+			"url": "http://www.mangahere.co/manga/idol_pretender/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/idol_pretender/c015.5/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Improper Capture Method of Classmates & Labyrinth",
+			"url": "http://www.mangahere.co/manga/improper_capture_method_of_classmates_labyrinth/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/improper_capture_method_of_classmates_labyrinth/c014/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Inari, Konkon, Koi Iroha",
+			"url": "http://www.mangahere.co/manga/inari_konkon_koi_iroha/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/inari_konkon_koi_iroha/c037/",
+			"lastChapterReadName": "Inari, Konkon, Koi Iroha 37",
+			"read": 1,
+			"update": 1,
+			"ts": 1389912940,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Infinity Game",
+			"url": "http://www.mangahere.co/manga/infinity_game/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/infinity_game/c012.5/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Inugamihime no Shimobe",
+			"url": "http://www.mangahere.co/manga/inugamihime_no_shimobe/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/inugamihime_no_shimobe/c015/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Isuca",
+			"url": "http://www.mangahere.co/manga/isuca/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/isuca/v01/c015/",
+			"lastChapterReadName": "Isuca 15",
+			"read": 1,
+			"update": 1,
+			"ts": 1354760599,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Itoshi no Karin",
+			"url": "http://www.mangahere.co/manga/itoshi_no_karin/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/itoshi_no_karin/c013/",
+			"lastChapterReadName": "Itoshi no Karin 13",
+			"read": 0,
+			"update": 1,
+			"ts": 1400471813,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Kagami No Kuni No Harisugawa",
+			"url": "http://www.mangahere.co/manga/kagami_no_kuni_no_harisugawa/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/kagami_no_kuni_no_harisugawa/c029/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Kanojo ni Naru Hi",
+			"url": "http://www.mangahere.co/manga/kanojo_ni_naru_hi/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/kanojo_ni_naru_hi/c005/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Kigurumi",
+			"url": "http://www.mangahere.co/manga/kigurumi/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/kigurumi/c002/",
+			"lastChapterReadName": null,
+			"read": 1,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Kikou Shoujo wa Kizutsukanai",
+			"url": "http://www.mangahere.co/manga/kikou_shoujo_wa_kizutsukanai/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/kikou_shoujo_wa_kizutsukanai/v05/c040/",
+			"lastChapterReadName": "Kikou Shoujo wa Kizutsukanai 40",
+			"read": 0,
+			"update": 1,
+			"ts": 1400004770,
+			"display": 1,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Kimi ni Happiness",
+			"url": "http://www.mangahere.co/manga/kimi_ni_happiness/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/kimi_ni_happiness/c004.5/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Kimi ni Koishitei desu ka.",
+			"url": "http://www.mangahere.co/manga/kimi_ni_koishitei_desu_ka/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/kimi_ni_koishitei_desu_ka/c007/",
+			"lastChapterReadName": "Kimi ni Koishitei desu ka. 7",
+			"read": 1,
+			"update": 1,
+			"ts": 1392003999,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Kimi no Iru Machi",
+			"url": "http://www.mangahere.co/manga/kimi_no_iru_machi/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/kimi_no_iru_machi/v19/c226/",
+			"lastChapterReadName": "Kimi no Iru Machi 226",
+			"read": 1,
+			"update": 1,
+			"ts": 1367524031,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "KissWood",
+			"url": "http://www.mangahere.co/manga/kisswood/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/kisswood/v01/c029/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Koe no Kitachi",
+			"url": "http://www.mangahere.co/manga/koe_no_kitachi/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/koe_no_kitachi/c035/",
+			"lastChapterReadName": "Koe no Kitachi 35",
+			"read": 1,
+			"update": 1,
+			"ts": 1399436298,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Koetama",
+			"url": "http://www.mangahere.co/manga/koetama/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/koetama/c008/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Koisome Momiji",
+			"url": "http://www.mangahere.co/manga/koisome_momiji/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/koisome_momiji/c031/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Lasboss x Hero",
+			"url": "http://www.mangahere.co/manga/lasboss_x_hero/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/lasboss_x_hero/c013/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Magi - Sinbad no Bouken",
+			"url": "http://www.mangahere.co/manga/magi_sinbad_no_bouken/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/magi_sinbad_no_bouken/c006/",
+			"lastChapterReadName": "Magi - Sinbad no Bouken 6",
+			"read": 1,
+			"update": 1,
+			"ts": 1370296005,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Mahouka Koukou No Rettousei",
+			"url": "http://www.mangahere.co/manga/mahouka_koukou_no_rettousei/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/mahouka_koukou_no_rettousei/c023/",
+			"lastChapterReadName": "Mahouka Koukou No Rettousei 23",
+			"read": 1,
+			"update": 1,
+			"ts": 1393558447,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Mahouka Koukou no Yuutousei",
+			"url": "http://www.mangahere.co/manga/mahouka_koukou_no_yuutousei/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/mahouka_koukou_no_yuutousei/c010/",
+			"lastChapterReadName": "Mahouka Koukou no Yuutousei 10",
+			"read": 1,
+			"update": 1,
+			"ts": 1394083885,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Mahou Sensou",
+			"url": "http://www.mangahere.co/manga/mahou_sensou/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/mahou_sensou/c008/",
+			"lastChapterReadName": "Mahou Sensou 8",
+			"read": 1,
+			"update": 1,
+			"ts": 1390277281,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Mahou Tsukai no Yome",
+			"url": "http://www.mangahere.co/manga/mahou_tsukai_no_yome/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/mahou_tsukai_no_yome/c006/",
+			"lastChapterReadName": "Mahou Tsukai no Yome 6",
+			"read": 0,
+			"update": 1,
+			"ts": 1400385651,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Mangaka-san to Assistant-san to 2",
+			"url": "http://www.mangahere.co/manga/mangaka_san_to_assistant_san_to_2/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/mangaka_san_to_assistant_san_to_2/c003/",
+			"lastChapterReadName": "Mangaka-san to Assistant-san to 2 3",
+			"read": 1,
+			"update": 1,
+			"ts": 1383839138,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Maou na Ano Ko to Murabito A",
+			"url": "http://www.mangahere.co/manga/maou_na_ano_ko_to_murabito_a/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/maou_na_ano_ko_to_murabito_a/c007/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Maou na Ore to Fushihime no Yubiwa",
+			"url": "http://www.mangahere.co/manga/maou_na_ore_to_fushihime_no_yubiwa/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/maou_na_ore_to_fushihime_no_yubiwa/c005/",
+			"lastChapterReadName": "Maou na Ore to Fushihime no Yubiwa 5",
+			"read": 1,
+			"update": 1,
+			"ts": 1390155876,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Masamune-kun no Revenge",
+			"url": "http://www.mangahere.co/manga/masamune_kun_no_revenge/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/masamune_kun_no_revenge/c015/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Minamoto-kun Monogatari",
+			"url": "http://www.mangahere.co/manga/minamoto_kun_monogatari/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/minamoto_kun_monogatari/c124/",
+			"lastChapterReadName": "Minamoto-kun Monogatari 124",
+			"read": 0,
+			"update": 1,
+			"ts": 1400989056,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Mirai Nikki Redial",
+			"url": "http://www.mangahere.co/manga/mirai_nikki_redial/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/mirai_nikki_redial/c002/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Mokushiroku Alice",
+			"url": "http://www.mangahere.co/manga/mokushiroku_alice/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/mokushiroku_alice/c001/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Nagi no Asu kara",
+			"url": "http://www.mangahere.co/manga/nagi_no_asu_kara/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/nagi_no_asu_kara/c003/",
+			"lastChapterReadName": "Nagi no Asu kara 3",
+			"read": 1,
+			"update": 1,
+			"ts": 1385836544,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "MangaStream",
+			"name": "Naruto",
+			"url": "http://mangastream.com/manga/naruto",
+			"lastChapterReadURL": "http://readms.com/r/naruto/677/2383/1?t=2&f=1&e=0",
+			"lastChapterReadName": "677 - Infinite Tsukuyomi",
+			"read": 0,
+			"update": 1,
+			"ts": 1400689041,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Necromancer",
+			"url": "http://www.mangahere.co/manga/necromancer/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/necromancer/c020/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Nisekoi (KOMI Naoshi)",
+			"url": "http://www.mangahere.co/manga/nisekoi_komi_naoshi/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/nisekoi_komi_naoshi/c081/",
+			"lastChapterReadName": "Nisekoi (KOMI Naoshi) 81",
+			"read": 1,
+			"update": 1,
+			"ts": 1373134339,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Nozomi To Kimio",
+			"url": "http://www.mangahere.co/manga/nozomi_to_kimio/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/nozomi_to_kimio/c011/",
+			"lastChapterReadName": "Nozomi To Kimio 11",
+			"read": 1,
+			"update": 1,
+			"ts": 1375660198,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Omae o Otaku ni Shiteyaru kara, Ore o Riajuu ni Shitekure!",
+			"url": "http://www.mangahere.co/manga/omae_o_otaku_ni_shiteyaru_kara_ore_o_riajuu_ni_shitekure/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/omae_o_otaku_ni_shiteyaru_kara_ore_o_riajuu_ni_shitekure/c011/",
+			"lastChapterReadName": "Omae o Otaku ni Shiteyaru kara, Ore o Riajuu ni Shitekure! 11",
+			"read": 1,
+			"update": 1,
+			"ts": 1393990548,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Oukoku Game",
+			"url": "http://www.mangahere.co/manga/oukoku_game/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/oukoku_game/c004/",
+			"lastChapterReadName": "Oukoku Game 4",
+			"read": 1,
+			"update": 1,
+			"ts": 1383839141,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Over Image",
+			"url": "http://www.mangahere.co/manga/over_image/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/over_image/c008/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Pajama na Kanojo",
+			"url": "http://www.mangahere.co/manga/pajama_na_kanojo/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/pajama_na_kanojo/c026/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Propose no Okite",
+			"url": "http://www.mangahere.co/manga/propose_no_okite/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/propose_no_okite/c002/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Pupa",
+			"url": "http://www.mangahere.co/manga/pupa/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/pupa/c015/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Ratman",
+			"url": "http://www.mangahere.co/manga/ratman/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/ratman/c055/",
+			"lastChapterReadName": "Ratman 55",
+			"read": 1,
+			"update": 1,
+			"ts": 1388959622,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "RealPG",
+			"url": "http://www.mangahere.co/manga/realpg/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/realpg/c015/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Renai Boukun",
+			"url": "http://www.mangahere.co/manga/renai_boukun/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/renai_boukun/c002/",
+			"lastChapterReadName": "Renai Boukun 2",
+			"read": 1,
+			"update": 1,
+			"ts": 1369875861,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Renai Shimasen ka?",
+			"url": "http://www.mangahere.co/manga/renai_shimasen_ka/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/renai_shimasen_ka/c015/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Seikoku No Ryuu Kishi",
+			"url": "http://www.mangahere.co/manga/seikoku_no_ryuu_kishi/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/seikoku_no_ryuu_kishi/c019/",
+			"lastChapterReadName": "Seikoku No Ryuu Kishi 19",
+			"read": 1,
+			"update": 1,
+			"ts": 1379356663,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Seishun For-Get!",
+			"url": "http://www.mangahere.co/manga/seishun_for_get/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/seishun_for_get/v03/c020/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Sekai de Ichiban Tadashii Kyuuketsuki no Kaikata",
+			"url": "http://www.mangahere.co/manga/sekai_de_ichiban_tadashii_kyuuketsuki_no_kaikata/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/sekai_de_ichiban_tadashii_kyuuketsuki_no_kaikata/c003/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Shinmai Maou no Keiyakusha",
+			"url": "http://www.mangahere.co/manga/shinmai_maou_no_keiyakusha/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/shinmai_maou_no_keiyakusha/c010/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Shokugeki no Soma",
+			"url": "http://www.mangahere.co/manga/shokugeki_no_soma/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/shokugeki_no_soma/c071/",
+			"lastChapterReadName": "Shokugeki no Soma 71",
+			"read": 0,
+			"update": 1,
+			"ts": 1400987536,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Shurabara!",
+			"url": "http://www.mangahere.co/manga/shurabara/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/shurabara/c002/",
+			"lastChapterReadName": "Shurabara! 2",
+			"read": 1,
+			"update": 1,
+			"ts": 1371694262,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Shuumatsu no Laughter",
+			"url": "http://www.mangahere.co/manga/shuumatsu_no_laughter/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/shuumatsu_no_laughter/c005.5/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Sore wa Totsuzen, Unmei no Aite ga",
+			"url": "http://www.mangahere.co/manga/sore_wa_totsuzen_unmei_no_aite_ga/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/sore_wa_totsuzen_unmei_no_aite_ga/v04/c023/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Soul Cartel",
+			"url": "http://www.mangahere.co/manga/soul_cartel/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/soul_cartel/c124/",
+			"lastChapterReadName": "Soul Cartel 124",
+			"read": 0,
+			"update": 1,
+			"ts": 1400689042,
+			"display": 1,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Soul Catcher(S)",
+			"url": "http://www.mangahere.co/manga/soul_catcher_s/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/soul_catcher_s/c004/",
+			"lastChapterReadName": "Soul Catcher(S) 4",
+			"read": 1,
+			"update": 1,
+			"ts": 1385478793,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Soul Eater",
+			"url": "http://www.mangahere.co/manga/soul_eater/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/soul_eater/v16/c113/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "St&rs",
+			"url": "http://www.mangahere.co/manga/st_rs/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/st_rs/c034/",
+			"lastChapterReadName": "St&rs 34",
+			"read": 1,
+			"update": 1,
+			"ts": 1384705619,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "The Gamer",
+			"url": "http://www.mangahere.co/manga/the_gamer/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/the_gamer/c038/",
+			"lastChapterReadName": "The Gamer 38",
+			"read": 0,
+			"update": 1,
+			"ts": 1400785851,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "The Gamer",
+			"url": "http://www.mangahere.co/manga/the_gamer/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/the_gamer/c038/",
+			"lastChapterReadName": "The Gamer 38",
+			"read": 0,
+			"update": 1,
+			"ts": 1400787088,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "The World God Only Knows",
+			"url": "http://www.mangahere.co/manga/the_world_god_only_knows/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/the_world_god_only_knows/v19/c268/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Tokyo Ravens",
+			"url": "http://www.mangahere.co/manga/tokyo_ravens/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/tokyo_ravens/c020/",
+			"lastChapterReadName": "Tokyo Ravens 20",
+			"read": 1,
+			"update": 1,
+			"ts": 1385478791,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "To Love Ru Darkness",
+			"url": "http://www.mangahere.co/manga/to_love_ru_darkness/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/to_love_ru_darkness/v04/c039/",
+			"lastChapterReadName": "To Love Ru Darkness 39",
+			"read": 1,
+			"update": 1,
+			"ts": 1388700349,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Trinity Seven",
+			"url": "http://www.mangahere.co/manga/trinity_seven/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/trinity_seven/c038/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "MangaStream",
+			"name": "UQ Holder",
+			"url": "http://mangastream.com/manga/uq_holder",
+			"lastChapterReadURL": "http://readms.com/r/uq_holder/35/2381/1?t=2&f=1&e=0",
+			"lastChapterReadName": "35 - The Future That Should Be Avoided",
+			"read": 0,
+			"update": 1,
+			"ts": 1400459024,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Wake Up Deadman",
+			"url": "http://www.mangahere.co/manga/wake_up_deadman/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/wake_up_deadman/v03/c065/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Watashi ga Motete Dousunda",
+			"url": "http://www.mangahere.co/manga/watashi_ga_motete_dousunda/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/watashi_ga_motete_dousunda/c004/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Yamada-kun to 7-nin no Majo",
+			"url": "http://www.mangahere.co/manga/yamada_kun_to_7_nin_no_majo/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/yamada_kun_to_7_nin_no_majo/c015/",
+			"lastChapterReadName": "Yamada-kun to 7-nin no Majo 15",
+			"read": 1,
+			"update": 1,
+			"ts": 1393561778,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Yasashii Sekai no Tsukurikata",
+			"url": "http://www.mangahere.co/manga/yasashii_sekai_no_tsukurikata/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/yasashii_sekai_no_tsukurikata/v02/c016/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Yumekui Merry",
+			"url": "http://www.mangahere.co/manga/yumekui_merry/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/yumekui_merry/v08/c065/",
+			"lastChapterReadName": "Yumekui Merry 65",
+			"read": 1,
+			"update": 1,
+			"ts": 1384821030,
+			"display": 0,
+			"cats": []
+		},
+		{
+			"mirror": "Manga Here",
+			"name": "Zettai Renai Program",
+			"url": "http://www.mangahere.co/manga/zettai_renai_program/",
+			"lastChapterReadURL": "http://www.mangahere.co/manga/zettai_renai_program/c005/",
+			"lastChapterReadName": null,
+			"read": 0,
+			"update": 1,
+			"ts": 1399654275,
+			"display": 0,
+			"cats": []
+		}
+	]
 }

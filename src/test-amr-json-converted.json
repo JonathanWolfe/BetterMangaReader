@@ -9,7 +9,7 @@
 		"latestRead": "003",
 		"latest": 7,
 		"tags": []
-  },
+	},
 	{
 		"id": 1,
 		"name": "1/2 Prince",
@@ -20,7 +20,7 @@
 		"latestRead": "066",
 		"latest": 66,
 		"tags": []
-  },
+	},
 	{
 		"id": 2,
 		"name": "3D Kanojo",
@@ -31,7 +31,7 @@
 		"latestRead": "010",
 		"latest": 11.5,
 		"tags": []
-  },
+	},
 	{
 		"id": 3,
 		"name": "Ability",
@@ -42,7 +42,7 @@
 		"latestRead": "056",
 		"latest": 60,
 		"tags": []
-  },
+	},
 	{
 		"id": 4,
 		"name": "Air Gear",
@@ -53,7 +53,7 @@
 		"latestRead": "357",
 		"latest": 357,
 		"tags": []
-  },
+	},
 	{
 		"id": 5,
 		"name": "Asu no Yoichi!",
@@ -64,7 +64,7 @@
 		"latestRead": "016",
 		"latest": 58,
 		"tags": []
-  },
+	},
 	{
 		"id": 6,
 		"name": "Black Bullet",
@@ -75,7 +75,7 @@
 		"latestRead": "016",
 		"latest": 16,
 		"tags": []
-  },
+	},
 	{
 		"id": 7,
 		"name": "Bleach",
@@ -86,7 +86,7 @@
 		"latestRead": "581",
 		"latest": 999,
 		"tags": []
-  },
+	},
 	{
 		"id": 8,
 		"name": "Bonnouji",
@@ -97,7 +97,7 @@
 		"latestRead": "035",
 		"latest": 35,
 		"tags": []
-  },
+	},
 	{
 		"id": 9,
 		"name": "Cirque Arachne",
@@ -108,7 +108,7 @@
 		"latestRead": "006",
 		"latest": 6,
 		"tags": []
-  },
+	},
 	{
 		"id": 10,
 		"name": "City of Dead Sorcerer",
@@ -119,7 +119,7 @@
 		"latestRead": "086",
 		"latest": 86,
 		"tags": []
-  },
+	},
 	{
 		"id": 11,
 		"name": "City of Dead Sorcerer",
@@ -130,7 +130,7 @@
 		"latestRead": "086",
 		"latest": 86,
 		"tags": []
-  },
+	},
 	{
 		"id": 12,
 		"name": "Crime Zone",
@@ -141,7 +141,7 @@
 		"latestRead": "009",
 		"latest": 13,
 		"tags": []
-  },
+	},
 	{
 		"id": 13,
 		"name": "Dakara Boku Wa, H Ga Dekinai",
@@ -152,7 +152,7 @@
 		"latestRead": "020",
 		"latest": 26,
 		"tags": []
-  },
+	},
 	{
 		"id": 14,
 		"name": "Dame na Watashi ni Koishite Kudasai",
@@ -163,7 +163,7 @@
 		"latestRead": "006",
 		"latest": 6,
 		"tags": []
-  },
+	},
 	{
 		"id": 15,
 		"name": "Denpa Kyoushi",
@@ -174,7 +174,7 @@
 		"latestRead": "070",
 		"latest": 114,
 		"tags": []
-  },
+	},
 	{
 		"id": 16,
 		"name": "Dracu-Riot!",
@@ -185,7 +185,7 @@
 		"latestRead": "012",
 		"latest": 12.5,
 		"tags": []
-  },
+	},
 	{
 		"id": 17,
 		"name": "Drifters",
@@ -196,7 +196,7 @@
 		"latestRead": "017",
 		"latest": 44,
 		"tags": []
-  },
+	},
 	{
 		"id": 18,
 		"name": "Dungeon ni Deai o Motomeru no wa Machigatte Iru Darou ka",
@@ -207,7 +207,7 @@
 		"latestRead": "013",
 		"latest": 13,
 		"tags": []
-  },
+	},
 	{
 		"id": 19,
 		"name": "Fairy Tail",
@@ -218,7 +218,7 @@
 		"latestRead": "385",
 		"latest": 999,
 		"tags": []
-  },
+	},
 	{
 		"id": 20,
 		"name": "FamiDol!",
@@ -229,7 +229,7 @@
 		"latestRead": "001",
 		"latest": 1,
 		"tags": []
-  },
+	},
 	{
 		"id": 21,
 		"name": "Frogman",
@@ -240,7 +240,7 @@
 		"latestRead": "058",
 		"latest": 58,
 		"tags": []
-  },
+	},
 	{
 		"id": 22,
 		"name": "Fukashigi Philia",
@@ -251,7 +251,7 @@
 		"latestRead": "016",
 		"latest": 16,
 		"tags": []
-  },
+	},
 	{
 		"id": 23,
 		"name": "Girl the Wild's",
@@ -262,7 +262,7 @@
 		"latestRead": "122",
 		"latest": 139,
 		"tags": []
-  },
+	},
 	{
 		"id": 24,
 		"name": "Golden Time (Umechazuke)",
@@ -273,7 +273,7 @@
 		"latestRead": "016",
 		"latest": 24,
 		"tags": []
-  },
+	},
 	{
 		"id": 25,
 		"name": "Hadi Girl",
@@ -284,7 +284,7 @@
 		"latestRead": "011",
 		"latest": 11,
 		"tags": []
-  },
+	},
 	{
 		"id": 26,
 		"name": "Half & Half",
@@ -295,7 +295,7 @@
 		"latestRead": "007",
 		"latest": 7,
 		"tags": []
-  },
+	},
 	{
 		"id": 27,
 		"name": "Hatsukoi Wazurai",
@@ -306,7 +306,7 @@
 		"latestRead": "003",
 		"latest": 3,
 		"tags": []
-  },
+	},
 	{
 		"id": 28,
 		"name": "Hells Kitchen",
@@ -317,7 +317,7 @@
 		"latestRead": "022",
 		"latest": 29,
 		"tags": []
-  },
+	},
 	{
 		"id": 29,
 		"name": "Hetakoi",
@@ -328,7 +328,7 @@
 		"latestRead": "059",
 		"latest": 59,
 		"tags": []
-  },
+	},
 	{
 		"id": 30,
 		"name": "Hitotsu Yane no Shita no",
@@ -339,7 +339,7 @@
 		"latestRead": "002",
 		"latest": 4,
 		"tags": []
-  },
+	},
 	{
 		"id": 31,
 		"name": "Horimiya",
@@ -350,7 +350,7 @@
 		"latestRead": "036",
 		"latest": 36,
 		"tags": []
-  },
+	},
 	{
 		"id": 32,
 		"name": "Horimiya",
@@ -361,7 +361,7 @@
 		"latestRead": "036",
 		"latest": 36,
 		"tags": []
-  },
+	},
 	{
 		"id": 33,
 		"name": "Idol Pretender",
@@ -372,7 +372,7 @@
 		"latestRead": "015",
 		"latest": 15.5,
 		"tags": []
-  },
+	},
 	{
 		"id": 34,
 		"name": "Improper Capture Method of Classmates & Labyrinth",
@@ -383,7 +383,7 @@
 		"latestRead": "014",
 		"latest": 14,
 		"tags": []
-  },
+	},
 	{
 		"id": 35,
 		"name": "Inari, Konkon, Koi Iroha",
@@ -394,7 +394,7 @@
 		"latestRead": "037",
 		"latest": 40,
 		"tags": []
-  },
+	},
 	{
 		"id": 36,
 		"name": "Infinity Game",
@@ -405,7 +405,7 @@
 		"latestRead": "012",
 		"latest": 12.5,
 		"tags": []
-  },
+	},
 	{
 		"id": 37,
 		"name": "Inugamihime no Shimobe",
@@ -416,7 +416,7 @@
 		"latestRead": "015",
 		"latest": 15,
 		"tags": []
-  },
+	},
 	{
 		"id": 38,
 		"name": "Isuca",
@@ -427,7 +427,7 @@
 		"latestRead": "015",
 		"latest": 24,
 		"tags": []
-  },
+	},
 	{
 		"id": 39,
 		"name": "Itoshi no Karin",
@@ -438,7 +438,7 @@
 		"latestRead": "013",
 		"latest": 13,
 		"tags": []
-  },
+	},
 	{
 		"id": 40,
 		"name": "Kagami No Kuni No Harisugawa",
@@ -449,7 +449,7 @@
 		"latestRead": "029",
 		"latest": 29,
 		"tags": []
-  },
+	},
 	{
 		"id": 41,
 		"name": "Kanojo ni Naru Hi",
@@ -460,7 +460,7 @@
 		"latestRead": "005",
 		"latest": 5,
 		"tags": []
-  },
+	},
 	{
 		"id": 42,
 		"name": "Kigurumi",
@@ -471,7 +471,7 @@
 		"latestRead": "002",
 		"latest": 3,
 		"tags": []
-  },
+	},
 	{
 		"id": 43,
 		"name": "Kikou Shoujo wa Kizutsukanai",
@@ -482,7 +482,7 @@
 		"latestRead": "040",
 		"latest": 40,
 		"tags": []
-  },
+	},
 	{
 		"id": 44,
 		"name": "Kimi ni Happiness",
@@ -493,7 +493,7 @@
 		"latestRead": "004",
 		"latest": 4.5,
 		"tags": []
-  },
+	},
 	{
 		"id": 45,
 		"name": "Kimi ni Koishitei desu ka.",
@@ -504,7 +504,7 @@
 		"latestRead": "007",
 		"latest": 7,
 		"tags": []
-  },
+	},
 	{
 		"id": 46,
 		"name": "Kimi no Iru Machi",
@@ -515,7 +515,7 @@
 		"latestRead": "226",
 		"latest": 261.5,
 		"tags": []
-  },
+	},
 	{
 		"id": 47,
 		"name": "KissWood",
@@ -526,7 +526,7 @@
 		"latestRead": "029",
 		"latest": 29,
 		"tags": []
-  },
+	},
 	{
 		"id": 48,
 		"name": "Koe no Kitachi",
@@ -537,7 +537,7 @@
 		"latestRead": "035",
 		"latest": 37,
 		"tags": []
-  },
+	},
 	{
 		"id": 49,
 		"name": "Koetama",
@@ -548,7 +548,7 @@
 		"latestRead": "008",
 		"latest": 8,
 		"tags": []
-  },
+	},
 	{
 		"id": 50,
 		"name": "Koisome Momiji",
@@ -559,7 +559,7 @@
 		"latestRead": "031",
 		"latest": 31,
 		"tags": []
-  },
+	},
 	{
 		"id": 51,
 		"name": "Lasboss x Hero",
@@ -570,7 +570,7 @@
 		"latestRead": "013",
 		"latest": 13,
 		"tags": []
-  },
+	},
 	{
 		"id": 52,
 		"name": "Magi - Sinbad no Bouken",
@@ -581,7 +581,7 @@
 		"latestRead": "006",
 		"latest": 25,
 		"tags": []
-  },
+	},
 	{
 		"id": 53,
 		"name": "Mahouka Koukou No Rettousei",
@@ -592,7 +592,7 @@
 		"latestRead": "023",
 		"latest": 23,
 		"tags": []
-  },
+	},
 	{
 		"id": 54,
 		"name": "Mahouka Koukou no Yuutousei",
@@ -603,7 +603,7 @@
 		"latestRead": "010",
 		"latest": 10,
 		"tags": []
-  },
+	},
 	{
 		"id": 55,
 		"name": "Mahou Sensou",
@@ -614,7 +614,7 @@
 		"latestRead": "008",
 		"latest": 6.5,
 		"tags": []
-  },
+	},
 	{
 		"id": 56,
 		"name": "Mahou Tsukai no Yome",
@@ -625,7 +625,7 @@
 		"latestRead": "006",
 		"latest": 6,
 		"tags": []
-  },
+	},
 	{
 		"id": 57,
 		"name": "Mangaka-san to Assistant-san to 2",
@@ -636,7 +636,7 @@
 		"latestRead": "003",
 		"latest": 8,
 		"tags": []
-  },
+	},
 	{
 		"id": 58,
 		"name": "Maou na Ano Ko to Murabito A",
@@ -647,7 +647,7 @@
 		"latestRead": "007",
 		"latest": 7,
 		"tags": []
-  },
+	},
 	{
 		"id": 59,
 		"name": "Maou na Ore to Fushihime no Yubiwa",
@@ -658,7 +658,7 @@
 		"latestRead": "005",
 		"latest": 7,
 		"tags": []
-  },
+	},
 	{
 		"id": 60,
 		"name": "Masamune-kun no Revenge",
@@ -669,7 +669,7 @@
 		"latestRead": "015",
 		"latest": 15,
 		"tags": []
-  },
+	},
 	{
 		"id": 61,
 		"name": "Minamoto-kun Monogatari",
@@ -680,7 +680,7 @@
 		"latestRead": "124",
 		"latest": 125,
 		"tags": []
-  },
+	},
 	{
 		"id": 62,
 		"name": "Mirai Nikki Redial",
@@ -691,7 +691,7 @@
 		"latestRead": "002",
 		"latest": 2,
 		"tags": []
-  },
+	},
 	{
 		"id": 63,
 		"name": "Mokushiroku Alice",
@@ -702,7 +702,7 @@
 		"latestRead": "001",
 		"latest": 1,
 		"tags": []
-  },
+	},
 	{
 		"id": 64,
 		"name": "Nagi no Asu kara",
@@ -713,7 +713,7 @@
 		"latestRead": "003",
 		"latest": 3,
 		"tags": []
-  },
+	},
 	{
 		"id": 65,
 		"name": "Naruto",
@@ -724,7 +724,7 @@
 		"latestRead": "677",
 		"latest": 999,
 		"tags": []
-  },
+	},
 	{
 		"id": 66,
 		"name": "Necromancer",
@@ -735,7 +735,7 @@
 		"latestRead": "020",
 		"latest": 20,
 		"tags": []
-  },
+	},
 	{
 		"id": 67,
 		"name": "Nisekoi (KOMI Naoshi)",
@@ -746,7 +746,7 @@
 		"latestRead": "081",
 		"latest": 123,
 		"tags": []
-  },
+	},
 	{
 		"id": 68,
 		"name": "Nozomi To Kimio",
@@ -757,7 +757,7 @@
 		"latestRead": "011",
 		"latest": 19,
 		"tags": []
-  },
+	},
 	{
 		"id": 69,
 		"name": "Omae o Otaku ni Shiteyaru kara, Ore o Riajuu ni Shitekure!",
@@ -768,7 +768,7 @@
 		"latestRead": "011",
 		"latest": 12,
 		"tags": []
-  },
+	},
 	{
 		"id": 70,
 		"name": "Oukoku Game",
@@ -779,7 +779,7 @@
 		"latestRead": "004",
 		"latest": 9,
 		"tags": []
-  },
+	},
 	{
 		"id": 71,
 		"name": "Over Image",
@@ -790,7 +790,7 @@
 		"latestRead": "008",
 		"latest": 8,
 		"tags": []
-  },
+	},
 	{
 		"id": 72,
 		"name": "Pajama na Kanojo",
@@ -801,7 +801,7 @@
 		"latestRead": "026",
 		"latest": 26,
 		"tags": []
-  },
+	},
 	{
 		"id": 73,
 		"name": "Propose no Okite",
@@ -812,7 +812,7 @@
 		"latestRead": "002",
 		"latest": 2,
 		"tags": []
-  },
+	},
 	{
 		"id": 74,
 		"name": "Pupa",
@@ -823,7 +823,7 @@
 		"latestRead": "015",
 		"latest": 15,
 		"tags": []
-  },
+	},
 	{
 		"id": 75,
 		"name": "Ratman",
@@ -834,7 +834,7 @@
 		"latestRead": "055",
 		"latest": 55,
 		"tags": []
-  },
+	},
 	{
 		"id": 76,
 		"name": "RealPG",
@@ -845,7 +845,7 @@
 		"latestRead": "015",
 		"latest": 15,
 		"tags": []
-  },
+	},
 	{
 		"id": 77,
 		"name": "Renai Boukun",
@@ -856,7 +856,7 @@
 		"latestRead": "002",
 		"latest": 10,
 		"tags": []
-  },
+	},
 	{
 		"id": 78,
 		"name": "Renai Shimasen ka?",
@@ -867,7 +867,7 @@
 		"latestRead": "015",
 		"latest": 15,
 		"tags": []
-  },
+	},
 	{
 		"id": 79,
 		"name": "Seikoku No Ryuu Kishi",
@@ -878,7 +878,7 @@
 		"latestRead": "019",
 		"latest": 25,
 		"tags": []
-  },
+	},
 	{
 		"id": 80,
 		"name": "Seishun For-Get!",
@@ -889,7 +889,7 @@
 		"latestRead": "020",
 		"latest": 20,
 		"tags": []
-  },
+	},
 	{
 		"id": 81,
 		"name": "Sekai de Ichiban Tadashii Kyuuketsuki no Kaikata",
@@ -900,7 +900,7 @@
 		"latestRead": "003",
 		"latest": 3,
 		"tags": []
-  },
+	},
 	{
 		"id": 82,
 		"name": "Shinmai Maou no Keiyakusha",
@@ -911,7 +911,7 @@
 		"latestRead": "010",
 		"latest": 10,
 		"tags": []
-  },
+	},
 	{
 		"id": 83,
 		"name": "Shokugeki no Soma",
@@ -922,7 +922,7 @@
 		"latestRead": "071",
 		"latest": 71,
 		"tags": []
-  },
+	},
 	{
 		"id": 84,
 		"name": "Shurabara!",
@@ -933,7 +933,7 @@
 		"latestRead": "002",
 		"latest": 10,
 		"tags": []
-  },
+	},
 	{
 		"id": 85,
 		"name": "Shuumatsu no Laughter",
@@ -944,7 +944,7 @@
 		"latestRead": "005",
 		"latest": 5.5,
 		"tags": []
-  },
+	},
 	{
 		"id": 86,
 		"name": "Sore wa Totsuzen, Unmei no Aite ga",
@@ -955,7 +955,7 @@
 		"latestRead": "023",
 		"latest": 23,
 		"tags": []
-  },
+	},
 	{
 		"id": 87,
 		"name": "Soul Cartel",
@@ -966,7 +966,7 @@
 		"latestRead": "124",
 		"latest": 124,
 		"tags": []
-  },
+	},
 	{
 		"id": 88,
 		"name": "Soul Catcher(S)",
@@ -977,7 +977,7 @@
 		"latestRead": "004",
 		"latest": 18,
 		"tags": []
-  },
+	},
 	{
 		"id": 89,
 		"name": "Soul Eater",
@@ -988,7 +988,7 @@
 		"latestRead": "113",
 		"latest": 113,
 		"tags": []
-  },
+	},
 	{
 		"id": 90,
 		"name": "St&rs",
@@ -999,7 +999,7 @@
 		"latestRead": "034",
 		"latest": 39.5,
 		"tags": []
-  },
+	},
 	{
 		"id": 91,
 		"name": "The Gamer",
@@ -1010,7 +1010,7 @@
 		"latestRead": "038",
 		"latest": 38,
 		"tags": []
-  },
+	},
 	{
 		"id": 92,
 		"name": "The Gamer",
@@ -1021,7 +1021,7 @@
 		"latestRead": "038",
 		"latest": 38,
 		"tags": []
-  },
+	},
 	{
 		"id": 93,
 		"name": "The World God Only Knows",
@@ -1032,7 +1032,7 @@
 		"latestRead": "268",
 		"latest": 268,
 		"tags": []
-  },
+	},
 	{
 		"id": 94,
 		"name": "Tokyo Ravens",
@@ -1043,7 +1043,7 @@
 		"latestRead": "020",
 		"latest": 23,
 		"tags": []
-  },
+	},
 	{
 		"id": 95,
 		"name": "To Love Ru Darkness",
@@ -1054,7 +1054,7 @@
 		"latestRead": "039",
 		"latest": 43,
 		"tags": []
-  },
+	},
 	{
 		"id": 96,
 		"name": "Trinity Seven",
@@ -1065,7 +1065,7 @@
 		"latestRead": "038",
 		"latest": 38,
 		"tags": []
-  },
+	},
 	{
 		"id": 97,
 		"name": "UQ Holder",
@@ -1076,7 +1076,7 @@
 		"latestRead": "35",
 		"latest": 999,
 		"tags": []
-  },
+	},
 	{
 		"id": 98,
 		"name": "Wake Up Deadman",
@@ -1087,7 +1087,7 @@
 		"latestRead": "065",
 		"latest": 65,
 		"tags": []
-  },
+	},
 	{
 		"id": 99,
 		"name": "Watashi ga Motete Dousunda",
@@ -1098,7 +1098,7 @@
 		"latestRead": "004",
 		"latest": 4,
 		"tags": []
-  },
+	},
 	{
 		"id": 100,
 		"name": "Yamada-kun to 7-nin no Majo",
@@ -1109,7 +1109,7 @@
 		"latestRead": "015",
 		"latest": 110,
 		"tags": []
-  },
+	},
 	{
 		"id": 101,
 		"name": "Yasashii Sekai no Tsukurikata",
@@ -1120,7 +1120,7 @@
 		"latestRead": "016",
 		"latest": 16,
 		"tags": []
-  },
+	},
 	{
 		"id": 102,
 		"name": "Yumekui Merry",
@@ -1131,7 +1131,7 @@
 		"latestRead": "065",
 		"latest": 70,
 		"tags": []
-  },
+	},
 	{
 		"id": 103,
 		"name": "Zettai Renai Program",
@@ -1142,5 +1142,5 @@
 		"latestRead": "005",
 		"latest": 5,
 		"tags": []
-  }
+	}
 ]

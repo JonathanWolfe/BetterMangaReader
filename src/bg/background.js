@@ -38,3 +38,20 @@ bmr_storage.loadState();
 
 	}
 })();
+
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
+	
+	if(request.mirrorURL !== undefined) {
+		
+		Object.keys(use_mirror).forEach(function(mirror){
+			
+			if(use_mirror[mirror].mirrorUrl === request.mirrorURL) {	
+				console.log(use_mirror[mirror].getInformationFromCurrentPage(request.injectDOM));
+				// sendResponse(use_mirror[mirror].getInformationFromCurrentPage(request.injectDOM));
+			}
+			
+		});
+		
+	};
+	
+});
