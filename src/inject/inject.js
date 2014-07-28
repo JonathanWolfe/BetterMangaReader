@@ -2,13 +2,15 @@ var readyStateCheckInterval = setInterval(function () {
 	if (document.readyState === "complete") {
 		clearInterval(readyStateCheckInterval);
 		
-		var mirror = use_mirror[url('domain').slice(0, url('domain').indexOf('.'))],
-			info;
+		var mirror, info;
 		
-		if(mirror.isCurrentPageAnOverviewPage(document)) {
-			info = mirror.getChaptersFromPage(document);
-		}
-		else if(mirror.isCurrentPageAChapterPage(document)){
+		Object.keys(use_mirror).forEach(function(i){
+			if(use_mirror[i].mirrorUrl === url('domain')) mirror = use_mirror[i];
+		});
+		
+		if(mirror && mirror.isCurrentPageAChapterPage(document)){
+			
+			var chapters = mirror.getChaptersFromPage(document);
 			
 			info = mirror.getInformationFromCurrentPage(document);
 			

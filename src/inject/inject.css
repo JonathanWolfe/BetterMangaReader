@@ -1,8 +1,9 @@
-#viewer {
+#viewer, .page {
 	max-width: 80%;
 	padding-top: 10px;
+	margin: 0 auto;
 }
-#viewer img {
+#viewer img, .page img {
 	display: block;
 	margin: 40px auto;
 	max-width: 100%;

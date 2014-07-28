@@ -1,12 +1,19 @@
 var Mirror = {
 
 	mirrorName: "MangaStream",
-	mirrorUrl: "mangastream.com",
+	mirrorUrl: "readms.com",
 	languages: "en",
 
 	// Gets the chapter list from inside a manga
 	getChaptersFromPage: function (page) {
-		return $('select[onchange="change_chapter(this)]"', page);
+		var chapters = [];
+
+		$('.controls .btn-group:first li a:not(":last")', page).each(function () {
+			var chapter = $('.visible-phone', this).text().trim();
+			chapters.push([chapter, $(this).attr('href')]);
+		});
+
+		return chapters;
 	},
 
 	/**
@@ -22,17 +29,17 @@ var Mirror = {
 			async: false,
 			url: "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22" + encodedURL + "%22"
 		})
-		.done(function (returned_data) {
+			.done(function (returned_data) {
 
-			$(returned_data).find(".table-striped a").each(function () {
-				var chapter_name = $(this).text().trim(),
-					chapter_num = /([0-9]+(?:\.[0-9])?) /.exec(chapter_name);
+				$(returned_data).find(".table-striped a").each(function () {
+					var chapter_name = $(this).text().trim(),
+						chapter_num = /([0-9]+(?:\.[0-9])?) /.exec(chapter_name);
 
-				chapter_data.push([chapter_num, chapter_name, $(this).attr("href")]);
+					chapter_data.push([chapter_num, chapter_name, $(this).attr("href")]);
+				});
+
 			});
 
-		});
-		
 		// console.log(manga);
 		// console.log(chapter_data);
 		return chapter_data;
@@ -46,27 +53,14 @@ var Mirror = {
 	 *  "currentChapterURL": Url to access current chapter}
 	 */
 	getInformationFromCurrentPage: function (page) {
-		var name,
-			currentChapter,
-			currentMangaURL,
-			currentChapterURL,
-			search = $(".readpage_top .title a", page);
-
-
-
-		name = $(search[1]).text().trim();
-
-		if (name.substr(-5) === "Manga") {
-			name = name.substr(0, name.length - 5).trim();
-		}
-
-		currentChapter = $(search[0]).text();
-		currentChapterURL = $(search[0]).attr("href");
-		currentMangaURL = $(search[1]).attr("href");
+		var name = $('.dropdown-toggle .visible-desktop:first', page).text().trim(),
+			currentChapter = $('.btn-group .dropdown-toggle:first', page).text().replace(name, '').trim(),
+			currentMangaURL = $('.btn-group .dropdown-menu:first a:last', page).attr('href'),
+			currentChapterURL = $('.dropdown-menu:last a:first', page).attr('href');
 
 		return {
 			"name": name,
-			"currentChapter": currentChapter.substr(name.length).trim(),
+			"currentChapter": currentChapter.slice(0, currentChapter.indexOf(' - ') - 1),
 			"currentMangaURL": currentMangaURL,
 			"currentChapterURL": currentChapterURL
 		};
@@ -76,8 +70,8 @@ var Mirror = {
 	getPages: function (page) {
 
 		var pages = [];
-		$('select[onchange="change_page(this)"] option', page).each(function () {
-			pages.push($(this).val());
+		$('.dropdown-menu:last li a', page).each(function () {
+			pages.push($(this).attr('href'));
 		});
 
 		return pages;
@@ -85,7 +79,8 @@ var Mirror = {
 
 	//Remove the banners from the current page
 	removeRedundant: function (page) {
-		$(".readpage_top .go-page span.right", page).remove();
+		$('.banner-ad', page).remove();
+		$('#reader-sky', page).remove();
 	},
 
 	/**
@@ -93,29 +88,35 @@ var Mirror = {
 	 *  The returned element will be totally emptied.
 	 */
 	whereDoIWriteScans: function (page) {
-		return $("#viewer", page);
+		return $(".page", page);
 	},
 
 	//Return true if the current page is a page containing scan.
 	isCurrentPageAChapterPage: function (page) {
-		return ($("#image", page).size() > 0);
+		return ($(".page", page).size() > 0);
 	},
 
 	//This method is called before displaying full chapters in the page
 	doSomethingBeforeWritingScans: function (page) {
-		$("#viewer", page).empty();
-		$("#viewer", doc).css({
-			"width": "auto",
-			"background-color": "black",
-			"padding-top": "10px"
-		});
+		$(".page", page).empty();
+		$(".page", page).css("width", "auto");
+		$(".sub-nav", page).hide();
 	},
 
 	// Write the image from the the url returned by the getPages() function.
-	getImageFromPage: function (page) {
-		Mirror.ajaxPage(page);
+	getImageFromPages: function (pages) {
+		var srcs = [];
 
-		return $("#image", Mirror.loadedPage).attr("src");
+		pages.forEach(function (page) {
+			$.ajax(page, {
+				async: false,
+				success: function (data) {
+					srcs.push($(".page img", data).attr("src"));
+				}
+			});
+		});
+
+		return srcs;
 	},
 
 	//This function is called when the manga is full loaded. Just do what you want here...

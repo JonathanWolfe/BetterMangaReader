@@ -31,7 +31,7 @@
 	"content_scripts": [
 		{
 			"matches": [
-				"http://mangahere.co/*", "http://*.mangahere.co/*"
+				"http://mangahere.co/*", "http://*.mangahere.co/*", "http://readms.com/*", "http://*.readms.com/*"
 			],
 			"css": [
 				"src/inject/inject.css"
@@ -39,7 +39,7 @@
 		},
 		{
 			"matches": [
-				"http://mangahere.co/*", "http://*.mangahere.co/*"
+				"http://mangahere.co/*", "http://*.mangahere.co/*", "http://readms.com/*", "http://*.readms.com/*"
 			],
 			"js": [
 				"src/inject/inject-build.js"

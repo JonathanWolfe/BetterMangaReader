@@ -7,12 +7,14 @@ var Mirror = {
 	// Gets the chapter list from inside a manga
 	getChaptersFromPage: function (page) {
 		var chapters = [];
-		
-		$(".detail_list ul li span.left a", page).each(function () {
-			chapters.push([$(this).text().trim(), $(this).attr("href")]);
-		});
-		
-		return chapters;
+
+$('#bottom_chapter_list option', page).each(function () {
+	var chapter = $(this).text().trim();
+	chapter = chapter.slice(chapter.indexOf('Ch ') + 3, chapter.indexOf(':'));
+	chapters.push([chapter, $(this).val()]);
+});
+
+return chapters;
 	},
 
 	/**
@@ -112,11 +114,6 @@ var Mirror = {
 	//Return true if the current page is a page containing scan.
 	isCurrentPageAChapterPage: function (page) {
 		return ($("#image", page).size() > 0);
-	},
-
-	//Return true if the current page is an overview page
-	isCurrentPageAnOverviewPage: function (page) {
-		return ($('.manga_detail_top', page).size() > 0);
 	},
 
 	//This method is called before displaying full chapters in the page
