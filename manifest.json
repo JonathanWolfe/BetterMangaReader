@@ -42,7 +42,7 @@
 				"http://mangahere.co/*", "http://*.mangahere.co/*"
 			],
 			"js": [
-				"src/inject/inject.js"
+				"src/inject/inject-build.js"
 			]
 		}
 	],

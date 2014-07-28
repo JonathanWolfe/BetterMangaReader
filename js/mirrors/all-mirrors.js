@@ -12,7 +12,12 @@ var Mirror = {
 
 	// Gets the chapter list from inside a manga
 	getChaptersFromPage: function (page) {
-		var chapters = $(page).find('select[onchange="change_chapter(this)]"');
+		var chapters = [];
+		
+		$(".detail_list ul li span.left a", page).each(function () {
+			chapters.push([$(this).text().trim(), $(this).attr("href")]);
+		});
+		
 		return chapters;
 	},
 
@@ -29,17 +34,17 @@ var Mirror = {
 			async: false,
 			url: "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22" + encodedURL + "%22"
 		})
-		.done(function (returned_data) {
+			.done(function (returned_data) {
 
-			$(returned_data).find(".detail_list ul li span.left a").each(function () {
-				var chapter_name = $(this).text().trim(),
-					chapter_num = chapter_name.substr(manga.name.length).trim();
+				$(returned_data).find(".detail_list ul li span.left a").each(function () {
+					var chapter_name = $(this).text().trim(),
+						chapter_num = chapter_name.substr(manga.name.length).trim();
 
-				chapter_data.push([chapter_num, chapter_name, $(this).attr("href")]);
+					chapter_data.push([chapter_num, chapter_name, $(this).attr("href")]);
+				});
+
 			});
 
-		});
-		
 		// console.log(manga);
 		// console.log(chapter_data);
 		return chapter_data;
@@ -59,16 +64,10 @@ var Mirror = {
 			currentMangaURL,
 			currentChapterURL,
 			search = [];
-		
-		$(page).filter(function(){ 
-			console.log('ran filter');
-			return this.nodeType === 1; 
-		}).find(".readpage_top .title a").each(function(){ 
-			console.log('result', this);
+
+		$(".readpage_top .title a", page).each(function () {
 			search.push(this);
 		});
-		
-		console.log('search', search);
 
 		name = $(search[1]).text().trim();
 
@@ -101,7 +100,11 @@ var Mirror = {
 
 	//Remove the banners from the current page
 	removeRedundant: function (page) {
-		$(".readpage_top .go-page span.right", page).remove();
+		$(".inner_banner", page).remove();
+		$("#link_heading_banner", page).remove();
+		$(".readpage_top .title", page).next().remove();
+		$("#right_skyscraper", page).remove();
+		$("#left_skyscraper", page).remove();
 	},
 
 	/**
@@ -117,21 +120,31 @@ var Mirror = {
 		return ($("#image", page).size() > 0);
 	},
 
+	//Return true if the current page is an overview page
+	isCurrentPageAnOverviewPage: function (page) {
+		return ($('.manga_detail_top', page).size() > 0);
+	},
+
 	//This method is called before displaying full chapters in the page
 	doSomethingBeforeWritingScans: function (page) {
-		$("#viewer", page).empty();
-		$("#viewer", doc).css({
-			"width": "auto",
-			"background-color": "black",
-			"padding-top": "10px"
-		});
+		$("#viewer", page).empty().css('width', 'auto');
 	},
 
 	// Write the image from the the url returned by the getPages() function.
-	getImageFromPage: function (page) {
-		Mirror.ajaxPage(page);
+	getImageFromPages: function (pages) {
 
-		return $("#image", Mirror.loadedPage).attr("src");
+		var srcs = [];
+
+		pages.forEach(function (page) {
+			$.ajax(page, {
+				async: false,
+				success: function (data) {
+					srcs.push($("#image", data).attr("src"));
+				}
+			});
+		});
+
+		return srcs;
 	},
 
 	//This function is called when the manga is full loaded. Just do what you want here...
