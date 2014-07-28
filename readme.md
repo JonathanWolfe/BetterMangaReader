@@ -5,15 +5,15 @@ Enjoy a better manga reading experience and with less hassle by letting us keep 
 ###Preview
 *coming soon*
 
-###Current Version - 0.0.5a
+###Current Version - 0.0.7a
 
 ###To-Do
 - [x] Set-up Skeleton
 - [x] Determine data design
-- [ ] Query Manga for information (only Manga Here and Mangastream for first release)
+- [x] Query Manga for information (only Manga Here and Mangastream for first release)
 	- [x] Working skimmers
-	- [ ] Inject skimmers
-- [ ] Change how Manga display on sites
+	- [x] Inject skimmers
+- [x] Change how Manga display on sites
 - [x] Build converter for AMR's bsync
 	- [x] Get Chrome.bookmarks to work
 - [x] Create database
