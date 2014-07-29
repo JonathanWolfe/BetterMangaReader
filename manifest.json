@@ -47,6 +47,7 @@
 		}
 	],
 	"web_accessible_resources": [
-		"js/mirrors/*.js"
+		"js/mirrors/*.js",
+		"icons/*.png"
 	]
 }

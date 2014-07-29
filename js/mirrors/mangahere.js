@@ -8,13 +8,13 @@ var Mirror = {
 	getChaptersFromPage: function (page) {
 		var chapters = [];
 
-$('#bottom_chapter_list option', page).each(function () {
-	var chapter = $(this).text().trim();
-	chapter = chapter.slice(chapter.indexOf('Ch ') + 3, chapter.indexOf(':'));
-	chapters.push([chapter, $(this).val()]);
-});
+		$('#bottom_chapter_list option', page).each(function () {
+			var chapter = $(this).text().trim(),
+				chapter_num = chapter.slice(chapter.indexOf('Ch ') + 2).match(/([0-9]{1,3})(\.[0-9])?/);
+			chapters.push([chapter_num[0], chapter, $(this).val()]);
+		});
 
-return chapters;
+		return chapters;
 	},
 
 	/**
@@ -122,20 +122,17 @@ return chapters;
 	},
 
 	// Write the image from the the url returned by the getPages() function.
-	getImageFromPages: function (pages) {
+	getImageFromPage: function (page) {
+		var src;
 
-		var srcs = [];
-
-		pages.forEach(function (page) {
-			$.ajax(page, {
-				async: false,
-				success: function (data) {
-					srcs.push($("#image", data).attr("src"));
-				}
-			});
+		$.ajax(page, {
+			async: false,
+			success: function (data) {
+				src = $("#image", data).attr("src");
+			}
 		});
 
-		return srcs;
+		return src;
 	},
 
 	//This function is called when the manga is full loaded. Just do what you want here...
