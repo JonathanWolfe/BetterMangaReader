@@ -24,6 +24,7 @@ Enjoy a better manga reading experience and with less hassle by letting us keep 
 - [x] Add in-manga controls
 - [x] Finish Styling (still needs touching up)
 - [x] Automate data updates
+- [ ] Full working controls (in progress)
 - [ ] Add Icon number
 - [ ] Add notificiations
 - [ ] Make real icon
