@@ -17,7 +17,7 @@ var background = chrome.extension.getBackgroundPage(),
 	}
 
 	document.querySelector('.main .refresh-btn').addEventListener('click', function () {
-		var updated = expandMangaData(background.bmr_storage.state);
+		var updated = background.bmr_storage.expandMangaData(background.bmr_storage.state);
 		console.log('updated mangas', updated);
 
 		background.backup(updated);
@@ -93,20 +93,6 @@ function getTrackingButton(manga) {
 		'</div>';
 
 	return buttonHTML;
-}
-
-function expandMangaData(mangas) {
-
-	mangas.forEach(function (manga) {
-
-		manga.chapter_list = use_mirror[manga.mirror].getChapterList(manga);
-
-		manga.latest = manga.chapter_list[0][0];
-
-	});
-
-	return mangas;
-
 }
 
 function getChapterURL(chapter, manga) {

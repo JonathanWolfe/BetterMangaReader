@@ -326,17 +326,31 @@ var readyStateCheckInterval = setInterval(function () {
 				"</div>";
 			$(whereWrite).prepend(BMRControls);
 
-			chrome.runtime.sendMessage({
-				isMangaTracked: info.name
-			}, function (response) {
-				console.log('check if tracking', response);
+			function updateTrackingButtons() {
 				
-				if (response[0] === true) {
-					$('#BMRControls').append("<button id='stop-track'>Stop Tracking</button>");
-				} else {
-					$('#BMRControls').append("<button id='go-track'>Track Manga</button>");
-				}
-			});
+				$('#BMRControls').append("<button id='check-track' disabled>Checking...</button>");
+				
+				$('#BMRControls #go-track').remove();
+				$('#BMRControls #stop-track').remove();
+				
+			}
+			function checkTracked() {
+				chrome.runtime.sendMessage({
+					isMangaTracked: info.name
+				}, function (response) {
+					console.log('check if tracking', response);
+
+					$('#BMRControls #check-track').remove();
+					
+					if (response[0] === true) {
+						$('#BMRControls').append("<button id='stop-track'>Stop Tracking</button>");
+					} else {
+						$('#BMRControls').append("<button id='go-track'>Track Manga</button>");
+					}
+				});
+			}
+			updateTrackingButtons();
+			checkTracked();
 
 			var chapter_list = $('#BMRControls option'),
 				selected_chapter = chapter_list.filter(':selected');
@@ -370,27 +384,45 @@ var readyStateCheckInterval = setInterval(function () {
 
 		mirror.doAfterMangaLoaded(document);
 
-		$('#go-track').on('click', function () {
-			console.log('attempted to track');
+		$('#BMRControls')
+			.on('click', '#go-track', function () {
+				console.log('attempted to track');
+				
+				updateTrackingButtons();
 
-			var full_info = {
-				"name": info.name,
-				"mirror": mirror.mirrorName,
-				"url": info.currentMangaURL,
-				"urlOfLatestRead": info.currentChapterURL,
-				"isTracked": true,
-				"latestRead": info.currentChapter,
-				"latest": chapters[chapters.length - 1][0],
-				"tags": [],
-				"chapter_list": chapters
-			};
+				var full_info = {
+					"name": info.name,
+					"mirror": mirror.mirrorName,
+					"url": info.currentMangaURL,
+					"urlOfLatestRead": info.currentChapterURL,
+					"isTracked": true,
+					"latestRead": info.currentChapter,
+					"latest": chapters[chapters.length - 1][0],
+					"tags": [],
+					"chapter_list": chapters
+				};
 
-			chrome.runtime.sendMessage({
-				mangaToTrack: full_info
-			}, function (response) {
-				console.log(response);
+				chrome.runtime.sendMessage({
+					mangaToTrack: full_info
+				}, function (response) {
+					console.log(response);
+					
+					checkTracked();
+				});
+			})
+			.on('click', '#stop-track', function () {
+				console.log('attempting to stop tracking');
+				
+				updateTrackingButtons();
+
+				chrome.runtime.sendMessage({
+					mangaToStopTracking: info.name
+				}, function (response) {
+					console.log(response);
+					
+					checkTracked();
+				});
 			});
-		});
 
 	}
 }, 10);

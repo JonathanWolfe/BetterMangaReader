@@ -49,11 +49,19 @@ bmr_storage.loadState();
 			backup(bmr_storage.state);
 		}, 60000); // every min
 
+		expandMangas();
+		var expandedDelay = setTimeout(expandMangas, 600000);
+
 	} else {
 
 		console.log('No manga yet. Will try again.');
-		var retry = setTimeout(backgroundInit, 300);
+		var retry = setTimeout(backgroundInit, 500);
 
+	}
+
+	function expandMangas() {
+		var updated = bmr_storage.expandMangaData(bmr_storage.state);
+		console.log('updated mangas', updated);
 	}
 })();
 
@@ -72,17 +80,37 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 		var new_manga = request.mangaToTrack,
 			is_tracked = already_tracked(new_manga.name);
 
-		if (!is_tracked[0]) {
+		if (is_tracked[1] === null) {
+			
 			new_manga.id = bmr_storage.state.length;
 			bmr_storage.state.push(new_manga);
-			console.log(bmr_storage);
+			
+			console.log('item not found');
+			
 		} else {
+			
 			new_manga.id = bmr_storage.state[is_tracked[1]].id;
 			bmr_storage.state[is_tracked[1]] = new_manga;
+			
+			console.log('item found');
+			
 		}
 
 		sendResponse('Now Tracking Manga');
 
 	};
+
+	if (request.mangaToStopTracking !== undefined) {
+
+		console.log('attempting to stop tracking manga');
+
+		var found = already_tracked(request.mangaToStopTracking);
+
+		if (found[0] === true) {
+			bmr_storage.state[found[1]].isTracked = false;
+		}
+
+		sendResponse('Have Stopped Tracking');
+	}
 
 });
