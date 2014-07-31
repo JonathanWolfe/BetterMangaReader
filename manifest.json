@@ -1,13 +1,18 @@
 {
 	"name": "BetterMangaReader",
-	"version": "0.0.3",
+	"version": "0.0.8",
 	"manifest_version": 2,
 	"description": "Keep track of your manga, be notified of updates, and have a better reading experience",
 	"homepage_url": "https://github.com/JonathanWolfe/BetterMangaReader",
 	"icons": {
 		"16": "icons/icon16.png",
+		"19": "icons/icon19.png",
+		"32": "icons/icon32.png",
 		"48": "icons/icon48.png",
-		"128": "icons/icon128.png"
+		"64": "icons/icon64.png",
+		"128": "icons/icon128.png",
+		"256": "icons/icon256.png",
+		"512": "icons/icon512.png"
 	},
 	"background": {
 		"page": "src/bg/background.html",
@@ -15,7 +20,7 @@
 	},
 	"options_page": "src/pages/index.html",
 	"browser_action": {
-		"default_icon": "icons/icon19.png"
+		"default_icon": "icons/icon32.png"
 	},
 	"content_security_policy" : "script-src 'self' ; object-src 'self'",
 	"permissions": [
@@ -35,11 +40,6 @@
 			],
 			"css": [
 				"src/inject/inject.css"
-			]
-		},
-		{
-			"matches": [
-				"http://mangahere.co/*", "http://*.mangahere.co/*", "http://readms.com/*", "http://*.readms.com/*"
 			],
 			"js": [
 				"src/inject/inject-build.js"

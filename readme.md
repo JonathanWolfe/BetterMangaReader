@@ -27,5 +27,5 @@ Enjoy a better manga reading experience and with less hassle by letting us keep 
 - [ ] Full working controls (80%)
 - [ ] Add Icon number
 - [ ] Add notificiations
-- [ ] Make real icon
+- [x] Make real icon
 - [ ] Initial Prototype release
