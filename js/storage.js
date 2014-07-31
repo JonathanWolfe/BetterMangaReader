@@ -65,14 +65,16 @@ var storage = {
 	},
 
 	"expandMangaData": function (mangas) {
-		
+
 		console.log('expanding manga data');
 
 		mangas.forEach(function (manga) {
 
-			manga.chapter_list = use_mirror[manga.mirror].getChapterList(manga);
+			if (manga.isTracked) {
+				manga.chapter_list = use_mirror[manga.mirror].getChapterList(manga);
 
-			manga.latest = manga.chapter_list[0][0];
+				manga.latest = manga.chapter_list[0][0];
+			}
 
 		});
 

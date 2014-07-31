@@ -49,8 +49,8 @@ bmr_storage.loadState();
 			backup(bmr_storage.state);
 		}, 60000); // every min
 
-		expandMangas();
-		var expandedDelay = setTimeout(expandMangas, 600000);
+		// setTimeout(expandMangas, 60000);
+		// var expandedDelay = setTimeout(expandMangas, 600000);
 
 	} else {
 
@@ -89,10 +89,9 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 			
 		} else {
 			
-			new_manga.id = bmr_storage.state[is_tracked[1]].id;
-			bmr_storage.state[is_tracked[1]] = new_manga;
+			bmr_storage.state[is_tracked[1]].isTracked = true;
 			
-			console.log('item found');
+			console.log('item found', bmr_storage.state[is_tracked[1]]);
 			
 		}
 
