@@ -29,7 +29,7 @@ module.exports = function (data) {
 			url: manga.url,
 			urlOfLatestRead: manga.lastChapterReadURL,
 			isTracked: (manga.display === 0 ? true : false),
-			latestRead: (manga.lastChapterReadURL.match(/\/c?([0-9]{1,3})(\.[0-9])?\//))[0],
+			latestRead: (manga.lastChapterReadURL.match(/\/c?([0-9]{1,3})(\.[0-9])?\//)[0]),
 			latest: '999',
 			tags: manga.cats
 		};
@@ -112,17 +112,21 @@ var storage = {
 	},
 
 	"expandMangaData": function (mangas) {
-		
+
 		console.log('expanding manga data');
 
 		mangas.forEach(function (manga) {
 
-			manga.chapter_list = use_mirror[manga.mirror].getChapterList(manga);
+			if (manga.isTracked) {
+				manga.chapter_list = use_mirror[manga.mirror].getChapterList(manga);
 
-			manga.latest = manga.chapter_list[0][0];
+				manga.latest = manga.chapter_list[0][0];
+			}
 
 		});
 
+		update_icon_number();
+		
 		return mangas;
 
 	},

@@ -11,7 +11,8 @@ var readyStateCheckInterval = setInterval(function () {
 		if (mirror && mirror.isCurrentPageAChapterPage(document)) {
 
 			var chapters = mirror.getChaptersFromPage(document),
-				info = mirror.getInformationFromCurrentPage(document)
+				info = mirror.getInformationFromCurrentPage(document);
+			
 			console.log('info', info);
 
 			mirror.removeRedundant(document);
@@ -53,6 +54,12 @@ var readyStateCheckInterval = setInterval(function () {
 					
 					if (response[0] === true) {
 						$('#BMRControls').append("<button id='stop-track'>Stop Tracking</button>");
+						
+						chrome.runtime.sendMessage({
+							updateMangaReadChapter: {'id': response[1], 'info': info}
+						}, function (response) {
+							console.log(response);
+						});
 					} else {
 						$('#BMRControls').append("<button id='go-track'>Track Manga</button>");
 					}

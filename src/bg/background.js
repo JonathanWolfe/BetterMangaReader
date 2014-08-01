@@ -19,11 +19,10 @@ function backup(data) {
 }
 
 function already_tracked(search_name) {
-	var i = bmr_storage.state.length,
-		found = false,
+	var	found = false,
 		index;
 
-	while (--i) {
+	for (var i=0; i < bmr_storage.state.length; i++) {
 		if (bmr_storage.state[i].name === search_name) {
 			if (bmr_storage.state[i].isTracked) {
 				found = true;
@@ -31,6 +30,7 @@ function already_tracked(search_name) {
 			index = i;
 			break;
 		}
+		console.log(i, bmr_storage.state[i].name);
 	}
 
 	return [found, index];
@@ -48,6 +48,19 @@ bmr_storage.loadState();
 		var backup_interval = setInterval(function () {
 			backup(bmr_storage.state);
 		}, 60000); // every min
+		
+		function update_icon_number() {
+			var icon_number = 0;
+			bmr_storage.state.forEach(function(manga){
+				if(parseFloat(manga.latest, 10) > parseFloat(manga.latestRead, 10)) {
+					icon_number += 1;
+				}
+			});
+			chrome.browserAction.setBadgeText({
+				'text': ''+icon_number
+			});
+		}
+		update_icon_number();
 
 		// setTimeout(expandMangas, 60000);
 		// var expandedDelay = setTimeout(expandMangas, 600000);
@@ -65,12 +78,43 @@ bmr_storage.loadState();
 	}
 })();
 
+// Called when the user clicks on the browser action icon.
+chrome.browserAction.onClicked.addListener(function () {
+	
+	var optionspage = 'src/pages/index.html',
+		optionsUrl = chrome.extension.getURL(optionspage);
+	
+	chrome.tabs.query({}, function (extensionTabs) {
+		var found = false;
+		
+		for (var i = 0; i < extensionTabs.length; i++) {
+			if (optionsUrl == extensionTabs[i].url) {
+				found = true;
+				chrome.tabs.update(extensionTabs[i].id, {"selected": true});
+			}
+		}
+		if (!found) {
+			chrome.tabs.create({url: optionspage});
+		}
+	});
+	
+});
+
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 	console.log('request recieved', request);
 
 	if (request.isMangaTracked !== undefined) {
 		sendResponse(already_tracked(request.isMangaTracked));
+	}
+	
+	if (request.updateMangaReadChapter !== undefined) {
+		var this_manga = bmr_storage.state[request.updateMangaReadChapter.id];
+		
+		this_manga.latestRead = request.updateMangaReadChapter.info.currentChapter;
+		this_manga.urlOfLatestRead = request.updateMangaReadChapter.info.currentChapterURL;
+		
+		sendResponse('updated read chapter')
 	}
 
 	if (request.mangaToTrack !== undefined) {
@@ -81,18 +125,18 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 			is_tracked = already_tracked(new_manga.name);
 
 		if (is_tracked[1] === null) {
-			
+
 			new_manga.id = bmr_storage.state.length;
 			bmr_storage.state.push(new_manga);
-			
+
 			console.log('item not found');
-			
+
 		} else {
-			
+
 			bmr_storage.state[is_tracked[1]].isTracked = true;
-			
+
 			console.log('item found', bmr_storage.state[is_tracked[1]]);
-			
+
 		}
 
 		sendResponse('Now Tracking Manga');

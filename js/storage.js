@@ -78,6 +78,8 @@ var storage = {
 
 		});
 
+		update_icon_number();
+		
 		return mangas;
 
 	},
