@@ -26,7 +26,7 @@ var background = chrome.extension.getBackgroundPage(),
 	});
 
 	$('.tracking').on('click', 'label', function () {
-		var clicked_manga_name = $(this).parent().parent().parent().find('.manga-name').text(),
+		var clicked_manga_name = $(this).parentsUntil('tbody').find('.manga-name').text(),
 			clicked_is_tracked = $(this).prev().prop('checked');
 
 		console.log('Clicked Manga Name:', clicked_manga_name);
@@ -48,6 +48,36 @@ var background = chrome.extension.getBackgroundPage(),
 			});
 		}
 
+	});
+	
+	$('.mark-read').on('click', 'a', function(e){
+		e.preventDefault();
+		
+		var clicked_manga_name = $(this).parentsUntil('tbody').find('.manga-name').text();
+		
+		console.log('Clicked Manga Name:', clicked_manga_name);
+		
+		chrome.runtime.sendMessage({
+			markMangaAsRead: clicked_manga_name
+		}, function (response) {
+			console.log(response);
+			location.reload();
+		});
+	});
+	
+	$('.controls').on('click', 'a:last', function(e){
+		e.preventDefault();
+		
+		var clicked_manga_name = $(this).parentsUntil('tbody').find('.manga-name').text();
+		
+		console.log(clicked_manga_name);
+		
+		chrome.runtime.sendMessage({
+			resetMangaReading: clicked_manga_name
+		}, function (response) {
+			console.log(response);
+			location.reload();
+		});
 	});
 })();
 

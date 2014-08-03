@@ -19,10 +19,10 @@ function backup(data) {
 }
 
 function already_tracked(search_name) {
-	var	found = false,
+	var found = false,
 		index;
 
-	for (var i=0; i < bmr_storage.state.length; i++) {
+	for (var i = 0; i < bmr_storage.state.length; i++) {
 		if (bmr_storage.state[i].name === search_name) {
 			if (bmr_storage.state[i].isTracked) {
 				found = true;
@@ -30,10 +30,30 @@ function already_tracked(search_name) {
 			index = i;
 			break;
 		}
-		console.log(i, bmr_storage.state[i].name);
 	}
 
 	return [found, index];
+}
+
+function update_icon_number() {
+	var icon_number = 0;
+
+	bmr_storage.state.forEach(function (manga) {
+		if (parseFloat(manga.latest, 10) > parseFloat(manga.latestRead, 10) && manga.isTracked) {
+			icon_number += 1;
+		}
+	});
+
+	chrome.browserAction.setBadgeText({
+		'text': (icon_number < 1) ? '' : '' + icon_number
+	});
+
+	console.log('new icon number', icon_number);
+}
+
+function expandMangas() {
+	var updated = bmr_storage.expandMangaData(bmr_storage.state);
+	console.log('updated mangas', updated);
 }
 
 // bmr_storage.loadExample();
@@ -48,18 +68,7 @@ bmr_storage.loadState();
 		var backup_interval = setInterval(function () {
 			backup(bmr_storage.state);
 		}, 60000); // every min
-		
-		function update_icon_number() {
-			var icon_number = 0;
-			bmr_storage.state.forEach(function(manga){
-				if(parseFloat(manga.latest, 10) > parseFloat(manga.latestRead, 10)) {
-					icon_number += 1;
-				}
-			});
-			chrome.browserAction.setBadgeText({
-				'text': ''+icon_number
-			});
-		}
+
 		update_icon_number();
 
 		// setTimeout(expandMangas, 60000);
@@ -72,49 +81,74 @@ bmr_storage.loadState();
 
 	}
 
-	function expandMangas() {
-		var updated = bmr_storage.expandMangaData(bmr_storage.state);
-		console.log('updated mangas', updated);
-	}
+
 })();
+
+
 
 // Called when the user clicks on the browser action icon.
 chrome.browserAction.onClicked.addListener(function () {
-	
+
 	var optionspage = 'src/pages/index.html',
 		optionsUrl = chrome.extension.getURL(optionspage);
-	
+
 	chrome.tabs.query({}, function (extensionTabs) {
 		var found = false;
-		
+
 		for (var i = 0; i < extensionTabs.length; i++) {
 			if (optionsUrl == extensionTabs[i].url) {
 				found = true;
-				chrome.tabs.update(extensionTabs[i].id, {"selected": true});
+				chrome.tabs.update(extensionTabs[i].id, {
+					"selected": true
+				});
 			}
 		}
 		if (!found) {
-			chrome.tabs.create({url: optionspage});
+			chrome.tabs.create({
+				url: optionspage
+			});
 		}
 	});
-	
+
 });
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 	console.log('request recieved', request);
 
+	var this_manga;
+
 	if (request.isMangaTracked !== undefined) {
 		sendResponse(already_tracked(request.isMangaTracked));
 	}
-	
+
 	if (request.updateMangaReadChapter !== undefined) {
-		var this_manga = bmr_storage.state[request.updateMangaReadChapter.id];
-		
+		this_manga = bmr_storage.state[request.updateMangaReadChapter.id];
+
 		this_manga.latestRead = request.updateMangaReadChapter.info.currentChapter;
 		this_manga.urlOfLatestRead = request.updateMangaReadChapter.info.currentChapterURL;
-		
-		sendResponse('updated read chapter')
+
+		sendResponse('updated read chapter');
+	}
+
+	if (request.markMangaAsRead !== undefined) {
+		this_manga = bmr_storage.state[already_tracked(request.markMangaAsRead)[1]];
+
+
+
+		this_manga.latestRead = this_manga.latest;
+		this_manga.urlOfLatestRead = this_manga.chapter_list[0][2];
+
+		sendResponse('Manga marked as read');
+	}
+
+	if (request.resetMangaReading !== undefined) {
+		var this_manga = bmr_storage.state[already_tracked(request.resetMangaReading)[1]];
+
+		this_manga.latestRead = '0';
+		this_manga.urlOfLatestRead = this_manga.url;
+
+		sendResponse('Manga marked as read');
 	}
 
 	if (request.mangaToTrack !== undefined) {
@@ -141,7 +175,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 		sendResponse('Now Tracking Manga');
 
-	};
+	}
 
 	if (request.mangaToStopTracking !== undefined) {
 
@@ -155,5 +189,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 		sendResponse('Have Stopped Tracking');
 	}
+
+	update_icon_number();
 
 });

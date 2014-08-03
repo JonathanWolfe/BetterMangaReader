@@ -31,3 +31,4 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', ['browserify', 'watch']);
+gulp.task('bundle', ['browserify']);

@@ -5,7 +5,7 @@ Enjoy a better manga reading experience and with less hassle by letting us keep 
 ###Preview
 *coming soon*
 
-###Current Version - 0.0.8a
+###Current Version - 0.0.9a
 
 ###To-Do
 - [x] Set-up Skeleton
@@ -24,8 +24,10 @@ Enjoy a better manga reading experience and with less hassle by letting us keep 
 - [x] Add in-manga controls
 - [x] Finish Styling (still needs touching up)
 - [x] Automate data updates
-- [ ] Full working controls (80%)
-- [ ] Add Icon number
+- [x] Full working controls
+- [x] Add Icon number
 - [ ] Add notificiations
 - [x] Make real icon
+- [ ] Improve AMR conversion
+- [ ] Add loading spinner
 - [ ] Initial Prototype release
