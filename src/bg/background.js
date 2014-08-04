@@ -71,8 +71,8 @@ bmr_storage.loadState();
 
 		update_icon_number();
 
-		// setTimeout(expandMangas, 60000);
-		// var expandedDelay = setTimeout(expandMangas, 600000);
+		setTimeout(expandMangas, 60000);
+		var expandedDelay = setTimeout(expandMangas, 600000);
 
 	} else {
 
@@ -188,6 +188,20 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 		}
 
 		sendResponse('Have Stopped Tracking');
+	}
+
+	if (request.runAmrConverter !== undefined) {
+
+		chrome.bookmarks.search('All Manga Reader', function (results) {
+
+			var content = results[0].url.substr(17);
+			content = content.substr(0, content.length - 27);
+
+			backup(amr_converter(content));
+
+		});
+		
+
 	}
 
 	update_icon_number();

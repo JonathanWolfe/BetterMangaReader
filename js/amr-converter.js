@@ -2,40 +2,39 @@ module.exports = function (data) {
 	"use strict";
 
 	var amr,
-		all_converted = [];
+		all_converted = [],
+		mangas_added = [];
 
-	if (data instanceof Array) {
-		var content = data[0].url.substr(17);
+	data = data.replace(/(\\")+/g, '"');
+	data = data.replace(/("\[)+/g, '[');
+	data = data.replace(/(\]")+/g, ']');
 
-		content = content.substr(0, content.length - 28);
-		content = content.replace(/(\\")+/g, '"');
-		content = content.replace(/("\[)+/g, '[');
-		content = content.replace(/(\]")+/g, ']');
+	amr = JSON.parse(data);
 
-		amr = JSON.parse(content);
-	} else {
-		amr = JSON.parse(data);
-	}
-	
 	amr.mangas.forEach(function (manga, key) {
 
-		console.log(manga);
+		// console.log(manga);
 
-		all_converted[key] = {
-			id: key,
-			name: manga.name,
-			mirror: manga.mirror,
-			url: manga.url,
-			urlOfLatestRead: manga.lastChapterReadURL,
-			isTracked: (manga.display === 0 ? true : false),
-			latestRead: (manga.lastChapterReadURL.match(/\/c?([0-9]{1,3})(\.[0-9])?\//)[0]),
-			latest: '999',
-			tags: manga.cats
-		};
+		if (mangas_added.indexOf(manga.name) === -1) {
+			mangas_added.push(manga.name);
+
+			all_converted[key] = {
+				id: key,
+				name: manga.name,
+				mirror: manga.mirror,
+				url: manga.url,
+				urlOfLatestRead: manga.lastChapterReadURL,
+				isTracked: (manga.display === 0 ? true : false),
+				latestRead: (manga.lastChapterReadURL.match(/(\/|c)?([0-9]{3})(\.[0-9])?/))[0].substr(1),
+				latest: '999',
+				tags: manga.cats,
+				chapter_list: [['999', '999', manga.url]]
+			};
+		}
 
 	});
 
-	// console.log(all_converted);
+	// console.log('all_converted', all_converted);
 	return all_converted;
 
 };

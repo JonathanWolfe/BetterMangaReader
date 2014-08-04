@@ -3,14 +3,14 @@
 */
 
 /* Move down content because we have a fixed navbar that is 50px tall */
-
 body {
 	padding-top: 50px;
 }
+
+
 /*
 * Global add-ons
 */
-
 .sub-header {
 	padding-bottom: 10px;
 	border-bottom: 1px solid #eee;
@@ -98,10 +98,11 @@ body {
 	right: 0px;
 	background-color: #fff;
 }
+
+
 /*
 * Main content
 */
-
 .main {
 	padding: 20px;
 }
@@ -144,8 +145,17 @@ tr.disabled .mark-read a {display: none;}
 	color: #fff;
 }
 
+h1 smaller{
+	font-size: .5em;
+}
+smaller.danger {
+	color: #af0000;
+}
 #import-data, #export-data {
 	font-family: monospace;
 	font-size: .85em;
 	margin-bottom: 15px;
+}
+.go-import-amr {
+	margin-top: 20px;
 }
