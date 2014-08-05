@@ -1,10 +1,6 @@
 {
 	"name": "BetterMangaReader",
-<<<<<<< HEAD
-	"version": "0.0.11",
-=======
 	"version": "0.1.0",
->>>>>>> origin/master
 	"manifest_version": 2,
 	"description": "Keep track of your manga, be notified of updates, and have a better reading experience",
 	"homepage_url": "https://github.com/JonathanWolfe/BetterMangaReader",
