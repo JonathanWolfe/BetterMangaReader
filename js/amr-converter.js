@@ -1,3 +1,5 @@
+/*global module */
+
 module.exports = function (data) {
 	"use strict";
 
@@ -18,7 +20,7 @@ module.exports = function (data) {
 		if (mangas_added.indexOf(manga.name) === -1) {
 			mangas_added.push(manga.name);
 
-			all_converted[key] = {
+			all_converted.push({
 				id: key,
 				name: manga.name,
 				mirror: manga.mirror,
@@ -29,7 +31,7 @@ module.exports = function (data) {
 				latest: '999',
 				tags: manga.cats,
 				chapter_list: [['999', '999', manga.url]]
-			};
+			});
 		}
 
 	});

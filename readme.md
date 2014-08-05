@@ -29,5 +29,5 @@ Enjoy a better manga reading experience and with less hassle by letting us keep 
 - [ ] Add notificiations
 - [x] Make real icon
 - [x] Improve AMR conversion
-- [ ] Add loading spinner
-- [ ] Initial Prototype release
+- [x] Add loading spinner
+- [ ] Initial Prototype release (ready for)

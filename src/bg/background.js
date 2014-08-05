@@ -1,20 +1,26 @@
+/* global chrome, window */
+
 function backup(data) {
+
+	if (typeof data === 'string') {
+		data = JSON.parse(data);
+	}
 
 	console.log("data being back-ed up", data);
 
 	chrome.bookmarks.search('BMR Back-up', function (results) {
 		if (results.length > 0) {
 
-			bmr_storage.updateBackup(JSON.stringify(data), results[0]);
+			window.bmr_storage.updateBackup(JSON.stringify(data), results[0]);
 
 		} else {
 
-			bmr_storage.createBackup(JSON.stringify(data));
+			window.bmr_storage.createBackup(JSON.stringify(data));
 
 		}
 	});
 
-	bmr_storage.loadState();
+	window.bmr_storage.state = data;
 
 }
 
@@ -22,9 +28,9 @@ function already_tracked(search_name) {
 	var found = false,
 		index;
 
-	for (var i = 0; i < bmr_storage.state.length; i++) {
-		if (bmr_storage.state[i].name === search_name) {
-			if (bmr_storage.state[i].isTracked) {
+	for (var i = 0; i < window.bmr_storage.state.length; i++) {
+		if (window.bmr_storage.state[i].name === search_name) {
+			if (window.bmr_storage.state[i].isTracked) {
 				found = true;
 			}
 			index = i;
@@ -38,7 +44,7 @@ function already_tracked(search_name) {
 function update_icon_number() {
 	var icon_number = 0;
 
-	bmr_storage.state.forEach(function (manga) {
+	window.bmr_storage.state.forEach(function (manga) {
 		if (parseFloat(manga.latest, 10) > parseFloat(manga.latestRead, 10) && manga.isTracked) {
 			icon_number += 1;
 		}
@@ -52,36 +58,35 @@ function update_icon_number() {
 }
 
 function expandMangas() {
-	var updated = bmr_storage.expandMangaData(bmr_storage.state);
+	var updated = window.bmr_storage.expandMangaData(window.bmr_storage.state);
 	console.log('updated mangas', updated);
 }
 
-// bmr_storage.loadExample();
-bmr_storage.loadState();
+// window.bmr_storage.loadExample();
+window.bmr_storage.loadState();
 
 (function backgroundInit() {
 
-	console.log("Storage state", bmr_storage.state);
+	console.log("Storage state", window.bmr_storage.state);
 
-	if (bmr_storage.state.length > 0) {
+	if (window.bmr_storage.state.length > 0) {
 
-		var backup_interval = setInterval(function () {
-			backup(bmr_storage.state);
+		var backup_interval = window.setInterval(function () {
+			backup(window.bmr_storage.state);
 		}, 60000); // every min
 
 		update_icon_number();
 
-		setTimeout(expandMangas, 60000);
-		var expandedDelay = setTimeout(expandMangas, 600000);
+		window.setTimeout(expandMangas, 60000);
+		var expandedDelay = window.setInterval(expandMangas, 600000);
 
 	} else {
 
 		console.log('No manga yet. Will try again.');
-		var retry = setTimeout(backgroundInit, 500);
+
+		var retry = window.setTimeout(backgroundInit, 200);
 
 	}
-
-
 })();
 
 
@@ -123,7 +128,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	}
 
 	if (request.updateMangaReadChapter !== undefined) {
-		this_manga = bmr_storage.state[request.updateMangaReadChapter.id];
+		this_manga = window.bmr_storage.state[request.updateMangaReadChapter.id];
 
 		this_manga.latestRead = request.updateMangaReadChapter.info.currentChapter;
 		this_manga.urlOfLatestRead = request.updateMangaReadChapter.info.currentChapterURL;
@@ -132,7 +137,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	}
 
 	if (request.markMangaAsRead !== undefined) {
-		this_manga = bmr_storage.state[already_tracked(request.markMangaAsRead)[1]];
+		this_manga = window.bmr_storage.state[already_tracked(request.markMangaAsRead)[1]];
 
 
 
@@ -143,7 +148,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	}
 
 	if (request.resetMangaReading !== undefined) {
-		var this_manga = bmr_storage.state[already_tracked(request.resetMangaReading)[1]];
+		this_manga = window.bmr_storage.state[already_tracked(request.resetMangaReading)[1]];
 
 		this_manga.latestRead = '0';
 		this_manga.urlOfLatestRead = this_manga.url;
@@ -160,16 +165,16 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 		if (is_tracked[1] === null) {
 
-			new_manga.id = bmr_storage.state.length;
-			bmr_storage.state.push(new_manga);
+			new_manga.id = window.bmr_storage.state.length;
+			window.bmr_storage.state.push(new_manga);
 
 			console.log('item not found');
 
 		} else {
 
-			bmr_storage.state[is_tracked[1]].isTracked = true;
+			window.bmr_storage.state[is_tracked[1]].isTracked = true;
 
-			console.log('item found', bmr_storage.state[is_tracked[1]]);
+			console.log('item found', window.bmr_storage.state[is_tracked[1]]);
 
 		}
 
@@ -184,24 +189,10 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 		var found = already_tracked(request.mangaToStopTracking);
 
 		if (found[0] === true) {
-			bmr_storage.state[found[1]].isTracked = false;
+			window.bmr_storage.state[found[1]].isTracked = false;
 		}
 
 		sendResponse('Have Stopped Tracking');
-	}
-
-	if (request.runAmrConverter !== undefined) {
-
-		chrome.bookmarks.search('All Manga Reader', function (results) {
-
-			var content = results[0].url.substr(17);
-			content = content.substr(0, content.length - 27);
-
-			backup(amr_converter(content));
-
-		});
-		
-
 	}
 
 	update_icon_number();

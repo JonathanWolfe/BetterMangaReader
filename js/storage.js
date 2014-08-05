@@ -1,3 +1,4 @@
+/*global chrome, window, module */
 var storage = {
 
 	"state": [],
@@ -6,12 +7,13 @@ var storage = {
 
 		chrome.bookmarks.search('BMR Backup', function (results) {
 
+			console.log('search results', results);
+
 			if (results.length > 0) {
 				storage.state = JSON.parse(results[0].url.slice(23, -2));
 			} else {
 				console.log('No State to get. Writing new one.');
-				storage.createBackup(JSON.parse('{}'));
-				storage.state.push({});
+				storage.loadExample();
 			}
 		});
 	},
@@ -68,35 +70,58 @@ var storage = {
 
 		console.log('expanding manga data');
 
-		mangas.forEach(function (manga) {
-
-			if (manga.isTracked) {
-				manga.chapter_list = use_mirror[manga.mirror].getChapterList(manga);
-
-				manga.latest = manga.chapter_list[0][0];
-			}
-
+		chrome.runtime.sendMessage({
+			expandingMangas: true
 		});
 
-		update_icon_number();
+		window.setTimeout(function () {
+			mangas.forEach(function (manga) {
+
+				if (manga.isTracked) {
+					manga.chapter_list = window.use_mirror[manga.mirror].getChapterList(manga);
+
+					manga.latest = manga.chapter_list[0][0];
+				}
+
+			});
+		}, 200);
+
+		window.update_icon_number();
 		
+		chrome.runtime.sendMessage({
+			expandingMangasDone: true
+		});
+
 		return mangas;
 
 	},
 
 	"loadExample": function () {
-		$.get('../test-json-state-save.json').done(function (data) {
+		chrome.bookmarks.search('BMR Backup', function (results) {
 
-			chrome.bookmarks.search('BMR Backup', function (results) {
-				if (results.length > 0) {
-					storage.updateBackup(data, results[0]);
-				} else {
-					storage.createBackup(data);
-				}
-			});
+			var example = JSON.stringify([{
+				"id": 0,
+				"name": "Bleach",
+				"mirror": "MangaStream",
+				"url": "http://mangastream.com/manga/bleach",
+				"urlOfLatestRead": "http://readms.com/r/bleach/591/2477/1?t=2&f=1&e=0",
+				"isTracked": true,
+				"latestRead": "591",
+				"latest": "999",
+				"tags": [],
+				"chapter_list": [["999", "999", "http://mangastream.com/manga/bleach"]]
+			}]);
+
+			console.log('example data', example);
+
+			if (results.length > 0) {
+				storage.updateBackup(example, results[0]);
+			} else {
+				storage.createBackup(example);
+			}
 		});
 
 	}
-}
+};
 
 module.exports = storage;

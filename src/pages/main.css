@@ -3,14 +3,14 @@
 */
 
 /* Move down content because we have a fixed navbar that is 50px tall */
+
 body {
 	padding-top: 50px;
 }
-
-
 /*
 * Global add-ons
 */
+
 .sub-header {
 	padding-bottom: 10px;
 	border-bottom: 1px solid #eee;
@@ -98,11 +98,60 @@ body {
 	right: 0px;
 	background-color: #fff;
 }
-
-
+.loading-wrap {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 999999;
+	background: rgba(30, 30, 30, .75);
+	text-align: center;
+	padding-top: 15%;
+	color: #fff;
+}
+.loader {
+	margin: 6em auto;
+	font-size: 10px;
+	position: relative;
+	text-indent: -9999em;
+	border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+	border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+	border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+	border-left: 1.1em solid #ffffff;
+	-webkit-animation: load8 1.1s infinite linear;
+	animation: load8 1.1s infinite linear;
+}
+.loader,
+.loader:after {
+	border-radius: 50%;
+	width: 10em;
+	height: 10em;
+}
+@-webkit-keyframes load8 {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+@keyframes load8 {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
 /*
 * Main content
 */
+
 .main {
 	padding: 20px;
 }
@@ -115,20 +164,29 @@ body {
 .main .page-header {
 	margin-top: 0;
 }
-
 #manga_table > tbody > tr > td {
 	vertical-align: middle;
 }
-.table>thead>tr>td.disabled, .table>tbody>tr>td.disabled, .table>tfoot>tr>td.disabled, .table>thead>tr>th.disabled, .table>tbody>tr>th.disabled, .table>tfoot>tr>th.disabled, .table>thead>tr.disabled>td, .table>tbody>tr.disabled>td, .table>tfoot>tr.disabled>td, .table>thead>tr.disabled>th, .table>tbody>tr.disabled>th, .table>tfoot>tr.disabled>th {
+.table>thead>tr>td.disabled,
+.table>tbody>tr>td.disabled,
+.table>tfoot>tr>td.disabled,
+.table>thead>tr>th.disabled,
+.table>tbody>tr>th.disabled,
+.table>tfoot>tr>th.disabled,
+.table>thead>tr.disabled>td,
+.table>tbody>tr.disabled>td,
+.table>tfoot>tr.disabled>td,
+.table>thead>tr.disabled>th,
+.table>tbody>tr.disabled>th,
+.table>tfoot>tr.disabled>th {
 	background: #bbb;
 }
-
-tr.disabled .mark-read a {display: none;}
-
+tr.disabled .mark-read a {
+	display: none;
+}
 .tracking {
 	width: 90px;
 }
-
 .controls {
 	width: 174px;
 	padding: 8px 20px !important;
@@ -144,14 +202,14 @@ tr.disabled .mark-read a {display: none;}
 	padding: 6px 12px;
 	color: #fff;
 }
-
-h1 smaller{
+h1 smaller {
 	font-size: .5em;
 }
 smaller.danger {
 	color: #af0000;
 }
-#import-data, #export-data {
+#import-data,
+#export-data {
 	font-family: monospace;
 	font-size: .85em;
 	margin-bottom: 15px;

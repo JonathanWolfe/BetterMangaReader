@@ -1,4 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+/*global module */
+
 module.exports = function (data) {
 	"use strict";
 
@@ -19,7 +21,7 @@ module.exports = function (data) {
 		if (mangas_added.indexOf(manga.name) === -1) {
 			mangas_added.push(manga.name);
 
-			all_converted[key] = {
+			all_converted.push({
 				id: key,
 				name: manga.name,
 				mirror: manga.mirror,
@@ -30,7 +32,7 @@ module.exports = function (data) {
 				latest: '999',
 				tags: manga.cats,
 				chapter_list: [['999', '999', manga.url]]
-			};
+			});
 		}
 
 	});
@@ -44,6 +46,7 @@ window.$ = require('jquery');
 window.amr_converter = require('./amr-converter');
 window.bmr_storage = require('./storage');
 },{"./amr-converter":1,"./storage":3,"jquery":4}],3:[function(require,module,exports){
+/*global chrome, window, module */
 var storage = {
 
 	"state": [],
@@ -52,12 +55,13 @@ var storage = {
 
 		chrome.bookmarks.search('BMR Backup', function (results) {
 
+			console.log('search results', results);
+
 			if (results.length > 0) {
 				storage.state = JSON.parse(results[0].url.slice(23, -2));
 			} else {
 				console.log('No State to get. Writing new one.');
-				storage.createBackup(JSON.parse('{}'));
-				storage.state.push({});
+				storage.loadExample();
 			}
 		});
 	},
@@ -114,36 +118,59 @@ var storage = {
 
 		console.log('expanding manga data');
 
-		mangas.forEach(function (manga) {
-
-			if (manga.isTracked) {
-				manga.chapter_list = use_mirror[manga.mirror].getChapterList(manga);
-
-				manga.latest = manga.chapter_list[0][0];
-			}
-
+		chrome.runtime.sendMessage({
+			expandingMangas: true
 		});
 
-		update_icon_number();
+		window.setTimeout(function () {
+			mangas.forEach(function (manga) {
+
+				if (manga.isTracked) {
+					manga.chapter_list = window.use_mirror[manga.mirror].getChapterList(manga);
+
+					manga.latest = manga.chapter_list[0][0];
+				}
+
+			});
+		}, 200);
+
+		window.update_icon_number();
 		
+		chrome.runtime.sendMessage({
+			expandingMangasDone: true
+		});
+
 		return mangas;
 
 	},
 
 	"loadExample": function () {
-		$.get('../test-json-state-save.json').done(function (data) {
+		chrome.bookmarks.search('BMR Backup', function (results) {
 
-			chrome.bookmarks.search('BMR Backup', function (results) {
-				if (results.length > 0) {
-					storage.updateBackup(data, results[0]);
-				} else {
-					storage.createBackup(data);
-				}
-			});
+			var example = JSON.stringify([{
+				"id": 0,
+				"name": "Bleach",
+				"mirror": "MangaStream",
+				"url": "http://mangastream.com/manga/bleach",
+				"urlOfLatestRead": "http://readms.com/r/bleach/591/2477/1?t=2&f=1&e=0",
+				"isTracked": true,
+				"latestRead": "591",
+				"latest": "999",
+				"tags": [],
+				"chapter_list": [["999", "999", "http://mangastream.com/manga/bleach"]]
+			}]);
+
+			console.log('example data', example);
+
+			if (results.length > 0) {
+				storage.updateBackup(example, results[0]);
+			} else {
+				storage.createBackup(example);
+			}
 		});
 
 	}
-}
+};
 
 module.exports = storage;
 },{}],4:[function(require,module,exports){

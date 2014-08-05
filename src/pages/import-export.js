@@ -1,3 +1,4 @@
+/*global chrome, $, window */
 var background = chrome.extension.getBackgroundPage();
 
 chrome.bookmarks.search('BMR Back-up', function (results) {
@@ -22,11 +23,12 @@ chrome.bookmarks.search('All Manga Reader', function (results) {
 		$('.go-import').parent()
 			.append('<button class="btn btn-lg go-import-amr col-sm-12 col-md-12">Import &amp; Convert Your AllMangaReader Data?</button>')
 			.on('click', '.go-import-amr', function () {
-				chrome.runtime.sendMessage({
-					'runAmrConverter': true
-				}, function (response) {
-					console.log(response);
-				});
+				var content = results[0].url.substr(17);
+				content = content.substr(0, content.length - 27);
+				
+				var converted = window.amr_converter(content);
+				
+				$('#import-data').val(JSON.stringify(converted));
 			});
 	}
 
@@ -37,18 +39,17 @@ $('.go-import').on('click', process_import);
 function process_import() {
 	if (typeof background.backup === 'function') {
 
-		var data = $('#import-data').val();
-		console.log('data:', data);
+		var data = JSON.parse($('#import-data').val());
 
-		console.log('Connected to BG page and called update.')
-		//background.backup(data);
+		console.log('Connected to BG page and called update.');
+		background.backup(data);
 
 		console.log("storage state:", background.bmr_storage.state);
 
 	} else {
 
 		console.log('Have not connected to BG page yet. Retrying...');
-		setTimeout(process_import, 300);
+		window.setTimeout(process_import, 300);
 
 	}
 }

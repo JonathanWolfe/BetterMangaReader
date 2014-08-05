@@ -289,21 +289,109 @@ module.exports = Mirror;
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],4:[function(require,module,exports){
-var readyStateCheckInterval = setInterval(function () {
+module.exports = function (arg, url) {
+    function isNumeric(arg) {
+      return !isNaN(parseFloat(arg)) && isFinite(arg);
+    }
+    var _ls = url;
+
+    if (!url) { return undefined; }
+    else if (!arg) { return _ls; }
+    else { arg = arg.toString(); }
+
+    if (_ls.substring(0,2) === '//') { _ls = 'http:' + _ls; }
+    else if (_ls.split('://').length === 1) { _ls = 'http://' + _ls; }
+
+    url = _ls.split('/');
+    var _l = {auth:''}, host = url[2].split('@');
+
+    if (host.length === 1) { host = host[0].split(':'); }
+    else { _l.auth = host[0]; host = host[1].split(':'); }
+
+    _l.protocol=url[0];
+    _l.hostname=host[0];
+    _l.port=(host[1] || ((_l.protocol.split(':')[0].toLowerCase() === 'https') ? '443' : '80'));
+    _l.pathname=( (url.length > 3 ? '/' : '') + url.slice(3, url.length).join('/').split('?')[0].split('#')[0]);
+    var _p = _l.pathname;
+
+    if (_p.charAt(_p.length-1) === '/') { _p=_p.substring(0, _p.length-1); }
+    var _h = _l.hostname, _hs = _h.split('.'), _ps = _p.split('/');
+
+    if (arg === 'hostname') { return _h; }
+    else if (arg === 'domain') {
+        if (/^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/.test(_h)) { return _h; }
+        return _hs.slice(-2).join('.'); 
+    }
+    //else if (arg === 'tld') { return _hs.slice(-1).join('.'); }
+    else if (arg === 'sub') { return _hs.slice(0, _hs.length - 2).join('.'); }
+    else if (arg === 'port') { return _l.port; }
+    else if (arg === 'protocol') { return _l.protocol.split(':')[0]; }
+    else if (arg === 'auth') { return _l.auth; }
+    else if (arg === 'user') { return _l.auth.split(':')[0]; }
+    else if (arg === 'pass') { return _l.auth.split(':')[1] || ''; }
+    else if (arg === 'path') { return _l.pathname; }
+    else if (arg.charAt(0) === '.')
+    {
+        arg = arg.substring(1);
+        if(isNumeric(arg)) {arg = parseInt(arg, 10); return _hs[arg < 0 ? _hs.length + arg : arg-1] || ''; }
+    }
+    else if (isNumeric(arg)) { arg = parseInt(arg, 10); return _ps[arg < 0 ? _ps.length + arg : arg] || ''; }
+    else if (arg === 'file') { return _ps.slice(-1)[0]; }
+    else if (arg === 'filename') { return _ps.slice(-1)[0].split('.')[0]; }
+    else if (arg === 'fileext') { return _ps.slice(-1)[0].split('.')[1] || ''; }
+    else if (arg.charAt(0) === '?' || arg.charAt(0) === '#')
+    {
+        var params = _ls, param = null;
+
+        if(arg.charAt(0) === '?') { params = (params.split('?')[1] || '').split('#')[0]; }
+        else if(arg.charAt(0) === '#') { params = (params.split('#')[1] || ''); }
+
+        if(!arg.charAt(1)) { return params; }
+
+        arg = arg.substring(1);
+        params = params.split('&');
+
+        for(var i=0,ii=params.length; i<ii; i++)
+        {
+            param = params[i].split('=');
+            if(param[0] === arg) { return param[1] || ''; }
+        }
+
+        return null;
+    }
+
+    return '';
+};
+},{}],5:[function(require,module,exports){
+/*global require, window, document, chrome */
+
+var $ = require('jquery'),
+	use_mirror = {
+		'mangahere': require('../../js/mirrors/mangahere'),
+		'mangastream': require('../../js/mirrors/mangastream')
+	},
+	url = require('wurl');
+
+$('body').append('<div class="loading-wrap"><div class="loader"></div><h2>BetterMangaReader Loading...</h2></div>');
+
+
+var readyStateCheckInterval = window.setInterval(function () {
 	if (document.readyState === "complete") {
-		clearInterval(readyStateCheckInterval);
+		window.clearInterval(readyStateCheckInterval);
 
 		var mirror;
 
 		Object.keys(use_mirror).forEach(function (i) {
-			if (use_mirror[i].mirrorUrl === url('domain')) mirror = use_mirror[i];
+			if (use_mirror[i].mirrorUrl === url('domain', document.location.href)) {
+				mirror = use_mirror[i];
+			}
 		});
 
 		if (mirror && mirror.isCurrentPageAChapterPage(document)) {
 
 			var chapters = mirror.getChaptersFromPage(document),
 				info = mirror.getInformationFromCurrentPage(document);
-			
+
 			console.log('info', info);
 
 			mirror.removeRedundant(document);
@@ -328,13 +416,14 @@ var readyStateCheckInterval = setInterval(function () {
 			$(whereWrite).prepend(BMRControls);
 
 			function updateTrackingButtons() {
-				
+
 				$('#BMRControls').append("<button id='check-track' disabled>Checking...</button>");
-				
+
 				$('#BMRControls #go-track').remove();
 				$('#BMRControls #stop-track').remove();
-				
+
 			}
+
 			function checkTracked() {
 				chrome.runtime.sendMessage({
 					isMangaTracked: info.name
@@ -342,12 +431,15 @@ var readyStateCheckInterval = setInterval(function () {
 					console.log('check if tracking', response);
 
 					$('#BMRControls #check-track').remove();
-					
+
 					if (response[0] === true) {
 						$('#BMRControls').append("<button id='stop-track'>Stop Tracking</button>");
-						
+
 						chrome.runtime.sendMessage({
-							updateMangaReadChapter: {'id': response[1], 'info': info}
+							updateMangaReadChapter: {
+								'id': response[1],
+								'info': info
+							}
 						}, function (response) {
 							console.log(response);
 						});
@@ -387,109 +479,53 @@ var readyStateCheckInterval = setInterval(function () {
 				var image = mirror.getImageFromPage(page);
 				$(whereWrite).append('<img src="' + image + '" alt="" id="image-' + index + '"/>');
 			});
+
+			mirror.doAfterMangaLoaded(document);
+			$('.loading-wrap').hide();
+
+			$('#BMRControls')
+				.on('click', '#go-track', function () {
+					console.log('attempted to track');
+
+					updateTrackingButtons();
+
+					var full_info = {
+						"name": info.name,
+						"mirror": mirror.mirrorName,
+						"url": info.currentMangaURL,
+						"urlOfLatestRead": info.currentChapterURL,
+						"isTracked": true,
+						"latestRead": info.currentChapter,
+						"latest": chapters[chapters.length - 1][0],
+						"tags": [],
+						"chapter_list": chapters
+					};
+
+					chrome.runtime.sendMessage({
+						mangaToTrack: full_info
+					}, function (response) {
+						console.log(response);
+
+						checkTracked();
+					});
+				})
+				.on('click', '#stop-track', function () {
+					console.log('attempting to stop tracking');
+
+					updateTrackingButtons();
+
+					chrome.runtime.sendMessage({
+						mangaToStopTracking: info.name
+					}, function (response) {
+						console.log(response);
+
+						checkTracked();
+					});
+				});
+		} else {
+			$('.loading-wrap').hide();
 		}
-
-		mirror.doAfterMangaLoaded(document);
-
-		$('#BMRControls')
-			.on('click', '#go-track', function () {
-				console.log('attempted to track');
-				
-				updateTrackingButtons();
-
-				var full_info = {
-					"name": info.name,
-					"mirror": mirror.mirrorName,
-					"url": info.currentMangaURL,
-					"urlOfLatestRead": info.currentChapterURL,
-					"isTracked": true,
-					"latestRead": info.currentChapter,
-					"latest": chapters[chapters.length - 1][0],
-					"tags": [],
-					"chapter_list": chapters
-				};
-
-				chrome.runtime.sendMessage({
-					mangaToTrack: full_info
-				}, function (response) {
-					console.log(response);
-					
-					checkTracked();
-				});
-			})
-			.on('click', '#stop-track', function () {
-				console.log('attempting to stop tracking');
-				
-				updateTrackingButtons();
-
-				chrome.runtime.sendMessage({
-					mangaToStopTracking: info.name
-				}, function (response) {
-					console.log(response);
-					
-					checkTracked();
-				});
-			});
 
 	}
 }, 10);
-
-var $ = require('jquery'),
-	use_mirror = {
-		'mangahere': require('../../js/mirrors/mangahere'),
-		'mangastream': require('../../js/mirrors/mangastream')
-	};
-
-/*! url - v1.8.6 - 2013-11-22 */
-window.url = function () {
-	function a(a) {
-		return !isNaN(parseFloat(a)) && isFinite(a)
-	}
-	return function (b, c) {
-		var d = c || window.location.toString();
-		if (!b) return d;
-		b = b.toString(), "//" === d.substring(0, 2) ? d = "http:" + d : 1 === d.split("://").length && (d = "http://" + d), c = d.split("/");
-		var e = {
-				auth: ""
-			},
-			f = c[2].split("@");
-		1 === f.length ? f = f[0].split(":") : (e.auth = f[0], f = f[1].split(":")), e.protocol = c[0], e.hostname = f[0], e.port = f[1] || ("https" === e.protocol.split(":")[0].toLowerCase() ? "443" : "80"), e.pathname = (c.length > 3 ? "/" : "") + c.slice(3, c.length).join("/").split("?")[0].split("#")[0];
-		var g = e.pathname;
-		"/" === g.charAt(g.length - 1) && (g = g.substring(0, g.length - 1));
-		var h = e.hostname,
-			i = h.split("."),
-			j = g.split("/");
-		if ("hostname" === b) return h;
-		if ("domain" === b) return /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/.test(h) ? h : i.slice(-2).join(".");
-		if ("sub" === b) return i.slice(0, i.length - 2).join(".");
-		if ("port" === b) return e.port;
-		if ("protocol" === b) return e.protocol.split(":")[0];
-		if ("auth" === b) return e.auth;
-		if ("user" === b) return e.auth.split(":")[0];
-		if ("pass" === b) return e.auth.split(":")[1] || "";
-		if ("path" === b) return e.pathname;
-		if ("." === b.charAt(0)) {
-			if (b = b.substring(1), a(b)) return b = parseInt(b, 10), i[0 > b ? i.length + b : b - 1] || ""
-		} else {
-			if (a(b)) return b = parseInt(b, 10), j[0 > b ? j.length + b : b] || "";
-			if ("file" === b) return j.slice(-1)[0];
-			if ("filename" === b) return j.slice(-1)[0].split(".")[0];
-			if ("fileext" === b) return j.slice(-1)[0].split(".")[1] || "";
-			if ("?" === b.charAt(0) || "#" === b.charAt(0)) {
-				var k = d,
-					l = null;
-				if ("?" === b.charAt(0) ? k = (k.split("?")[1] || "").split("#")[0] : "#" === b.charAt(0) && (k = k.split("#")[1] || ""), !b.charAt(1)) return k;
-				b = b.substring(1), k = k.split("&");
-				for (var m = 0, n = k.length; n > m; m++)
-					if (l = k[m].split("="), l[0] === b) return l[1] || "";
-				return null
-			}
-		}
-		return ""
-	}
-}(), "undefined" != typeof jQuery && jQuery.extend({
-	url: function (a, b) {
-		return window.url(a, b)
-	}
-});
-},{"../../js/mirrors/mangahere":1,"../../js/mirrors/mangastream":2,"jquery":3}]},{},[4])
+},{"../../js/mirrors/mangahere":1,"../../js/mirrors/mangastream":2,"jquery":3,"wurl":4}]},{},[5])

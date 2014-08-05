@@ -1,3 +1,5 @@
+/*global chrome, $, window */
+
 var background = chrome.extension.getBackgroundPage(),
 	table = $('#manga_table');
 
@@ -12,17 +14,22 @@ var background = chrome.extension.getBackgroundPage(),
 	} else {
 
 		console.log('No manga to show yet. Will try again.');
-		setTimeout(init, 300);
+		window.setTimeout(init, 300);
 
 	}
 
-	document.querySelector('.main .refresh-btn').addEventListener('click', function () {
-		var updated = background.bmr_storage.expandMangaData(background.bmr_storage.state);
-		console.log('updated mangas', updated);
+	$('.refresh-btn').on('click', function () {
 
-		background.backup(updated);
+		$('.loading-wrap').show();
 
-		loadMangaTable(updated, table);
+		window.setTimeout(function () {
+			var updated = background.bmr_storage.expandMangaData(background.bmr_storage.state);
+			console.log('updated mangas', updated);
+
+			background.backup(updated);
+
+			loadMangaTable(updated, table);
+		}, 200);
 	});
 
 	$('.tracking').on('click', 'label', function () {
@@ -49,35 +56,45 @@ var background = chrome.extension.getBackgroundPage(),
 		}
 
 	});
-	
-	$('.mark-read').on('click', 'a', function(e){
+
+	$('.mark-read').on('click', 'a', function (e) {
 		e.preventDefault();
-		
+
 		var clicked_manga_name = $(this).parentsUntil('tbody').find('.manga-name').text();
-		
+
 		console.log('Clicked Manga Name:', clicked_manga_name);
-		
+
 		chrome.runtime.sendMessage({
 			markMangaAsRead: clicked_manga_name
 		}, function (response) {
 			console.log(response);
-			location.reload();
+			window.location.reload();
 		});
 	});
-	
-	$('.controls').on('click', 'a:last', function(e){
+
+	$('.controls').on('click', 'a:last', function (e) {
 		e.preventDefault();
-		
+
 		var clicked_manga_name = $(this).parentsUntil('tbody').find('.manga-name').text();
-		
+
 		console.log(clicked_manga_name);
-		
+
 		chrome.runtime.sendMessage({
 			resetMangaReading: clicked_manga_name
 		}, function (response) {
 			console.log(response);
-			location.reload();
+			window.location.reload();
 		});
+	});
+
+	chrome.runtime.onMessage.addListener(function (request) {
+		console.log('request recieved', request);
+		if (request.expandingMangas !== undefined) {
+			$('.loading-wrap').show();
+		}
+		if (request.expandingMangasDone !== undefined) {
+			window.location.reload();
+		}
 	});
 })();
 
@@ -95,6 +112,8 @@ function loadMangaTable(data, table) {
 	table.prepend(not_up_to_date).append(not_tracking);
 
 	$('[data-toggle="tooltip"]').tooltip();
+
+	$('.loading-wrap').hide();
 
 }
 
