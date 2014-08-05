@@ -16,7 +16,7 @@ chrome.bookmarks.search('BMR Back-up', function (results) {
 	}
 });
 
-chrome.bookmarks.search('All Manga Reader', function (results) {
+chrome.bookmarks.search('All Mangas Reader', function (results) {
 	console.log('AMR Bookmark', results);
 
 	if (results.length > 0) {
@@ -24,7 +24,9 @@ chrome.bookmarks.search('All Manga Reader', function (results) {
 			.append('<button class="btn btn-lg go-import-amr col-sm-12 col-md-12">Import &amp; Convert Your AllMangaReader Data?</button>')
 			.on('click', '.go-import-amr', function () {
 				var content = results[0].url.substr(17);
-				content = content.substr(0, content.length - 27);
+				content = content.substr(0, content.length - 28);
+				
+				console.log(content);
 				
 				var converted = window.amr_converter(content);
 				
