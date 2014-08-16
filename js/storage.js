@@ -77,7 +77,7 @@ var storage = {
 		window.setTimeout(function () {
 			mangas.forEach(function (manga) {
 
-				if (manga.isTracked) {
+				if (manga.isTracked && ['Manga Here', 'Mangastream'].indexOf(manga.mirror) !== -1) {
 					manga.chapter_list = window.use_mirror[manga.mirror].getChapterList(manga);
 
 					manga.latest = manga.chapter_list[0][0];

@@ -16,7 +16,7 @@ module.exports = function (data) {
 
 	amr.mangas.forEach(function (manga, key) {
 
-		// console.log(manga);
+		console.log(manga);
 
 		if (mangas_added.indexOf(manga.name) === -1) {
 			mangas_added.push(manga.name);
@@ -28,7 +28,7 @@ module.exports = function (data) {
 				url: manga.url,
 				urlOfLatestRead: manga.lastChapterReadURL,
 				isTracked: (manga.display === 0 ? true : false),
-				latestRead: (manga.lastChapterReadURL.match(/(\/|c)?([0-9]{3})(\.[0-9])?/))[0].substr(1),
+				latestRead: (manga.lastChapterReadURL.match(/(\/|c)?([0-9]{2,3})(\.[0-9])?/))[0].substr(1),
 				latest: '999',
 				tags: manga.cats,
 				chapter_list: [['999', '999', manga.url]]
@@ -125,7 +125,7 @@ var storage = {
 		window.setTimeout(function () {
 			mangas.forEach(function (manga) {
 
-				if (manga.isTracked) {
+				if (manga.isTracked && ['Manga Here', 'Mangastream'].indexOf(manga.mirror) !== -1) {
 					manga.chapter_list = window.use_mirror[manga.mirror].getChapterList(manga);
 
 					manga.latest = manga.chapter_list[0][0];

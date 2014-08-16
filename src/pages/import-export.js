@@ -21,19 +21,16 @@ chrome.bookmarks.search('All Mangas Reader', function (results) {
 
 	if (results.length > 0) {
 		$('.go-import').parent()
-			.append('<button class="btn btn-lg go-import-amr col-sm-12 col-md-12">Import &amp; Convert Your AllMangaReader Data?</button>')
+			.append('<button class="btn btn-lg go-import-amr col-sm-12 col-md-12">Import &amp; Convert Your AllMangaReader sync bookmark?</button>')
 			.on('click', '.go-import-amr', function () {
-				var content = results[0].url.substr(17);
-				content = content.substr(0, content.lastIndexOf('}') + 1);
-				
-				console.log(content);
-				
-				var converted = window.amr_converter(content);
-				
-				$('#import-data').val(JSON.stringify(converted));
+				convert_amr(results[0].url)
 			});
 	}
 
+});
+
+$('#amrimport + .btn').on('click', function () {
+	convert_amr($('#amrimport').val())
 });
 
 $('.go-import').on('click', process_import);
@@ -54,4 +51,15 @@ function process_import() {
 		window.setTimeout(process_import, 300);
 
 	}
+}
+
+function convert_amr(data) {
+	var content = data.substr(data.indexOf('{'));
+	content = content.substr(0, content.lastIndexOf('}') + 1);
+
+	console.log(content);
+
+	var converted = window.amr_converter(content);
+
+	$('#import-data').val(JSON.stringify(converted));
 }

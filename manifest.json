@@ -22,21 +22,17 @@
 	"browser_action": {
 		"default_icon": "icons/icon32.png"
 	},
-	"content_security_policy" : "script-src 'self' ; object-src 'self'",
 	"permissions": [
-		"contextMenus",
 		"notifications",
 		"tabs",
 		"bookmarks",
 		"storage"
 	],
-	"omnibox": {
-		"keyword": "BMR"
-	},
 	"content_scripts": [
 		{
 			"matches": [
-				"*://*.mangahere.co/*", "*://*.readms.com/*"
+				"*://*.mangahere.co/*",
+				"*://*.readms.com/*"
 			],
 			"css": [
 				"src/inject/inject.css"
@@ -47,7 +43,6 @@
 		}
 	],
 	"web_accessible_resources": [
-		"js/mirrors/*.js",
 		"icons/*.png"
 	]
 }
