@@ -4,30 +4,30 @@ var browserify = require('browserify'),
 
 gulp.task('browserify', function () {
 	gulp.task('browserify', function () {
-		var bundleStream = browserify('./js/app.js').bundle();
+		var bundleStream = browserify('./ext/js/app.js').bundle();
 
 		bundleStream
-			.pipe(source('./build.js'))
-			.pipe(gulp.dest('./js/'));
+			.pipe(source('./ext/build.js'))
+			.pipe(gulp.dest('./ext/js/'));
 		
-		var buildMirrors = browserify('./js/mirrors/get-all-mirrors.js').bundle();
+		var buildMirrors = browserify('./ext/js/mirrors/get-all-mirrors.js').bundle();
 		
 		buildMirrors
-			.pipe(source('./all-mirrors.js'))
-			.pipe(gulp.dest('./js/mirrors/'));
+			.pipe(source('./ext/all-mirrors.js'))
+			.pipe(gulp.dest('./ext/js/mirrors/'));
 		
-		var buildInject = browserify('./src/inject/inject.js').bundle();
+		var buildInject = browserify('./ext/src/inject/inject.js').bundle();
 		
 		buildInject
-			.pipe(source('./inject-build.js'))
-			.pipe(gulp.dest('./src/inject/'));
+			.pipe(source('./ext/inject-build.js'))
+			.pipe(gulp.dest('./ext/src/inject/'));
 	});
 });
 
 gulp.task('watch', function () {
-	gulp.watch('./js/app.js', ['browserify']);
-	gulp.watch('./js/mirrors/**.js', ['browserify']);
-	gulp.watch('./src/inject/inject.js', ['browserify']);
+	gulp.watch('./ext/js/app.js', ['browserify']);
+	gulp.watch('./ext/js/mirrors/**.js', ['browserify']);
+	gulp.watch('./ext/src/inject/inject.js', ['browserify']);
 });
 
 gulp.task('default', ['browserify', 'watch']);
