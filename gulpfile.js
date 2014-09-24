@@ -7,19 +7,19 @@ gulp.task('browserify', function () {
 		var bundleStream = browserify('./ext/js/app.js').bundle();
 
 		bundleStream
-			.pipe(source('./ext/build.js'))
+			.pipe(source('build.js'))
 			.pipe(gulp.dest('./ext/js/'));
 		
 		var buildMirrors = browserify('./ext/js/mirrors/get-all-mirrors.js').bundle();
 		
 		buildMirrors
-			.pipe(source('./ext/all-mirrors.js'))
+			.pipe(source('all-mirrors.js'))
 			.pipe(gulp.dest('./ext/js/mirrors/'));
 		
 		var buildInject = browserify('./ext/src/inject/inject.js').bundle();
 		
 		buildInject
-			.pipe(source('./ext/inject-build.js'))
+			.pipe(source('inject-build.js'))
 			.pipe(gulp.dest('./ext/src/inject/'));
 	});
 });

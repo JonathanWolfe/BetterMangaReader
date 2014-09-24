@@ -72,10 +72,13 @@ var Mirror = {
 	// Returns the list of the pages in this chapter to be used later when making the image urls.
 	getPages: function (page) {
 
-		var pages = [];
-		$('.dropdown-menu:last li a', page).each(function () {
-			pages.push($(this).attr('href'));
-		});
+		var pages = [],
+			last_page = $('.dropdown-menu:last li:last a', page).attr('href'),
+			num_pages = last_page.split('/').pop();
+
+		for (var i = 1; i <= num_pages; i += 1) {
+			pages.push(last_page.substr(0, last_page.length - num_pages.length) + i);
+		}
 
 		return pages;
 	},
@@ -116,7 +119,7 @@ var Mirror = {
 				src = $(".page img", data).attr("src");
 			}
 		});
-		
+
 		return src;
 	},
 
