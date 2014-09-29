@@ -165,7 +165,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 		
 		console.log(is_tracked);
 
-		if (!is_tracked[0]) {
+		if (is_tracked[1] === undefined || is_tracked[1] === null) {
 
 			new_manga.id = window.bmr_storage.state.length;
 			window.bmr_storage.state.push(new_manga);
