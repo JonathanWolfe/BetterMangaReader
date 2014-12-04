@@ -1,4 +1,8 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+window.$ = require('jquery');
+window.amr_converter = require('./amr-converter');
+window.bmr_storage = require('./storage');
+},{"./amr-converter":2,"./storage":3,"jquery":4}],2:[function(require,module,exports){
 /*global module */
 
 module.exports = function (data) {
@@ -41,11 +45,7 @@ module.exports = function (data) {
 	return all_converted;
 
 };
-},{}],2:[function(require,module,exports){
-window.$ = require('jquery');
-window.amr_converter = require('./amr-converter');
-window.bmr_storage = require('./storage');
-},{"./amr-converter":1,"./storage":3,"jquery":4}],3:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 /*global chrome, window, module */
 var storage = {
 
@@ -57,7 +57,7 @@ var storage = {
 
 			console.log('search results', results);
 
-			if (results.length > 0) {
+			if (results.length) {
 				storage.state = JSON.parse(results[0].url.slice(23, -2));
 			} else {
 				console.log('No State to get. Writing new one.');
@@ -125,7 +125,7 @@ var storage = {
 		window.setTimeout(function () {
 			mangas.forEach(function (manga) {
 
-				if (manga.isTracked && ['Manga Here', 'Mangastream'].indexOf(manga.mirror) !== -1) {
+				if (manga.isTracked && ['manga here', 'mangastream'].indexOf(manga.mirror.toLowerCase()) !== -1) {
 					manga.chapter_list = window.use_mirror[manga.mirror].getChapterList(manga);
 
 					manga.latest = manga.chapter_list[0][0];
@@ -185,5 +185,5 @@ module.exports = storage;
 
 }).call(global, undefined, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
-}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}]},{},[2])
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}]},{},[1]);
