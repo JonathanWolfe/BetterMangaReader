@@ -18,11 +18,11 @@
 		]
 	},
 	"devDependencies": {
-		"browserify": "~3.36.0",
-		"browserify-shim": "~3.5.0",
-		"gulp": "~3.6.0",
-		"jquery": "~2.1.1",
-		"vinyl-source-stream": "~0.1.1",
-		"wurl": "^1.1.3"
+		"browserify": ">=0",
+		"browserify-shim": ">=0",
+		"gulp": ">=0",
+		"jquery": ">=0",
+		"vinyl-source-stream": ">=0",
+		"wurl": ">=0"
 	}
 }
