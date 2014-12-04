@@ -218,3 +218,7 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 *.pem
+/bettermangareader.pem
+/ext/js/build.js
+/ext/js/mirrors/all-mirrors.js
+/ext/src/inject/inject-build.js
