@@ -9,7 +9,7 @@ var storage = {
 
 			console.log('search results', results);
 
-			if (results.length > 0) {
+			if (results.length) {
 				storage.state = JSON.parse(results[0].url.slice(23, -2));
 			} else {
 				console.log('No State to get. Writing new one.');
@@ -77,7 +77,7 @@ var storage = {
 		window.setTimeout(function () {
 			mangas.forEach(function (manga) {
 
-				if (manga.isTracked && ['Manga Here', 'Mangastream'].indexOf(manga.mirror) !== -1) {
+				if (manga.isTracked && ['manga here', 'mangastream'].indexOf(manga.mirror.toLowerCase()) !== -1) {
 					manga.chapter_list = window.use_mirror[manga.mirror].getChapterList(manga);
 
 					manga.latest = manga.chapter_list[0][0];
