@@ -1,28 +1,31 @@
 {
-	"name": "BetterMangaReader",
-	"version": "0.2.5",
-	"description": "Keep track of your manga, be notified of updates, and have a better reading experience",
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/JonathanWolfe/BetterMangaReader.git"
-	},
-	"browser": {
-		"jquery": "./node_modules/jquery/dist/jquery.min.js"
-	},
-	"browserify-shim": {
-		"jquery": "$"
-	},
-	"browserify": {
-		"transform": [
-			"browserify-shim"
-		]
-	},
-	"devDependencies": {
-		"browserify": ">=0",
-		"browserify-shim": ">=0",
-		"gulp": ">=0",
-		"jquery": ">=0",
-		"vinyl-source-stream": ">=0",
-		"wurl": ">=0"
-	}
+  "name": "BetterMangaReader",
+  "version": "0.3.0",
+  "description": "Keep track of your manga, be notified of updates, and have a better reading experience",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/JonathanWolfe/BetterMangaReader.git"
+  },
+  "browser": {
+    "jquery": "./node_modules/jquery/dist/jquery.min.js"
+  },
+  "browserify-shim": {
+    "jquery": "$"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "devDependencies": {
+    "browserify": ">=0.0.0",
+    "browserify-shim": ">=0.0.0",
+    "gulp": ">=0.0.0",
+    "gulp-uglify": "?=0.0.0",
+    "jquery": ">=0.0.0",
+    "streamify": ">=0.0.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": ">=0.0.0",
+    "wurl": ">=0.0.0"
+  }
 }

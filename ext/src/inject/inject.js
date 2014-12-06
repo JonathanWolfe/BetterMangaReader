@@ -1,24 +1,18 @@
-/*global require, window, document, chrome */
+/*global require, document, chrome */
 
-var $ = require('jquery'),
-	use_mirror = {
-		'mangahere': require('../../js/mirrors/mangahere'),
-		'mangastream': require('../../js/mirrors/mangastream')
-	},
-	url = require('wurl');
+(function bmr_inject() {
+	var $ = require('jquery'),
+		mirrors = require('../../js/register-mirrors'),
+		url = require('wurl');
 
-$('body').append('<div class="loading-wrap"><div class="loader"></div><h2>BetterMangaReader Loading...</h2></div>');
+	$('body').append('<div class="loading-wrap"><div class="loader"></div><h2>BetterMangaReader Loading...</h2></div>');
 
-
-var readyStateCheckInterval = window.setInterval(function () {
-	if (document.readyState === "complete") {
-		window.clearInterval(readyStateCheckInterval);
-
+	$(document).ready(function () {
 		var mirror;
 
-		Object.keys(use_mirror).forEach(function (i) {
-			if (use_mirror[i].mirrorUrl === url('domain', document.location.href)) {
-				mirror = use_mirror[i];
+		Object.keys(mirrors).forEach(function (i) {
+			if (mirrors[i].mirrorUrl === url('domain', document.location.href)) {
+				mirror = mirrors[i];
 			}
 		});
 
@@ -40,6 +34,7 @@ var readyStateCheckInterval = window.setInterval(function () {
 				"<button id='go-prev'>&laquo;</button>" +
 				"<form>" +
 				"<select>";
+
 			chapters.forEach(function (chapter) {
 				var is_current = (parseFloat(chapter[0], 10) === parseFloat(info.currentChapter, 10)) ? ' selected' : '';
 				BMRControls += "<option value='" + chapter[2] + "'" + is_current + ">Chapter " + chapter[0] + "</option>";
@@ -48,6 +43,7 @@ var readyStateCheckInterval = window.setInterval(function () {
 				"</form>" +
 				"<button id='go-next'>&raquo;</button>" +
 				"</div>";
+
 			$(whereWrite).prepend(BMRControls);
 
 			function updateTrackingButtons() {
@@ -83,6 +79,7 @@ var readyStateCheckInterval = window.setInterval(function () {
 					}
 				});
 			}
+
 			updateTrackingButtons();
 			checkTracked();
 
@@ -161,5 +158,5 @@ var readyStateCheckInterval = window.setInterval(function () {
 			$('.loading-wrap').hide();
 		}
 
-	}
-}, 10);
+	});
+})();

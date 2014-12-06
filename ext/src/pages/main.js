@@ -7,7 +7,7 @@ var background = chrome.extension.getBackgroundPage(),
 
 	console.log("storage state", background.bmr_storage.state);
 
-	if (background.bmr_storage.state.length > 0) {
+	if (background.bmr_storage.state.length) {
 
 		loadMangaTable(background.bmr_storage.state, table);
 
@@ -89,10 +89,10 @@ var background = chrome.extension.getBackgroundPage(),
 
 	chrome.runtime.onMessage.addListener(function (request) {
 		console.log('request recieved', request);
-		if (request.expandingMangas !== undefined) {
+		if (request.expandingMangas) {
 			$('.loading-wrap').show();
 		}
-		if (request.expandingMangasDone !== undefined) {
+		if (request.expandingMangasDone) {
 			window.location.reload();
 		}
 	});
@@ -176,19 +176,12 @@ function getChapterURL(key, manga) {
 	if (key === "next") {
 
 		if (parseFloat(manga.latestRead, 10) === parseFloat(manga.latest, 10)) {
-
 			return manga.urlOfLatestRead;
-
 		} else {
-
 			list.forEach(function (chapter, index) {
-
 				if (parseFloat(chapter[0], 10) === parseFloat(manga.latestRead, 10)) {
-
 					found = index;
-
 				}
-
 			});
 
 			if (found === undefined) {
@@ -196,25 +189,17 @@ function getChapterURL(key, manga) {
 			} else {
 				return list[found - 1][2];
 			}
-
 		}
 
 	} else if (key === "prev") {
 
 		if (parseFloat(manga.latestRead, 10) === parseFloat(list[list.length - 1][0], 10)) {
-
 			return manga.urlOfLatestRead;
-
 		} else {
-
 			list.forEach(function (chapter, index) {
-
 				if (parseFloat(chapter[0], 10) === parseFloat(manga.latestRead, 10)) {
-
 					found = index;
-
 				}
-
 			});
 
 			if (found === undefined) {
@@ -225,13 +210,10 @@ function getChapterURL(key, manga) {
 
 		}
 	} else if (key === "latest") {
-
 		return list[0][2];
-
+		
 	} else {
-
 		return manga.urlOfLatestRead;
-
 	}
 
 }

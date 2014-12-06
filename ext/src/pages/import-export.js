@@ -5,7 +5,7 @@ chrome.bookmarks.search('BMR Back-up', function (results) {
 
 	console.log('results', results);
 
-	if (results.length > 0) {
+	if (results.length) {
 
 		$('#export-data').html(results[0].url.slice(23, -2));
 
@@ -36,12 +36,12 @@ $('#amrimport + .btn').on('click', function () {
 $('.go-import').on('click', process_import);
 
 function process_import() {
-	if (typeof background.backup === 'function') {
+	if (typeof background.bmr_storage.backup === 'function') {
 
 		var data = JSON.parse($('#import-data').val());
 
 		console.log('Connected to BG page and called update.');
-		background.backup(data);
+		background.bmr_storage.backup(data);
 
 		console.log("storage state:", background.bmr_storage.state);
 

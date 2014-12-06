@@ -18,6 +18,28 @@ var storage = {
 		});
 	},
 
+	"backup": function (data) {
+
+		if (typeof data === 'string') {
+			data = JSON.parse(data);
+		}
+		
+		data = data || storage.state;
+
+		console.log("data being backed up", data);
+
+		chrome.bookmarks.search('BMR Back-up', function (results) {
+			if (results.length) {
+				storage.updateBackup(JSON.stringify(data), results[0]);
+			} else {
+				storage.createBackup(JSON.stringify(data));
+			}
+		});
+
+		storage.state = data;
+
+	},
+
 	"createBackup": function (data) {
 
 		var date = Date.now(),
@@ -68,6 +90,10 @@ var storage = {
 
 	"expandMangaData": function (mangas) {
 
+		if (!mangas) {
+			mangas = storage.state;
+		}
+
 		console.log('expanding manga data');
 
 		chrome.runtime.sendMessage({
@@ -77,7 +103,7 @@ var storage = {
 		window.setTimeout(function () {
 			mangas.forEach(function (manga) {
 
-				if (manga.isTracked && ['manga here', 'mangastream'].indexOf(manga.mirror.toLowerCase()) !== -1) {
+				if (manga.isTracked && window.mirror_keys.indexOf(manga.mirror.toLowerCase()) !== -1) {
 					manga.chapter_list = window.use_mirror[manga.mirror].getChapterList(manga);
 
 					manga.latest = manga.chapter_list[0][0];
@@ -87,7 +113,7 @@ var storage = {
 		}, 200);
 
 		window.update_icon_number();
-		
+
 		chrome.runtime.sendMessage({
 			expandingMangasDone: true
 		});
@@ -97,30 +123,57 @@ var storage = {
 	},
 
 	"loadExample": function () {
-		chrome.bookmarks.search('BMR Backup', function (results) {
 
-			var example = JSON.stringify([{
-				"id": 0,
-				"name": "Bleach",
-				"mirror": "MangaStream",
-				"url": "http://mangastream.com/manga/bleach",
-				"urlOfLatestRead": "http://readms.com/r/bleach/591/2477/1?t=2&f=1&e=0",
-				"isTracked": true,
-				"latestRead": "591",
-				"latest": "999",
-				"tags": [],
-				"chapter_list": [["999", "999", "http://mangastream.com/manga/bleach"]]
+		var example = JSON.stringify([{
+			"id": 0,
+			"name": "Bleach",
+			"mirror": "MangaStream",
+			"url": "http://mangastream.com/manga/bleach",
+			"urlOfLatestRead": "http://readms.com/r/bleach/591/2477/1?t=2&f=1&e=0",
+			"isTracked": true,
+			"latestRead": "591",
+			"latest": "999",
+			"tags": [],
+			"chapter_list": [["999", "999", "http://mangastream.com/manga/bleach"]]
 			}]);
 
-			console.log('example data', example);
+		console.log('example data', example);
 
-			if (results.length > 0) {
-				storage.updateBackup(example, results[0]);
-			} else {
-				storage.createBackup(example);
+		storage.backup(example);
+
+	},
+
+	"already_tracked": function (search_name) {
+		var found = false,
+			index;
+
+		for (var i = 0; i < storage.state.length; i += 1) {
+			if (storage.state[i].name === search_name) {
+				if (storage.state[i].isTracked) {
+					found = true;
+				}
+				index = i;
+				break;
+			}
+		}
+
+		return [found, index];
+	},
+
+	"update_icon_number": function () {
+		var icon_number = 0;
+
+		storage.state.forEach(function (manga) {
+			if (parseFloat(manga.latest, 10) > parseFloat(manga.latestRead, 10) && manga.isTracked) {
+				icon_number += 1;
 			}
 		});
 
+		chrome.browserAction.setBadgeText({
+			'text': (icon_number < 1) ? '' : '' + icon_number
+		});
+
+		console.log('new icon number', icon_number);
 	}
 };
 
