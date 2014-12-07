@@ -12,7 +12,6 @@ During the beta, it's always helpful if you find any bugs to report them here un
 
 ###Preview
 ![Manga List](https://raw.githubusercontent.com/JonathanWolfe/BetterMangaReader/master/screenshots/manga-list.jpg)
-![Manga List 2](https://raw.githubusercontent.com/JonathanWolfe/BetterMangaReader/master/screenshots/manga-list-2.jpg)
 
 ###To-Do
 - [x] Set-up Skeleton
