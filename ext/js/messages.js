@@ -1,3 +1,4 @@
+/* global window, chrome */
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 	console.log('request recieved', request);
@@ -45,18 +46,14 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 		console.log(is_tracked);
 
 		if (!is_tracked[1]) {
-
 			new_manga.id = window.bmr_storage.state.length;
 			window.bmr_storage.state.push(new_manga);
 
 			console.log('item not found');
 
 		} else {
-
 			window.bmr_storage.state[is_tracked[1]].isTracked = true;
-
 			console.log('item found', window.bmr_storage.state[is_tracked[1]]);
-
 		}
 
 		sendResponse('Now Tracking Manga');
@@ -68,12 +65,19 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 		console.log('attempting to stop tracking manga');
 
 		var found = window.bmr_storage.already_tracked(request.mangaToStopTracking);
-
 		if (found[0] === true) {
 			window.bmr_storage.state[found[1]].isTracked = false;
 		}
 
 		sendResponse('Have Stopped Tracking');
+	}
+
+	if (request.deleteManga) {
+		window.bmr_storage.state.splice(
+			window.bmr_storage.already_tracked(request.deleteManga)[1], 1
+		);
+
+		sendResponse('Deleted Manga');
 	}
 
 	window.bmr_storage.update_icon_number();

@@ -36,8 +36,8 @@ $('#amrimport + .btn').on('click', function () {
 $('.go-import').on('click', process_import);
 
 function process_import() {
-	if (typeof background.bmr_storage.backup === 'function') {
 
+	if (typeof background.bmr_storage.backup === 'function') {
 		var data = JSON.parse($('#import-data').val());
 
 		console.log('Connected to BG page and called update.');
@@ -45,11 +45,11 @@ function process_import() {
 
 		console.log("storage state:", background.bmr_storage.state);
 
-	} else {
+		window.location.assign('index.html');
 
+	} else {
 		console.log('Have not connected to BG page yet. Retrying...');
 		window.setTimeout(process_import, 300);
-
 	}
 }
 
@@ -57,9 +57,11 @@ function convert_amr(data) {
 	var content = data.substr(data.indexOf('{'));
 	content = content.substr(0, content.lastIndexOf('}') + 1);
 
-	console.log(content);
+	console.log('amr converted content', content);
 
 	var converted = window.amr_converter(content);
 
-	$('#import-data').val(JSON.stringify(converted));
+	background.bmr_storage.backup(converted);
+
+	window.location.assign('index.html');
 }

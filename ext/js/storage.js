@@ -96,15 +96,11 @@ var storage = {
 
 		console.log('expanding manga data');
 
-		chrome.runtime.sendMessage({
-			expandingMangas: true
-		});
-
 		window.setTimeout(function () {
 			mangas.forEach(function (manga) {
 
-				if (manga.isTracked && window.mirror_keys.indexOf(manga.mirror.toLowerCase()) !== -1) {
-					manga.chapter_list = window.use_mirror[manga.mirror].getChapterList(manga);
+				if (manga.isTracked && Object.keys(window.mirrors).indexOf(manga.mirror.toLowerCase()) !== -1) {
+					manga.chapter_list = window.mirrors[manga.mirror.toLowerCase()].getChapterList(manga);
 
 					manga.latest = manga.chapter_list[0][0];
 				}
@@ -112,13 +108,11 @@ var storage = {
 			});
 		}, 200);
 
-		window.update_icon_number();
-
-		chrome.runtime.sendMessage({
-			expandingMangasDone: true
-		});
-
-		return mangas;
+		storage.state = mangas;
+		
+		storage.update_icon_number();
+		
+		return true;
 
 	},
 
@@ -170,10 +164,12 @@ var storage = {
 		});
 
 		chrome.browserAction.setBadgeText({
-			'text': (icon_number < 1) ? '' : '' + icon_number
+			'text': (!icon_number) ? '' : '' + icon_number
 		});
 
 		console.log('new icon number', icon_number);
+		
+		return true;
 	}
 };
 

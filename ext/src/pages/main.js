@@ -20,16 +20,11 @@ var background = chrome.extension.getBackgroundPage(),
 
 	$('.refresh-btn').on('click', function () {
 
-		$('.loading-wrap').show();
+		background.bmr_storage.expandMangaData(background.bmr_storage.state);
+		console.log('updated mangas', background.bmr_storage.state);
 
-		window.setTimeout(function () {
-			var updated = background.bmr_storage.expandMangaData(background.bmr_storage.state);
-			console.log('updated mangas', updated);
+		loadMangaTable(background.bmr_storage.state, table);
 
-			background.backup(updated);
-
-			loadMangaTable(updated, table);
-		}, 200);
 	});
 
 	$('.tracking').on('click', 'label', function () {
@@ -57,7 +52,7 @@ var background = chrome.extension.getBackgroundPage(),
 
 	});
 
-	$('.mark-read').on('click', 'a', function (e) {
+	$('tr').on('click', '.mark-read', function (e) {
 		e.preventDefault();
 
 		var clicked_manga_name = $(this).parentsUntil('tbody').find('.manga-name').text();
@@ -66,6 +61,19 @@ var background = chrome.extension.getBackgroundPage(),
 
 		chrome.runtime.sendMessage({
 			markMangaAsRead: clicked_manga_name
+		}, function (response) {
+			console.log(response);
+			window.location.reload();
+		});
+	}).on('click', '.delete-manga', function (e) {
+		e.preventDefault();
+
+		var clicked_manga_name = $(this).parentsUntil('tbody').find('.manga-name').text();
+
+		console.log('Clicked Manga Name:', clicked_manga_name);
+
+		chrome.runtime.sendMessage({
+			deleteManga: clicked_manga_name
 		}, function (response) {
 			console.log(response);
 			window.location.reload();
@@ -99,10 +107,20 @@ var background = chrome.extension.getBackgroundPage(),
 })();
 
 function loadMangaTable(data, table) {
+	
+	background.bmr_storage.update_icon_number();
 
 	table.find('tbody').html('');
 
-	data.forEach(function (manga) {
+	data.sort(function (a, b) {
+		if (a.name > b.name) {
+			return 1;
+		}
+		if (a.name < b.name) {
+			return -1;
+		}
+		return 0;
+	}).forEach(function (manga) {
 		addMangaToTable(manga, table);
 	});
 
@@ -123,7 +141,9 @@ function addMangaToTable(manga, table) {
 		tracking_button = getTrackingButton(manga);
 
 	table.append('<tr class="' + (parseFloat(manga.latestRead, 10) < parseFloat(manga.latest, 10) ? "danger" : "success") + (manga.isTracked ? "" : " disabled") + '">' +
-		'<td class="mark-read center-text">' + (parseFloat(manga.latestRead, 10) < parseFloat(manga.latest, 10) ? "<a href=\"#mark-all-read\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Mark ALL chapters as read\"><span class=\"glyphicon glyphicon-eye-open\"></span></a>" : "") + '</td>' +
+		'<td class="center-text">' +
+		(parseFloat(manga.latestRead, 10) < parseFloat(manga.latest, 10) ?
+			'<a href="#mark-all-read" data-toggle="tooltip" data-placement="top" title="Mark ALL chapters as read" class="mark-read"><span class="glyphicon glyphicon-eye-open"></span></a>' : '') + '<a href="#" class="delete-manga" data-toggle="tooltip" data-placement="top" title="Delete this manga"><span class="glyphicon glyphicon-remove"></span></a></td>' +
 		'<td class="manga-name"><strong><em>' + manga.name + '</em></strong></td>' +
 		'<td class="latest-read center-text"><a href="' + manga.urlOfLatestRead + '" data-toggle="tooltip" data-placement="right" title="Continue reading from here"><span class="glyphicon glyphicon-play">' + parseFloat(manga.latestRead, 10) + '</span></a></td>' +
 		'<td class="latest-chapter center-text">' + parseFloat(manga.latest, 10) + '</td>' +
@@ -211,7 +231,7 @@ function getChapterURL(key, manga) {
 		}
 	} else if (key === "latest") {
 		return list[0][2];
-		
+
 	} else {
 		return manga.urlOfLatestRead;
 	}
