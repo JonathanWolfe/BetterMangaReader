@@ -1,25 +1,24 @@
 var browserify = require('browserify'),
 	gulp = require('gulp'),
-	source = require('vinyl-source-stream');
+	source = require('vinyl-source-stream'),
+	buffer = require('vinyl-buffer'),
+	uglify = require('gulp-uglify');
 
 gulp.task('browserify', function () {
 	gulp.task('browserify', function () {
-		var bundleStream = browserify('./ext/js/app.js').bundle();
-
-		bundleStream
+		var bundleStream = browserify('./ext/js/app.js')
+			.bundle()
 			.pipe(source('build.js'))
+			.pipe(buffer())
+			.pipe(uglify())
 			.pipe(gulp.dest('./ext/js/'));
-		
-		var buildMirrors = browserify('./ext/js/mirrors/get-all-mirrors.js').bundle();
-		
-		buildMirrors
-			.pipe(source('all-mirrors.js'))
-			.pipe(gulp.dest('./ext/js/mirrors/'));
-		
-		var buildInject = browserify('./ext/src/inject/inject.js').bundle();
-		
-		buildInject
+
+
+		var buildInject = browserify('./ext/src/inject/inject.js')
+			.bundle()
 			.pipe(source('inject-build.js'))
+			.pipe(buffer())
+			.pipe(uglify())
 			.pipe(gulp.dest('./ext/src/inject/'));
 	});
 });
