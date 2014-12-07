@@ -224,3 +224,5 @@ ext/js/mirrors/all-mirrors.js
 ext/src/inject/inject-build.js
 .gitattributes
 .gitignore
+/ext.zip
+/bmr.crx
