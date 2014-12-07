@@ -187,7 +187,7 @@ function getChapterURL(key, manga) {
 			if (found === undefined) {
 				return manga.urlOfLatestRead;
 			} else {
-				return list[found - 1][2];
+				return (!list[found - 1]) ? list[found][2] : list[found - 1][2];
 			}
 		}
 
@@ -205,7 +205,7 @@ function getChapterURL(key, manga) {
 			if (found === undefined) {
 				return manga.urlOfLatestRead;
 			} else {
-				return list[found + 1][2];
+				return (!list[found + 1]) ? list[found][2] : list[found + 1][2];
 			}
 
 		}

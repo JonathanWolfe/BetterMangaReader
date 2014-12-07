@@ -10,6 +10,8 @@ During the beta, it's always helpful if you find any bugs to report them here un
 
 ###Current Version - 0.3.0 Beta
 
+###[Web Store Link](https://chrome.google.com/webstore/detail/bettermangareader/gecohlfddhgfhkadmdghjjmijdpabmlp?hl=en&gl=US)
+
 ###Preview
 ![Manga List](https://raw.githubusercontent.com/JonathanWolfe/BetterMangaReader/master/screenshots/manga-list.jpg)
 
