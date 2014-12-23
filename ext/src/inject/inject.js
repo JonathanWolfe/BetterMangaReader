@@ -44,6 +44,8 @@
 				"<button id='go-next'>&raquo;</button>" +
 				"</div>";
 
+			$(whereWrite).prepend(BMRControls);
+
 			function updateTrackingButtons() {
 
 				$('#BMRControls').append("<button id='check-track' disabled>Checking...</button>");
