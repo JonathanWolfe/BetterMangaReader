@@ -44,8 +44,6 @@
 				"<button id='go-next'>&raquo;</button>" +
 				"</div>";
 
-			$(whereWrite).prepend(BMRControls);
-
 			function updateTrackingButtons() {
 
 				$('#BMRControls').append("<button id='check-track' disabled>Checking...</button>");
@@ -109,7 +107,7 @@
 
 			pages.forEach(function (page, index) {
 				var image = mirror.getImageFromPage(page);
-				$(whereWrite).append('<img src="' + image + '" alt="" id="image-' + index + '"/>');
+				$(whereWrite).append('<img src="' + image + '" alt="" id="image-' + index + '" class="BMR-img" />');
 			});
 
 			mirror.doAfterMangaLoaded(document);

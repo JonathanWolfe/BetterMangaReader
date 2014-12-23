@@ -4,6 +4,7 @@ var background = chrome.extension.getBackgroundPage(),
 	table = $('#manga_table');
 
 (function init() {
+	"use strict";
 
 	console.log("storage state", background.bmr_storage.state);
 
@@ -192,6 +193,11 @@ function getChapterURL(key, manga) {
 
 	var found,
 		list = manga.chapter_list;
+	
+	if(!list.length){
+		console.error('chapter list missing for: ', manga);
+		return '#';
+	}
 
 	if (key === "next") {
 
