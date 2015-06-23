@@ -18,14 +18,14 @@
     ]
   },
   "devDependencies": {
-    "browserify": ">=0.0.0",
-    "browserify-shim": ">=0.0.0",
-    "gulp": ">=0.0.0",
-    "gulp-uglify": "?=0.0.0",
-    "jquery": ">=0.0.0",
-    "streamify": ">=0.0.0",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": ">=0.0.0",
-    "wurl": ">=0.0.0"
+    "browserify": "*",
+    "browserify-shim": "*",
+    "gulp": "*",
+    "gulp-uglify": "*",
+    "jquery": "*",
+    "streamify": "*",
+    "vinyl-buffer": "*",
+    "vinyl-source-stream": "*",
+    "wurl": "*"
   }
 }
