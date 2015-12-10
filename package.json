@@ -1,31 +1,30 @@
 {
-  "name": "BetterMangaReader",
-  "version": "0.3.0",
+  "name": "bettermangareader",
+  "version": "0.4.0",
   "description": "Keep track of your manga, be notified of updates, and have a better reading experience",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git://github.com/JonathanWolfe/BetterMangaReader.git"
   },
-  "browser": {
-    "jquery": "./node_modules/jquery/dist/jquery.min.js"
-  },
-  "browserify-shim": {
-    "jquery": "$"
-  },
-  "browserify": {
-    "transform": [
-      "browserify-shim"
-    ]
-  },
   "devDependencies": {
-    "browserify": "*",
-    "browserify-shim": "*",
-    "gulp": "*",
-    "gulp-uglify": "*",
-    "jquery": "*",
-    "streamify": "*",
-    "vinyl-buffer": "*",
-    "vinyl-source-stream": "*",
-    "wurl": "*"
-  }
+    "babel-preset-es2015": "latest",
+    "gulp": "latest",
+    "gulp-babel": "latest",
+    "gulp-cssnext": "latest",
+    "gulp-plumber": "latest",
+    "gulp-uglify": "latest",
+    "wurl": "latest"
+  },
+  "bugs": {
+    "url": "https://github.com/JonathanWolfe/BetterMangaReader/issues"
+  },
+  "homepage": "https://github.com/JonathanWolfe/BetterMangaReader#readme",
+  "main": "index.html",
+  "dependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jon Wolfe",
+  "license": "MIT"
 }
