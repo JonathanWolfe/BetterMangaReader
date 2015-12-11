@@ -1,162 +1,168 @@
-/*global require, document, chrome */
+function updateTrackingButtons() {
+	$( '#BMRControls' ).append( '<button id="check-track" disabled>Checking...</button>' );
+	$( '#BMRControls #go-track' ).remove();
+	$( '#BMRControls #stop-track' ).remove();
+}
 
-(function bmr_inject() {
-	var $ = require('jquery'),
-		mirrors = require('../../js/register-mirrors'),
-		url = require('wurl');
+function checkTracked( info ) {
+	chrome.runtime.sendMessage( {
+		isMangaTracked: info.name,
+	}, function ( isTrackedResponse ) {
+		console.log( 'check if tracking', isTrackedResponse );
 
-	$('body').append('<div class="loading-wrap"><div class="loader"></div><h2>BetterMangaReader Loading...</h2></div>');
+		$( '#BMRControls #check-track' ).remove();
 
-	$(document).ready(function () {
-		var mirror;
+		if ( isTrackedResponse[ 0 ] === true ) {
+			$( '#BMRControls' ).append( '<button id="stop-track">Stop Tracking</button>' );
 
-		Object.keys(mirrors).forEach(function (i) {
-			if (mirrors[i].mirrorUrl === url('domain', document.location.href)) {
-				mirror = mirrors[i];
-			}
-		});
+			chrome.runtime.sendMessage( {
+				updateMangaReadChapter: {
+					id: isTrackedResponse[ 1 ],
+					info: info,
+				},
+			}, function ( updateReadChapterResponse ) {
+				console.log( updateReadChapterResponse );
+			} );
+		} else {
+			$( '#BMRControls' ).append( '<button id="go-track">Track Manga</button>' );
+		}
+	} );
+}
 
-		if (mirror && mirror.isCurrentPageAChapterPage(document)) {
+function buildControls( chapterInfo, chapters ) {
 
-			var chapters = mirror.getChaptersFromPage(document),
-				info = mirror.getInformationFromCurrentPage(document);
+	const chapterSelectOptions = chapters.map( ( chapter ) => {
+		const isCurrent = parseFloat( chapter[ 0 ] ) === parseFloat( chapterInfo.currentChapter );
+		const selected = isCurrent ? 'selected' : '';
 
-			console.log('info', info);
+		return `<option value="${chapter[ 2 ]}" ${selected}>Chapter ${chapter[ 0 ]}</option>`;
+	} ).join( '' );
 
-			mirror.removeRedundant(document);
-			mirror.doSomethingBeforeWritingScans(document);
+	const iconURL = chrome.runtime.getURL( '../icons/icon19.png' );
 
-			var pages = mirror.getPages(document),
-				whereWrite = mirror.whereDoIWriteScans(document);
+	const bmrControls = `
+	<div id="BMRControls">
+		<img src="${iconURL}" alt="BetterMangaRead" />
 
-			var BMRControls = "<div id='BMRControls'>" +
-				"<img src='" + chrome.runtime.getURL('../../icons/icon19.png') + "' alt='BetterMangaRead' />" +
-				"<button id='go-prev'>&laquo;</button>" +
-				"<form>" +
-				"<select>";
+		<button id="go-prev">&laquo;</button>
 
-			chapters.forEach(function (chapter) {
-				var is_current = (parseFloat(chapter[0], 10) === parseFloat(info.currentChapter, 10)) ? ' selected' : '';
-				BMRControls += "<option value='" + chapter[2] + "'" + is_current + ">Chapter " + chapter[0] + "</option>";
-			});
-			BMRControls += "</select>" +
-				"</form>" +
-				"<button id='go-next'>&raquo;</button>" +
-				"</div>";
+		<form>
+			<select>
+				${chapterSelectOptions}
+			</select>
+		</form>
 
-			$(whereWrite).prepend(BMRControls);
+		<button id="go-next">&raquo;</button>
+	</div>`;
 
-			function updateTrackingButtons() {
+	return bmrControls;
+}
 
-				$('#BMRControls').append("<button id='check-track' disabled>Checking...</button>");
+function bmrInject() {
+	$( 'body' ).append( `
+		<div class="loading-wrap">
+			<div class="loader"></div>
+			<h2>BetterMangaReader Loading...</h2>
+		</div>
+	` );
 
-				$('#BMRControls #go-track').remove();
-				$('#BMRControls #stop-track').remove();
+	$( document ).ready( function () {
+		let mirror;
 
-			}
+		if ( mirror && mirror.isCurrentPageAChapterPage( document ) ) {
 
-			function checkTracked() {
-				chrome.runtime.sendMessage({
-					isMangaTracked: info.name
-				}, function (response) {
-					console.log('check if tracking', response);
+			const chapters = mirror.getChaptersFromPage( document );
+			const chapterInfo = mirror.getInformationFromCurrentPage( document );
 
-					$('#BMRControls #check-track').remove();
+			console.log( 'chapterInfo', chapterInfo );
 
-					if (response[0] === true) {
-						$('#BMRControls').append("<button id='stop-track'>Stop Tracking</button>");
+			mirror.removeRedundant( document );
+			mirror.doSomethingBeforeWritingScans( document );
 
-						chrome.runtime.sendMessage({
-							updateMangaReadChapter: {
-								'id': response[1],
-								'info': info
-							}
-						}, function (response) {
-							console.log(response);
-						});
-					} else {
-						$('#BMRControls').append("<button id='go-track'>Track Manga</button>");
-					}
-				});
-			}
+			const pages = mirror.getPages( document );
+			const whereWrite = mirror.whereDoIWriteScans( document );
+
+			$( whereWrite ).prepend( buildControls( chapterInfo, chapters ) );
 
 			updateTrackingButtons();
-			checkTracked();
+			checkTracked( chapterInfo );
 
-			var chapter_list = $('#BMRControls option'),
-				selected_chapter = chapter_list.filter(':selected');
+			const chapterList = $( '#BMRControls option' );
+			const selectedChapter = chapterList.filter( ':selected' );
 
-			if (selected_chapter.index() === 0) {
-				$('#go-prev').prop('disabled', true);
+			if ( selectedChapter.index() === 0 ) {
+				$( '#go-prev' ).prop( 'disabled', true );
 			}
-			if (selected_chapter.index() === chapter_list.length - 1) {
-				$('#go-next').prop('disabled', true);
+			if ( selectedChapter.index() === chapterList.length - 1 ) {
+				$( '#go-next' ).prop( 'disabled', true );
 			}
 
-			$('#BMRControls #go-prev:not(:disabled)').on('click', function () {
-				var current_index = selected_chapter.index(),
-					new_location = chapter_list.eq(current_index - 1).val();
-				document.location = new_location;
-			});
-			$('#BMRControls #go-next:not(:disabled)').on('click', function () {
-				var current_index = selected_chapter.index(),
-					new_location = chapter_list.eq(current_index + 1).val();
-				document.location = new_location;
-			});
-			$('#BMRControls select').on('change', function () {
-				document.location = $('option', this).filter(':selected').val();
-			});
+			$( '#BMRControls #go-prev:not(:disabled)' ).on( 'click', function () {
+				const currentIndex = selectedChapter.index();
+				const newLocation = chapterList.eq( currentIndex - 1 ).val();
+				document.location = newLocation;
+			} );
+			$( '#BMRControls #go-next:not(:disabled)' ).on( 'click', function () {
+				const currentIndex = selectedChapter.index();
+				const newLocation = chapterList.eq( currentIndex + 1 ).val();
+				document.location = newLocation;
+			} );
+			$( '#BMRControls select' ).on( 'change', function () {
+				document.location = $( 'option', this ).filter( ':selected' ).val();
+			} );
 
-			pages.forEach(function (page, index) {
-				var image = mirror.getImageFromPage(page);
-				$(whereWrite).append('<img src="' + image + '" alt="" id="image-' + index + '" class="BMR-img" />');
-			});
+			pages.forEach( function ( page, index ) {
+				const image = mirror.getImageFromPage( page );
+				$( whereWrite ).append( '<img src="' + image + '" alt="" id="image-' + index + '" class="BMR-img" />' );
+			} );
 
-			mirror.doAfterMangaLoaded(document);
-			$('.loading-wrap').hide();
+			mirror.doAfterMangaLoaded( document );
+			$( '.loading-wrap' ).hide();
 
-			$('#BMRControls')
-				.on('click', '#go-track', function () {
-					console.log('attempted to track');
+			$( '#BMRControls' )
+				.on( 'click', '#go-track', function () {
+					console.log( 'attempted to track' );
 
 					updateTrackingButtons();
 
-					var full_info = {
-						"name": info.name,
+					const fullInfo = {
+						"name": chapterInfo.name,
 						"mirror": mirror.mirrorName,
-						"url": info.currentMangaURL,
-						"urlOfLatestRead": info.currentChapterURL,
+						"url": chapterInfo.currentMangaURL,
+						"urlOfLatestRead": chapterInfo.currentChapterURL,
 						"isTracked": true,
-						"latestRead": info.currentChapter,
-						"latest": chapters[chapters.length - 1][0],
+						"latestRead": chapterInfo.currentChapter,
+						"latest": chapters[ chapters.length - 1 ][ 0 ],
 						"tags": [],
-						"chapter_list": chapters
+						"chapterList": chapters,
 					};
 
-					chrome.runtime.sendMessage({
-						mangaToTrack: full_info
-					}, function (response) {
-						console.log(response);
+					chrome.runtime.sendMessage( {
+						mangaToTrack: fullInfo,
+					}, function ( response ) {
+						console.log( response );
 
-						checkTracked();
-					});
-				})
-				.on('click', '#stop-track', function () {
-					console.log('attempting to stop tracking');
+						checkTracked( chapterInfo );
+					} );
+				} )
+				.on( 'click', '#stop-track', function () {
+					console.log( 'attempting to stop tracking' );
 
 					updateTrackingButtons();
 
-					chrome.runtime.sendMessage({
-						mangaToStopTracking: info.name
-					}, function (response) {
-						console.log(response);
+					chrome.runtime.sendMessage( {
+						mangaToStopTracking: chapterInfo.name,
+					}, function ( response ) {
+						console.log( response );
 
-						checkTracked();
-					});
-				});
+						checkTracked( chapterInfo );
+					} );
+				} );
 		} else {
-			$('.loading-wrap').hide();
+			$( '.loading-wrap' ).hide();
 		}
 
-	});
-})();
+	} );
+}
+
+bmrInject();
