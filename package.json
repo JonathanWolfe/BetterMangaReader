@@ -7,15 +7,6 @@
     "type": "git",
     "url": "git://github.com/JonathanWolfe/BetterMangaReader.git"
   },
-  "devDependencies": {
-    "babel-preset-es2015": "latest",
-    "gulp": "latest",
-    "gulp-babel": "latest",
-    "gulp-cssnext": "latest",
-    "gulp-plumber": "latest",
-    "gulp-uglify": "latest",
-    "wurl": "latest"
-  },
   "bugs": {
     "url": "https://github.com/JonathanWolfe/BetterMangaReader/issues"
   },
@@ -26,5 +17,16 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jon Wolfe",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-es2015": "latest",
+    "eslint": "latest",
+    "eslint-config-airbnb": "latest",
+    "gulp": "latest",
+    "gulp-babel": "latest",
+    "gulp-cssnext": "latest",
+    "gulp-plumber": "latest",
+    "gulp-uglify": "latest",
+    "wurl": "latest"
+  }
 }
