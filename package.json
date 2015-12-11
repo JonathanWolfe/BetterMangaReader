@@ -19,6 +19,7 @@
   "author": "Jon Wolfe",
   "license": "MIT",
   "devDependencies": {
+    "babel-eslint": "latest",
     "babel-preset-es2015": "latest",
     "eslint": "latest",
     "eslint-config-airbnb": "latest",
