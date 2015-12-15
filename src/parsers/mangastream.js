@@ -10,17 +10,20 @@
 		/**
 		 * Gets the chapter list from inside a manga
 		 * @param  {HTML} HTML HTML of the page
-		 * @return {Array}      Array of Chapters found on the page in the [Number, Title, Url] format
+		 * @return {Array}      Array of Chapters found on the page
 		 */
 		getChaptersListFromChapter: ( HTML ) => {
 			const chapters = [];
+			const elements = $( '.subnav .controls .btn-group:first .dropdown-menu li', HTML ).toArray().slice( 0, -2 );
 
-			$( '#bottom_chapter_list option', HTML ).each( ( index, element ) => {
-				const chapterTitle = $( '.visible-desktop', element ).text().trim();
-				const chapterUrl = $( element ).attr( 'href' );
-				const chapterNum = parseFloat( $( '.visible-phone', element ).text().trim() );
+			elements.forEach( ( element ) => {
+				const title = $( '.visible-desktop', element ).text().trim().split( ' - ' )[ 1 ];
+				const url = $( 'a', element ).attr( 'href' );
+				const number = parseFloat( $( '.visible-phone', element ).text().trim() );
 
-				chapters.shift( [ chapterNum, chapterTitle, chapterUrl ] );
+				chapters.push( {
+					number, title, url,
+				} );
 			} );
 
 			return chapters;
@@ -36,11 +39,13 @@
 			const chapters = [];
 
 			$( '.table-striped a', HTML ).each( ( index, element ) => {
-				const chapterTitle = $( element ).text().trim();
-				const chapterUrl = $( element ).attr( 'href' );
-				const chapterNum = parseFloat( chapterTitle.split( ' - ' )[ 1 ] );
+				const title = $( element ).text().trim();
+				const url = $( element ).attr( 'href' );
+				const number = parseFloat( title.split( ' - ' )[ 1 ] );
 
-				chapters.push( [ chapterNum, chapterTitle, chapterUrl ] );
+				chapters.push( {
+					number, title, url,
+				} );
 			} );
 
 			return chapters;
@@ -54,15 +59,15 @@
 		 */
 		getChapterInfo: ( HTML ) => {
 			const mangaName = $( '.dropdown-toggle .visible-desktop:first', HTML ).text().trim();
-			const chapterNum = parseFloat( $( '.dropdown-toggle .visible-desktop:last', HTML ).text().split( ' - ' )[ 1 ].trim() );
+			const number = parseFloat( $( '.page a', HTML ).attr( 'href' ).split( '/r/' )[ 1 ].split( '/' )[ 1 ] );
 			const mangaUrl = $( '.btn-group .dropdown-menu:first a:last', HTML ).attr( 'href' );
-			const chapterUrl = $( '.dropdown-menu:last a:first', HTML ).attr( 'href' );
+			const url = $( '.dropdown-menu:last a:first', HTML ).attr( 'href' );
 
 			return {
 				mangaName,
-				chapterNum,
+				number,
 				mangaUrl,
-				chapterUrl,
+				url,
 			};
 		},
 
