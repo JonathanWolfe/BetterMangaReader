@@ -1,133 +1,127 @@
-var Mirror = {
+( function initParser() {
 
-	mirrorName: "MangaStream",
-	mirrorUrl: "readms.com",
-	languages: "en",
+	const parser = {
 
-	// Gets the chapter list from inside a manga
-	getChaptersFromPage: function (page) {
-		var chapters = [];
+		name: 'MangaStream',
+		normalizedName: 'readms', // should be the main part of the/a url. No prefix or suffixs.
+		urls: [ 'readms.com', 'mangastream.com' ],
 
-		$('.controls .btn-group:first li a:not(":last")', page).each(function () {
-			var chapter_num = $('.visible-phone', this).text().trim(),
-				chapter_name = $('.visible-desktop', this).text().trim();
-			chapters.push([chapter_num, chapter_name, $(this).attr('href')]);
-		});
 
-		chapters.reverse();
+		/**
+		 * Gets the chapter list from inside a manga
+		 * @param  {HTML} HTML HTML of the page
+		 * @return {Array}      Array of Chapters found on the page in the [Number, Title, Url] format
+		 */
+		getChaptersListFromChapter: ( HTML ) => {
+			const chapters = [];
 
-		return chapters;
-	},
+			$( '#bottom_chapter_list option', HTML ).each( ( index, element ) => {
+				const chapterTitle = $( '.visible-desktop', element ).text().trim();
+				const chapterUrl = $( element ).attr( 'href' );
+				const chapterNum = parseFloat( $( '.visible-phone', element ).text().trim() );
 
-	/**
-	 *  Find the list of all chapters of the manga represented by the urlManga parameter
-	 *  This list must be an Array of [["chapter Number", "chapter name", "url"], ...]
-	 *  This list must be sorted descending. The first element must be the most recent.
-	 */
-	getChapterList: function (manga) {
-		var encodedURL = encodeURIComponent(manga.url),
-			chapter_data = [];
+				chapters.shift( [ chapterNum, chapterTitle, chapterUrl ] );
+			} );
 
-		$.ajax({
-			async: false,
-			url: "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22" + encodedURL + "%22"
-		})
-			.done(function (returned_data) {
+			return chapters;
+		},
 
-				$(returned_data).find(".table-striped a").each(function () {
-					var chapter_name = $(this).text().trim(),
-						chapter_num = /([0-9]+(?:\.[0-9])?) /.exec(chapter_name);
 
-					chapter_data.push([chapter_num, chapter_name, $(this).attr("href")]);
-				});
+		/**
+		 * Get all the chapters of a manga from their profile page on a given site
+		 * @param  {HTML} HTML HTML of the manga's profile page
+		 * @return {Promise}       Resolves to an array of Chapters in the [Number, Title, Url] format
+		 */
+		getChaptersListFromProfile: ( HTML ) => {
+			const chapters = [];
 
-			});
+			$( '.table-striped a', HTML ).each( ( index, element ) => {
+				const chapterTitle = $( element ).text().trim();
+				const chapterUrl = $( element ).attr( 'href' );
+				const chapterNum = parseFloat( chapterTitle.split( ' - ' )[ 1 ] );
 
-		// console.log(manga);
-		// console.log(chapter_data);
-		return chapter_data;
-	},
+				chapters.push( [ chapterNum, chapterTitle, chapterUrl ] );
+			} );
 
-	/**
-	 *  This method must return (throught callback method) an object like :
-	 *  {"name" : Name of current manga,
-	 *  "currentChapter": Name of thee current chapter (one of the chapters returned by getListChaps),
-	 *  "currentMangaURL": Url to access current manga,
-	 *  "currentChapterURL": Url to access current chapter}
-	 */
-	getInformationFromCurrentPage: function (page) {
-		var name = $('.dropdown-toggle .visible-desktop:first', page).text().trim(),
-			currentChapter = $('.btn-group .dropdown-toggle:first', page).text().replace(name, '').trim(),
-			currentMangaURL = $('.btn-group .dropdown-menu:first a:last', page).attr('href'),
-			currentChapterURL = $('.dropdown-menu:last a:first', page).attr('href');
+			return chapters;
+		},
 
-		return {
-			"name": name,
-			"currentChapter": currentChapter.slice(0, currentChapter.indexOf(' - ') - 1),
-			"currentMangaURL": currentMangaURL,
-			"currentChapterURL": currentChapterURL
-		};
-	},
 
-	// Returns the list of the pages in this chapter to be used later when making the image urls.
-	getPages: function (page) {
+		/**
+		 * Retrieve information about the current Manga via a chapter page
+		 * @param  {HTML} HTML context for jQuery to search in
+		 * @return {Object}      Info object
+		 */
+		getChapterInfo: ( HTML ) => {
+			const mangaName = $( '.dropdown-toggle .visible-desktop:first', HTML ).text().trim();
+			const chapterNum = parseFloat( $( '.dropdown-toggle .visible-desktop:last', HTML ).text().split( ' - ' )[ 1 ].trim() );
+			const mangaUrl = $( '.btn-group .dropdown-menu:first a:last', HTML ).attr( 'href' );
+			const chapterUrl = $( '.dropdown-menu:last a:first', HTML ).attr( 'href' );
 
-		var pages = [],
-			last_page = $('.dropdown-menu:last li:last a', page).attr('href'),
-			num_pages = last_page.split('/').pop();
+			return {
+				mangaName,
+				chapterNum,
+				mangaUrl,
+				chapterUrl,
+			};
+		},
 
-		for (var i = 1; i <= num_pages; i += 1) {
-			pages.push(last_page.substr(0, last_page.length - num_pages.length) + i);
-		}
 
-		return pages;
-	},
+		/**
+		 * Get the Urls of the pages for a chapter
+		 * @param  {HTML} HTML HTML of the page
+		 * @return {Array}      The list of the pages in this chapter to be used later when making the image urls.
+		 */
+		getPages: ( HTML ) => {
+			const pages = [];
+			const lastPage = $( '.dropdown-menu:last li:last a', HTML ).attr( 'href' );
+			const numPages = lastPage.split( '/' ).pop();
 
-	//Remove the banners from the current page
-	removeRedundant: function (page) {
-		$('.banner-ad', page).remove();
-		$('#reader-sky', page).remove();
-	},
-
-	/**
-	 *  This method returns the place to write the full chapter in the document
-	 *  The returned element will be totally emptied.
-	 */
-	whereDoIWriteScans: function (page) {
-		return $(".page", page);
-	},
-
-	//Return true if the current page is a page containing scan.
-	isCurrentPageAChapterPage: function (page) {
-		return ($(".page", page).size() > 0);
-	},
-
-	//This method is called before displaying full chapters in the page
-	doSomethingBeforeWritingScans: function (page) {
-		$(".page", page).empty();
-		$(".page", page).css("width", "auto");
-		$(".subnav", page).hide();
-	},
-
-	// Write the image from the the url returned by the getPages() function.
-	getImageFromPage: function (page) {
-		var src;
-
-		$.ajax(page, {
-			async: false,
-			success: function (data) {
-				src = $(".page img", data).attr("src");
+			for ( let i = 1; i <= numPages; i += 1 ) {
+				pages.push( lastPage.substr( 0, lastPage.length - numPages.length ) + i );
 			}
-		});
 
-		return src;
-	},
+			return pages;
+		},
 
-	//This function is called when the manga is full loaded. Just do what you want here...
-	doAfterMangaLoaded: function (page) {
-		//This function runs in the DOM of the current consulted page.
-		$("body > div:empty", page).remove();
-	}
-};
 
-module.exports = Mirror;
+		/**
+		 * This method returns the place to write the full chapter in the document
+		 * The returned element will be totally emptied.
+		 * @return {Selector}      CSS Element Selector
+		 */
+		scanContainer: () => '.page',
+
+
+		/**
+		 * Is the current page being viewed a chapter in a manga?
+		 * @param  {HTML}  HTML HTML of the page
+		 * @return {Boolean}      Whether or not it is a page in a chapter
+		 */
+		isChapterPage: ( HTML ) => $( '.page', HTML ).length > 0,
+
+
+		/**
+		 * Is the current page being viewed a profile page for a manga?
+		 * @param  {HTML}  HTML HTML of the page
+		 * @return {Boolean}      Whether or not it is a profile page for a manga
+		 */
+		isProfilePage: ( HTML ) => $( '.main-body .span8 > .table-striped tbody > tr:first-of-type th:first-of-type', HTML ).text().toLowerCase() === 'chapter',
+
+
+		/**
+		 * Get the image Urls from all the chapter pages
+		 * @param  {HTML} HTML HTML of a chapter page
+		 * @return {Promise}     Resolves to the Url of the desired Image
+		 */
+		getImageFromPage: ( HTML ) => $( '.page img', HTML ).attr( 'src' ),
+
+	};
+
+
+	/**
+	 * Register the Parser so it can be accessed
+	 */
+	window.parsers.register( parser );
+	return parser;
+}() );
