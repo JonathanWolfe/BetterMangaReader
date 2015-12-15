@@ -37,6 +37,7 @@
 		],
 		"js": [
 			"scripts/vendor/jquery.min.js",
+			"scripts/html-sanitize.js",
 			"scripts/inject.js"
 		]
 	} ],
