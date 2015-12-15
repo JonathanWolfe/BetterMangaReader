@@ -65,8 +65,8 @@
 
 			return {
 				mangaName,
-				number,
 				mangaUrl,
+				number,
 				url,
 			};
 		},
