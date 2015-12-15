@@ -11,6 +11,9 @@ const plumberOptions = {
 		this.emit( 'end' );
 	},
 };
+const babelOptions = {
+	presets: [ 'es2015' ],
+};
 
 
 gulp.task( 'manifest', function copyManifest() {
@@ -40,9 +43,7 @@ gulp.task( 'css', function processCSS() {
 gulp.task( 'scripts', function processJS() {
 	return gulp.src( 'src/scripts/**/*.js' )
 		.pipe( plumber( plumberOptions ) )
-		.pipe( babel( {
-			presets: [ 'es2015' ],
-		} ) )
+		.pipe( babel( babelOptions ) )
 		.pipe( uglify() )
 		.pipe( gulp.dest( 'ext/scripts/' ) );
 } );
@@ -50,9 +51,7 @@ gulp.task( 'scripts', function processJS() {
 gulp.task( 'parsers', function processParsers() {
 	return gulp.src( 'src/parsers/**/*.js' )
 		.pipe( plumber( plumberOptions ) )
-		.pipe( babel( {
-			presets: [ 'es2015' ],
-		} ) )
+		.pipe( babel( babelOptions ) )
 		.pipe( uglify() )
 		.pipe( gulp.dest( 'ext/parsers/' ) );
 } );
