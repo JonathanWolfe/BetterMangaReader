@@ -27,6 +27,7 @@ $( document ).ready( function initBMRInject() {
 				action: 'parseChapterPage',
 				html: clonedHTML,
 			}, ( response ) => {
+				console.log( 'parseChapterPage', response );
 				if ( response && response.type === 'success' ) {
 					chapterInfo = response.value;
 					events.getImagesForChapter();
@@ -34,12 +35,6 @@ $( document ).ready( function initBMRInject() {
 			} );
 		},
 
-		getChapterListFromProfile: () => {
-			chrome.runtime.sendMessage( {
-				action: 'getChapterListFromProfile',
-				html: clonedHTML,
-			} );
-		},
 	};
 
 	chrome.runtime.onMessage.addListener( function processMessage( message, sender ) {
@@ -63,9 +58,6 @@ $( document ).ready( function initBMRInject() {
 		if ( response.type === 'success' ) {
 			if ( response.value.isChapterPage ) {
 				events.parseChapterPage();
-			}
-			if ( response.value.isProfilePage ) {
-				events.getChapterListFromProfile();
 			}
 		} else {
 			console.error( 'BMR Error: ', response.value );
