@@ -79,11 +79,11 @@
 
 			const chapterUrl = chapter.attr( 'href' );
 			const mangaUrl = manga.attr( 'href' );
-			const chapterNumber = getChapterNumberFromChapterUrl( chapterUrl );
+			const chapterNum = getChapterNumberFromChapterUrl( chapterUrl );
 
 			return {
 				mangaName,
-				chapterNumber,
+				chapterNum,
 				mangaUrl,
 				chapterUrl,
 			};
