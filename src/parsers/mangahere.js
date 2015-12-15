@@ -20,7 +20,7 @@
 		/**
 		 * Gets the chapter list from inside a manga
 		 * @param  {HTML} HTML HTML of the page
-		 * @return {Array}      Array of Chapters found on the page in the [Number, Title, Url] format
+		 * @return {Array}      Array of Chapters found on the page
 		 */
 		getChaptersListFromChapter: ( HTML ) => {
 			const chapters = [];
@@ -28,11 +28,13 @@
 			$( '#bottom_chapter_list option', HTML ).each( ( index, element ) => {
 				const option = $( element );
 
-				const chapterTitle = option.text().trim();
-				const chapterUrl = option.val();
-				const chapterNum = getChapterNumberFromChapterUrl( chapterUrl );
+				const title = option.text().trim();
+				const url = option.val();
+				const number = getChapterNumberFromChapterUrl( url );
 
-				chapters.push( [ chapterNum, chapterTitle, chapterUrl ] );
+				chapters.push( {
+					number, title, url,
+				} );
 			} );
 
 			return chapters;
@@ -42,7 +44,7 @@
 		/**
 		 * Get all the chapters of a manga from their profile page on a given site
 		 * @param  {HTML} HTML HTML of the manga's profile page
-		 * @return {Promise}       Resolves to an array of Chapters in the [Number, Title, Url] format
+		 * @return {Promise}       Resolves to an array of Chapters
 		 */
 		getChaptersListFromProfile: ( HTML ) => {
 			const chapters = [];
@@ -50,11 +52,13 @@
 			$( '.detail_list ul li span.left a', HTML ).each( ( index, element ) => {
 				const option = $( element );
 
-				const chapterTitle = option.text().trim();
-				const chapterUrl = option.attr( 'href' );
-				const chapterNum = getChapterNumberFromChapterUrl( chapterUrl );
+				const title = option.text().trim();
+				const url = option.attr( 'href' );
+				const number = getChapterNumberFromChapterUrl( url );
 
-				chapters.push( [ chapterNum, chapterTitle, chapterUrl ] );
+				chapters.push( {
+					number, title, url,
+				} );
 			} );
 
 			return chapters;
@@ -77,15 +81,15 @@
 				mangaName = mangaName.substr( 0, mangaName.length - 5 ).trim();
 			}
 
-			const chapterUrl = chapter.attr( 'href' );
+			const url = chapter.attr( 'href' );
 			const mangaUrl = manga.attr( 'href' );
-			const chapterNum = getChapterNumberFromChapterUrl( chapterUrl );
+			const number = getChapterNumberFromChapterUrl( url );
 
 			return {
 				mangaName,
-				chapterNum,
 				mangaUrl,
-				chapterUrl,
+				number,
+				url,
 			};
 		},
 
