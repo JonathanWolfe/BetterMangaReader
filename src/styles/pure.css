@@ -1,0 +1,717 @@
+/*!
+Pure v0.6.0
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+https://github.com/yahoo/pure/blob/master/LICENSE.md
+*/
+
+
+/*!
+normalize.css v^3.0 | MIT License | git.io/normalize
+Copyright (c) Nicolas Gallagher and Jonathan Neal
+*/
+
+
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
+#bmr-controls html {
+	font-family : sans-serif;
+
+	-webkit-text-size-adjust : 100%;
+	    -ms-text-size-adjust : 100%;
+}
+
+#bmr-controls body {
+	margin : 0;
+}
+
+#bmr-controls article,
+#bmr-controls aside,
+#bmr-controls details,
+#bmr-controls figcaption,
+#bmr-controls figure,
+#bmr-controls footer,
+#bmr-controls header,
+#bmr-controls hgroup,
+#bmr-controls main,
+#bmr-controls menu,
+#bmr-controls nav,
+#bmr-controls section,
+#bmr-controls summary {
+	display : block;
+}
+
+#bmr-controls audio,
+#bmr-controls canvas,
+#bmr-controls progress,
+#bmr-controls video {
+	display : inline-block;
+	vertical-align : baseline;
+}
+
+#bmr-controls audio:not([controls]) {
+	display : none;
+	height : 0;
+}
+
+#bmr-controls [hidden],
+#bmr-controls template {
+	display : none;
+}
+
+#bmr-controls a {
+	background-color : transparent;
+}
+
+#bmr-controls a:active,
+#bmr-controls a:hover {
+	outline : 0;
+}
+
+#bmr-controls abbr[title] {
+	border-bottom : 1px dotted;
+}
+
+#bmr-controls b,
+#bmr-controls strong {
+	font-weight : 700;
+}
+
+#bmr-controls dfn {
+	font-style : italic;
+}
+
+#bmr-controls h1 {
+	margin : .67em 0;
+	font-size : 2em;
+}
+
+#bmr-controls mark {
+	background : #ff0;
+	color : #000;
+}
+
+#bmr-controls small {
+	font-size : 80%;
+}
+
+#bmr-controls sub,
+#bmr-controls sup {
+	position : relative;
+	font-size : 75%;
+	line-height : 0;
+	vertical-align : baseline;
+}
+
+#bmr-controls sup {
+	top : -.5em;
+}
+
+#bmr-controls sub {
+	bottom : -.25em;
+}
+
+#bmr-controls img {
+	border : 0;
+}
+
+#bmr-controls svg:not(:root) {
+	overflow : hidden;
+}
+
+#bmr-controls figure {
+	margin : 1em 40px;
+}
+
+#bmr-controls hr {
+	height : 0;
+	-moz-box-sizing : content-box;
+	     box-sizing : content-box;
+}
+
+#bmr-controls pre {
+	overflow : auto;
+}
+
+#bmr-controls code,
+#bmr-controls kbd,
+#bmr-controls pre,
+#bmr-controls samp {
+	font-family : monospace, monospace;
+	font-size : 1em;
+}
+
+#bmr-controls button,
+#bmr-controls input,
+#bmr-controls optgroup,
+#bmr-controls select,
+#bmr-controls textarea {
+	margin : 0;
+	color : inherit;
+	font : inherit;
+}
+
+#bmr-controls button {
+	overflow : visible;
+}
+
+#bmr-controls button,
+#bmr-controls select {
+	text-transform : none;
+}
+
+#bmr-controls button,
+#bmr-controls html input[type=button],
+#bmr-controls input[type=reset],
+#bmr-controls input[type=submit] {
+	cursor : pointer;
+
+	-webkit-appearance : button;
+}
+
+#bmr-controls button[disabled],
+#bmr-controls html input[disabled] {
+	cursor : default;
+}
+
+#bmr-controls button::-moz-focus-inner,
+#bmr-controls input::-moz-focus-inner {
+	padding : 0;
+	border : 0;
+}
+
+#bmr-controls input {
+	line-height : normal;
+}
+
+#bmr-controls input[type=checkbox],
+#bmr-controls input[type=radio] {
+	padding : 0;
+	box-sizing : border-box;
+}
+
+#bmr-controls input[type=number]::-webkit-inner-spin-button,
+#bmr-controls input[type=number]::-webkit-outer-spin-button {
+	height : auto;
+}
+
+#bmr-controls input[type=search] {
+	-webkit-box-sizing : content-box;
+	   -moz-box-sizing : content-box;
+	        box-sizing : content-box;
+
+	-webkit-appearance : textfield;
+}
+
+#bmr-controls input[type=search]::-webkit-search-cancel-button,
+#bmr-controls input[type=search]::-webkit-search-decoration {
+	-webkit-appearance : none;
+}
+
+#bmr-controls fieldset {
+	margin : 0 2px;
+	padding : .35em .625em .75em;
+	border : 1px solid silver;
+}
+
+#bmr-controls legend {
+	padding : 0;
+	border : 0;
+}
+
+#bmr-controls textarea {
+	overflow : auto;
+}
+
+#bmr-controls optgroup {
+	font-weight : 700;
+}
+
+#bmr-controls table {
+	border-collapse : collapse;
+	border-spacing : 0;
+}
+
+#bmr-controls td,
+#bmr-controls th {
+	padding : 0;
+}
+
+#bmr-controls .hidden,
+#bmr-controls [hidden] {
+	display : none!important;
+}
+
+#bmr-controls .pure-img {
+	display : block;
+	max-width : 100%;
+	height : auto;
+}
+
+
+/*!
+Pure v0.6.0
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+https://github.com/yahoo/pure/blob/master/LICENSE.md
+*/
+
+#bmr-controls .pure-button {
+	display : inline-block;
+	-webkit-box-sizing : border-box;
+	   -moz-box-sizing : border-box;
+	        box-sizing : border-box;
+	line-height : normal;
+	text-align : center;
+	white-space : nowrap;
+	cursor : pointer;
+	vertical-align : middle;
+
+	-webkit-user-drag : none;
+	-webkit-user-select : none;
+	   -moz-user-select : none;
+	    -ms-user-select : none;
+	        user-select : none;
+	zoom : 1;
+}
+
+#bmr-controls .pure-button::-moz-focus-inner {
+	padding : 0;
+	border : 0;
+}
+
+#bmr-controls .pure-button {
+	padding : .5em 1em;
+	border : 1px solid #999;
+	border : 0 rgba(0, 0, 0, 0);
+	border-radius : 2px;
+	background-color : #e6e6e6;
+	color : #444;
+	color : rgba(0, 0, 0, .8);
+	font-family : inherit;
+	font-size : 100%;
+	text-decoration : none;
+}
+
+#bmr-controls .pure-button-hover,
+#bmr-controls .pure-button:hover,
+#bmr-controls .pure-button:focus {
+	background-image : -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0, 0, 0, .05)), to(rgba(0, 0, 0, .1)));
+	background-image : -webkit-linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1));
+	background-image :    -moz-linear-gradient(top, rgba(0, 0, 0, .05) 0, rgba(0, 0, 0, .1));
+	background-image :      -o-linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1));
+	background-image :         linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1));
+
+	filter : progid: DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000', GradientType=0);
+}
+
+#bmr-controls .pure-button:focus {
+	outline : 0;
+}
+
+#bmr-controls .pure-button-active,
+#bmr-controls .pure-button:active {
+	border-color : #000\9;
+	box-shadow : 0 0 0 1px rgba(0, 0, 0, .15) inset, 0 0 6px rgba(0, 0, 0, .2) inset;
+}
+
+#bmr-controls .pure-button[disabled],
+#bmr-controls .pure-button-disabled,
+#bmr-controls .pure-button-disabled:hover,
+#bmr-controls .pure-button-disabled:focus,
+#bmr-controls .pure-button-disabled:active {
+	border : 0;
+	background-image : none;
+	box-shadow : none;
+	cursor : not-allowed;
+	     opacity : .4;
+
+	-khtml-opacity : .4;
+	filter : progid: DXImageTransform.Microsoft.gradient(enabled=false);
+	filter : alpha(opacity=40);
+	-moz-opacity : .4;
+}
+
+#bmr-controls .pure-button-hidden {
+	display : none;
+}
+
+#bmr-controls .pure-button::-moz-focus-inner {
+	padding : 0;
+	border : 0;
+}
+
+#bmr-controls .pure-button-primary,
+#bmr-controls .pure-button-selected,
+#bmr-controls a.pure-button-primary,
+#bmr-controls a.pure-button-selected {
+	background-color : #0078e7;
+	color : #fff;
+}
+
+
+/*!
+Pure v0.6.0
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+https://github.com/yahoo/pure/blob/master/LICENSE.md
+*/
+
+#bmr-controls .pure-form input[type=text],
+#bmr-controls .pure-form input[type=password],
+#bmr-controls .pure-form input[type=email],
+#bmr-controls .pure-form input[type=url],
+#bmr-controls .pure-form input[type=date],
+#bmr-controls .pure-form input[type=month],
+#bmr-controls .pure-form input[type=time],
+#bmr-controls .pure-form input[type=datetime],
+#bmr-controls .pure-form input[type=datetime-local],
+#bmr-controls .pure-form input[type=week],
+#bmr-controls .pure-form input[type=number],
+#bmr-controls .pure-form input[type=search],
+#bmr-controls .pure-form input[type=tel],
+#bmr-controls .pure-form input[type=color],
+#bmr-controls .pure-form select,
+#bmr-controls .pure-form textarea {
+	display : inline-block;
+	padding : .5em .6em;
+	-webkit-box-sizing : border-box;
+	   -moz-box-sizing : border-box;
+	        box-sizing : border-box;
+	border : 1px solid #ccc;
+	border-radius : 4px;
+	box-shadow : inset 0 1px 3px #ddd;
+	vertical-align : middle;
+}
+
+#bmr-controls .pure-form input:not([type]) {
+	display : inline-block;
+	padding : .5em .6em;
+	-webkit-box-sizing : border-box;
+	   -moz-box-sizing : border-box;
+	        box-sizing : border-box;
+	border : 1px solid #ccc;
+	border-radius : 4px;
+	box-shadow : inset 0 1px 3px #ddd;
+}
+
+#bmr-controls .pure-form input[type=color] {
+	padding : .2em .5em;
+}
+
+#bmr-controls .pure-form input[type=text]:focus,
+#bmr-controls .pure-form input[type=password]:focus,
+#bmr-controls .pure-form input[type=email]:focus,
+#bmr-controls .pure-form input[type=url]:focus,
+#bmr-controls .pure-form input[type=date]:focus,
+#bmr-controls .pure-form input[type=month]:focus,
+#bmr-controls .pure-form input[type=time]:focus,
+#bmr-controls .pure-form input[type=datetime]:focus,
+#bmr-controls .pure-form input[type=datetime-local]:focus,
+#bmr-controls .pure-form input[type=week]:focus,
+#bmr-controls .pure-form input[type=number]:focus,
+#bmr-controls .pure-form input[type=search]:focus,
+#bmr-controls .pure-form input[type=tel]:focus,
+#bmr-controls .pure-form input[type=color]:focus,
+#bmr-controls .pure-form select:focus,
+#bmr-controls .pure-form textarea:focus {
+	border-color : #129fea;
+	outline : 0;
+}
+
+#bmr-controls .pure-form input:not([type]):focus {
+	border-color : #129fea;
+	outline : 0;
+}
+
+#bmr-controls .pure-form input[type=file]:focus,
+#bmr-controls .pure-form input[type=radio]:focus,
+#bmr-controls .pure-form input[type=checkbox]:focus {
+	outline : thin solid #129fea;
+	outline : 1px auto #129fea;
+}
+
+#bmr-controls .pure-form .pure-checkbox,
+#bmr-controls .pure-form .pure-radio {
+	display : block;
+	margin : .5em 0;
+}
+
+#bmr-controls .pure-form input[type=text][disabled],
+#bmr-controls .pure-form input[type=password][disabled],
+#bmr-controls .pure-form input[type=email][disabled],
+#bmr-controls .pure-form input[type=url][disabled],
+#bmr-controls .pure-form input[type=date][disabled],
+#bmr-controls .pure-form input[type=month][disabled],
+#bmr-controls .pure-form input[type=time][disabled],
+#bmr-controls .pure-form input[type=datetime][disabled],
+#bmr-controls .pure-form input[type=datetime-local][disabled],
+#bmr-controls .pure-form input[type=week][disabled],
+#bmr-controls .pure-form input[type=number][disabled],
+#bmr-controls .pure-form input[type=search][disabled],
+#bmr-controls .pure-form input[type=tel][disabled],
+#bmr-controls .pure-form input[type=color][disabled],
+#bmr-controls .pure-form select[disabled],
+#bmr-controls .pure-form textarea[disabled] {
+	background-color : #eaeded;
+	color : #cad2d3;
+	cursor : not-allowed;
+}
+
+#bmr-controls .pure-form input:not([type])[disabled] {
+	background-color : #eaeded;
+	color : #cad2d3;
+	cursor : not-allowed;
+}
+
+#bmr-controls .pure-form input[readonly],
+#bmr-controls .pure-form select[readonly],
+#bmr-controls .pure-form textarea[readonly] {
+	border-color : #ccc;
+	background-color : #eee;
+	color : #777;
+}
+
+#bmr-controls .pure-form input:focus:invalid,
+#bmr-controls .pure-form textarea:focus:invalid,
+#bmr-controls .pure-form select:focus:invalid {
+	border-color : #e9322d;
+	color : #b94a48;
+}
+
+#bmr-controls .pure-form input[type=file]:focus:invalid:focus,
+#bmr-controls .pure-form input[type=radio]:focus:invalid:focus,
+#bmr-controls .pure-form input[type=checkbox]:focus:invalid:focus {
+	outline-color : #e9322d;
+}
+
+#bmr-controls .pure-form select {
+	height : 2.25em;
+	border : 1px solid #ccc;
+	background-color : #fff;
+}
+
+#bmr-controls .pure-form select[multiple] {
+	height : auto;
+}
+
+#bmr-controls .pure-form label {
+	margin : .5em 0 .2em;
+}
+
+#bmr-controls .pure-form fieldset {
+	margin : 0;
+	padding : .35em 0 .75em;
+	border : 0;
+}
+
+#bmr-controls .pure-form legend {
+	display : block;
+	width : 100%;
+	margin-bottom : .3em;
+	padding : .3em 0;
+	border-bottom : 1px solid #e5e5e5;
+	color : #333;
+}
+
+#bmr-controls .pure-form-stacked input[type=text],
+#bmr-controls .pure-form-stacked input[type=password],
+#bmr-controls .pure-form-stacked input[type=email],
+#bmr-controls .pure-form-stacked input[type=url],
+#bmr-controls .pure-form-stacked input[type=date],
+#bmr-controls .pure-form-stacked input[type=month],
+#bmr-controls .pure-form-stacked input[type=time],
+#bmr-controls .pure-form-stacked input[type=datetime],
+#bmr-controls .pure-form-stacked input[type=datetime-local],
+#bmr-controls .pure-form-stacked input[type=week],
+#bmr-controls .pure-form-stacked input[type=number],
+#bmr-controls .pure-form-stacked input[type=search],
+#bmr-controls .pure-form-stacked input[type=tel],
+#bmr-controls .pure-form-stacked input[type=color],
+#bmr-controls .pure-form-stacked input[type=file],
+#bmr-controls .pure-form-stacked select,
+#bmr-controls .pure-form-stacked label,
+#bmr-controls .pure-form-stacked textarea {
+	display : block;
+	margin : .25em 0;
+}
+
+#bmr-controls .pure-form-stacked input:not([type]) {
+	display : block;
+	margin : .25em 0;
+}
+
+#bmr-controls .pure-form-aligned input,
+#bmr-controls .pure-form-aligned textarea,
+#bmr-controls .pure-form-aligned select,
+#bmr-controls .pure-form-aligned .pure-help-inline,
+#bmr-controls .pure-form-message-inline {
+	display : inline-block;
+	vertical-align : middle;
+
+	*display : inline;
+	*zoom : 1;
+}
+
+#bmr-controls .pure-form-aligned textarea {
+	vertical-align : top;
+}
+
+#bmr-controls .pure-form-aligned .pure-control-group {
+	margin-bottom : .5em;
+}
+
+#bmr-controls .pure-form-aligned .pure-control-group label {
+	display : inline-block;
+	width : 10em;
+	margin : 0 1em 0 0;
+	text-align : right;
+	vertical-align : middle;
+}
+
+#bmr-controls .pure-form-aligned .pure-controls {
+	margin : 1.5em 0 0 11em;
+}
+
+#bmr-controls .pure-form input.pure-input-rounded,
+#bmr-controls .pure-form .pure-input-rounded {
+	padding : .5em 1em;
+	border-radius : 2em;
+}
+
+#bmr-controls .pure-form .pure-group fieldset {
+	margin-bottom : 10px;
+}
+
+#bmr-controls .pure-form .pure-group input,
+#bmr-controls .pure-form .pure-group textarea {
+	display : block;
+	position : relative;
+	top : -1px;
+	margin : 0 0 -1px;
+	padding : 10px;
+	border-radius : 0;
+}
+
+#bmr-controls .pure-form .pure-group input:focus,
+#bmr-controls .pure-form .pure-group textarea:focus {
+	z-index : 3;
+}
+
+#bmr-controls .pure-form .pure-group input:first-child,
+#bmr-controls .pure-form .pure-group textarea:first-child {
+	top : 1px;
+	margin : 0;
+	border-radius : 4px 4px 0 0;
+}
+
+#bmr-controls .pure-form .pure-group input:first-child:last-child,
+#bmr-controls .pure-form .pure-group textarea:first-child:last-child {
+	top : 1px;
+	margin : 0;
+	border-radius : 4px;
+}
+
+#bmr-controls .pure-form .pure-group input:last-child,
+#bmr-controls .pure-form .pure-group textarea:last-child {
+	top : -2px;
+	margin : 0;
+	border-radius : 0 0 4px 4px;
+}
+
+#bmr-controls .pure-form .pure-group button {
+	margin : .35em 0;
+}
+
+#bmr-controls .pure-form .pure-input-1 {
+	width : 100%;
+}
+
+#bmr-controls .pure-form .pure-input-2-3 {
+	width : 66%;
+}
+
+#bmr-controls .pure-form .pure-input-1-2 {
+	width : 50%;
+}
+
+#bmr-controls .pure-form .pure-input-1-3 {
+	width : 33%;
+}
+
+#bmr-controls .pure-form .pure-input-1-4 {
+	width : 25%;
+}
+
+#bmr-controls .pure-form .pure-help-inline,
+#bmr-controls .pure-form-message-inline {
+	display : inline-block;
+	padding-left : .3em;
+	color : #666;
+	font-size : .875em;
+	vertical-align : middle;
+}
+
+#bmr-controls .pure-form-message {
+	display : block;
+	color : #666;
+	font-size : .875em;
+}
+
+@media only screen and (max-width:480px) {
+	#bmr-controls .pure-form button[type=submit] {
+		margin : .7em 0 0;
+	}
+	#bmr-controls .pure-form input:not([type]),
+	#bmr-controls .pure-form input[type=text],
+	#bmr-controls .pure-form input[type=password],
+	#bmr-controls .pure-form input[type=email],
+	#bmr-controls .pure-form input[type=url],
+	#bmr-controls .pure-form input[type=date],
+	#bmr-controls .pure-form input[type=month],
+	#bmr-controls .pure-form input[type=time],
+	#bmr-controls .pure-form input[type=datetime],
+	#bmr-controls .pure-form input[type=datetime-local],
+	#bmr-controls .pure-form input[type=week],
+	#bmr-controls .pure-form input[type=number],
+	#bmr-controls .pure-form input[type=search],
+	#bmr-controls .pure-form input[type=tel],
+	#bmr-controls .pure-form input[type=color],
+	#bmr-controls .pure-form label {
+		display : block;
+		margin-bottom : .3em;
+	}
+	#bmr-controls .pure-group input:not([type]),
+	#bmr-controls .pure-group input[type=text],
+	#bmr-controls .pure-group input[type=password],
+	#bmr-controls .pure-group input[type=email],
+	#bmr-controls .pure-group input[type=url],
+	#bmr-controls .pure-group input[type=date],
+	#bmr-controls .pure-group input[type=month],
+	#bmr-controls .pure-group input[type=time],
+	#bmr-controls .pure-group input[type=datetime],
+	#bmr-controls .pure-group input[type=datetime-local],
+	#bmr-controls .pure-group input[type=week],
+	#bmr-controls .pure-group input[type=number],
+	#bmr-controls .pure-group input[type=search],
+	#bmr-controls .pure-group input[type=tel],
+	#bmr-controls .pure-group input[type=color] {
+		margin-bottom : 0;
+	}
+	#bmr-controls .pure-form-aligned .pure-control-group label {
+		display : block;
+		width : 100%;
+		margin-bottom : .3em;
+		text-align : left;
+	}
+	#bmr-controls .pure-form-aligned .pure-controls {
+		margin : 1.5em 0 0;
+	}
+	#bmr-controls .pure-form .pure-help-inline,
+	#bmr-controls .pure-form-message-inline,
+	#bmr-controls .pure-form-message {
+		display : block;
+		padding : .2em 0 .8em;
+		font-size : .75em;
+	}
+}
