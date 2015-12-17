@@ -10,7 +10,7 @@ chrome.runtime.onMessage.addListener( function processMessage( message, sender, 
 		if ( typeof window.eventHandlers[ message.action ] === 'function' ) {
 			sendResponse( {
 				type: 'success',
-				value: window.eventHandlers[ message.action ].call( this, message, sender, sendResponse ),
+				value: window.eventHandlers[ message.action ].call( this, message, sender ),
 			} );
 		} else {
 			sendResponse( {
