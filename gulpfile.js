@@ -34,7 +34,9 @@ gulp.task( 'html', function copyHTML() {
 gulp.task( 'css', function processCSS() {
 	gulp.src( 'src/styles/*.css' )
 		.pipe( cssnext( {
-			compress: true,
+			compress: {
+				zindex: false,
+			},
 		} ) )
 		.pipe( gulp.dest( 'ext/styles' ) );
 } );
