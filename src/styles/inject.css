@@ -1,15 +1,19 @@
+@import 'normalize.css';
+
 #viewer,
 .page {
 	max-width : 80%;
 	margin : 0 auto!important;
 	padding-top : 10px;
 }
+
 #viewer img,
 .page img {
 	display : block;
 	max-width : 100%;
 	margin : 40px auto;
 }
+
 .loading-wrap {
 	position : fixed;
 	top : 0;
@@ -22,10 +26,12 @@
 	text-align : center;
 	z-index : 999999;
 }
+
 .loading-wrap h2 {
 	font-family : 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size : 30px;
 }
+
 .loader {
 	position : relative;
 	margin : 6em auto;
@@ -37,12 +43,14 @@
 	font-size : 10px;
 	text-indent : -9999em;
 }
+
 .loader,
 .loader:after {
 	width : 10em;
 	height : 10em;
 	border-radius : 50%;
 }
+
 @keyframes loadingSpinner {
 	0% {
 		transform : rotate(0deg);
@@ -58,6 +66,7 @@
 	left : 50%;
 	width : auto;
 	height : 38px;
+	box-sizing : border-box;
 	transform : translateX(-50%);
 	border : 1px solid #3c3c3c;
 	border-top : none;
@@ -70,18 +79,23 @@
 	opacity : .6;
 	z-index : 999999;
 }
+
 #BMRControls:hover {
 	opacity : 1;
 }
+
 #BMRControls * {
 	margin : 0;
 	padding : 0;
+	box-sizing : border-box;
 }
+
 #BMRControls img {
 	display : inline-block;
 	width : 19px;
 	margin : 3px 7px;
 }
+
 #BMRControls button,
 #BMRControls select {
 	font-family : sans-serif;
@@ -89,6 +103,7 @@
 	text-transform : none;
 	vertical-align : middle;
 }
+
 #BMRControls button {
 	display : inline;
 	margin : 7px;
@@ -110,29 +125,33 @@
 	user-select : none;
 	zoom : 1;
 }
+
 #BMRControls button[disabled] {
 	background : #ccc;
 	cursor : default;
 }
-#BMRControls #go-track {
+
+#BMRControls #start-track {
 	background : #25a042;
 }
+
 #BMRControls #stop-track {
 	background : #c51b1b;
 }
+
 #BMRControls button:hover,
 #BMRControls button:focus {
 	background-image : linear-gradient(transparent, rgba(0, 0, 0, .05) 40% rgba(0, 0, 0, .1));
 }
+
 #BMRControls button:active {
 	box-shadow : 0 0 0 1px rgba(0, 0, 0, .15) inset, 0 0 6px rgba(0, 0, 0, .2) inset;
 }
-#BMRControls form {
-	display : inline-block;
-}
+
 #BMRControls form select {
 	display : inline-block;
 	width : auto;
+	max-width : 250px;
 	margin : 3px 7px;
 	padding : .5em .6em;
 	box-sizing : border-box;
@@ -142,20 +161,25 @@
 	box-shadow : inset 0 1px 3px #ddd;
 	cursor : pointer;
 }
+
 #BMRControls form select:focus {
 	border-color : #129fea;
 	outline : thin dotted \9;
 }
+
 #BMRControls form select:focus:invalid {
 	border-color : #ee5f5b;
 	color : #b94a48;
 }
+
 #BMRControls form select:focus:invalid:focus {
 	border-color : #e9322d;
 }
+
 #BMRControls form select[multiple] {
 	height : auto;
 }
+
 #BMRControls button:focus {
 	outline : 0;
 }
