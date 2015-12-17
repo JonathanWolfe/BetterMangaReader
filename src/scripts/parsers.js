@@ -16,12 +16,25 @@ window.parsers = ( function initParsers() {
 		 * @return {Parser}     A Parser Object
 		 */
 		findByUrl: ( url ) => {
-			const pieces = new window.URL( url ).hostname.split( '.' );
+			const normalizedUrl = new window.URL( url ).hostname;
+			const parsers = Object.keys( window.parsers );
+
 			let parser;
-			while ( pieces ) {
-				parser = window.parsers[ pieces.shift() ];
-				if ( parser ) break;
+
+			while ( parsers.length ) {
+				const trying = window.parsers[ parsers.pop() ];
+				if ( trying.urls ) {
+					const normal = trying.urls.indexOf( normalizedUrl );
+					const noWWW = trying.urls.indexOf( normalizedUrl.replace( 'www.', '' ) );
+
+
+					if ( normal !== -1 || noWWW !== -1 ) {
+						parser = trying;
+						break;
+					}
+				}
 			}
+
 			return parser || false;
 		},
 
