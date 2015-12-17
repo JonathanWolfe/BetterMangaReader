@@ -2,22 +2,7 @@ let parsedChapter;
 
 
 function toggleTrackingButton( isTracking ) {
-	if ( typeof isTracking === 'undefined' ) {
-		$( 'BMRControls #check-track' ).show();
-		$( '#BMRControls #start-track' ).hide();
-		$( '#BMRControls #stop-track' ).hide();
-	} else {
-		$( '#BMRControls #check-track' ).hide();
-	}
 
-	if ( isTracking === true ) {
-		$( '#BMRControls #start-track' ).show();
-		$( '#BMRControls #stop-tack' ).hide();
-	}
-	if ( isTracking === false ) {
-		$( '#BMRControls #start-track' ).hide();
-		$( '#BMRControls #stop-tack' ).show();
-	}
 }
 
 
@@ -31,16 +16,16 @@ function buildControls() {
 
 	const iconURL = chrome.runtime.getURL( '../icons/icon19.png' );
 
-	const bmrControls = `<div id="BMRControls">
-			<img src="${iconURL}" alt="BetterMangaRead" />
-			<button id="go-prev">&laquo;</button>
-			<select>
-				${chapterSelectOptions}
-			</select>
-			<button id="go-next">&raquo;</button>
-			<button id="check-track" disabled>Checking...</button>
-			<button id="stop-track">Stop Tracking</button>
-			<button id="start-track">Track Manga</button>
+	const bmrControls = `<div id="bmr-controls">
+			<img src="${iconURL}" alt="BetterMangaReader" />
+			<form class="pure-form">
+				<button id="prev-chapter" class="pure-button pure-button-primary">&laquo;</button>
+				<select name="chapter-select" id="chapter-select">
+					${chapterSelectOptions}
+				</select>
+				<button id="next-chapter" class="pure-button pure-button-primary">&raquo;</button>
+				<button id="tracking" class="pure-button pure-button-disabled" disabled></button>
+			</form>
 		</div>`;
 
 	$( 'body' ).append( bmrControls );
@@ -51,41 +36,33 @@ function buildControls() {
 	const selectedChapter = chapterList.filter( ':selected' );
 
 	if ( selectedChapter.index() === 0 ) {
-		$( '#go-prev' ).prop( 'disabled', true );
+		$( '#prev-chapter' ).prop( 'disabled', true );
 	}
 	if ( selectedChapter.index() === chapterList.length - 1 ) {
-		$( '#go-next' ).prop( 'disabled', true );
+		$( '#next-chapter' ).prop( 'disabled', true );
 	}
 
-	$( '#BMRControls #go-prev:not(:disabled)' ).on( 'click', function goToPrevChapter() {
-		const currentIndex = selectedChapter.index();
-		const newLocation = chapterList.eq( currentIndex - 1 ).val();
+	$( '#BMRControls #prev-chapter:not(:disabled)' ).on( 'click', function goToPrevChapter() {
+		const newLocation = chapterList.eq( selectedChapter.index() - 1 ).val();
 		document.location = newLocation;
 	} );
-	$( '#BMRControls #go-next:not(:disabled)' ).on( 'click', function goToNextChapter() {
-		const currentIndex = selectedChapter.index();
-		const newLocation = chapterList.eq( currentIndex + 1 ).val();
+
+	$( '#BMRControls #next-chapter:not(:disabled)' ).on( 'click', function goToNextChapter() {
+		const newLocation = chapterList.eq( selectedChapter.index() + 1 ).val();
 		document.location = newLocation;
 	} );
+
 	$( '#BMRControls select' ).on( 'change', function goToThisChapter() {
 		document.location = $( 'option', this ).filter( ':selected' ).val();
 	} );
 
-	$( '#BMRControls' )
-		.on( 'click', '#start-track', function startTracking() {
-			toggleTrackingButton( true );
+	$( '#BMRControls' ).on( 'click', '#tracking', function toggleTracking() {
+		$( 'tracking' ).attr( 'disabled', false ).toggleClass( 'pure-button-success' ).toggleClass( 'pure-button-error' );
 
-			chrome.runtime.sendMessage( {
-				startTracking: parsedChapter.chapterInfo,
-			} );
-		} )
-		.on( 'click', '#stop-track', function stopTracking() {
-			toggleTrackingButton( false );
-
-			chrome.runtime.sendMessage( {
-				stopTracking: parsedChapter.chapterInfo,
-			} );
+		chrome.runtime.sendMessage( {
+			stopTracking: parsedChapter.chapterInfo,
 		} );
+	} );
 
 }
 
