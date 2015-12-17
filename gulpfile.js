@@ -36,6 +36,9 @@ gulp.task( 'css', function processCSS() {
 		.pipe( cssnext( {
 			compress: {
 				zindex: false,
+				discardComments: {
+					removeAll: true,
+				},
 			},
 		} ) )
 		.pipe( gulp.dest( 'ext/styles' ) );
