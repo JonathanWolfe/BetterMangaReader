@@ -30,6 +30,8 @@
 	"content_scripts": [ {
 		"matches": [
 			"*://*.mangahere.co/*",
+			"*://*.mangastream.com/*",
+			"*://*.mangatown.com/*",
 			"*://*.readms.com/*"
 		],
 		"css": [
