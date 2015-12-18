@@ -23,7 +23,6 @@
 		"default_icon": "icons/icon32.png"
 	},
 	"permissions": [
-		"notifications",
 		"tabs",
 		"storage"
 	],
