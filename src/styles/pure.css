@@ -14,253 +14,444 @@ Copyright (c) Nicolas Gallagher and Jonathan Neal
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 
-#bmr-controls html {
-	font-family : sans-serif;
-
-	-webkit-text-size-adjust : 100%;
-	    -ms-text-size-adjust : 100%;
-}
-
-#bmr-controls body {
+body.bettermangareader {
 	margin : 0;
 }
 
-#bmr-controls article,
-#bmr-controls aside,
-#bmr-controls details,
-#bmr-controls figcaption,
-#bmr-controls figure,
-#bmr-controls footer,
-#bmr-controls header,
-#bmr-controls hgroup,
-#bmr-controls main,
-#bmr-controls menu,
-#bmr-controls nav,
-#bmr-controls section,
-#bmr-controls summary {
+.bettermangareader article,
+.bettermangareader aside,
+.bettermangareader details,
+.bettermangareader figcaption,
+.bettermangareader figure,
+.bettermangareader footer,
+.bettermangareader header,
+.bettermangareader hgroup,
+.bettermangareader main,
+.bettermangareader menu,
+.bettermangareader nav,
+.bettermangareader section,
+.bettermangareader summary {
 	display : block;
 }
 
-#bmr-controls audio,
-#bmr-controls canvas,
-#bmr-controls progress,
-#bmr-controls video {
+.bettermangareader audio,
+.bettermangareader canvas,
+.bettermangareader progress,
+.bettermangareader video {
 	display : inline-block;
 	vertical-align : baseline;
 }
 
-#bmr-controls audio:not([controls]) {
+.bettermangareader audio:not([controls]) {
 	display : none;
 	height : 0;
 }
 
-#bmr-controls [hidden],
-#bmr-controls template {
+.bettermangareader [hidden],
+.bettermangareader template {
 	display : none;
 }
 
-#bmr-controls a {
+.bettermangareader a {
 	background-color : transparent;
 }
 
-#bmr-controls a:active,
-#bmr-controls a:hover {
+.bettermangareader a:active,
+.bettermangareader a:hover {
 	outline : 0;
 }
 
-#bmr-controls abbr[title] {
+.bettermangareader abbr[title] {
 	border-bottom : 1px dotted;
 }
 
-#bmr-controls b,
-#bmr-controls strong {
+.bettermangareader b,
+.bettermangareader strong {
 	font-weight : 700;
 }
 
-#bmr-controls dfn {
+.bettermangareader dfn {
 	font-style : italic;
 }
 
-#bmr-controls h1 {
+.bettermangareader h1 {
 	margin : .67em 0;
 	font-size : 2em;
 }
 
-#bmr-controls mark {
+.bettermangareader mark {
 	background : #ff0;
 	color : #000;
 }
 
-#bmr-controls small {
+.bettermangareader small {
 	font-size : 80%;
 }
 
-#bmr-controls sub,
-#bmr-controls sup {
+.bettermangareader sub,
+.bettermangareader sup {
 	position : relative;
 	font-size : 75%;
 	line-height : 0;
 	vertical-align : baseline;
 }
 
-#bmr-controls sup {
+.bettermangareader sup {
 	top : -.5em;
 }
 
-#bmr-controls sub {
+.bettermangareader sub {
 	bottom : -.25em;
 }
 
-#bmr-controls img {
+.bettermangareader img {
 	border : 0;
 }
 
-#bmr-controls svg:not(:root) {
+.bettermangareader svg:not(:root) {
 	overflow : hidden;
 }
 
-#bmr-controls figure {
+.bettermangareader figure {
 	margin : 1em 40px;
 }
 
-#bmr-controls hr {
+.bettermangareader hr {
 	height : 0;
-	-moz-box-sizing : content-box;
-	     box-sizing : content-box;
+	box-sizing : content-box;
 }
 
-#bmr-controls pre {
+.bettermangareader pre {
 	overflow : auto;
 }
 
-#bmr-controls code,
-#bmr-controls kbd,
-#bmr-controls pre,
-#bmr-controls samp {
+.bettermangareader code,
+.bettermangareader kbd,
+.bettermangareader pre,
+.bettermangareader samp {
 	font-family : monospace, monospace;
 	font-size : 1em;
 }
 
-#bmr-controls button,
-#bmr-controls input,
-#bmr-controls optgroup,
-#bmr-controls select,
-#bmr-controls textarea {
+.bettermangareader button,
+.bettermangareader input,
+.bettermangareader optgroup,
+.bettermangareader select,
+.bettermangareader textarea {
 	margin : 0;
 	color : inherit;
 	font : inherit;
 }
 
-#bmr-controls button {
+.bettermangareader button {
 	overflow : visible;
 }
 
-#bmr-controls button,
-#bmr-controls select {
+.bettermangareader button,
+.bettermangareader select {
 	text-transform : none;
 }
 
-#bmr-controls button,
-#bmr-controls html input[type=button],
-#bmr-controls input[type=reset],
-#bmr-controls input[type=submit] {
+.bettermangareader button,
+.bettermangareader html input[type=button],
+.bettermangareader input[type=reset],
+.bettermangareader input[type=submit] {
 	cursor : pointer;
 
 	-webkit-appearance : button;
 }
 
-#bmr-controls button[disabled],
-#bmr-controls html input[disabled] {
+.bettermangareader button[disabled],
+.bettermangareader html input[disabled] {
 	cursor : default;
 }
 
-#bmr-controls button::-moz-focus-inner,
-#bmr-controls input::-moz-focus-inner {
+.bettermangareader button::-moz-focus-inner,
+.bettermangareader input::-moz-focus-inner {
 	padding : 0;
 	border : 0;
 }
 
-#bmr-controls input {
+.bettermangareader input {
 	line-height : normal;
 }
 
-#bmr-controls input[type=checkbox],
-#bmr-controls input[type=radio] {
+.bettermangareader input[type=checkbox],
+.bettermangareader input[type=radio] {
 	padding : 0;
 	box-sizing : border-box;
 }
 
-#bmr-controls input[type=number]::-webkit-inner-spin-button,
-#bmr-controls input[type=number]::-webkit-outer-spin-button {
+.bettermangareader input[type=number]::-webkit-inner-spin-button,
+.bettermangareader input[type=number]::-webkit-outer-spin-button {
 	height : auto;
 }
 
-#bmr-controls input[type=search] {
-	-webkit-box-sizing : content-box;
-	   -moz-box-sizing : content-box;
-	        box-sizing : content-box;
+.bettermangareader input[type=search] {
+	box-sizing : content-box;
 
 	-webkit-appearance : textfield;
 }
 
-#bmr-controls input[type=search]::-webkit-search-cancel-button,
-#bmr-controls input[type=search]::-webkit-search-decoration {
+.bettermangareader input[type=search]::-webkit-search-cancel-button,
+.bettermangareader input[type=search]::-webkit-search-decoration {
 	-webkit-appearance : none;
 }
 
-#bmr-controls fieldset {
+.bettermangareader fieldset {
 	margin : 0 2px;
 	padding : .35em .625em .75em;
 	border : 1px solid silver;
 }
 
-#bmr-controls legend {
+.bettermangareader legend {
 	padding : 0;
 	border : 0;
 }
 
-#bmr-controls textarea {
+.bettermangareader textarea {
 	overflow : auto;
 }
 
-#bmr-controls optgroup {
+.bettermangareader optgroup {
 	font-weight : 700;
 }
 
-#bmr-controls table {
+.bettermangareader table {
 	border-collapse : collapse;
 	border-spacing : 0;
 }
 
-#bmr-controls td,
-#bmr-controls th {
+.bettermangareader td,
+.bettermangareader th {
 	padding : 0;
 }
 
-#bmr-controls .hidden,
-#bmr-controls [hidden] {
+.bettermangareader .hidden,
+.bettermangareader [hidden] {
 	display : none!important;
 }
 
-#bmr-controls .pure-img {
+.bettermangareader .pure-img {
 	display : block;
 	max-width : 100%;
 	height : auto;
 }
 
+.bettermangareader .pure-g {
+	display : flex;
+	align-content : flex-start;
+	font-family : 'FreeSans', 'Arimo', 'Droid Sans', 'Helvetica', 'Arial', sans-serif;
+	letter-spacing : -.31em;
+	text-rendering : optimizespeed;
+}
 
-/*!
-Pure v0.6.0
-Copyright 2014 Yahoo! Inc. All rights reserved.
-Licensed under the BSD License.
-https://github.com/yahoo/pure/blob/master/LICENSE.md
-*/
+.bettermangareader .pure-g {
+	word-spacing : -.43em;
+}
 
-#bmr-controls .pure-button {
+.bettermangareader .pure-u {
 	display : inline-block;
-	-webkit-box-sizing : border-box;
-	   -moz-box-sizing : border-box;
-	        box-sizing : border-box;
+	letter-spacing : normal;
+	text-rendering : auto;
+	word-spacing : normal;
+	vertical-align : top;
+
+	zoom : 1;
+}
+
+.bettermangareader .pure-g [class *='pure-u'] {
+	font-family : sans-serif;
+}
+
+.bettermangareader .pure-u-1,
+.bettermangareader .pure-u-1-1,
+.bettermangareader .pure-u-1-2,
+.bettermangareader .pure-u-1-3,
+.bettermangareader .pure-u-2-3,
+.bettermangareader .pure-u-1-4,
+.bettermangareader .pure-u-3-4,
+.bettermangareader .pure-u-1-5,
+.bettermangareader .pure-u-2-5,
+.bettermangareader .pure-u-3-5,
+.bettermangareader .pure-u-4-5,
+.bettermangareader .pure-u-5-5,
+.bettermangareader .pure-u-1-6,
+.bettermangareader .pure-u-5-6,
+.bettermangareader .pure-u-1-8,
+.bettermangareader .pure-u-3-8,
+.bettermangareader .pure-u-5-8,
+.bettermangareader .pure-u-7-8,
+.bettermangareader .pure-u-1-12,
+.bettermangareader .pure-u-5-12,
+.bettermangareader .pure-u-7-12,
+.bettermangareader .pure-u-11-12,
+.bettermangareader .pure-u-1-24,
+.bettermangareader .pure-u-2-24,
+.bettermangareader .pure-u-3-24,
+.bettermangareader .pure-u-4-24,
+.bettermangareader .pure-u-5-24,
+.bettermangareader .pure-u-6-24,
+.bettermangareader .pure-u-7-24,
+.bettermangareader .pure-u-8-24,
+.bettermangareader .pure-u-9-24,
+.bettermangareader .pure-u-10-24,
+.bettermangareader .pure-u-11-24,
+.bettermangareader .pure-u-12-24,
+.bettermangareader .pure-u-13-24,
+.bettermangareader .pure-u-14-24,
+.bettermangareader .pure-u-15-24,
+.bettermangareader .pure-u-16-24,
+.bettermangareader .pure-u-17-24,
+.bettermangareader .pure-u-18-24,
+.bettermangareader .pure-u-19-24,
+.bettermangareader .pure-u-20-24,
+.bettermangareader .pure-u-21-24,
+.bettermangareader .pure-u-22-24,
+.bettermangareader .pure-u-23-24,
+.bettermangareader .pure-u-24-24 {
+	display : inline-block;
+	letter-spacing : normal;
+	text-rendering : auto;
+	word-spacing : normal;
+	vertical-align : top;
+
+	zoom : 1;
+}
+
+.bettermangareader .pure-u-1-24 {
+	width : 4.1667%;
+}
+
+.bettermangareader .pure-u-1-12,
+.bettermangareader .pure-u-2-24 {
+	width : 8.3333%;
+}
+
+.bettermangareader .pure-u-1-8,
+.bettermangareader .pure-u-3-24 {
+	width : 12.5%;
+}
+
+.bettermangareader .pure-u-1-6,
+.bettermangareader .pure-u-4-24 {
+	width : 16.6667%;
+}
+
+.bettermangareader .pure-u-1-5 {
+	width : 20%;
+}
+
+.bettermangareader .pure-u-5-24 {
+	width : 20.8333%;
+}
+
+.bettermangareader .pure-u-1-4,
+.bettermangareader .pure-u-6-24 {
+	width : 25%;
+}
+
+.bettermangareader .pure-u-7-24 {
+	width : 29.1667%;
+}
+
+.bettermangareader .pure-u-1-3,
+.bettermangareader .pure-u-8-24 {
+	width : 33.3333%;
+}
+
+.bettermangareader .pure-u-3-8,
+.bettermangareader .pure-u-9-24 {
+	width : 37.5%;
+}
+
+.bettermangareader .pure-u-2-5 {
+	width : 40%;
+}
+
+.bettermangareader .pure-u-5-12,
+.bettermangareader .pure-u-10-24 {
+	width : 41.6667%;
+}
+
+.bettermangareader .pure-u-11-24 {
+	width : 45.8333%;
+}
+
+.bettermangareader .pure-u-1-2,
+.bettermangareader .pure-u-12-24 {
+	width : 50%;
+}
+
+.bettermangareader .pure-u-13-24 {
+	width : 54.1667%;
+}
+
+.bettermangareader .pure-u-7-12,
+.bettermangareader .pure-u-14-24 {
+	width : 58.3333%;
+}
+
+.bettermangareader .pure-u-3-5 {
+	width : 60%;
+}
+
+.bettermangareader .pure-u-5-8,
+.bettermangareader .pure-u-15-24 {
+	width : 62.5%;
+}
+
+.bettermangareader .pure-u-2-3,
+.bettermangareader .pure-u-16-24 {
+	width : 66.6667%;
+}
+
+.bettermangareader .pure-u-17-24 {
+	width : 70.8333%;
+}
+
+.bettermangareader .pure-u-3-4,
+.bettermangareader .pure-u-18-24 {
+	width : 75%;
+}
+
+.bettermangareader .pure-u-19-24 {
+	width : 79.1667%;
+}
+
+.bettermangareader .pure-u-4-5 {
+	width : 80%;
+}
+
+.bettermangareader .pure-u-5-6,
+.bettermangareader .pure-u-20-24 {
+	width : 83.3333%;
+}
+
+.bettermangareader .pure-u-7-8,
+.bettermangareader .pure-u-21-24 {
+	width : 87.5%;
+}
+
+.bettermangareader .pure-u-11-12,
+.bettermangareader .pure-u-22-24 {
+	width : 91.6667%;
+}
+
+.bettermangareader .pure-u-23-24 {
+	width : 95.8333%;
+}
+
+.bettermangareader .pure-u-1,
+.bettermangareader .pure-u-1-1,
+.bettermangareader .pure-u-5-5,
+.bettermangareader .pure-u-24-24 {
+	width : 100%;
+}
+
+.bettermangareader .pure-button {
+	display : inline-block;
+	box-sizing : border-box;
 	line-height : normal;
 	text-align : center;
 	white-space : nowrap;
@@ -268,19 +459,16 @@ https://github.com/yahoo/pure/blob/master/LICENSE.md
 	vertical-align : middle;
 
 	-webkit-user-drag : none;
-	-webkit-user-select : none;
-	   -moz-user-select : none;
-	    -ms-user-select : none;
-	        user-select : none;
+	user-select : none;
 	zoom : 1;
 }
 
-#bmr-controls .pure-button::-moz-focus-inner {
+.bettermangareader .pure-button::-moz-focus-inner {
 	padding : 0;
 	border : 0;
 }
 
-#bmr-controls .pure-button {
+.bettermangareader .pure-button {
 	padding : .5em 1em;
 	border : 1px solid #999;
 	border : 0 rgba(0, 0, 0, 0);
@@ -293,219 +481,233 @@ https://github.com/yahoo/pure/blob/master/LICENSE.md
 	text-decoration : none;
 }
 
-#bmr-controls .pure-button-hover,
-#bmr-controls .pure-button:hover,
-#bmr-controls .pure-button:focus {
-	background-image : -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0, 0, 0, .05)), to(rgba(0, 0, 0, .1)));
-	background-image : -webkit-linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1));
-	background-image :    -moz-linear-gradient(top, rgba(0, 0, 0, .05) 0, rgba(0, 0, 0, .1));
-	background-image :      -o-linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1));
-	background-image :         linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1));
-
-	filter : progid: DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000', GradientType=0);
+.bettermangareader .pure-button-hover,
+.bettermangareader .pure-button:hover,
+.bettermangareader .pure-button:focus {
+	background-image : linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1));
 }
 
-#bmr-controls .pure-button:focus {
+.bettermangareader .pure-button:focus {
 	outline : 0;
 }
 
-#bmr-controls .pure-button-active,
-#bmr-controls .pure-button:active {
+.bettermangareader .pure-button-active,
+.bettermangareader .pure-button:active {
 	border-color : #000\9;
 	box-shadow : 0 0 0 1px rgba(0, 0, 0, .15) inset, 0 0 6px rgba(0, 0, 0, .2) inset;
 }
 
-#bmr-controls .pure-button[disabled],
-#bmr-controls .pure-button-disabled,
-#bmr-controls .pure-button-disabled:hover,
-#bmr-controls .pure-button-disabled:focus,
-#bmr-controls .pure-button-disabled:active {
+.bettermangareader .pure-button[disabled],
+.bettermangareader .pure-button-disabled,
+.bettermangareader .pure-button-disabled:hover,
+.bettermangareader .pure-button-disabled:focus,
+.bettermangareader .pure-button-disabled:active {
 	border : 0;
 	background-image : none;
 	box-shadow : none;
 	cursor : not-allowed;
-	     opacity : .4;
-
-	-khtml-opacity : .4;
-	filter : progid: DXImageTransform.Microsoft.gradient(enabled=false);
-	filter : alpha(opacity=40);
-	-moz-opacity : .4;
+	opacity : .4;
 }
 
-#bmr-controls .pure-button-hidden {
+.bettermangareader .pure-button-hidden {
 	display : none;
 }
 
-#bmr-controls .pure-button::-moz-focus-inner {
+.bettermangareader .pure-button::-moz-focus-inner {
 	padding : 0;
 	border : 0;
 }
 
-#bmr-controls .pure-button-primary,
-#bmr-controls .pure-button-selected,
-#bmr-controls a.pure-button-primary,
-#bmr-controls a.pure-button-selected {
+.bettermangareader .pure-button-primary,
+.bettermangareader .pure-button-selected,
+.bettermangareader a.pure-button-primary,
+.bettermangareader a.pure-button-selected {
 	background-color : #0078e7;
 	color : #fff;
 }
 
+.bettermangareader .pure-button-succes,
+.bettermangareader a.pure-button-success,
+.bettermangareader .pure-button-error,
+.bettermangareader a.pure-button-error,
+.bettermangareader .pure-button-warning,
+.bettermangareader a.pure-button-warning,
+.bettermangareader .pure-button-secondary,
+.bettermangareader a.pure-button-secondary {
+	border-radius : 4px;
+	color : #fff;
+	text-shadow : 0 1px 1px rgba(0, 0, 0, .2);
+}
 
-/*!
-Pure v0.6.0
-Copyright 2014 Yahoo! Inc. All rights reserved.
-Licensed under the BSD License.
-https://github.com/yahoo/pure/blob/master/LICENSE.md
-*/
+.bettermangareader .pure-button-success,
+.bettermangareader a.pure-button-success {
+	background : #388e3c;
+	/* this is a green */
+}
 
-#bmr-controls .pure-form input[type=text],
-#bmr-controls .pure-form input[type=password],
-#bmr-controls .pure-form input[type=email],
-#bmr-controls .pure-form input[type=url],
-#bmr-controls .pure-form input[type=date],
-#bmr-controls .pure-form input[type=month],
-#bmr-controls .pure-form input[type=time],
-#bmr-controls .pure-form input[type=datetime],
-#bmr-controls .pure-form input[type=datetime-local],
-#bmr-controls .pure-form input[type=week],
-#bmr-controls .pure-form input[type=number],
-#bmr-controls .pure-form input[type=search],
-#bmr-controls .pure-form input[type=tel],
-#bmr-controls .pure-form input[type=color],
-#bmr-controls .pure-form select,
-#bmr-controls .pure-form textarea {
+.bettermangareader .pure-button-error,
+.bettermangareader a.pure-button-error {
+	background : #d32f2f;
+	/* this is a maroon */
+}
+
+.bettermangareader .pure-button-warning,
+.bettermangareader a.pure-button-warning {
+	background : #f57c00;
+	/* this is an orange */
+}
+
+.bettermangareader .pure-button-secondary,
+.bettermangareader a.pure-button-secondary {
+	background : #0288d1;
+	/* this is a light blue */
+}
+
+.bettermangareader .pure-form input[type=text],
+.bettermangareader .pure-form input[type=password],
+.bettermangareader .pure-form input[type=email],
+.bettermangareader .pure-form input[type=url],
+.bettermangareader .pure-form input[type=date],
+.bettermangareader .pure-form input[type=month],
+.bettermangareader .pure-form input[type=time],
+.bettermangareader .pure-form input[type=datetime],
+.bettermangareader .pure-form input[type=datetime-local],
+.bettermangareader .pure-form input[type=week],
+.bettermangareader .pure-form input[type=number],
+.bettermangareader .pure-form input[type=search],
+.bettermangareader .pure-form input[type=tel],
+.bettermangareader .pure-form input[type=color],
+.bettermangareader .pure-form select,
+.bettermangareader .pure-form textarea {
 	display : inline-block;
 	padding : .5em .6em;
-	-webkit-box-sizing : border-box;
-	   -moz-box-sizing : border-box;
-	        box-sizing : border-box;
+	box-sizing : border-box;
 	border : 1px solid #ccc;
 	border-radius : 4px;
 	box-shadow : inset 0 1px 3px #ddd;
 	vertical-align : middle;
 }
 
-#bmr-controls .pure-form input:not([type]) {
+.bettermangareader .pure-form input:not([type]) {
 	display : inline-block;
 	padding : .5em .6em;
-	-webkit-box-sizing : border-box;
-	   -moz-box-sizing : border-box;
-	        box-sizing : border-box;
+	box-sizing : border-box;
 	border : 1px solid #ccc;
 	border-radius : 4px;
 	box-shadow : inset 0 1px 3px #ddd;
 }
 
-#bmr-controls .pure-form input[type=color] {
+.bettermangareader .pure-form input[type=color] {
 	padding : .2em .5em;
 }
 
-#bmr-controls .pure-form input[type=text]:focus,
-#bmr-controls .pure-form input[type=password]:focus,
-#bmr-controls .pure-form input[type=email]:focus,
-#bmr-controls .pure-form input[type=url]:focus,
-#bmr-controls .pure-form input[type=date]:focus,
-#bmr-controls .pure-form input[type=month]:focus,
-#bmr-controls .pure-form input[type=time]:focus,
-#bmr-controls .pure-form input[type=datetime]:focus,
-#bmr-controls .pure-form input[type=datetime-local]:focus,
-#bmr-controls .pure-form input[type=week]:focus,
-#bmr-controls .pure-form input[type=number]:focus,
-#bmr-controls .pure-form input[type=search]:focus,
-#bmr-controls .pure-form input[type=tel]:focus,
-#bmr-controls .pure-form input[type=color]:focus,
-#bmr-controls .pure-form select:focus,
-#bmr-controls .pure-form textarea:focus {
+.bettermangareader .pure-form input[type=text]:focus,
+.bettermangareader .pure-form input[type=password]:focus,
+.bettermangareader .pure-form input[type=email]:focus,
+.bettermangareader .pure-form input[type=url]:focus,
+.bettermangareader .pure-form input[type=date]:focus,
+.bettermangareader .pure-form input[type=month]:focus,
+.bettermangareader .pure-form input[type=time]:focus,
+.bettermangareader .pure-form input[type=datetime]:focus,
+.bettermangareader .pure-form input[type=datetime-local]:focus,
+.bettermangareader .pure-form input[type=week]:focus,
+.bettermangareader .pure-form input[type=number]:focus,
+.bettermangareader .pure-form input[type=search]:focus,
+.bettermangareader .pure-form input[type=tel]:focus,
+.bettermangareader .pure-form input[type=color]:focus,
+.bettermangareader .pure-form select:focus,
+.bettermangareader .pure-form textarea:focus {
 	border-color : #129fea;
 	outline : 0;
 }
 
-#bmr-controls .pure-form input:not([type]):focus {
+.bettermangareader .pure-form input:not([type]):focus {
 	border-color : #129fea;
 	outline : 0;
 }
 
-#bmr-controls .pure-form input[type=file]:focus,
-#bmr-controls .pure-form input[type=radio]:focus,
-#bmr-controls .pure-form input[type=checkbox]:focus {
+.bettermangareader .pure-form input[type=file]:focus,
+.bettermangareader .pure-form input[type=radio]:focus,
+.bettermangareader .pure-form input[type=checkbox]:focus {
 	outline : thin solid #129fea;
 	outline : 1px auto #129fea;
 }
 
-#bmr-controls .pure-form .pure-checkbox,
-#bmr-controls .pure-form .pure-radio {
+.bettermangareader .pure-form .pure-checkbox,
+.bettermangareader .pure-form .pure-radio {
 	display : block;
 	margin : .5em 0;
 }
 
-#bmr-controls .pure-form input[type=text][disabled],
-#bmr-controls .pure-form input[type=password][disabled],
-#bmr-controls .pure-form input[type=email][disabled],
-#bmr-controls .pure-form input[type=url][disabled],
-#bmr-controls .pure-form input[type=date][disabled],
-#bmr-controls .pure-form input[type=month][disabled],
-#bmr-controls .pure-form input[type=time][disabled],
-#bmr-controls .pure-form input[type=datetime][disabled],
-#bmr-controls .pure-form input[type=datetime-local][disabled],
-#bmr-controls .pure-form input[type=week][disabled],
-#bmr-controls .pure-form input[type=number][disabled],
-#bmr-controls .pure-form input[type=search][disabled],
-#bmr-controls .pure-form input[type=tel][disabled],
-#bmr-controls .pure-form input[type=color][disabled],
-#bmr-controls .pure-form select[disabled],
-#bmr-controls .pure-form textarea[disabled] {
+.bettermangareader .pure-form input[type=text][disabled],
+.bettermangareader .pure-form input[type=password][disabled],
+.bettermangareader .pure-form input[type=email][disabled],
+.bettermangareader .pure-form input[type=url][disabled],
+.bettermangareader .pure-form input[type=date][disabled],
+.bettermangareader .pure-form input[type=month][disabled],
+.bettermangareader .pure-form input[type=time][disabled],
+.bettermangareader .pure-form input[type=datetime][disabled],
+.bettermangareader .pure-form input[type=datetime-local][disabled],
+.bettermangareader .pure-form input[type=week][disabled],
+.bettermangareader .pure-form input[type=number][disabled],
+.bettermangareader .pure-form input[type=search][disabled],
+.bettermangareader .pure-form input[type=tel][disabled],
+.bettermangareader .pure-form input[type=color][disabled],
+.bettermangareader .pure-form select[disabled],
+.bettermangareader .pure-form textarea[disabled] {
 	background-color : #eaeded;
 	color : #cad2d3;
 	cursor : not-allowed;
 }
 
-#bmr-controls .pure-form input:not([type])[disabled] {
+.bettermangareader .pure-form input:not([type])[disabled] {
 	background-color : #eaeded;
 	color : #cad2d3;
 	cursor : not-allowed;
 }
 
-#bmr-controls .pure-form input[readonly],
-#bmr-controls .pure-form select[readonly],
-#bmr-controls .pure-form textarea[readonly] {
+.bettermangareader .pure-form input[readonly],
+.bettermangareader .pure-form select[readonly],
+.bettermangareader .pure-form textarea[readonly] {
 	border-color : #ccc;
 	background-color : #eee;
 	color : #777;
 }
 
-#bmr-controls .pure-form input:focus:invalid,
-#bmr-controls .pure-form textarea:focus:invalid,
-#bmr-controls .pure-form select:focus:invalid {
+.bettermangareader .pure-form input:focus:invalid,
+.bettermangareader .pure-form textarea:focus:invalid,
+.bettermangareader .pure-form select:focus:invalid {
 	border-color : #e9322d;
 	color : #b94a48;
 }
 
-#bmr-controls .pure-form input[type=file]:focus:invalid:focus,
-#bmr-controls .pure-form input[type=radio]:focus:invalid:focus,
-#bmr-controls .pure-form input[type=checkbox]:focus:invalid:focus {
+.bettermangareader .pure-form input[type=file]:focus:invalid:focus,
+.bettermangareader .pure-form input[type=radio]:focus:invalid:focus,
+.bettermangareader .pure-form input[type=checkbox]:focus:invalid:focus {
 	outline-color : #e9322d;
 }
 
-#bmr-controls .pure-form select {
+.bettermangareader .pure-form select {
 	height : 2.25em;
 	border : 1px solid #ccc;
 	background-color : #fff;
 }
 
-#bmr-controls .pure-form select[multiple] {
+.bettermangareader .pure-form select[multiple] {
 	height : auto;
 }
 
-#bmr-controls .pure-form label {
+.bettermangareader .pure-form label {
 	margin : .5em 0 .2em;
 }
 
-#bmr-controls .pure-form fieldset {
+.bettermangareader .pure-form fieldset {
 	margin : 0;
 	padding : .35em 0 .75em;
 	border : 0;
 }
 
-#bmr-controls .pure-form legend {
+.bettermangareader .pure-form legend {
 	display : block;
 	width : 100%;
 	margin-bottom : .3em;
@@ -514,54 +716,53 @@ https://github.com/yahoo/pure/blob/master/LICENSE.md
 	color : #333;
 }
 
-#bmr-controls .pure-form-stacked input[type=text],
-#bmr-controls .pure-form-stacked input[type=password],
-#bmr-controls .pure-form-stacked input[type=email],
-#bmr-controls .pure-form-stacked input[type=url],
-#bmr-controls .pure-form-stacked input[type=date],
-#bmr-controls .pure-form-stacked input[type=month],
-#bmr-controls .pure-form-stacked input[type=time],
-#bmr-controls .pure-form-stacked input[type=datetime],
-#bmr-controls .pure-form-stacked input[type=datetime-local],
-#bmr-controls .pure-form-stacked input[type=week],
-#bmr-controls .pure-form-stacked input[type=number],
-#bmr-controls .pure-form-stacked input[type=search],
-#bmr-controls .pure-form-stacked input[type=tel],
-#bmr-controls .pure-form-stacked input[type=color],
-#bmr-controls .pure-form-stacked input[type=file],
-#bmr-controls .pure-form-stacked select,
-#bmr-controls .pure-form-stacked label,
-#bmr-controls .pure-form-stacked textarea {
+.bettermangareader .pure-form-stacked input[type=text],
+.bettermangareader .pure-form-stacked input[type=password],
+.bettermangareader .pure-form-stacked input[type=email],
+.bettermangareader .pure-form-stacked input[type=url],
+.bettermangareader .pure-form-stacked input[type=date],
+.bettermangareader .pure-form-stacked input[type=month],
+.bettermangareader .pure-form-stacked input[type=time],
+.bettermangareader .pure-form-stacked input[type=datetime],
+.bettermangareader .pure-form-stacked input[type=datetime-local],
+.bettermangareader .pure-form-stacked input[type=week],
+.bettermangareader .pure-form-stacked input[type=number],
+.bettermangareader .pure-form-stacked input[type=search],
+.bettermangareader .pure-form-stacked input[type=tel],
+.bettermangareader .pure-form-stacked input[type=color],
+.bettermangareader .pure-form-stacked input[type=file],
+.bettermangareader .pure-form-stacked select,
+.bettermangareader .pure-form-stacked label,
+.bettermangareader .pure-form-stacked textarea {
 	display : block;
 	margin : .25em 0;
 }
 
-#bmr-controls .pure-form-stacked input:not([type]) {
+.bettermangareader .pure-form-stacked input:not([type]) {
 	display : block;
 	margin : .25em 0;
 }
 
-#bmr-controls .pure-form-aligned input,
-#bmr-controls .pure-form-aligned textarea,
-#bmr-controls .pure-form-aligned select,
-#bmr-controls .pure-form-aligned .pure-help-inline,
-#bmr-controls .pure-form-message-inline {
+.bettermangareader .pure-form-aligned input,
+.bettermangareader .pure-form-aligned textarea,
+.bettermangareader .pure-form-aligned select,
+.bettermangareader .pure-form-aligned .pure-help-inline,
+.bettermangareader .pure-form-message-inline {
 	display : inline-block;
 	vertical-align : middle;
 
-	*display : inline;
 	*zoom : 1;
 }
 
-#bmr-controls .pure-form-aligned textarea {
+.bettermangareader .pure-form-aligned textarea {
 	vertical-align : top;
 }
 
-#bmr-controls .pure-form-aligned .pure-control-group {
+.bettermangareader .pure-form-aligned .pure-control-group {
 	margin-bottom : .5em;
 }
 
-#bmr-controls .pure-form-aligned .pure-control-group label {
+.bettermangareader .pure-form-aligned .pure-control-group label {
 	display : inline-block;
 	width : 10em;
 	margin : 0 1em 0 0;
@@ -569,22 +770,22 @@ https://github.com/yahoo/pure/blob/master/LICENSE.md
 	vertical-align : middle;
 }
 
-#bmr-controls .pure-form-aligned .pure-controls {
+.bettermangareader .pure-form-aligned .pure-controls {
 	margin : 1.5em 0 0 11em;
 }
 
-#bmr-controls .pure-form input.pure-input-rounded,
-#bmr-controls .pure-form .pure-input-rounded {
+.bettermangareader .pure-form input.pure-input-rounded,
+.bettermangareader .pure-form .pure-input-rounded {
 	padding : .5em 1em;
 	border-radius : 2em;
 }
 
-#bmr-controls .pure-form .pure-group fieldset {
+.bettermangareader .pure-form .pure-group fieldset {
 	margin-bottom : 10px;
 }
 
-#bmr-controls .pure-form .pure-group input,
-#bmr-controls .pure-form .pure-group textarea {
+.bettermangareader .pure-form .pure-group input,
+.bettermangareader .pure-form .pure-group textarea {
 	display : block;
 	position : relative;
 	top : -1px;
@@ -593,58 +794,58 @@ https://github.com/yahoo/pure/blob/master/LICENSE.md
 	border-radius : 0;
 }
 
-#bmr-controls .pure-form .pure-group input:focus,
-#bmr-controls .pure-form .pure-group textarea:focus {
+.bettermangareader .pure-form .pure-group input:focus,
+.bettermangareader .pure-form .pure-group textarea:focus {
 	z-index : 3;
 }
 
-#bmr-controls .pure-form .pure-group input:first-child,
-#bmr-controls .pure-form .pure-group textarea:first-child {
+.bettermangareader .pure-form .pure-group input:first-child,
+.bettermangareader .pure-form .pure-group textarea:first-child {
 	top : 1px;
 	margin : 0;
 	border-radius : 4px 4px 0 0;
 }
 
-#bmr-controls .pure-form .pure-group input:first-child:last-child,
-#bmr-controls .pure-form .pure-group textarea:first-child:last-child {
+.bettermangareader .pure-form .pure-group input:first-child:last-child,
+.bettermangareader .pure-form .pure-group textarea:first-child:last-child {
 	top : 1px;
 	margin : 0;
 	border-radius : 4px;
 }
 
-#bmr-controls .pure-form .pure-group input:last-child,
-#bmr-controls .pure-form .pure-group textarea:last-child {
+.bettermangareader .pure-form .pure-group input:last-child,
+.bettermangareader .pure-form .pure-group textarea:last-child {
 	top : -2px;
 	margin : 0;
 	border-radius : 0 0 4px 4px;
 }
 
-#bmr-controls .pure-form .pure-group button {
+.bettermangareader .pure-form .pure-group button {
 	margin : .35em 0;
 }
 
-#bmr-controls .pure-form .pure-input-1 {
+.bettermangareader .pure-form .pure-input-1 {
 	width : 100%;
 }
 
-#bmr-controls .pure-form .pure-input-2-3 {
+.bettermangareader .pure-form .pure-input-2-3 {
 	width : 66%;
 }
 
-#bmr-controls .pure-form .pure-input-1-2 {
+.bettermangareader .pure-form .pure-input-1-2 {
 	width : 50%;
 }
 
-#bmr-controls .pure-form .pure-input-1-3 {
+.bettermangareader .pure-form .pure-input-1-3 {
 	width : 33%;
 }
 
-#bmr-controls .pure-form .pure-input-1-4 {
+.bettermangareader .pure-form .pure-input-1-4 {
 	width : 25%;
 }
 
-#bmr-controls .pure-form .pure-help-inline,
-#bmr-controls .pure-form-message-inline {
+.bettermangareader .pure-form .pure-help-inline,
+.bettermangareader .pure-form-message-inline {
 	display : inline-block;
 	padding-left : .3em;
 	color : #666;
@@ -652,66 +853,296 @@ https://github.com/yahoo/pure/blob/master/LICENSE.md
 	vertical-align : middle;
 }
 
-#bmr-controls .pure-form-message {
+.bettermangareader .pure-form-message {
 	display : block;
 	color : #666;
 	font-size : .875em;
 }
 
 @media only screen and (max-width:480px) {
-	#bmr-controls .pure-form button[type=submit] {
+	.bettermangareader .pure-form button[type=submit] {
 		margin : .7em 0 0;
 	}
-	#bmr-controls .pure-form input:not([type]),
-	#bmr-controls .pure-form input[type=text],
-	#bmr-controls .pure-form input[type=password],
-	#bmr-controls .pure-form input[type=email],
-	#bmr-controls .pure-form input[type=url],
-	#bmr-controls .pure-form input[type=date],
-	#bmr-controls .pure-form input[type=month],
-	#bmr-controls .pure-form input[type=time],
-	#bmr-controls .pure-form input[type=datetime],
-	#bmr-controls .pure-form input[type=datetime-local],
-	#bmr-controls .pure-form input[type=week],
-	#bmr-controls .pure-form input[type=number],
-	#bmr-controls .pure-form input[type=search],
-	#bmr-controls .pure-form input[type=tel],
-	#bmr-controls .pure-form input[type=color],
-	#bmr-controls .pure-form label {
+	.bettermangareader .pure-form input:not([type]),
+	.bettermangareader .pure-form input[type=text],
+	.bettermangareader .pure-form input[type=password],
+	.bettermangareader .pure-form input[type=email],
+	.bettermangareader .pure-form input[type=url],
+	.bettermangareader .pure-form input[type=date],
+	.bettermangareader .pure-form input[type=month],
+	.bettermangareader .pure-form input[type=time],
+	.bettermangareader .pure-form input[type=datetime],
+	.bettermangareader .pure-form input[type=datetime-local],
+	.bettermangareader .pure-form input[type=week],
+	.bettermangareader .pure-form input[type=number],
+	.bettermangareader .pure-form input[type=search],
+	.bettermangareader .pure-form input[type=tel],
+	.bettermangareader .pure-form input[type=color],
+	.bettermangareader .pure-form label {
 		display : block;
 		margin-bottom : .3em;
 	}
-	#bmr-controls .pure-group input:not([type]),
-	#bmr-controls .pure-group input[type=text],
-	#bmr-controls .pure-group input[type=password],
-	#bmr-controls .pure-group input[type=email],
-	#bmr-controls .pure-group input[type=url],
-	#bmr-controls .pure-group input[type=date],
-	#bmr-controls .pure-group input[type=month],
-	#bmr-controls .pure-group input[type=time],
-	#bmr-controls .pure-group input[type=datetime],
-	#bmr-controls .pure-group input[type=datetime-local],
-	#bmr-controls .pure-group input[type=week],
-	#bmr-controls .pure-group input[type=number],
-	#bmr-controls .pure-group input[type=search],
-	#bmr-controls .pure-group input[type=tel],
-	#bmr-controls .pure-group input[type=color] {
+	.bettermangareader .pure-group input:not([type]),
+	.bettermangareader .pure-group input[type=text],
+	.bettermangareader .pure-group input[type=password],
+	.bettermangareader .pure-group input[type=email],
+	.bettermangareader .pure-group input[type=url],
+	.bettermangareader .pure-group input[type=date],
+	.bettermangareader .pure-group input[type=month],
+	.bettermangareader .pure-group input[type=time],
+	.bettermangareader .pure-group input[type=datetime],
+	.bettermangareader .pure-group input[type=datetime-local],
+	.bettermangareader .pure-group input[type=week],
+	.bettermangareader .pure-group input[type=number],
+	.bettermangareader .pure-group input[type=search],
+	.bettermangareader .pure-group input[type=tel],
+	.bettermangareader .pure-group input[type=color] {
 		margin-bottom : 0;
 	}
-	#bmr-controls .pure-form-aligned .pure-control-group label {
+	.bettermangareader .pure-form-aligned .pure-control-group label {
 		display : block;
 		width : 100%;
 		margin-bottom : .3em;
 		text-align : left;
 	}
-	#bmr-controls .pure-form-aligned .pure-controls {
+	.bettermangareader .pure-form-aligned .pure-controls {
 		margin : 1.5em 0 0;
 	}
-	#bmr-controls .pure-form .pure-help-inline,
-	#bmr-controls .pure-form-message-inline,
-	#bmr-controls .pure-form-message {
+	.bettermangareader .pure-form .pure-help-inline,
+	.bettermangareader .pure-form-message-inline,
+	.bettermangareader .pure-form-message {
 		display : block;
 		padding : .2em 0 .8em;
 		font-size : .75em;
 	}
+}
+
+.bettermangareader .pure-menu {
+	box-sizing : border-box;
+}
+
+.bettermangareader .pure-menu-fixed {
+	position : fixed;
+	top : 0;
+	left : 0;
+	z-index : 3;
+}
+
+.bettermangareader .pure-menu-list,
+.bettermangareader .pure-menu-item {
+	position : relative;
+}
+
+.bettermangareader .pure-menu-list {
+	margin : 0;
+	padding : 0;
+	list-style : none;
+}
+
+.bettermangareader .pure-menu-item {
+	height : 100%;
+	margin : 0;
+	padding : 0;
+}
+
+.bettermangareader .pure-menu-link,
+.bettermangareader .pure-menu-heading {
+	display : block;
+	text-decoration : none;
+	white-space : nowrap;
+}
+
+.bettermangareader .pure-menu-horizontal {
+	width : 100%;
+	white-space : nowrap;
+}
+
+.bettermangareader .pure-menu-horizontal .pure-menu-list {
+	display : inline-block;
+}
+
+.bettermangareader .pure-menu-horizontal .pure-menu-item,
+.bettermangareader .pure-menu-horizontal .pure-menu-heading,
+.bettermangareader .pure-menu-horizontal .pure-menu-separator {
+	display : inline-block;
+	vertical-align : middle;
+
+	zoom : 1;
+}
+
+.bettermangareader .pure-menu-item .pure-menu-item {
+	display : block;
+}
+
+.bettermangareader .pure-menu-children {
+	display : none;
+	position : absolute;
+	top : 0;
+	left : 100%;
+	margin : 0;
+	padding : 0;
+	z-index : 3;
+}
+
+.bettermangareader .pure-menu-horizontal .pure-menu-children {
+	top : auto;
+	left : 0;
+	width : inherit;
+}
+
+.bettermangareader .pure-menu-allow-hover:hover > .pure-menu-children,
+.bettermangareader .pure-menu-active > .pure-menu-children {
+	display : block;
+	position : absolute;
+}
+
+.bettermangareader .pure-menu-has-children > .pure-menu-link:after {
+	padding-left : .5em;
+	font-size : small;
+	content : '\25B8';
+}
+
+.bettermangareader .pure-menu-horizontal .pure-menu-has-children > .pure-menu-link:after {
+	content : '\25BE';
+}
+
+.bettermangareader .pure-menu-scrollable {
+	overflow-x : hidden;
+	overflow-y : scroll;
+}
+
+.bettermangareader .pure-menu-scrollable .pure-menu-list {
+	display : block;
+}
+
+.bettermangareader .pure-menu-horizontal.pure-menu-scrollable .pure-menu-list {
+	display : inline-block;
+}
+
+.bettermangareader .pure-menu-horizontal.pure-menu-scrollable {
+	padding : .5em 0;
+	white-space : nowrap;
+	overflow-x : auto;
+	overflow-y : hidden;
+	-webkit-overflow-scrolling : touch;
+}
+
+.bettermangareader .pure-menu-horizontal.pure-menu-scrollable::-webkit-scrollbar {
+	display : none;
+}
+
+.bettermangareader .pure-menu-separator {
+	height : 1px;
+	margin : .3em 0;
+	background-color : #ccc;
+}
+
+.bettermangareader .pure-menu-horizontal .pure-menu-separator {
+	width : 1px;
+	height : 1.3em;
+	margin : 0 .3em;
+}
+
+.bettermangareader .pure-menu-heading {
+	color : #565d64;
+	text-transform : uppercase;
+}
+
+.bettermangareader .pure-menu-link {
+	color : #777;
+}
+
+.bettermangareader .pure-menu-children {
+	background-color : #fff;
+}
+
+.bettermangareader .pure-menu-link,
+.bettermangareader .pure-menu-disabled,
+.bettermangareader .pure-menu-heading {
+	padding : .5em 1em;
+}
+
+.bettermangareader .pure-menu-disabled {
+	opacity : .5;
+}
+
+.bettermangareader .pure-menu-disabled .pure-menu-link:hover {
+	background-color : transparent;
+}
+
+.bettermangareader .pure-menu-active > .pure-menu-link,
+.bettermangareader .pure-menu-link:hover,
+.bettermangareader .pure-menu-link:focus {
+	background-color : #eee;
+}
+
+.bettermangareader .pure-menu-selected .pure-menu-link,
+.bettermangareader .pure-menu-selected .pure-menu-link:visited {
+	color : #000;
+}
+
+.bettermangareader .pure-table {
+	border : 1px solid #cbcbcb;
+	border-collapse : collapse;
+	border-spacing : 0;
+	empty-cells : show;
+}
+
+.bettermangareader .pure-table caption {
+	padding : 1em 0;
+	color : #000;
+	font : italic 85%/1 arial, sans-serif;
+	text-align : center;
+}
+
+.bettermangareader .pure-table td,
+.bettermangareader .pure-table th {
+	margin : 0;
+	padding : .5em 1em;
+	border-left : 1px solid #cbcbcb;
+	border-width : 0 0 0 1px;
+	font-size : inherit;
+	overflow : visible;
+}
+
+.bettermangareader .pure-table td:first-child,
+.bettermangareader .pure-table th:first-child {
+	border-left-width : 0;
+}
+
+.bettermangareader .pure-table thead {
+	background-color : #e0e0e0;
+	color : #000;
+	text-align : left;
+	vertical-align : bottom;
+}
+
+.bettermangareader .pure-table td {
+	background-color : transparent;
+}
+
+.bettermangareader .pure-table-odd td {
+	background-color : #f2f2f2;
+}
+
+.bettermangareader .pure-table-striped tr:nth-child(2n-1) td {
+	background-color : #f2f2f2;
+}
+
+.bettermangareader .pure-table-bordered td {
+	border-bottom : 1px solid #cbcbcb;
+}
+
+.bettermangareader .pure-table-bordered tbody > tr:last-child > td {
+	border-bottom-width : 0;
+}
+
+.bettermangareader .pure-table-horizontal td,
+.bettermangareader .pure-table-horizontal th {
+	border-bottom : 1px solid #cbcbcb;
+	border-width : 0 0 1px;
+}
+
+.bettermangareader .pure-table-horizontal tbody > tr:last-child > td {
+	border-bottom-width : 0;
 }

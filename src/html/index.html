@@ -1,70 +1,40 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
-<head>
-	<meta charset="UTF-8">
-	<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
 
-	<title>BetterMangaReader - Your Mangas</title>
+		<title>BetterMangaReader</title>
 
-	<link rel="stylesheet" href="../../css/bootstrap-3-1-1/bootstrap.min.css">
-	<link rel="stylesheet" href="../../css/bootstrap-3-1-1/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="main.css">
-</head>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<body>
+		<link rel="stylesheet" href="../styles/pure.css" />
+		<link rel="stylesheet" href="../styles/main.css" />
+	</head>
 
-	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="index.html">BetterMangaReader</a>
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li class="active"><a href="index.html">Mangas</a>
-					</li>
-					<li><a href="settings.html">Settings</a>
-					</li>
-					<li><a href="import-export.html">Import/Export</a>
-					</li>
-					<li><a href="#">Help</a>
-					</li>
-				</ul>
-			</div>
+	<body class="bettermangareader">
+		<div id="manga-table">
+			<table>
+				<thead>
+					<tr>
+						<th width="130px"></th>
+						<th>Manga Name</th>
+						<th width="130px">Read To</th>
+						<th width="130px">Latest</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
 		</div>
-	</div>
 
-	<div class="container-fluid">
-		<div class="row">
-			
-			<div class="col-sm-12 col-md-12 main">
-				<h1 class="page-header">All Mangas <button class="btn btn-info refresh-btn" data-toggle="tooltip" data-placement="right" title="This happens automatically every minute so don't be surprised if nothing changes">Refresh</button></h1>
+		<script src="../scripts/vendor/jquery.min.js"></script>
+		<script src="../scripts/vendor/uuid.js"></script>
 
-				<div class="table-responsive">
-					<table id="manga_table" class="table table-striped">
-						<thead>
-							<tr>
-								<th class="center-text"></th>
-								<th>Name</th>
-								<th class="center-text">Latest Read</th>
-								<th class="center-text">Latest Chapter</th>
-								<th class="center-text">Tracking?</th>
-								<th class="center-text">Chapter Controls</th>
-							</tr>
-						</thead>
-						<tbody>
+		<script src="../scripts/data.js"></script>
 
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-	<script src="../../js/build.js"></script>
-	<script src="bootstrap/bootstrap.min.js"></script>
-	<script src="main.js"></script>
-</body>
+		<script src="../scripts/index.js"></script>
+	</body>
 
 </html>
