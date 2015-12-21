@@ -89,3 +89,7 @@ body {
 	font-weight : 500;
 	text-shadow : none;
 }
+
+#manga-table table > tbody > tr:not(.has-unread) .manga-markRead button {
+	display : none;
+}
