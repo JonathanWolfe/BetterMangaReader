@@ -16,7 +16,7 @@ function buildControls() {
 
 	const iconURL = chrome.runtime.getURL( '../icons/icon19.png' );
 
-	const bmrControls = `<div id="bmr-controls">
+	const bmrControls = `<div id="bmr-controls" class="bettermangareader">
 			<img src="${iconURL}" alt="BetterMangaReader" />
 			<form class="pure-form">
 				<button id="prev-chapter" class="pure-button pure-button-primary">&laquo;</button>
