@@ -108,25 +108,6 @@
 	text-align : center;
 }
 
-#bmr-controls .pure-button-success,
-#bmr-controls .pure-button-error {
-	border-radius : 4px;
-	color : #fff;
-	text-shadow : 0 1px 1px rgba(0, 0, 0, .2);
-}
-
-#bmr-controls .pure-button-success {
-	background : #1cb841;
-}
-
-#bmr-controls .pure-button-error {
-	background : #ca3c3c;
-}
-
-#bmr-controls .pure-button-disabled {
-	background : #aaa;
-}
-
 #bmr-controls #tracking.pure-button-disabled:before {
 	content : 'Checking';
 }
