@@ -42,7 +42,7 @@ window.data = ( function initStorage() {
 			},
 		},
 
-		getAll: () => {
+		getFresh: () => {
 			return new Promise( ( resolve, reject ) => {
 				chrome.storage.sync.get( null, ( response ) => resolve( response ) );
 			} );

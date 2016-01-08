@@ -51,4 +51,4 @@ function bmrInit( bmrData ) {
 	} );
 }
 
-window.data.saveChanges().then( window.data.getAll ).then( bmrInit );
+window.data.saveChanges().then( window.data.getFresh ).then( bmrInit );
