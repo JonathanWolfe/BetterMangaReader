@@ -92,7 +92,7 @@
 	vertical-align : middle;
 }
 
-#bmr-controls form {
+#bmr-controls .form {
 	display : inline-block;
 }
 
