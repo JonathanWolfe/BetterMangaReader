@@ -58,16 +58,16 @@
 		 * @return {Object}      Info object
 		 */
 		getChapterInfo: ( HTML ) => {
-			const mangaName = $( '.dropdown-toggle .visible-desktop:first', HTML ).text().trim();
+			const name = $( '.dropdown-toggle .visible-desktop:first', HTML ).text().trim();
 			const number = parseFloat( $( '.page a', HTML ).attr( 'href' ).split( '/r/' )[ 1 ].split( '/' )[ 1 ] );
 			const mangaUrl = $( '.btn-group .dropdown-menu:first a:last', HTML ).attr( 'href' );
-			const url = $( '.dropdown-menu:last a:first', HTML ).attr( 'href' );
+			const chapterUrl = $( '.dropdown-menu:last a:first', HTML ).attr( 'href' );
 
 			return {
-				mangaName,
+				chapterUrl,
 				mangaUrl,
+				name,
 				number,
-				url,
 			};
 		},
 

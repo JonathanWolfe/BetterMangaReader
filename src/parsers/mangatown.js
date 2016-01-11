@@ -78,21 +78,21 @@
 			const chapter = $( search[ 0 ] );
 			const manga = $( search[ 1 ] );
 
-			let mangaName = manga.text().trim();
+			let name = manga.text().trim();
 
-			if ( mangaName.substr( -5 ) === 'Manga' ) {
-				mangaName = mangaName.substr( 0, mangaName.length - 5 ).trim();
+			if ( name.substr( -5 ) === 'Manga' ) {
+				name = name.substr( 0, name.length - 5 ).trim();
 			}
 
-			const url = chapter.attr( 'href' );
+			const chapterUrl = chapter.attr( 'href' );
 			const mangaUrl = manga.attr( 'href' );
-			const number = getChapterNumberFromChapterUrl( url );
+			const number = getChapterNumberFromChapterUrl( chapterUrl );
 
 			return {
-				mangaName,
+				chapterUrl,
 				mangaUrl,
+				name,
 				number,
-				url,
 			};
 		},
 
