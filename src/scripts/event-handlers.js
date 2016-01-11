@@ -21,18 +21,20 @@ window.eventHandlers = {
 			parsedHTML = $( '<html />' ).append( message.html );
 		}
 
-		const scanContainer = parser.scanContainer();
 		const chapterInfo = parser.getChapterInfo( parsedHTML );
-		const pages = parser.getPages( parsedHTML );
-		const imageFromPage = parser.getImageFromPage( parsedHTML );
 		const chapterListFromChapter = parser.getChaptersListFromChapter( parsedHTML );
+		const imageFromPage = parser.getImageFromPage( parsedHTML );
+		const isTracked = window.data.mangaIsTracked( chapterInfo.mangaUrl, chapterInfo.name );
+		const pages = parser.getPages( parsedHTML );
+		const scanContainer = parser.scanContainer();
 
 		return {
-			scanContainer,
 			chapterInfo,
-			pages,
-			imageFromPage,
 			chapterListFromChapter,
+			imageFromPage,
+			isTracked,
+			pages,
+			scanContainer,
 		};
 	},
 
