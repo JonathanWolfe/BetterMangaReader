@@ -42,7 +42,7 @@ function buildControls() {
 
 	$( 'body' ).append( bmrControls );
 
-	toggleTrackingButton();
+	toggleTrackingButton( parsedChapter.isTracked );
 
 	const controls = $( '#bmr-controls' );
 	const chapterList = $( 'option', controls );

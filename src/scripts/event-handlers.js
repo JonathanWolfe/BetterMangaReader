@@ -74,4 +74,30 @@ window.eventHandlers = {
 		return chapterListFromProfile;
 	},
 
+	toggleTracking: ( message, sender ) => {
+		const urlMatched = window.data.getByUrl( message.manga.mangaUrl );
+		const nameMatched = window.data.getByName( message.manga.name );
+
+		const found = urlMatched || nameMatched || false;
+
+		if ( found ) {
+			delete window.data.state.tracking[ found ];
+		} else {
+			window.data.state.tracking[ window.uuid.v4() ] = {
+				name: message.manga.name,
+				url: message.manga.mangaUrl,
+				readTo: message.manga.number,
+				latestChapter: '9999',
+			};
+		}
+
+		window.data.saveChanges().then( ( state ) => {
+			chrome.tabs.sendMessage( sender.tab.id, {
+				type: 'success',
+				action: 'toggleTrackingButton',
+				value: window.data.mangaIsTracked( message.manga.mangaUrl, message.manga.name ),
+			} );
+		} );
+	},
+
 };
