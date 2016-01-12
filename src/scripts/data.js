@@ -101,7 +101,8 @@ window.data = ( function initStorage() {
 				chrome.storage.sync.set( window.data.state, () => window.data.getFresh().then( resolve ) );
 			} );
 		},
+
 	};
 }() );
 
-window.data.primeIndexes();
+window.data.getFresh();
