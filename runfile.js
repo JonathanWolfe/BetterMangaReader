@@ -18,11 +18,11 @@ export function css() {
 }
 
 export function icons() {
-	return run( 'cp -R ./src/icons ./ext/icons' );
+	return run( 'cp -vr ./src/icons ./ext/icons' );
 }
 
 export function html() {
-	return run( 'cp -R ./src/html ./ext/html' );
+	return run( 'cp -vr ./src/html ./ext/html' );
 }
 
 export function manifest() {
