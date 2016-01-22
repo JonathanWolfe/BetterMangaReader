@@ -41,7 +41,7 @@
 			$( '.table-striped a', HTML ).each( ( index, element ) => {
 				const title = $( element ).text().trim();
 				const url = $( element ).attr( 'href' );
-				const number = parseFloat( title.split( ' - ' )[ 1 ] );
+				const number = parseFloat( title.split( ' - ' )[ 0 ] );
 
 				chapters.push( {
 					number, title, url,
