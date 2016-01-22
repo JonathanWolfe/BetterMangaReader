@@ -13,16 +13,17 @@
 	"homepage": "https://github.com/JonathanWolfe/BetterMangaReader#readme",
 	"main": "index.html",
 	"scripts": {
+		"build": "run build",
 		"clean": "run clean",
-		"parsers": "run parsers",
-		"scripts": "run scripts",
 		"css": "run css",
-		"icons": "run icons",
+		"dev": "run develop",
 		"html": "run html",
+		"icons": "run icons",
 		"manifest": "run manifest",
 		"observeFiles": "run observeFiles",
-		"build": "run build",
-		"dev": "run develop"
+		"parsers": "run parsers",
+		"scripts": "run scripts",
+		"start": "npm run dev"
 	},
 	"author": "Jon Wolfe",
 	"license": "MIT",
