@@ -71,7 +71,7 @@ window.parsers = ( function initParsers() {
 			}
 
 			return Promise.all( promises ).then( () => {
-				window.data.state.editDate = ( new Date() ).toISOString(),
+				window.data.state.editDate = ( new Date() ).toISOString();
 			} ).then( window.data.saveChanges ).then( console.log.bind( console ) );
 		},
 
