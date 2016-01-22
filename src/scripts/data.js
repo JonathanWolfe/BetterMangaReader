@@ -12,7 +12,7 @@ window.data = ( function initStorage() {
 
 	return {
 
-		state: {
+		example: {
 			editDate: ( new Date() ).toISOString(),
 			tracking: {
 				'd9266b7b-8eb5-4b50-9c77-feccc3fe3f6e': {
@@ -48,6 +48,8 @@ window.data = ( function initStorage() {
 			},
 		},
 
+		state: {},
+
 		indexes: {},
 
 		primeIndexes: () => {
@@ -62,6 +64,12 @@ window.data = ( function initStorage() {
 			} );
 
 			return window.data.indexes;
+		},
+
+		capacityUsed: () => {
+			return new Promise( ( resolve ) => {
+				chrome.storage.sync.getBytesInUse( null, ( bytes ) => resolve( 100 * ( bytes / 1000000 ) ) );
+			} );
 		},
 
 		fetch: ( uuid ) => window.data.state.tracking[ uuid ],
@@ -87,10 +95,18 @@ window.data = ( function initStorage() {
 		},
 
 		getFresh: () => {
+			const defaultResponse = {
+				editDate: ( new Date() ).toISOString(),
+				tracking: {},
+			};
+
 			return new Promise( ( resolve, reject ) => {
 				chrome.storage.sync.get( null, ( response ) => {
+					response = Object.keys( response ).length ? response : defaultResponse;
+
 					window.data.state = response;
 					window.data.primeIndexes();
+
 					resolve( response );
 				} );
 			} );
@@ -101,6 +117,11 @@ window.data = ( function initStorage() {
 				chrome.storage.sync.set( window.data.state, () => window.data.getFresh().then( resolve ) );
 			} );
 		},
+
+		loadExample: () => {
+			window.data.state = window.data.example;
+			return window.data.saveChanges().then( () => console.log( 'Done loading example' ) )
+		}
 
 	};
 }() );
