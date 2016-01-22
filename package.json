@@ -28,15 +28,16 @@
 	"license": "MIT",
 	"devDependencies": {
 		"babel-cli": "latest",
+		"babel-eslint": "latest",
 		"babel-preset-es2015": "latest",
 		"css-mqpacker": "latest",
 		"cssnano": "latest",
+		"eslint": "latest",
 		"postcss": "latest",
 		"postcss-cli": "latest",
 		"postcss-cssnext": "latest",
 		"postcss-import": "latest",
 		"postcss-url": "latest",
-		"runjs": "latest",
-		"uglify-js": "latest"
+		"runjs": "latest"
 	}
 }
