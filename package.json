@@ -1,6 +1,6 @@
 {
 	"name": "bettermangareader",
-	"version": "0.4.0",
+	"version": "0.4.3",
 	"description": "Keep track of your manga, be notified of updates, and have a better reading experience",
 	"private": true,
 	"repository": {
@@ -30,15 +30,13 @@
 	"devDependencies": {
 		"babel-cli": "latest",
 		"babel-eslint": "latest",
-		"babel-preset-es2015": "latest",
-		"css-mqpacker": "latest",
+		"babel-preset-es2015-loose": "latest",
 		"cssnano": "latest",
 		"eslint": "latest",
-		"postcss": "latest",
+		"eslint-config-airbnb": "latest",
 		"postcss-cli": "latest",
 		"postcss-cssnext": "latest",
 		"postcss-import": "latest",
-		"postcss-url": "latest",
 		"runjs": "latest"
 	}
 }
