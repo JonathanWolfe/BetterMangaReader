@@ -1,5 +1,5 @@
 {
-	"use": ["postcss-import", "postcss-url", "postcss-cssnext", "css-mqpacker", "cssnano"],
+	"use": [ "postcss-import", "postcss-cssnext", "cssnano" ],
 	"local-plugins": true,
 	"cssnano": {
 		"zindex": false,
