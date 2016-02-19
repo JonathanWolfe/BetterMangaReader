@@ -5,11 +5,11 @@ export function clean() {
 }
 
 export function parsers() {
-	return run( 'babel ./src/parsers --out-dir ./ext/parsers' );;
+	return run( 'babel ./src/parsers --out-dir ./ext/parsers' );
 }
 
 export function scripts() {
-	return run( 'babel ./src/scripts --out-dir ./ext/scripts' );;
+	return run( 'babel ./src/scripts --out-dir ./ext/scripts' );
 }
 
 export function css() {
