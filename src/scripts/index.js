@@ -4,7 +4,7 @@ function sortByMangaName( a, b ) {
 
 function createMangaTable( bmrData ) {
 	const mangaTable = $( '#manga-table tbody' );
-	const rows = [];
+	const rows = [ ];
 
 	Object.keys( bmrData.tracking ).forEach( ( uuid ) => {
 		const manga = bmrData.tracking[ uuid ];
@@ -43,7 +43,7 @@ function bmrInit( bmrData ) {
 
 	createMangaTable( bmrData );
 
-	$( '#manga-table' ).on( 'click', 'tbody tr', function mangaClicked( event ) {
+	$( '#manga-table' ).on( 'click', 'tbody tr', ( event ) => {
 		const uuid = event.currentTarget.id;
 		const manga = bmrData.tracking[ uuid ];
 

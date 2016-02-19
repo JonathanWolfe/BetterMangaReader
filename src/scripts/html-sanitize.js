@@ -1,5 +1,5 @@
 // Taken then modified from somewhere on Stack Overflow
-jQuery.fn.whitespaceClean = function whitespaceClean() {
+jQuery.fn.whitespaceClean = ( ) => {
 
 	this.contents().filter( function findWhiteSpace() {
 		if ( this.nodeType !== 3 && this.nodeType !== 8 ) {
@@ -16,7 +16,7 @@ jQuery.fn.whitespaceClean = function whitespaceClean() {
 	return this;
 };
 
-jQuery.fn.bmrLiteSanitize = function bmrLiteSanitize() {
+jQuery.fn.bmrLiteSanitize = ( ) => {
 
 	// Nuke Scripts and iframes
 	this.find( 'script, iframe' ).remove();
@@ -31,4 +31,5 @@ jQuery.fn.bmrLiteSanitize = function bmrLiteSanitize() {
 	this.whitespaceClean();
 
 	return this;
+
 };

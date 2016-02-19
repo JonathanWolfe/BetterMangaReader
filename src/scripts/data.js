@@ -5,7 +5,9 @@ window.data = ( function initStorage() {
 		normalized = normalized.replace( 'http://', '' ).replace( 'https://', '' );
 		normalized = normalized.replace( 'www.', '' );
 
-		if ( normalized.substr( -1 ) !== '/' ) normalized += '/';
+		if ( normalized.substr( -1 ) !== '/' ) {
+			normalized += '/';
+		}
 
 		return normalized;
 	}
@@ -52,9 +54,9 @@ window.data = ( function initStorage() {
 
 		indexes: {},
 
-		primeIndexes: () => {
-			window.data.indexes.name = {};
-			window.data.indexes.url = {};
+		primeIndexes: ( ) => {
+			window.data.indexes.name = { };
+			window.data.indexes.url = { };
 
 			Object.keys( window.data.state.tracking ).forEach( ( uuid ) => {
 				const current = window.data.state.tracking[ uuid ];
@@ -66,17 +68,15 @@ window.data = ( function initStorage() {
 			return window.data.indexes;
 		},
 
-		capacityUsed: () => {
-			return new Promise( ( resolve ) => {
-				chrome.storage.sync.getBytesInUse( null, ( bytes ) => resolve( 100 * ( bytes / 1000000 ) ) );
-			} );
-		},
+		capacityUsed: ( ) => new Promise( ( resolve ) => {
+			chrome.storage.sync.getBytesInUse( null, ( bytes ) => resolve( 100 * ( bytes / 1000000 ) ) );
+		} ),
 
 		fetch: ( uuid ) => window.data.state.tracking[ uuid ],
 
 		getByKey: ( key, searchValue ) => {
 			if ( typeof window.data.indexes[ key ] === 'undefined' ) {
-				throw new Error( 'Invalid Query Key: ' + key );
+				throw new Error( `Invalid Query Key: ${key}` );
 			}
 			return window.data.indexes[ key ][ searchValue ];
 		},
@@ -89,12 +89,14 @@ window.data = ( function initStorage() {
 			const urlMatched = window.data.getByUrl( mangaUrl );
 			const nameMatched = window.data.getByName( mangaName );
 
-			if ( urlMatched || nameMatched ) return true;
+			if ( urlMatched || nameMatched ) {
+				return true;
+			}
 
 			return false;
 		},
 
-		getFresh: () => {
+		getFresh: ( ) => {
 			const defaultResponse = {
 				editDate: ( new Date() ).toISOString(),
 				tracking: {},
@@ -112,16 +114,14 @@ window.data = ( function initStorage() {
 			} );
 		},
 
-		saveChanges: () => {
-			return new Promise( ( resolve, reject ) => {
-				chrome.storage.sync.set( window.data.state, () => window.data.getFresh().then( resolve ) );
-			} );
-		},
+		saveChanges: ( ) => new Promise( ( resolve, reject ) => {
+			chrome.storage.sync.set( window.data.state, ( ) => window.data.getFresh().then( resolve ) );
+		} ),
 
-		loadExample: () => {
+		loadExample: ( ) => {
 			window.data.state = window.data.example;
-			return window.data.saveChanges().then( () => console.log( 'Done loading example' ) )
-		}
+			return window.data.saveChanges().then( ( ) => console.log( 'Done loading example' ) );
+		},
 
 	};
 }() );

@@ -9,10 +9,7 @@ window.eventHandlers = {
 		const isChapterPage = parser.isChapterPage( parsedHTML );
 		const isProfilePage = parser.isProfilePage( parsedHTML );
 
-		return {
-			isChapterPage,
-			isProfilePage,
-		};
+		return { isChapterPage, isProfilePage };
 	},
 
 	parseChapterPage: ( message, sender, parser, parsedHTML ) => {
@@ -45,12 +42,12 @@ window.eventHandlers = {
 			pages = parser.getPages( parsedHTML );
 		}
 
-		const pagePromises = [];
+		const pagePromises = [ ];
 
 		for ( let i = 0; i < pages.length; i += 1 ) {
 			pagePromises.push(
 				window.parsers.helpers.getHtmlFromUrl( pages[ i ] )
-				.then( parser.getImageFromPage )
+					.then( parser.getImageFromPage )
 			);
 		}
 
@@ -104,7 +101,7 @@ window.eventHandlers = {
 
 chrome.runtime.onMessage.addListener( function processMessage( message, sender, sendResponse ) {
 
-	console.group( 'message recieved - ' + message.action );
+	console.group( `message recieved - ${message.action}` );
 	console.log( 'message', message );
 	console.log( 'sender', sender );
 	console.groupEnd();
@@ -126,7 +123,7 @@ chrome.runtime.onMessage.addListener( function processMessage( message, sender, 
 	} else {
 		sendResponse( {
 			type: 'error',
-			value: 'No event handler for the action "' + message.action + '"',
+			value: `No event handler for the action "${message.action}"`,
 		} );
 	}
 

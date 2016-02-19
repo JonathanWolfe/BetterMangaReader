@@ -40,11 +40,11 @@ window.parsers = ( function initParsers() {
 			return parser || false;
 		},
 
-		checkForReleases: () => {
+		checkForReleases: ( ) => {
 			const uuids = Object.keys( window.data.state.tracking );
-			const promises = [];
+			const promises = [ ];
 
-			for ( var i = uuids.length - 1; i >= 0; i -= 1 ) {
+			for ( let i = uuids.length - 1; i >= 0; i -= 1 ) {
 
 				const uuid = uuids[ i ];
 				const manga = window.data.state.tracking[ uuid ];
@@ -60,17 +60,17 @@ window.parsers = ( function initParsers() {
 					.then( ( chapters ) => {
 						chapters = chapters.sort( ( a, b ) => parseFloat( b.number ) - parseFloat( a.number ) );
 
-						console.log( 'manga', manga )
+						console.log( 'manga', manga );
 						console.log( 'chapters', chapters );
 
-						manga.latestChaper = '' + chapters[ 0 ].number;
+						manga.latestChaper = chapters[ 0 ].number.toString();
 						return manga;
 					} );
 
 				promises.push( checking );
 			}
 
-			return Promise.all( promises ).then( () => {
+			return Promise.all( promises ).then( ( ) => {
 				window.data.state.editDate = ( new Date() ).toISOString();
 			} ).then( window.data.saveChanges ).then( console.log.bind( console ) );
 		},
@@ -81,7 +81,7 @@ window.parsers = ( function initParsers() {
 			 * @param  {String} url	Url to ensure is useable
 			 * @return {String}       Useable url
 			 */
-			validUrl: ( url ) => url.includes( 'http://' ) || url.includes( 'https://' ) ? url : 'http://' + url,
+			validUrl: ( url ) => url.includes( 'http://' ) || url.includes( 'https://' ) ? url : `http://${url}`,
 
 			/**
 			 * Retrieves the HTML of a URL

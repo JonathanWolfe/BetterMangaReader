@@ -55,22 +55,22 @@ function buildControls() {
 		$( '#next-chapter', controls ).prop( 'disabled', true );
 	}
 
-	$( '#prev-chapter:not(:disabled)', controls ).on( 'click', function goToPrevChapter() {
+	$( '#prev-chapter:not(:disabled)', controls ).on( 'click', ( ) => {
 		const newLocation = chapterList.eq( selectedChapter.index() - 1 ).val();
 		window.location.assign( newLocation );
 	} );
 
-	$( '#next-chapter:not(:disabled)', controls ).on( 'click', function goToNextChapter() {
+	$( '#next-chapter:not(:disabled)', controls ).on( 'click', ( ) => {
 		const newLocation = chapterList.eq( selectedChapter.index() + 1 ).val();
 		window.location.assign( newLocation );
 	} );
 
-	$( 'select', controls ).on( 'change', function goToThisChapter() {
+	$( 'select', controls ).on( 'change', ( ) => {
 		const newLocation = $( 'option', this ).filter( ':selected' ).val();
 		window.location.assign( newLocation );
 	} );
 
-	$( '#tracking', controls ).on( 'click', function toggleTracking() {
+	$( '#tracking', controls ).on( 'click', ( ) => {
 		$( '#tracking', controls )
 			.removeClass( 'pure-button-success pure-button-error' )
 			.addClass( 'pure-button-disabled' )
@@ -81,7 +81,6 @@ function buildControls() {
 			manga: parsedChapter.chapterInfo,
 		} );
 	} );
-
 }
 
 function addBMRLoading() {
@@ -109,11 +108,11 @@ const events = {
 
 	putImagesForChapter: ( images ) => {
 		const scanContainer = $( parsedChapter.scanContainer );
-		const scans = [];
+		const scans = [ ];
 		scanContainer.empty();
 
 		for ( let i = 0; i < parsedChapter.pages.length; i += 1 ) {
-			scans.push( '<img src="' + images[ i ] + '" />' );
+			scans.push( `<img src="${images[ i ]}" />` );
 		}
 
 		scanContainer.append( scans.join( "\r\n" ) );
@@ -137,7 +136,7 @@ const events = {
 	toggleTrackingButton,
 };
 
-$( document ).ready( function initBMRInject() {
+$( document ).ready( ( ) => {
 	addBMRLoading();
 
 
