@@ -9,18 +9,18 @@ export function initEmpty() {
 }
 
 export function parsers() {
-	return run( 'cp -R -f ./src/parsers/ ./ext/parsers' );
+	return run( 'cp -R -f ./src/parsers ./ext' );
 }
 export function scripts() {
-	return run( 'cp -R -f ./src/scripts/ ./ext/scripts' );
+	return run( 'cp -R -f ./src/scripts ./ext' );
 }
 
 export function icons() {
-	return run( 'cp -R -f ./src/icons/ ./ext/icons' );
+	return run( 'cp -R -f ./src/icons ./ext' );
 }
 
 export function html() {
-	return run( 'cp -R -f ./src/html/ ./ext/html' );
+	return run( 'cp -R -f ./src/html ./ext' );
 }
 
 export function manifest() {
