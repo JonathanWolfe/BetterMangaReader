@@ -1,26 +1,6 @@
 'use strict';
 
 function initStorage() {
-
-	/**
-	 * Normalize a URL for storage
-	 * No http, www, and include closing slash
-	 * @param  {String} url Url to normalize
-	 * @return {String}     Normalized URL
-	 */
-	function normalizeUrl( url ) {
-		let normalized = url.toLowerCase().trim();
-
-		normalized = normalized.replace( 'http://', '' ).replace( 'https://', '' );
-		normalized = normalized.replace( 'www.', '' );
-
-		if ( normalized.substr( -1 ) !== '/' ) {
-			normalized += '/';
-		}
-
-		return normalized;
-	}
-
 	/**
 	 * Prime the indexes for use
 	 * @return {Object} The finalized indexes
@@ -33,7 +13,7 @@ function initStorage() {
 			const current = window.data.state.tracking[ uuid ];
 
 			window.data.indexes.name[ current.name.toLowerCase().trim() ] = uuid;
-			window.data.indexes.url[ normalizeUrl( current.url ) ] = uuid;
+			window.data.indexes.url[ window.parsers.helpers.normalizeUrl( current.url ) ] = uuid;
 		} );
 
 		return window.data.indexes;
@@ -77,7 +57,7 @@ function initStorage() {
 	 * @return {Manga}           the found Manga object, or undefined
 	 */
 	function getByUrl( mangaUrl ) {
-		window.data.getByKey( 'url', normalizeUrl( mangaUrl ) );
+		window.data.getByKey( 'url', window.parsers.helpers.normalizeUrl( mangaUrl ) );
 	}
 
 	/**

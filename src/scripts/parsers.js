@@ -83,6 +83,25 @@ window.parsers = ( function initParsers() {
 			},
 
 			/**
+			 * Normalize a URL for storage
+			 * No http, www, and include closing slash
+			 * @param  {String} url Url to normalize
+			 * @return {String}     Normalized URL
+			 */
+			normalizeUrl: ( url ) => {
+				let normalized = url.toLowerCase().trim();
+
+				normalized = normalized.replace( 'http://', '' ).replace( 'https://', '' );
+				normalized = normalized.replace( 'www.', '' );
+
+				if ( normalized.substr( -1 ) !== '/' ) {
+					normalized += '/';
+				}
+
+				return normalized;
+			},
+
+			/**
 			 * Retrieves the HTML of a URL
 			 * @param  {String} url URL to scrape
 			 * @return {Promise}     Resolves with the HTML
