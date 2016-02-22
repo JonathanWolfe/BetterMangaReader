@@ -8,15 +8,23 @@ export function initEmpty() {
 	return run( 'mkdir -p ./ext/parsers ./ext/scripts ./ext/icons ./ext/html ./ext/styles' );
 }
 
-export function copyFiles() {
-	run( 'cp -R -f ./src/parsers ./ext/parsers' );
-	run( 'cp -R -f ./src/scripts ./ext/scripts' );
+export function parsers() {
+	return run( 'cp -R -f ./src/parsers/ ./ext/parsers' );
+}
+export function scripts() {
+	return run( 'cp -R -f ./src/scripts/ ./ext/scripts' );
+}
 
-	run( 'cp -R -f ./src/icons ./ext/icons' );
+export function icons() {
+	return run( 'cp -R -f ./src/icons/ ./ext/icons' );
+}
 
-	run( 'cp -R -f ./src/html ./ext/html' );
+export function html() {
+	return run( 'cp -R -f ./src/html/ ./ext/html' );
+}
 
-	run( 'cp -R -f ./src/manifest.json ./ext/manifest.json' );
+export function manifest() {
+	return run( 'cp -R -f ./src/manifest.json ./ext/manifest.json' );
 }
 
 export function css() {
@@ -24,22 +32,27 @@ export function css() {
 }
 
 export function observeFiles() {
-	console.log( '' )
-	watch( 'src/parsers/**/*.js', copyFiles );
-	watch( 'src/scripts/**/*.js', copyFiles );
-	watch( 'src/icons/**/*', copyFiles );
-	watch( 'src/html/**/*.html', copyFiles );
-	watch( 'src/manifest.json', copyFiles );
+	console.log( '' );
+	watch( 'src/parsers/**/*.js', parsers );
+	watch( 'src/scripts/**/*.js', scripts );
+	watch( 'src/icons/**/*', icons );
+	watch( 'src/html/**/*.html', html );
+	watch( 'src/manifest.json', manifest );
 
 	watch( 'src/styles/**/*.css', css );
-	console.log( '' )
+	console.log( '' );
 }
 
 export function build() {
 	clean();
 	initEmpty();
 
-	copyFiles();
+	parsers();
+	scripts();
+	icons();
+	html();
+	manifest();
+
 	css();
 }
 
