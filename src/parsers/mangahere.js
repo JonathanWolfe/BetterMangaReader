@@ -1,3 +1,5 @@
+'use strict';
+
 function initParser() {
 	/**
 	 * Returns the chapter's number via it's url.

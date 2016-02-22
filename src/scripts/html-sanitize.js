@@ -1,3 +1,5 @@
+'use strict';
+
 // Taken then modified from somewhere on Stack Overflow
 jQuery.fn.whitespaceClean = ( ) => {
 

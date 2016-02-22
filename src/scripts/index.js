@@ -1,3 +1,5 @@
+'use strict';
+
 function sortByMangaName( a, b ) {
 	return $( '.manga-name', a ).text().localeCompare( $( '.manga-name', b ).text() );
 }

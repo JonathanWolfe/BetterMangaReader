@@ -1,3 +1,5 @@
+'use strict';
+
 // Open or Focus the BMR tab
 // Called when the user clicks on the browser action icon.
 chrome.browserAction.onClicked.addListener( ( ) => {

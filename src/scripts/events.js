@@ -1,3 +1,5 @@
+'use strict';
+
 window.eventHandlers = {
 
 	parserForUrl: ( message, sender ) => window.parsers.findByUrl( sender.url ),

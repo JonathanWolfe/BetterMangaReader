@@ -1,3 +1,5 @@
+'use strict';
+
 window.parsers = ( function initParsers() {
 	return {
 		/**
