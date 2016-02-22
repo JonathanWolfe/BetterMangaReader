@@ -1,4 +1,4 @@
-( function initParser() {
+function initParser() {
 	/**
 	 * Returns the chapter's number via it's url.
 	 * Helper function for this MangaTown parser.
@@ -23,7 +23,7 @@
 		 * @return {Array}      Array of Chapters found on the page
 		 */
 		getChaptersListFromChapter: ( HTML ) => {
-			const chapters = [];
+			const chapters = [ ];
 
 			$( '#top_chapter_list option', HTML ).each( ( index, element ) => {
 				const option = $( element );
@@ -37,9 +37,7 @@
 				const url = option.val();
 				const number = getChapterNumberFromChapterUrl( url );
 
-				chapters.push( {
-					number, title, url,
-				} );
+				chapters.push( { number, title, url } );
 			} );
 
 			return chapters;
@@ -52,16 +50,14 @@
 		 * @return {Promise}       Resolves to an array of Chapters
 		 */
 		getChaptersListFromProfile: ( HTML ) => {
-			const chapters = [];
+			const chapters = [ ];
 
 			$( 'ul.chapter_list li', HTML ).each( ( index, element ) => {
 				const title = $( 'span:not(".time"):not(".new")', element ).last().text();
 				const url = $( 'a', element ).attr( 'href' );
 				const number = getChapterNumberFromChapterUrl( url );
 
-				chapters.push( {
-					number, title, url,
-				} );
+				chapters.push( { number, title, url } );
 			} );
 
 			return chapters;
@@ -103,7 +99,7 @@
 		 * @return {Array}      The list of the pages in this chapter to be used later when making the image urls.
 		 */
 		getPages: ( HTML ) => {
-			const pages = [];
+			const pages = [ ];
 
 			$( '#top_chapter_list ~ .page_select select option', HTML ).each( ( index, element ) => {
 				pages.push( $( element ).val() );
@@ -118,7 +114,7 @@
 		 * The returned element will be totally emptied.
 		 * @return {Selector}      CSS Element Selector
 		 */
-		scanContainer: () => '#viewer',
+		scanContainer: ( ) => '#viewer',
 
 
 		/**
@@ -151,5 +147,6 @@
 	 * Register the Parser so it can be accessed
 	 */
 	window.parsers.register( parser );
-	return parser;
-}() );
+}
+
+initParser();

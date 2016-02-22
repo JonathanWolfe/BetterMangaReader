@@ -1,4 +1,4 @@
-( function initParser() {
+function initParser() {
 
 	const parser = {
 
@@ -13,7 +13,7 @@
 		 * @return {Array}      Array of Chapters found on the page
 		 */
 		getChaptersListFromChapter: ( HTML ) => {
-			const chapters = [];
+			const chapters = [ ];
 			const elements = $( '.subnav .controls .btn-group:first .dropdown-menu li', HTML ).toArray().slice( 0, -2 );
 
 			elements.forEach( ( element ) => {
@@ -21,9 +21,7 @@
 				const url = $( 'a', element ).attr( 'href' );
 				const number = parseFloat( $( '.visible-phone', element ).text().trim() );
 
-				chapters.push( {
-					number, title, url,
-				} );
+				chapters.push( { number, title, url } );
 			} );
 
 			return chapters;
@@ -36,16 +34,14 @@
 		 * @return {Promise}       Resolves to an array of Chapters in the [Number, Title, Url] format
 		 */
 		getChaptersListFromProfile: ( HTML ) => {
-			const chapters = [];
+			const chapters = [ ];
 
 			$( '.table-striped a', HTML ).each( ( index, element ) => {
 				const title = $( element ).text().trim();
 				const url = $( element ).attr( 'href' );
 				const number = parseFloat( title.split( ' - ' )[ 0 ] );
 
-				chapters.push( {
-					number, title, url,
-				} );
+				chapters.push( { number, title, url } );
 			} );
 
 			return chapters;
@@ -78,7 +74,7 @@
 		 * @return {Array}      The list of the pages in this chapter to be used later when making the image urls.
 		 */
 		getPages: ( HTML ) => {
-			const pages = [];
+			const pages = [ ];
 			const lastPage = $( '.dropdown-menu:last li:last a', HTML ).attr( 'href' );
 			const numPages = lastPage.split( '/' ).pop();
 
@@ -95,7 +91,7 @@
 		 * The returned element will be totally emptied.
 		 * @return {Selector}      CSS Element Selector
 		 */
-		scanContainer: () => '.page',
+		scanContainer: ( ) => '.page',
 
 
 		/**
@@ -128,5 +124,6 @@
 	 * Register the Parser so it can be accessed
 	 */
 	window.parsers.register( parser );
-	return parser;
-}() );
+}
+
+initParser();
