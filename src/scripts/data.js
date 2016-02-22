@@ -129,6 +129,17 @@ function initStorage() {
 			chrome.browserAction.setBadgeText( { text: '' } );
 			chrome.browserAction.setTitle( { title: 'No manga updates' } );
 		}
+	/**
+	 * Mark a manga as having been read to current chapter
+	 * @param  {String} uuid UUID of the manga to update
+	 * @return {Promise}     Promise of data.saveChanges()
+	 */
+	function markRead( uuid ) {
+		if ( window.data.state.tracking[ uuid ] ) {
+			window.data.state.tracking[ uuid ].readTo = window.data.state.tracking[ uuid ].latestChapter;
+			return window.data.saveChanges();
+		}
+		return Promise.resolve( false );
 	}
 
 	/**
@@ -237,6 +248,7 @@ function initStorage() {
 		capacityUsed,
 
 		fetch,
+		markRead,
 
 		getFresh,
 
