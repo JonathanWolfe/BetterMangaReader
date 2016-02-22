@@ -90,6 +90,10 @@ function initStorage() {
 		return found;
 	}
 
+	/**
+	 * Update the number on the Extension's icon
+	 * @return {Number} Number of manga with unread chapters
+	 */
 	function updateUnreadCount() {
 		let unread = 0;
 
@@ -104,11 +108,14 @@ function initStorage() {
 		if ( unread > 0 ) {
 			chrome.browserAction.setBadgeText( { text: unread.toString() } );
 			chrome.browserAction.setTitle( { title: `${unread} manga updated` } );
-
 		} else {
 			chrome.browserAction.setBadgeText( { text: '' } );
 			chrome.browserAction.setTitle( { title: 'No manga updates' } );
 		}
+
+		return unread;
+	}
+
 	/**
 	 * Mark a manga as having been read to current chapter
 	 * @param  {String} uuid UUID of the manga to update
