@@ -110,6 +110,27 @@ function initStorage() {
 		return found;
 	}
 
+	function updateUnreadCount() {
+		let unread = 0;
+
+		Object.keys( window.data.state.tracking ).forEach( ( uuid ) => {
+			const manga = window.data.state.tracking[ uuid ];
+
+			if ( parseFloat( manga.readTo ) < parseFloat( manga.latestChapter ) ) {
+				unread += 1;
+			}
+		} );
+
+		if ( unread > 0 ) {
+			chrome.browserAction.setBadgeText( { text: unread.toString() } );
+			chrome.browserAction.setTitle( { title: `${unread} manga updated` } );
+
+		} else {
+			chrome.browserAction.setBadgeText( { text: '' } );
+			chrome.browserAction.setTitle( { title: 'No manga updates' } );
+		}
+	}
+
 	/**
 	 * Update the state with Chrome's synced version
 	 * @return {State} A promise resolving with the global state
@@ -127,6 +148,8 @@ function initStorage() {
 				window.data.state = response;
 				window.data.primeIndexes();
 
+				window.data.updateUnreadCount();
+
 				resolve( response );
 			} );
 		} );
@@ -139,6 +162,8 @@ function initStorage() {
 	function saveChanges() {
 		return new Promise( ( resolve, reject ) => {
 			window.data.state.editDate = ( new Date() ).toISOString();
+			console.log( 'Saving to Chrome Storage', window.data.state );
+
 			chrome.storage.sync.set( window.data.state, ( ) => window.data.getFresh().then( resolve ) );
 		} );
 	}
@@ -196,6 +221,8 @@ function initStorage() {
 			url: {},
 		},
 		primeIndexes,
+
+		updateUnreadCount,
 
 		capacityUsed,
 
