@@ -1,8 +1,7 @@
 'use strict';
 
 // Taken then modified from somewhere on Stack Overflow
-jQuery.fn.whitespaceClean = ( ) => {
-
+function whitespaceClean() {
 	this.contents().filter( function findWhiteSpace() {
 		if ( this.nodeType !== 3 && this.nodeType !== 8 ) {
 			$( this ).whitespaceClean();
@@ -16,10 +15,10 @@ jQuery.fn.whitespaceClean = ( ) => {
 	} ).remove();
 
 	return this;
-};
+}
+jQuery.fn.whitespaceClean = whitespaceClean;
 
-jQuery.fn.bmrLiteSanitize = ( ) => {
-
+function bmrLiteSanitize() {
 	// Nuke Scripts and iframes
 	this.find( 'script, iframe' ).remove();
 
@@ -33,5 +32,5 @@ jQuery.fn.bmrLiteSanitize = ( ) => {
 	this.whitespaceClean();
 
 	return this;
-
-};
+}
+jQuery.fn.bmrLiteSanitize = bmrLiteSanitize;
