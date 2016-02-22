@@ -62,6 +62,7 @@ window.parsers = ( function initParsers() {
 					.then( ( chapters ) => {
 						chapters = chapters.sort( ( a, b ) => parseFloat( b.number ) - parseFloat( a.number ) );
 						manga.latestChapter = chapters[ 0 ].number.toString();
+						manga.latestChapterUrl = window.parsers.helpers.normalizeUrl( chapters[ 0 ].url );
 						return manga;
 					} );
 
