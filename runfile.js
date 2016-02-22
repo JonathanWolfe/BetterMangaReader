@@ -1,56 +1,46 @@
 import { run, watch } from 'runjs';
 
 export function clean() {
-	return run( 'rm -rf ext' );
+	return run( 'rm -rf ./ext' );
 }
 
-export function parsers() {
-	return run( 'babel ./src/parsers --out-dir ./ext/parsers' );
+export function initEmpty() {
+	return run( 'mkdir -p ./ext/parsers ./ext/scripts ./ext/icons ./ext/html ./ext/styles' );
 }
 
-export function scripts() {
-	return run( 'babel ./src/scripts --out-dir ./ext/scripts' );
+export function copyFiles() {
+	run( 'cp -R -f ./src/parsers ./ext/parsers' );
+	run( 'cp -R -f ./src/scripts ./ext/scripts' );
+
+	run( 'cp -R -f ./src/icons ./ext/icons' );
+
+	run( 'cp -R -f ./src/html ./ext/html' );
+
+	run( 'cp -R -f ./src/manifest.json ./ext/manifest.json' );
 }
 
 export function css() {
-	run( 'mkdir -p ./ext/styles' );
 	return run( 'postcss --config postcss.config.json --dir ./ext/styles ./src/styles/**/*' );
 }
 
-export function icons() {
-	return run( 'cp -vr ./src/icons ./ext/icons' );
-}
-
-export function html() {
-	return run( 'cp -vr ./src/html ./ext/html' );
-}
-
-export function manifest() {
-	return run( 'cp ./src/manifest.json ./ext/manifest.json' );
-}
-
 export function observeFiles() {
-	watch( 'src/parsers/**/*.js', parsers );
-	watch( 'src/scripts/**/*.js', scripts );
+	console.log( '' )
+	watch( 'src/parsers/**/*.js', copyFiles );
+	watch( 'src/scripts/**/*.js', copyFiles );
+	watch( 'src/icons/**/*', copyFiles );
+	watch( 'src/html/**/*.html', copyFiles );
+	watch( 'src/manifest.json', copyFiles );
 
 	watch( 'src/styles/**/*.css', css );
-
-	watch( 'src/icons/**/*', icons );
-	watch( 'src/html/**/*.html', html );
-	watch( 'src/manifest.json', manifest );
+	console.log( '' )
 }
 
 export function build() {
 	clean();
+	initEmpty();
 
-	parsers();
-	scripts();
-
+	copyFiles();
 	css();
-
-	icons();
-	html();
-	manifest();
 }
 
 export function develop() {
