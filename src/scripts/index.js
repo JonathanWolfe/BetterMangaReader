@@ -31,9 +31,6 @@ function createMangaTable( bmrData ) {
 	const unread = rows.filter( ( row ) => row.hasClass( 'has-unread' ) ).sort( sortByMangaName );
 	const read = rows.filter( ( row ) => !row.hasClass( 'has-unread' ) ).sort( sortByMangaName );
 
-	console.log( 'unread', unread );
-	console.log( 'read', read );
-
 	mangaTable.prepend( unread );
 	mangaTable.append( read );
 
@@ -41,7 +38,9 @@ function createMangaTable( bmrData ) {
 }
 
 function bmrInit( bmrData ) {
-	console.log( 'bmrData', bmrData );
+	console.group( 'Tracked Manga' );
+	console.table( bmrData.tracking );
+	console.groupEnd();
 
 	createMangaTable( bmrData );
 
