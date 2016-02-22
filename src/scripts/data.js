@@ -1,4 +1,11 @@
-window.data = ( function initStorage() {
+function initStorage() {
+
+	/**
+	 * Normalize a URL for storage
+	 * No http, www, and include closing slash
+	 * @param  {String} url Url to normalize
+	 * @return {String}     Normalized URL
+	 */
 	function normalizeUrl( url ) {
 		let normalized = url.toLowerCase().trim();
 
@@ -12,9 +19,134 @@ window.data = ( function initStorage() {
 		return normalized;
 	}
 
-	return {
+	/**
+	 * Prime the indexes for use
+	 * @return {Object} The finalized indexes
+	 */
+	function primeIndexes() {
+		window.data.indexes.name = { };
+		window.data.indexes.url = { };
 
-		example: {
+		Object.keys( window.data.state.tracking ).forEach( ( uuid ) => {
+			const current = window.data.state.tracking[ uuid ];
+
+			window.data.indexes.name[ current.name.toLowerCase().trim() ] = uuid;
+			window.data.indexes.url[ normalizeUrl( current.url ) ] = uuid;
+		} );
+
+		return window.data.indexes;
+	}
+
+	/**
+	 * Determine how much of our Chrome Sync capactiy is used
+	 * @return {Number} Percentage of capactiy used
+	 */
+	function capacityUsed() {
+		return new Promise( ( resolve ) => {
+			chrome.storage.sync.getBytesInUse( null, ( bytes ) => resolve( 100 * ( bytes / 1000000 ) ) );
+		} );
+	}
+
+	/**
+	 * Grab a manga from our tracked ones
+	 * @param  {String} uuid UUID of the manga to find
+	 * @return {Manga}       The found Manga object, or undefined
+	 */
+	function fetch( uuid ) {
+		return window.data.state.tracking[ uuid ];
+	}
+
+	/**
+	 * Find a Manga by the value of the provided key
+	 * @param  {String} key         Field to search in
+	 * @param  {String} searchValue Needle trying to find
+	 * @return {Manga}              The found Manga object, or undefined
+	 */
+	function getByKey( key, searchValue ) {
+		if ( typeof window.data.indexes[ key ] === 'undefined' ) {
+			throw new Error( `Invalid Query Key: ${key}` );
+		}
+		return window.data.indexes[ key ][ searchValue ];
+	}
+
+	/**
+	 * Find a Manga by it's URL
+	 * @param  {String} mangaUrl URL of the manga to find
+	 * @return {Manga}           the found Manga object, or undefined
+	 */
+	function getByUrl( mangaUrl ) {
+		window.data.getByKey( 'url', normalizeUrl( mangaUrl ) );
+	}
+
+	/**
+	 * Find a Manga by it's Name
+	 * @param  {String} mangaName Name of the manga to find
+	 * @return {Manga}            The found Manga object, or undefined
+	 */
+	function getByName( mangaName ) {
+		window.data.getByKey( 'name', mangaName.toLowerCase().trim() );
+	}
+
+	/**
+	 * Determine if a manga is being tracked
+	 * Multiple search terms can be provided as additional arguments
+	 * @param  {String}  searchTerm Needle to search for
+	 * @return {Boolean}            Whether the manga was found
+	 */
+	function mangaIsTracked( ...searchTerm ) {
+		let found = false;
+
+		searchTerm.forEach( ( term ) => {
+			const urlMatched = window.data.getByUrl( term );
+			const nameMatched = window.data.getByName( term );
+
+			if ( urlMatched || nameMatched ) {
+				found = true;
+			}
+		} );
+
+		return found;
+	}
+
+	/**
+	 * Update the state with Chrome's synced version
+	 * @return {State} A promise resolving with the global state
+	 */
+	function getFresh() {
+		const defaultResponse = {
+			editDate: ( new Date() ).toISOString(),
+			tracking: {},
+		};
+
+		return new Promise( ( resolve, reject ) => {
+			chrome.storage.sync.get( null, ( response ) => {
+				response = Object.keys( response ).length ? response : defaultResponse;
+
+				window.data.state = response;
+				window.data.primeIndexes();
+
+				resolve( response );
+			} );
+		} );
+	}
+
+	/**
+	 * Save state changes to Chrome's Sync storage
+	 * @return {State} A promise resolving with the global state from Chrome
+	 */
+	function saveChanges() {
+		return new Promise( ( resolve, reject ) => {
+			window.data.state.editDate = ( new Date() ).toISOString();
+			chrome.storage.sync.set( window.data.state, ( ) => window.data.getFresh().then( resolve ) );
+		} );
+	}
+
+	/**
+	 * Load an example set of data
+	 * @return {Promise} A promise resolving with nothing and logs upon completion
+	 */
+	function loadExample() {
+		window.data.state = {
 			editDate: ( new Date() ).toISOString(),
 			tracking: {
 				'd9266b7b-8eb5-4b50-9c77-feccc3fe3f6e': {
@@ -48,82 +180,38 @@ window.data = ( function initStorage() {
 					latestChapter: '106',
 				},
 			},
-		},
+		};
+
+		return window.data.saveChanges().then( ( ) => console.log( 'Done loading example' ) );
+	}
+
+	return {
 
 		state: {},
 
-		indexes: {},
-
-		primeIndexes: ( ) => {
-			window.data.indexes.name = { };
-			window.data.indexes.url = { };
-
-			Object.keys( window.data.state.tracking ).forEach( ( uuid ) => {
-				const current = window.data.state.tracking[ uuid ];
-
-				window.data.indexes.name[ current.name.toLowerCase().trim() ] = uuid;
-				window.data.indexes.url[ normalizeUrl( current.url ) ] = uuid;
-			} );
-
-			return window.data.indexes;
+		indexes: {
+			name: {},
+			url: {},
 		},
+		primeIndexes,
 
-		capacityUsed: ( ) => new Promise( ( resolve ) => {
-			chrome.storage.sync.getBytesInUse( null, ( bytes ) => resolve( 100 * ( bytes / 1000000 ) ) );
-		} ),
+		capacityUsed,
 
-		fetch: ( uuid ) => window.data.state.tracking[ uuid ],
+		fetch,
 
-		getByKey: ( key, searchValue ) => {
-			if ( typeof window.data.indexes[ key ] === 'undefined' ) {
-				throw new Error( `Invalid Query Key: ${key}` );
-			}
-			return window.data.indexes[ key ][ searchValue ];
-		},
+		getFresh,
 
-		getByUrl: ( mangaUrl ) => window.data.getByKey( 'url', normalizeUrl( mangaUrl ) ),
+		getByUrl,
+		getByName,
+		getByKey,
 
-		getByName: ( mangaName ) => window.data.getByKey( 'name', mangaName.toLowerCase().trim() ),
+		mangaIsTracked,
 
-		mangaIsTracked: ( mangaUrl, mangaName ) => {
-			const urlMatched = window.data.getByUrl( mangaUrl );
-			const nameMatched = window.data.getByName( mangaName );
-
-			if ( urlMatched || nameMatched ) {
-				return true;
-			}
-
-			return false;
-		},
-
-		getFresh: ( ) => {
-			const defaultResponse = {
-				editDate: ( new Date() ).toISOString(),
-				tracking: {},
-			};
-
-			return new Promise( ( resolve, reject ) => {
-				chrome.storage.sync.get( null, ( response ) => {
-					response = Object.keys( response ).length ? response : defaultResponse;
-
-					window.data.state = response;
-					window.data.primeIndexes();
-
-					resolve( response );
-				} );
-			} );
-		},
-
-		saveChanges: ( ) => new Promise( ( resolve, reject ) => {
-			chrome.storage.sync.set( window.data.state, ( ) => window.data.getFresh().then( resolve ) );
-		} ),
-
-		loadExample: ( ) => {
-			window.data.state = window.data.example;
-			return window.data.saveChanges().then( ( ) => console.log( 'Done loading example' ) );
-		},
+		saveChanges,
+		loadExample,
 
 	};
-}() );
+}
 
+window.data = initStorage();
 window.data.getFresh();
