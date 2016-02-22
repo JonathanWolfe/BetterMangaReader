@@ -13,7 +13,7 @@ function createMangaTable( bmrData ) {
 		const row = $( `
 				<tr id="${uuid}">
 					<td class="manga-markRead">
-						<button class="pure-button pure-button-warning">Mark Read</button>
+						<button data-uuid="${uuid}" class="pure-button pure-button-warning">Mark Read</button>
 					</td>
 					<td class="manga-name">${manga.name}</td>
 					<td class="manga-readTo">${manga.readTo}</td>
@@ -31,14 +31,13 @@ function createMangaTable( bmrData ) {
 	const unread = rows.filter( ( row ) => row.hasClass( 'has-unread' ) ).sort( sortByMangaName );
 	const read = rows.filter( ( row ) => !row.hasClass( 'has-unread' ) ).sort( sortByMangaName );
 
+	mangaTable.empty();
 	mangaTable.prepend( unread );
 	mangaTable.append( read );
-
-	return mangaTable;
 }
 
 function bmrInit( bmrData ) {
-	console.group( 'Tracked Manga' );
+	console.group( `Tracked Manga as of ${bmrData.editDate}` );
 	console.table( bmrData.tracking );
 	console.groupEnd();
 
@@ -48,7 +47,18 @@ function bmrInit( bmrData ) {
 		const uuid = event.currentTarget.id;
 		const manga = bmrData.tracking[ uuid ];
 
-		window.location.assign( window.parsers.helpers.validUrl( manga.url ) );
+		window.location.assign( window.parsers.helpers.validUrl( manga.readToUrl ) );
+	} );
+
+	$( '#manga-table' ).on( 'click', '.manga-markRead button', ( event ) => {
+		event.preventDefault();
+		event.stopImmediatePropagation();
+
+		const uuid = $( event.target ).data( 'uuid' );
+
+		return window.data.markRead( uuid )
+			.then( window.data.getFresh )
+			.then( bmrInit );
 	} );
 }
 
