@@ -61,20 +61,14 @@ window.parsers = ( function initParsers() {
 					.then( parser.getChaptersListFromProfile )
 					.then( ( chapters ) => {
 						chapters = chapters.sort( ( a, b ) => parseFloat( b.number ) - parseFloat( a.number ) );
-
-						console.log( 'manga', manga );
-						console.log( 'chapters', chapters );
-
-						manga.latestChaper = chapters[ 0 ].number.toString();
+						manga.latestChapter = chapters[ 0 ].number.toString();
 						return manga;
 					} );
 
 				promises.push( checking );
 			}
 
-			return Promise.all( promises ).then( ( ) => {
-				window.data.state.editDate = ( new Date() ).toISOString();
-			} ).then( window.data.saveChanges ).then( console.log.bind( console ) );
+			return Promise.all( promises ).then( window.data.saveChanges );
 		},
 
 		helpers: {
@@ -83,7 +77,10 @@ window.parsers = ( function initParsers() {
 			 * @param  {String} url	Url to ensure is useable
 			 * @return {String}       Useable url
 			 */
-			validUrl: ( url ) => url.includes( 'http://' ) || url.includes( 'https://' ) ? url : `http://${url}`,
+			validUrl: ( url ) => {
+				const hasHTTP = url.includes( 'http://' ) || url.includes( 'https://' );
+				return hasHTTP ? url : `http://${url}`;
+			},
 
 			/**
 			 * Retrieves the HTML of a URL
