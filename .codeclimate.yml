@@ -6,6 +6,6 @@ engines:
     enabled: true
 ratings:
   paths:
-  - src/**
+  - ext/**
 exclude_paths:
-- src/vendor/**/*
+- ext/vendor/**/*
