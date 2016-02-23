@@ -78,7 +78,7 @@ function buildControls() {
 
 		chrome.runtime.sendMessage( {
 			action: 'toggleTracking',
-			manga: parsedChapter.chapterInfo,
+			manga: parsedChapter.forTracking,
 		} );
 	} );
 }
@@ -128,8 +128,34 @@ const events = {
 		}, ( response ) => {
 			if ( response && response.type === 'success' ) {
 				parsedChapter = response.value;
-				console.log( 'parsedChapter', parsedChapter )
+
 				events.getImagesForChapter( clonedHTML );
+
+				const chapters = parsedChapter.chapterListFromChapter;
+				const latestChapter = chapters[ chapters.length - 1 ];
+				let nextChapter;
+
+				for ( let i = chapters.length - 1; i >= 0; i -= 1 ) {
+					const chapter = chapters[ i ];
+					if ( parseFloat( chapter.number ) === parseFloat( parsedChapter.chapterInfo.number ) ) {
+						nextChapter = chapters[ i + 1 ] || chapters[ chapters.length - 1 ];
+						break;
+					}
+				}
+
+				parsedChapter.forTracking = {
+					name: parsedChapter.chapterInfo.name,
+					url: parsedChapter.chapterInfo.mangaUrl,
+
+					readTo: parsedChapter.chapterInfo.number,
+					readToUrl: parsedChapter.chapterInfo.chapterUrl,
+
+					nextChapter: nextChapter.number,
+					nextChapterUrl: nextChapter.url,
+
+					latestChapter: latestChapter.number,
+					latestChapterUrl: latestChapter.url,
+				};
 			}
 		} );
 	},
