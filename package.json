@@ -12,12 +12,7 @@
 	},
 	"homepage": "https://github.com/JonathanWolfe/BetterMangaReader#readme",
 	"main": "index.html",
-	"scripts": {
-		"build": "run build",
-		"css": "run css",
-		"dev": "run develop",
-		"start": "npm run dev"
-	},
+	"scripts": {},
 	"author": "Jon Wolfe",
 	"license": "MIT",
 	"devDependencies": {
