@@ -139,17 +139,13 @@ const events = {
 };
 
 function init() {
-	let clonedHTML = $( 'body' ).clone();
-	clonedHTML.bmrLiteSanitize();
-	clonedHTML = clonedHTML.html();
-
+	const clonedHTML = ( $( 'body' ).clone() ).bmrLiteSanitize().html();
 
 	chrome.runtime.onMessage.addListener( function processMessage( message, sender ) {
 		if ( typeof events[ message.action ] === 'function' ) {
 			events[ message.action ].call( this, message.value );
 		}
 	} );
-
 
 	chrome.runtime.sendMessage( {
 		action: 'parseHTML',
