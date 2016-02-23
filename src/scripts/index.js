@@ -18,8 +18,7 @@ function createMangaTable( bmrData ) {
 					<td class="manga-name">${manga.name}</td>
 					<td class="manga-readTo">${manga.readTo}</td>
 					<td class="manga-latest">${manga.latestChapter}</td>
-				</tr>
-			` );
+				</tr>` );
 
 		if ( parseFloat( manga.latestChapter ) > parseFloat( manga.readTo ) ) {
 			row.addClass( 'has-unread' );
