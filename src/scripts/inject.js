@@ -9,12 +9,10 @@ function toggleTrackingButton( isTracking ) {
 	button.attr( 'disabled', false ).removeClass( 'pure-button-disabled' );
 
 	if ( isTracking ) {
-		button
-			.addClass( 'pure-button-error' )
+		button.addClass( 'pure-button-error' )
 			.removeClass( 'pure-button-success' );
 	} else {
-		button
-			.removeClass( 'pure-button-error' )
+		button.removeClass( 'pure-button-error' )
 			.addClass( 'pure-button-success' );
 	}
 }
@@ -130,6 +128,7 @@ const events = {
 		}, ( response ) => {
 			if ( response && response.type === 'success' ) {
 				parsedChapter = response.value;
+				console.log( 'parsedChapter', parsedChapter )
 				events.getImagesForChapter( clonedHTML );
 			}
 		} );
