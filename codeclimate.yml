@@ -1,14 +1,10 @@
 engines:
   eslint:
-    enabled: true
     config: .eslintrc.json
-  csslint:
     enabled: true
+exclude_paths:
+  - ext/scripts/vendor/**/*
 ratings:
   paths:
-  - ext/scripts/**
-  - ext/parsers/**
-  - ext/styles/**
-exclude_paths:
-- ext/scripts/vendor/**/*
-- ext/styles/pure.css
+    - ext/scripts/**
+    - ext/parsers/**
