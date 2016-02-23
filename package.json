@@ -22,12 +22,7 @@
 	"license": "MIT",
 	"devDependencies": {
 		"babel-eslint": "latest",
-		"cssnano": "latest",
 		"eslint": "latest",
-		"eslint-config-airbnb": "latest",
-		"postcss-cli": "latest",
-		"postcss-cssnext": "latest",
-		"postcss-import": "latest",
-		"runjs": "latest"
+		"eslint-config-airbnb": "latest"
 	}
 }
