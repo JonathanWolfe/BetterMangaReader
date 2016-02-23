@@ -7,7 +7,7 @@ This is still in beta, and as such is limited to only working on:
 
 During the beta, it's always helpful if you find any bugs to report them here under the issues tab and maybe if you're feeling spry, knock out a couple of the fixes yourself and submit a pull request.
 
-## Current Version - 0.3.7 Beta
+## Store Version - 0.3.7 Beta
 ## Rewritten version will launch as 0.5.0
 
 ## [Web Store Link](https://chrome.google.com/webstore/detail/bettermangareader/gecohlfddhgfhkadmdghjjmijdpabmlp?hl=en&gl=US)
