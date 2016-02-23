@@ -157,12 +157,8 @@ function init() {
 	}, ( response ) => {
 		if ( !response ) {
 			console.error( 'Chrome Extension Error: ', chrome.runtime.lastError );
-		}
-
-		if ( response.type === 'success' ) {
-			if ( response.value.isChapterPage ) {
-				events.parseChapterPage( clonedHTML );
-			}
+		} else if ( response.type === 'success' && response.value.isChapterPage ) {
+			events.parseChapterPage( clonedHTML );
 		} else {
 			console.error( 'BMR Error: ', response.value );
 		}
