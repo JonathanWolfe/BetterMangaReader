@@ -182,50 +182,65 @@ function initStorage() {
 				'd9266b7b-8eb5-4b50-9c77-feccc3fe3f6e': {
 					name: 'Bleach',
 					url: 'mangastream.com/manga/bleach/',
+
 					readTo: '663',
 					readToUrl: 'readms.com/r/bleach/663/3237/1/',
-					next: '663',
+
+					nextChapter: '663',
 					nextUrl: 'readms.com/r/bleach/663/3237/1/',
+
 					latestChapter: '663',
 					latestChapterUrl: 'readms.com/r/bleach/663/3237/1/',
 				},
 				'0f6a891f-140b-473c-b438-8a388d29e3a6': {
 					name: 'Fairy Tail',
 					url: 'mangastream.com/manga/fairy_tail/',
+
 					readTo: '473',
 					readToUrl: 'readms.com/r/fairy_tail/473/3232/1',
-					next: '474',
+
+					nextChapter: '474',
 					nextUrl: 'readms.com/r/fairy_tail/474/3232/1',
+
 					latestChapter: '474',
 					latestChapterUrl: 'readms.com/r/fairy_tail/474/3244/1/',
 				},
 				'5e7b7a5d-97ef-4007-a187-a8c2b6a79d91': {
 					name: 'One Piece',
 					url: 'mangatown.com/manga/one_piece/',
+
 					readTo: '12',
 					readToUrl: 'mangatown.com/manga/one_piece/v02/c012/',
-					next: '13',
+
+					nextChapter: '13',
 					nextUrl: 'mangatown.com/manga/one_piece/v02/c013/',
+
 					latestChapter: '816',
 					latestChapterUrl: 'mangatown.com/manga/one_piece/v69/c816/',
 				},
 				'2c9404c8-341b-49ba-99a2-ef3a002b8bd7': {
 					name: 'The Gamer',
 					url: 'mangatown.com/manga/the_gamer/',
+
 					readTo: '118',
 					readToUrl: 'mangatown.com/manga/the_gamer/c118/',
-					next: '119',
+
+					nextChapter: '119',
 					nextUrl: 'mangatown.com/manga/the_gamer/c119/',
+
 					latestChapter: '120',
 					latestChapterUrl: 'mangatown.com/manga/the_gamer/c120/',
 				},
 				'3580deb4-bef0-4319-aaf0-edf73492c5c9': {
 					name: 'UQ Holder!',
 					url: 'mangahere.co/manga/uq_holder/',
+
 					readTo: '106',
 					readToUrl: 'mangahere.co/manga/uq_holder/c106/',
-					next: '107',
+
+					nextChapter: '107',
 					nextUrl: 'mangahere.co/manga/uq_holder/c107/',
+
 					latestChapter: '112',
 					latestChapterUrl: 'mangahere.co/manga/uq_holder/c112/',
 				},
