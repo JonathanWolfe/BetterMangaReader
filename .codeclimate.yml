@@ -1,0 +1,11 @@
+engines:
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+ratings:
+  paths:
+  - src/scripts/**/*
+  - src/styles/**/*
+exclude_paths:
+- **/vendor/**/*
