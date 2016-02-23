@@ -7,4 +7,4 @@ ratings:
   paths:
   - src/**
 exclude_paths:
-- **/vendor/**/*
+- src/vendor/**/*
