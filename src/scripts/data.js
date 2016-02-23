@@ -25,7 +25,12 @@ function initStorage() {
 	 */
 	function capacityUsed() {
 		return new Promise( ( resolve ) => {
-			chrome.storage.sync.getBytesInUse( null, ( bytes ) => resolve( 100 * ( bytes / 1000000 ) ) );
+			chrome.storage.sync.getBytesInUse( null, ( bytes ) => {
+				const megaBytes = bytes / 1000000;
+				const percentFull = megaBytes * 100;
+
+				resolve( percentFull.toFixed( 2 ) );
+			} );
 		} );
 	}
 
