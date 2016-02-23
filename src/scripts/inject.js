@@ -138,10 +138,7 @@ const events = {
 	toggleTrackingButton,
 };
 
-$( document ).ready( ( ) => {
-	addBMRLoading();
-
-
+function init() {
 	let clonedHTML = $( 'body' ).clone();
 	clonedHTML.bmrLiteSanitize();
 	clonedHTML = clonedHTML.html();
@@ -160,18 +157,21 @@ $( document ).ready( ( ) => {
 	}, ( response ) => {
 		if ( !response ) {
 			console.error( 'Chrome Extension Error: ', chrome.runtime.lastError );
-			hideBMRLoading();
 		}
 
 		if ( response.type === 'success' ) {
 			if ( response.value.isChapterPage ) {
 				events.parseChapterPage( clonedHTML );
-			} else {
-				hideBMRLoading();
 			}
 		} else {
 			console.error( 'BMR Error: ', response.value );
-			hideBMRLoading();
 		}
+
+		return hideBMRLoading();
 	} );
+}
+
+$( document ).ready( ( ) => {
+	addBMRLoading();
+	window.setTimeout( init, 1000 );
 } );
