@@ -8,4 +8,4 @@ ratings:
   paths:
   - ext/**
 exclude_paths:
-- ext/vendor/**/*
+- ext/**/vendor/**/*
