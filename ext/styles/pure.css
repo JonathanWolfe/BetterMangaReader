@@ -1,0 +1,1148 @@
+/*!
+Pure v0.6.0
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+https://github.com/yahoo/pure/blob/master/LICENSE.md
+*/
+
+
+/*!
+normalize.css v^3.0 | MIT License | git.io/normalize
+Copyright (c) Nicolas Gallagher and Jonathan Neal
+*/
+
+
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
+body.bettermangareader {
+	margin : 0;
+}
+
+.bettermangareader article,
+.bettermangareader aside,
+.bettermangareader details,
+.bettermangareader figcaption,
+.bettermangareader figure,
+.bettermangareader footer,
+.bettermangareader header,
+.bettermangareader hgroup,
+.bettermangareader main,
+.bettermangareader menu,
+.bettermangareader nav,
+.bettermangareader section,
+.bettermangareader summary {
+	display : block;
+}
+
+.bettermangareader audio,
+.bettermangareader canvas,
+.bettermangareader progress,
+.bettermangareader video {
+	display : inline-block;
+	vertical-align : baseline;
+}
+
+.bettermangareader audio:not([controls]) {
+	display : none;
+	height : 0;
+}
+
+.bettermangareader [hidden],
+.bettermangareader template {
+	display : none;
+}
+
+.bettermangareader a {
+	background-color : transparent;
+}
+
+.bettermangareader a:active,
+.bettermangareader a:hover {
+	outline : 0;
+}
+
+.bettermangareader abbr[title] {
+	border-bottom : 1px dotted;
+}
+
+.bettermangareader b,
+.bettermangareader strong {
+	font-weight : 700;
+}
+
+.bettermangareader dfn {
+	font-style : italic;
+}
+
+.bettermangareader h1 {
+	margin : .67em 0;
+	font-size : 2em;
+}
+
+.bettermangareader mark {
+	background : #ff0;
+	color : #000;
+}
+
+.bettermangareader small {
+	font-size : 80%;
+}
+
+.bettermangareader sub,
+.bettermangareader sup {
+	position : relative;
+	font-size : 75%;
+	line-height : 0;
+	vertical-align : baseline;
+}
+
+.bettermangareader sup {
+	top : -.5em;
+}
+
+.bettermangareader sub {
+	bottom : -.25em;
+}
+
+.bettermangareader img {
+	border : 0;
+}
+
+.bettermangareader svg:not(:root) {
+	overflow : hidden;
+}
+
+.bettermangareader figure {
+	margin : 1em 40px;
+}
+
+.bettermangareader hr {
+	height : 0;
+	box-sizing : content-box;
+}
+
+.bettermangareader pre {
+	overflow : auto;
+}
+
+.bettermangareader code,
+.bettermangareader kbd,
+.bettermangareader pre,
+.bettermangareader samp {
+	font-family : monospace, monospace;
+	font-size : 1em;
+}
+
+.bettermangareader button,
+.bettermangareader input,
+.bettermangareader optgroup,
+.bettermangareader select,
+.bettermangareader textarea {
+	margin : 0;
+	color : inherit;
+	font : inherit;
+}
+
+.bettermangareader button {
+	overflow : visible;
+}
+
+.bettermangareader button,
+.bettermangareader select {
+	text-transform : none;
+}
+
+.bettermangareader button,
+.bettermangareader html input[type=button],
+.bettermangareader input[type=reset],
+.bettermangareader input[type=submit] {
+	cursor : pointer;
+
+	-webkit-appearance : button;
+}
+
+.bettermangareader button[disabled],
+.bettermangareader html input[disabled] {
+	cursor : default;
+}
+
+.bettermangareader button::-moz-focus-inner,
+.bettermangareader input::-moz-focus-inner {
+	padding : 0;
+	border : 0;
+}
+
+.bettermangareader input {
+	line-height : normal;
+}
+
+.bettermangareader input[type=checkbox],
+.bettermangareader input[type=radio] {
+	padding : 0;
+	box-sizing : border-box;
+}
+
+.bettermangareader input[type=number]::-webkit-inner-spin-button,
+.bettermangareader input[type=number]::-webkit-outer-spin-button {
+	height : auto;
+}
+
+.bettermangareader input[type=search] {
+	box-sizing : content-box;
+
+	-webkit-appearance : textfield;
+}
+
+.bettermangareader input[type=search]::-webkit-search-cancel-button,
+.bettermangareader input[type=search]::-webkit-search-decoration {
+	-webkit-appearance : none;
+}
+
+.bettermangareader fieldset {
+	margin : 0 2px;
+	padding : .35em .625em .75em;
+	border : 1px solid silver;
+}
+
+.bettermangareader legend {
+	padding : 0;
+	border : 0;
+}
+
+.bettermangareader textarea {
+	overflow : auto;
+}
+
+.bettermangareader optgroup {
+	font-weight : 700;
+}
+
+.bettermangareader table {
+	border-collapse : collapse;
+	border-spacing : 0;
+}
+
+.bettermangareader td,
+.bettermangareader th {
+	padding : 0;
+}
+
+.bettermangareader .hidden,
+.bettermangareader [hidden] {
+	display : none!important;
+}
+
+.bettermangareader .pure-img {
+	display : block;
+	max-width : 100%;
+	height : auto;
+}
+
+.bettermangareader .pure-g {
+	display : flex;
+	align-content : flex-start;
+	font-family : 'FreeSans', 'Arimo', 'Droid Sans', 'Helvetica', 'Arial', sans-serif;
+	letter-spacing : -.31em;
+	text-rendering : optimizespeed;
+}
+
+.bettermangareader .pure-g {
+	word-spacing : -.43em;
+}
+
+.bettermangareader .pure-u {
+	display : inline-block;
+	letter-spacing : normal;
+	text-rendering : auto;
+	word-spacing : normal;
+	vertical-align : top;
+
+	zoom : 1;
+}
+
+.bettermangareader .pure-g [class *='pure-u'] {
+	font-family : sans-serif;
+}
+
+.bettermangareader .pure-u-1,
+.bettermangareader .pure-u-1-1,
+.bettermangareader .pure-u-1-2,
+.bettermangareader .pure-u-1-3,
+.bettermangareader .pure-u-2-3,
+.bettermangareader .pure-u-1-4,
+.bettermangareader .pure-u-3-4,
+.bettermangareader .pure-u-1-5,
+.bettermangareader .pure-u-2-5,
+.bettermangareader .pure-u-3-5,
+.bettermangareader .pure-u-4-5,
+.bettermangareader .pure-u-5-5,
+.bettermangareader .pure-u-1-6,
+.bettermangareader .pure-u-5-6,
+.bettermangareader .pure-u-1-8,
+.bettermangareader .pure-u-3-8,
+.bettermangareader .pure-u-5-8,
+.bettermangareader .pure-u-7-8,
+.bettermangareader .pure-u-1-12,
+.bettermangareader .pure-u-5-12,
+.bettermangareader .pure-u-7-12,
+.bettermangareader .pure-u-11-12,
+.bettermangareader .pure-u-1-24,
+.bettermangareader .pure-u-2-24,
+.bettermangareader .pure-u-3-24,
+.bettermangareader .pure-u-4-24,
+.bettermangareader .pure-u-5-24,
+.bettermangareader .pure-u-6-24,
+.bettermangareader .pure-u-7-24,
+.bettermangareader .pure-u-8-24,
+.bettermangareader .pure-u-9-24,
+.bettermangareader .pure-u-10-24,
+.bettermangareader .pure-u-11-24,
+.bettermangareader .pure-u-12-24,
+.bettermangareader .pure-u-13-24,
+.bettermangareader .pure-u-14-24,
+.bettermangareader .pure-u-15-24,
+.bettermangareader .pure-u-16-24,
+.bettermangareader .pure-u-17-24,
+.bettermangareader .pure-u-18-24,
+.bettermangareader .pure-u-19-24,
+.bettermangareader .pure-u-20-24,
+.bettermangareader .pure-u-21-24,
+.bettermangareader .pure-u-22-24,
+.bettermangareader .pure-u-23-24,
+.bettermangareader .pure-u-24-24 {
+	display : inline-block;
+	letter-spacing : normal;
+	text-rendering : auto;
+	word-spacing : normal;
+	vertical-align : top;
+
+	zoom : 1;
+}
+
+.bettermangareader .pure-u-1-24 {
+	width : 4.1667%;
+}
+
+.bettermangareader .pure-u-1-12,
+.bettermangareader .pure-u-2-24 {
+	width : 8.3333%;
+}
+
+.bettermangareader .pure-u-1-8,
+.bettermangareader .pure-u-3-24 {
+	width : 12.5%;
+}
+
+.bettermangareader .pure-u-1-6,
+.bettermangareader .pure-u-4-24 {
+	width : 16.6667%;
+}
+
+.bettermangareader .pure-u-1-5 {
+	width : 20%;
+}
+
+.bettermangareader .pure-u-5-24 {
+	width : 20.8333%;
+}
+
+.bettermangareader .pure-u-1-4,
+.bettermangareader .pure-u-6-24 {
+	width : 25%;
+}
+
+.bettermangareader .pure-u-7-24 {
+	width : 29.1667%;
+}
+
+.bettermangareader .pure-u-1-3,
+.bettermangareader .pure-u-8-24 {
+	width : 33.3333%;
+}
+
+.bettermangareader .pure-u-3-8,
+.bettermangareader .pure-u-9-24 {
+	width : 37.5%;
+}
+
+.bettermangareader .pure-u-2-5 {
+	width : 40%;
+}
+
+.bettermangareader .pure-u-5-12,
+.bettermangareader .pure-u-10-24 {
+	width : 41.6667%;
+}
+
+.bettermangareader .pure-u-11-24 {
+	width : 45.8333%;
+}
+
+.bettermangareader .pure-u-1-2,
+.bettermangareader .pure-u-12-24 {
+	width : 50%;
+}
+
+.bettermangareader .pure-u-13-24 {
+	width : 54.1667%;
+}
+
+.bettermangareader .pure-u-7-12,
+.bettermangareader .pure-u-14-24 {
+	width : 58.3333%;
+}
+
+.bettermangareader .pure-u-3-5 {
+	width : 60%;
+}
+
+.bettermangareader .pure-u-5-8,
+.bettermangareader .pure-u-15-24 {
+	width : 62.5%;
+}
+
+.bettermangareader .pure-u-2-3,
+.bettermangareader .pure-u-16-24 {
+	width : 66.6667%;
+}
+
+.bettermangareader .pure-u-17-24 {
+	width : 70.8333%;
+}
+
+.bettermangareader .pure-u-3-4,
+.bettermangareader .pure-u-18-24 {
+	width : 75%;
+}
+
+.bettermangareader .pure-u-19-24 {
+	width : 79.1667%;
+}
+
+.bettermangareader .pure-u-4-5 {
+	width : 80%;
+}
+
+.bettermangareader .pure-u-5-6,
+.bettermangareader .pure-u-20-24 {
+	width : 83.3333%;
+}
+
+.bettermangareader .pure-u-7-8,
+.bettermangareader .pure-u-21-24 {
+	width : 87.5%;
+}
+
+.bettermangareader .pure-u-11-12,
+.bettermangareader .pure-u-22-24 {
+	width : 91.6667%;
+}
+
+.bettermangareader .pure-u-23-24 {
+	width : 95.8333%;
+}
+
+.bettermangareader .pure-u-1,
+.bettermangareader .pure-u-1-1,
+.bettermangareader .pure-u-5-5,
+.bettermangareader .pure-u-24-24 {
+	width : 100%;
+}
+
+.bettermangareader .pure-button {
+	display : inline-block;
+	box-sizing : border-box;
+	line-height : normal;
+	text-align : center;
+	white-space : nowrap;
+	cursor : pointer;
+	vertical-align : middle;
+
+	-webkit-user-drag : none;
+	user-select : none;
+	zoom : 1;
+}
+
+.bettermangareader .pure-button::-moz-focus-inner {
+	padding : 0;
+	border : 0;
+}
+
+.bettermangareader .pure-button {
+	padding : .5em 1em;
+	border : 1px solid #999;
+	border : 0 rgba(0, 0, 0, 0);
+	border-radius : 2px;
+	background-color : #e6e6e6;
+	color : #444;
+	color : rgba(0, 0, 0, .8);
+	font-family : inherit;
+	font-size : 100%;
+	text-decoration : none;
+}
+
+.bettermangareader .pure-button-hover,
+.bettermangareader .pure-button:hover,
+.bettermangareader .pure-button:focus {
+	background-image : linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1));
+}
+
+.bettermangareader .pure-button:focus {
+	outline : 0;
+}
+
+.bettermangareader .pure-button-active,
+.bettermangareader .pure-button:active {
+	border-color : #000\9;
+	box-shadow : 0 0 0 1px rgba(0, 0, 0, .15) inset, 0 0 6px rgba(0, 0, 0, .2) inset;
+}
+
+.bettermangareader .pure-button[disabled],
+.bettermangareader .pure-button-disabled,
+.bettermangareader .pure-button-disabled:hover,
+.bettermangareader .pure-button-disabled:focus,
+.bettermangareader .pure-button-disabled:active {
+	border : 0;
+	background-image : none;
+	box-shadow : none;
+	cursor : not-allowed;
+	opacity : .4;
+}
+
+.bettermangareader .pure-button-hidden {
+	display : none;
+}
+
+.bettermangareader .pure-button::-moz-focus-inner {
+	padding : 0;
+	border : 0;
+}
+
+.bettermangareader .pure-button-primary,
+.bettermangareader .pure-button-selected,
+.bettermangareader a.pure-button-primary,
+.bettermangareader a.pure-button-selected {
+	background-color : #0078e7;
+	color : #fff;
+}
+
+.bettermangareader .pure-button-success,
+.bettermangareader a.pure-button-success,
+.bettermangareader .pure-button-error,
+.bettermangareader a.pure-button-error,
+.bettermangareader .pure-button-warning,
+.bettermangareader a.pure-button-warning,
+.bettermangareader .pure-button-secondary,
+.bettermangareader a.pure-button-secondary {
+	border-radius : 4px;
+	color : #fff;
+	text-shadow : 0 1px 1px rgba(0, 0, 0, .2);
+}
+
+.bettermangareader .pure-button-success,
+.bettermangareader a.pure-button-success {
+	background : #388e3c;
+	/* this is a green */
+}
+
+.bettermangareader .pure-button-error,
+.bettermangareader a.pure-button-error {
+	background : #d32f2f;
+	/* this is a maroon */
+}
+
+.bettermangareader .pure-button-warning,
+.bettermangareader a.pure-button-warning {
+	background : #f57c00;
+	/* this is an orange */
+}
+
+.bettermangareader .pure-button-secondary,
+.bettermangareader a.pure-button-secondary {
+	background : #0288d1;
+	/* this is a light blue */
+}
+
+.bettermangareader .pure-form input[type=text],
+.bettermangareader .pure-form input[type=password],
+.bettermangareader .pure-form input[type=email],
+.bettermangareader .pure-form input[type=url],
+.bettermangareader .pure-form input[type=date],
+.bettermangareader .pure-form input[type=month],
+.bettermangareader .pure-form input[type=time],
+.bettermangareader .pure-form input[type=datetime],
+.bettermangareader .pure-form input[type=datetime-local],
+.bettermangareader .pure-form input[type=week],
+.bettermangareader .pure-form input[type=number],
+.bettermangareader .pure-form input[type=search],
+.bettermangareader .pure-form input[type=tel],
+.bettermangareader .pure-form input[type=color],
+.bettermangareader .pure-form select,
+.bettermangareader .pure-form textarea {
+	display : inline-block;
+	padding : .5em .6em;
+	box-sizing : border-box;
+	border : 1px solid #ccc;
+	border-radius : 4px;
+	box-shadow : inset 0 1px 3px #ddd;
+	vertical-align : middle;
+}
+
+.bettermangareader .pure-form input:not([type]) {
+	display : inline-block;
+	padding : .5em .6em;
+	box-sizing : border-box;
+	border : 1px solid #ccc;
+	border-radius : 4px;
+	box-shadow : inset 0 1px 3px #ddd;
+}
+
+.bettermangareader .pure-form input[type=color] {
+	padding : .2em .5em;
+}
+
+.bettermangareader .pure-form input[type=text]:focus,
+.bettermangareader .pure-form input[type=password]:focus,
+.bettermangareader .pure-form input[type=email]:focus,
+.bettermangareader .pure-form input[type=url]:focus,
+.bettermangareader .pure-form input[type=date]:focus,
+.bettermangareader .pure-form input[type=month]:focus,
+.bettermangareader .pure-form input[type=time]:focus,
+.bettermangareader .pure-form input[type=datetime]:focus,
+.bettermangareader .pure-form input[type=datetime-local]:focus,
+.bettermangareader .pure-form input[type=week]:focus,
+.bettermangareader .pure-form input[type=number]:focus,
+.bettermangareader .pure-form input[type=search]:focus,
+.bettermangareader .pure-form input[type=tel]:focus,
+.bettermangareader .pure-form input[type=color]:focus,
+.bettermangareader .pure-form select:focus,
+.bettermangareader .pure-form textarea:focus {
+	border-color : #129fea;
+	outline : 0;
+}
+
+.bettermangareader .pure-form input:not([type]):focus {
+	border-color : #129fea;
+	outline : 0;
+}
+
+.bettermangareader .pure-form input[type=file]:focus,
+.bettermangareader .pure-form input[type=radio]:focus,
+.bettermangareader .pure-form input[type=checkbox]:focus {
+	outline : thin solid #129fea;
+	outline : 1px auto #129fea;
+}
+
+.bettermangareader .pure-form .pure-checkbox,
+.bettermangareader .pure-form .pure-radio {
+	display : block;
+	margin : .5em 0;
+}
+
+.bettermangareader .pure-form input[type=text][disabled],
+.bettermangareader .pure-form input[type=password][disabled],
+.bettermangareader .pure-form input[type=email][disabled],
+.bettermangareader .pure-form input[type=url][disabled],
+.bettermangareader .pure-form input[type=date][disabled],
+.bettermangareader .pure-form input[type=month][disabled],
+.bettermangareader .pure-form input[type=time][disabled],
+.bettermangareader .pure-form input[type=datetime][disabled],
+.bettermangareader .pure-form input[type=datetime-local][disabled],
+.bettermangareader .pure-form input[type=week][disabled],
+.bettermangareader .pure-form input[type=number][disabled],
+.bettermangareader .pure-form input[type=search][disabled],
+.bettermangareader .pure-form input[type=tel][disabled],
+.bettermangareader .pure-form input[type=color][disabled],
+.bettermangareader .pure-form select[disabled],
+.bettermangareader .pure-form textarea[disabled] {
+	background-color : #eaeded;
+	color : #cad2d3;
+	cursor : not-allowed;
+}
+
+.bettermangareader .pure-form input:not([type])[disabled] {
+	background-color : #eaeded;
+	color : #cad2d3;
+	cursor : not-allowed;
+}
+
+.bettermangareader .pure-form input[readonly],
+.bettermangareader .pure-form select[readonly],
+.bettermangareader .pure-form textarea[readonly] {
+	border-color : #ccc;
+	background-color : #eee;
+	color : #777;
+}
+
+.bettermangareader .pure-form input:focus:invalid,
+.bettermangareader .pure-form textarea:focus:invalid,
+.bettermangareader .pure-form select:focus:invalid {
+	border-color : #e9322d;
+	color : #b94a48;
+}
+
+.bettermangareader .pure-form input[type=file]:focus:invalid:focus,
+.bettermangareader .pure-form input[type=radio]:focus:invalid:focus,
+.bettermangareader .pure-form input[type=checkbox]:focus:invalid:focus {
+	outline-color : #e9322d;
+}
+
+.bettermangareader .pure-form select {
+	height : 2.25em;
+	border : 1px solid #ccc;
+	background-color : #fff;
+}
+
+.bettermangareader .pure-form select[multiple] {
+	height : auto;
+}
+
+.bettermangareader .pure-form label {
+	margin : .5em 0 .2em;
+}
+
+.bettermangareader .pure-form fieldset {
+	margin : 0;
+	padding : .35em 0 .75em;
+	border : 0;
+}
+
+.bettermangareader .pure-form legend {
+	display : block;
+	width : 100%;
+	margin-bottom : .3em;
+	padding : .3em 0;
+	border-bottom : 1px solid #e5e5e5;
+	color : #333;
+}
+
+.bettermangareader .pure-form-stacked input[type=text],
+.bettermangareader .pure-form-stacked input[type=password],
+.bettermangareader .pure-form-stacked input[type=email],
+.bettermangareader .pure-form-stacked input[type=url],
+.bettermangareader .pure-form-stacked input[type=date],
+.bettermangareader .pure-form-stacked input[type=month],
+.bettermangareader .pure-form-stacked input[type=time],
+.bettermangareader .pure-form-stacked input[type=datetime],
+.bettermangareader .pure-form-stacked input[type=datetime-local],
+.bettermangareader .pure-form-stacked input[type=week],
+.bettermangareader .pure-form-stacked input[type=number],
+.bettermangareader .pure-form-stacked input[type=search],
+.bettermangareader .pure-form-stacked input[type=tel],
+.bettermangareader .pure-form-stacked input[type=color],
+.bettermangareader .pure-form-stacked input[type=file],
+.bettermangareader .pure-form-stacked select,
+.bettermangareader .pure-form-stacked label,
+.bettermangareader .pure-form-stacked textarea {
+	display : block;
+	margin : .25em 0;
+}
+
+.bettermangareader .pure-form-stacked input:not([type]) {
+	display : block;
+	margin : .25em 0;
+}
+
+.bettermangareader .pure-form-aligned input,
+.bettermangareader .pure-form-aligned textarea,
+.bettermangareader .pure-form-aligned select,
+.bettermangareader .pure-form-aligned .pure-help-inline,
+.bettermangareader .pure-form-message-inline {
+	display : inline-block;
+	vertical-align : middle;
+
+	*zoom : 1;
+}
+
+.bettermangareader .pure-form-aligned textarea {
+	vertical-align : top;
+}
+
+.bettermangareader .pure-form-aligned .pure-control-group {
+	margin-bottom : .5em;
+}
+
+.bettermangareader .pure-form-aligned .pure-control-group label {
+	display : inline-block;
+	width : 10em;
+	margin : 0 1em 0 0;
+	text-align : right;
+	vertical-align : middle;
+}
+
+.bettermangareader .pure-form-aligned .pure-controls {
+	margin : 1.5em 0 0 11em;
+}
+
+.bettermangareader .pure-form input.pure-input-rounded,
+.bettermangareader .pure-form .pure-input-rounded {
+	padding : .5em 1em;
+	border-radius : 2em;
+}
+
+.bettermangareader .pure-form .pure-group fieldset {
+	margin-bottom : 10px;
+}
+
+.bettermangareader .pure-form .pure-group input,
+.bettermangareader .pure-form .pure-group textarea {
+	display : block;
+	position : relative;
+	top : -1px;
+	margin : 0 0 -1px;
+	padding : 10px;
+	border-radius : 0;
+}
+
+.bettermangareader .pure-form .pure-group input:focus,
+.bettermangareader .pure-form .pure-group textarea:focus {
+	z-index : 3;
+}
+
+.bettermangareader .pure-form .pure-group input:first-child,
+.bettermangareader .pure-form .pure-group textarea:first-child {
+	top : 1px;
+	margin : 0;
+	border-radius : 4px 4px 0 0;
+}
+
+.bettermangareader .pure-form .pure-group input:first-child:last-child,
+.bettermangareader .pure-form .pure-group textarea:first-child:last-child {
+	top : 1px;
+	margin : 0;
+	border-radius : 4px;
+}
+
+.bettermangareader .pure-form .pure-group input:last-child,
+.bettermangareader .pure-form .pure-group textarea:last-child {
+	top : -2px;
+	margin : 0;
+	border-radius : 0 0 4px 4px;
+}
+
+.bettermangareader .pure-form .pure-group button {
+	margin : .35em 0;
+}
+
+.bettermangareader .pure-form .pure-input-1 {
+	width : 100%;
+}
+
+.bettermangareader .pure-form .pure-input-2-3 {
+	width : 66%;
+}
+
+.bettermangareader .pure-form .pure-input-1-2 {
+	width : 50%;
+}
+
+.bettermangareader .pure-form .pure-input-1-3 {
+	width : 33%;
+}
+
+.bettermangareader .pure-form .pure-input-1-4 {
+	width : 25%;
+}
+
+.bettermangareader .pure-form .pure-help-inline,
+.bettermangareader .pure-form-message-inline {
+	display : inline-block;
+	padding-left : .3em;
+	color : #666;
+	font-size : .875em;
+	vertical-align : middle;
+}
+
+.bettermangareader .pure-form-message {
+	display : block;
+	color : #666;
+	font-size : .875em;
+}
+
+@media only screen and (max-width:480px) {
+	.bettermangareader .pure-form button[type=submit] {
+		margin : .7em 0 0;
+	}
+	.bettermangareader .pure-form input:not([type]),
+	.bettermangareader .pure-form input[type=text],
+	.bettermangareader .pure-form input[type=password],
+	.bettermangareader .pure-form input[type=email],
+	.bettermangareader .pure-form input[type=url],
+	.bettermangareader .pure-form input[type=date],
+	.bettermangareader .pure-form input[type=month],
+	.bettermangareader .pure-form input[type=time],
+	.bettermangareader .pure-form input[type=datetime],
+	.bettermangareader .pure-form input[type=datetime-local],
+	.bettermangareader .pure-form input[type=week],
+	.bettermangareader .pure-form input[type=number],
+	.bettermangareader .pure-form input[type=search],
+	.bettermangareader .pure-form input[type=tel],
+	.bettermangareader .pure-form input[type=color],
+	.bettermangareader .pure-form label {
+		display : block;
+		margin-bottom : .3em;
+	}
+	.bettermangareader .pure-group input:not([type]),
+	.bettermangareader .pure-group input[type=text],
+	.bettermangareader .pure-group input[type=password],
+	.bettermangareader .pure-group input[type=email],
+	.bettermangareader .pure-group input[type=url],
+	.bettermangareader .pure-group input[type=date],
+	.bettermangareader .pure-group input[type=month],
+	.bettermangareader .pure-group input[type=time],
+	.bettermangareader .pure-group input[type=datetime],
+	.bettermangareader .pure-group input[type=datetime-local],
+	.bettermangareader .pure-group input[type=week],
+	.bettermangareader .pure-group input[type=number],
+	.bettermangareader .pure-group input[type=search],
+	.bettermangareader .pure-group input[type=tel],
+	.bettermangareader .pure-group input[type=color] {
+		margin-bottom : 0;
+	}
+	.bettermangareader .pure-form-aligned .pure-control-group label {
+		display : block;
+		width : 100%;
+		margin-bottom : .3em;
+		text-align : left;
+	}
+	.bettermangareader .pure-form-aligned .pure-controls {
+		margin : 1.5em 0 0;
+	}
+	.bettermangareader .pure-form .pure-help-inline,
+	.bettermangareader .pure-form-message-inline,
+	.bettermangareader .pure-form-message {
+		display : block;
+		padding : .2em 0 .8em;
+		font-size : .75em;
+	}
+}
+
+.bettermangareader .pure-menu {
+	box-sizing : border-box;
+}
+
+.bettermangareader .pure-menu-fixed {
+	position : fixed;
+	top : 0;
+	left : 0;
+	z-index : 3;
+}
+
+.bettermangareader .pure-menu-list,
+.bettermangareader .pure-menu-item {
+	position : relative;
+}
+
+.bettermangareader .pure-menu-list {
+	margin : 0;
+	padding : 0;
+	list-style : none;
+}
+
+.bettermangareader .pure-menu-item {
+	height : 100%;
+	margin : 0;
+	padding : 0;
+}
+
+.bettermangareader .pure-menu-link,
+.bettermangareader .pure-menu-heading {
+	display : block;
+	text-decoration : none;
+	white-space : nowrap;
+}
+
+.bettermangareader .pure-menu-horizontal {
+	width : 100%;
+	white-space : nowrap;
+}
+
+.bettermangareader .pure-menu-horizontal .pure-menu-list {
+	display : inline-block;
+}
+
+.bettermangareader .pure-menu-horizontal .pure-menu-item,
+.bettermangareader .pure-menu-horizontal .pure-menu-heading,
+.bettermangareader .pure-menu-horizontal .pure-menu-separator {
+	display : inline-block;
+	vertical-align : middle;
+
+	zoom : 1;
+}
+
+.bettermangareader .pure-menu-item .pure-menu-item {
+	display : block;
+}
+
+.bettermangareader .pure-menu-children {
+	display : none;
+	position : absolute;
+	top : 0;
+	left : 100%;
+	margin : 0;
+	padding : 0;
+	z-index : 3;
+}
+
+.bettermangareader .pure-menu-horizontal .pure-menu-children {
+	top : auto;
+	left : 0;
+	width : inherit;
+}
+
+.bettermangareader .pure-menu-allow-hover:hover > .pure-menu-children,
+.bettermangareader .pure-menu-active > .pure-menu-children {
+	display : block;
+	position : absolute;
+}
+
+.bettermangareader .pure-menu-has-children > .pure-menu-link:after {
+	padding-left : .5em;
+	font-size : small;
+	content : '\25B8';
+}
+
+.bettermangareader .pure-menu-horizontal .pure-menu-has-children > .pure-menu-link:after {
+	content : '\25BE';
+}
+
+.bettermangareader .pure-menu-scrollable {
+	overflow-x : hidden;
+	overflow-y : scroll;
+}
+
+.bettermangareader .pure-menu-scrollable .pure-menu-list {
+	display : block;
+}
+
+.bettermangareader .pure-menu-horizontal.pure-menu-scrollable .pure-menu-list {
+	display : inline-block;
+}
+
+.bettermangareader .pure-menu-horizontal.pure-menu-scrollable {
+	padding : .5em 0;
+	white-space : nowrap;
+	overflow-x : auto;
+	overflow-y : hidden;
+	-webkit-overflow-scrolling : touch;
+}
+
+.bettermangareader .pure-menu-horizontal.pure-menu-scrollable::-webkit-scrollbar {
+	display : none;
+}
+
+.bettermangareader .pure-menu-separator {
+	height : 1px;
+	margin : .3em 0;
+	background-color : #ccc;
+}
+
+.bettermangareader .pure-menu-horizontal .pure-menu-separator {
+	width : 1px;
+	height : 1.3em;
+	margin : 0 .3em;
+}
+
+.bettermangareader .pure-menu-heading {
+	color : #565d64;
+	text-transform : uppercase;
+}
+
+.bettermangareader .pure-menu-link {
+	color : #777;
+}
+
+.bettermangareader .pure-menu-children {
+	background-color : #fff;
+}
+
+.bettermangareader .pure-menu-link,
+.bettermangareader .pure-menu-disabled,
+.bettermangareader .pure-menu-heading {
+	padding : .5em 1em;
+}
+
+.bettermangareader .pure-menu-disabled {
+	opacity : .5;
+}
+
+.bettermangareader .pure-menu-disabled .pure-menu-link:hover {
+	background-color : transparent;
+}
+
+.bettermangareader .pure-menu-active > .pure-menu-link,
+.bettermangareader .pure-menu-link:hover,
+.bettermangareader .pure-menu-link:focus {
+	background-color : #eee;
+}
+
+.bettermangareader .pure-menu-selected .pure-menu-link,
+.bettermangareader .pure-menu-selected .pure-menu-link:visited {
+	color : #000;
+}
+
+.bettermangareader .pure-table {
+	border : 1px solid #cbcbcb;
+	border-collapse : collapse;
+	border-spacing : 0;
+	empty-cells : show;
+}
+
+.bettermangareader .pure-table caption {
+	padding : 1em 0;
+	color : #000;
+	font : italic 85%/1 arial, sans-serif;
+	text-align : center;
+}
+
+.bettermangareader .pure-table td,
+.bettermangareader .pure-table th {
+	margin : 0;
+	padding : .5em 1em;
+	border-left : 1px solid #cbcbcb;
+	border-width : 0 0 0 1px;
+	font-size : inherit;
+	overflow : visible;
+}
+
+.bettermangareader .pure-table td:first-child,
+.bettermangareader .pure-table th:first-child {
+	border-left-width : 0;
+}
+
+.bettermangareader .pure-table thead {
+	background-color : #e0e0e0;
+	color : #000;
+	text-align : left;
+	vertical-align : bottom;
+}
+
+.bettermangareader .pure-table td {
+	background-color : transparent;
+}
+
+.bettermangareader .pure-table-odd td {
+	background-color : #f2f2f2;
+}
+
+.bettermangareader .pure-table-striped tr:nth-child(2n-1) td {
+	background-color : #f2f2f2;
+}
+
+.bettermangareader .pure-table-bordered td {
+	border-bottom : 1px solid #cbcbcb;
+}
+
+.bettermangareader .pure-table-bordered tbody > tr:last-child > td {
+	border-bottom-width : 0;
+}
+
+.bettermangareader .pure-table-horizontal td,
+.bettermangareader .pure-table-horizontal th {
+	border-bottom : 1px solid #cbcbcb;
+	border-width : 0 0 1px;
+}
+
+.bettermangareader .pure-table-horizontal tbody > tr:last-child > td {
+	border-bottom-width : 0;
+}

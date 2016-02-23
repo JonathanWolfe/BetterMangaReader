@@ -1,31 +1,23 @@
 {
-  "name": "BetterMangaReader",
-  "version": "0.3.0",
-  "description": "Keep track of your manga, be notified of updates, and have a better reading experience",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/JonathanWolfe/BetterMangaReader.git"
-  },
-  "browser": {
-    "jquery": "./node_modules/jquery/dist/jquery.min.js"
-  },
-  "browserify-shim": {
-    "jquery": "$"
-  },
-  "browserify": {
-    "transform": [
-      "browserify-shim"
-    ]
-  },
-  "devDependencies": {
-    "browserify": "*",
-    "browserify-shim": "*",
-    "gulp": "*",
-    "gulp-uglify": "*",
-    "jquery": "*",
-    "streamify": "*",
-    "vinyl-buffer": "*",
-    "vinyl-source-stream": "*",
-    "wurl": "*"
-  }
+	"name": "bettermangareader",
+	"version": "0.4.6",
+	"description": "Keep track of your manga, be notified of updates, and have a better reading experience",
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/JonathanWolfe/BetterMangaReader.git"
+	},
+	"bugs": {
+		"url": "https://github.com/JonathanWolfe/BetterMangaReader/issues"
+	},
+	"homepage": "https://github.com/JonathanWolfe/BetterMangaReader#readme",
+	"main": "index.html",
+	"scripts": {},
+	"author": "Jon Wolfe",
+	"license": "MIT",
+	"devDependencies": {
+		"babel-eslint": "latest",
+		"eslint": "latest",
+		"eslint-config-airbnb": "latest"
+	}
 }

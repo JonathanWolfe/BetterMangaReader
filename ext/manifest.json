@@ -1,6 +1,6 @@
 {
 	"name": "BetterMangaReader",
-	"version": "0.3.8.1",
+	"version": "0.4.6",
 	"manifest_version": 2,
 	"description": "Keep track of your manga, be notified of updates, and have a better reading experience",
 	"homepage_url": "https://github.com/JonathanWolfe/BetterMangaReader",
@@ -15,33 +15,34 @@
 		"512": "icons/icon512.png"
 	},
 	"background": {
-		"page": "src/bg/background.html",
+		"page": "html/background.html",
 		"persistent": true
 	},
-	"options_page": "src/pages/index.html",
+	"options_page": "html/index.html",
 	"browser_action": {
 		"default_icon": "icons/icon32.png"
 	},
 	"permissions": [
-		"notifications",
 		"tabs",
-		"bookmarks",
 		"storage"
 	],
-	"content_scripts": [
-		{
-			"matches": [
-				"*://*.mangahere.co/*",
-				"*://*.readms.com/*"
-			],
-			"css": [
-				"src/inject/inject.css"
-			],
-			"js": [
-				"src/inject/inject-build.js"
-			]
-		}
-	],
+	"content_scripts": [ {
+		"matches": [
+			"*://*.mangahere.co/*",
+			"*://*.mangastream.com/*",
+			"*://*.mangatown.com/*",
+			"*://*.readms.com/*"
+		],
+		"css": [
+			"styles/pure.css",
+			"styles/inject.css"
+		],
+		"js": [
+			"scripts/vendor/jquery.min.js",
+			"scripts/html-sanitize.js",
+			"scripts/inject.js"
+		]
+	} ],
 	"web_accessible_resources": [
 		"icons/*.png"
 	]

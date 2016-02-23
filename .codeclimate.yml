@@ -1,0 +1,11 @@
+engines:
+  eslint:
+    enabled: true
+    config: .eslintrc.json
+  csslint:
+    enabled: true
+ratings:
+  paths:
+  - ext/**
+exclude_paths:
+- ext/vendor/**/*
