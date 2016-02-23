@@ -6,7 +6,9 @@ engines:
     enabled: true
 ratings:
   paths:
-  - ext/**
+  - ext/scripts/**
+  - ext/parsers/**
+  - ext/styles/**
 exclude_paths:
-- ext/**/vendor/**/*
+- ext/scripts/vendor/**/*
 - ext/styles/pure.css
