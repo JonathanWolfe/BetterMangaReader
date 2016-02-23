@@ -9,3 +9,4 @@ ratings:
   - ext/**
 exclude_paths:
 - ext/**/vendor/**/*
+- ext/styles/pure.css
