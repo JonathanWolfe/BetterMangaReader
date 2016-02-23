@@ -15,6 +15,6 @@ During the beta, it's always helpful if you find any bugs to report them here un
 ![Manga List](https://raw.githubusercontent.com/JonathanWolfe/BetterMangaReader/master/screenshots/manga-list.jpg)
 
 ## Things left to do for the next version
-- [ ] Add notificiations
+- [ ] Add notifications
 - [ ] New screenshots
 - [ ] Couple more site parsers
