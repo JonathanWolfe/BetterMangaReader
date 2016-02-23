@@ -15,29 +15,6 @@ During the beta, it's always helpful if you find any bugs to report them here un
 ![Manga List](https://raw.githubusercontent.com/JonathanWolfe/BetterMangaReader/master/screenshots/manga-list.jpg)
 
 ## To-Do
-- [x] Set-up Skeleton
-- [x] Determine data design
-- [x] Query Manga for information (only Manga Here and Mangastream for first release)
-  - [x] Working skimmers
-  - [x] Inject skimmers
-
-- [x] Change how Manga display on sites
-- [x] Build converter for AMR's bsync
-  - [x] Get Chrome.bookmarks to work
-
-- [x] Create database
-  - [x] Add manga to database as they're imported
-
-- [x] Finish Manga Listing page
-- [x] Add options page
-- [x] Add import/export page
-- [x] Add in-manga controls
-- [x] Finish Styling (still needs touching up)
-- [x] Automate data updates
-- [x] Full working controls
-- [x] Add Icon number
 - [ ] Add notificiations
-- [x] Make real icon
-- [x] Improve AMR conversion
-- [x] Add loading spinner
-- [x] Initial Prototype release (ready for)
+- [ ] New screenshots
+- [ ] Couple more site parsers
