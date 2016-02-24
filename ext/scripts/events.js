@@ -74,7 +74,7 @@ window.eventHandlers = {
 	},
 
 	toggleTracking: ( message, sender ) => {
-		const urlMatched = window.data.getByUrl( message.manga.mangaUrl );
+		const urlMatched = window.data.getByUrl( message.manga.url );
 		const nameMatched = window.data.getByName( message.manga.name );
 
 		const found = urlMatched || nameMatched || false;
@@ -82,19 +82,14 @@ window.eventHandlers = {
 		if ( found ) {
 			delete window.data.state.tracking[ found ];
 		} else {
-			window.data.state.tracking[ window.uuid.v4() ] = {
-				name: message.manga.name,
-				url: message.manga.mangaUrl,
-				readTo: message.manga.number,
-				latestChapter: '9999',
-			};
+			window.data.state.tracking[ window.uuid.v4() ] = message.manga;
 		}
 
 		window.data.saveChanges().then( ( state ) => {
 			chrome.tabs.sendMessage( sender.tab.id, {
 				type: 'success',
 				action: 'toggleTrackingButton',
-				value: window.data.mangaIsTracked( message.manga.mangaUrl, message.manga.name ),
+				value: window.data.mangaIsTracked( message.manga.url, message.manga.name ),
 			} );
 		} );
 	},
