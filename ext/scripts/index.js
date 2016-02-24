@@ -61,4 +61,10 @@ function bmrInit( bmrData ) {
 	} );
 }
 
-window.data.getFresh().then( bmrInit );
+const bgPage = chrome.extension.getBackgroundPage();
+
+if ( bgPage ) {
+	bmrInit( bgPage.data.state );
+} else {
+	console.error( 'Failed to connect to background page' );
+}
