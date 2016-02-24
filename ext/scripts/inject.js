@@ -148,6 +148,10 @@ const events = {
 					}
 				}
 
+				if ( !nextChapter ) {
+					nextChapter = latestChapter;
+				}
+
 				parsedChapter.forTracking = {
 					name: parsedChapter.chapterInfo.name,
 					url: parsedChapter.chapterInfo.mangaUrl,
