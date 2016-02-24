@@ -1,6 +1,6 @@
 {
 	"name": "BetterMangaReader",
-	"version": "0.4.6",
+	"version": "0.5.0",
 	"manifest_version": 2,
 	"description": "Keep track of your manga, be notified of updates, and have a better reading experience",
 	"homepage_url": "https://github.com/JonathanWolfe/BetterMangaReader",
@@ -9,10 +9,7 @@
 		"19": "icons/icon19.png",
 		"32": "icons/icon32.png",
 		"48": "icons/icon48.png",
-		"64": "icons/icon64.png",
-		"128": "icons/icon128.png",
-		"256": "icons/icon256.png",
-		"512": "icons/icon512.png"
+		"128": "icons/icon128.png"
 	},
 	"background": {
 		"page": "html/background.html",
