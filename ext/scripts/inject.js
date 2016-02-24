@@ -135,13 +135,13 @@ const events = {
 				events.getImagesForChapter( clonedHTML );
 
 				const chapters = parsedChapter.chapterListFromChapter;
-				const latestChapter = chapters[ chapters.length - 1 ];
+				const latestChapter = chapters[ 0 ];
 				let nextChapter;
 
-				for ( let i = chapters.length - 1; i >= 0; i -= 1 ) {
+				for ( let i = 0; i < chapters.length; i += 1 ) {
 					const chapter = chapters[ i ];
 					if ( parseFloat( chapter.number ) === parseFloat( parsedChapter.chapterInfo.number ) ) {
-						nextChapter = chapters[ i + 1 ] || chapters[ chapters.length - 1 ];
+						nextChapter = chapters[ i - 1 ] || chapters[ 0 ];
 						break;
 					}
 				}
