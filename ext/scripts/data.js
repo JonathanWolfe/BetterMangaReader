@@ -284,4 +284,3 @@ function initStorage() {
 }
 
 window.data = initStorage();
-window.data.getFresh();
