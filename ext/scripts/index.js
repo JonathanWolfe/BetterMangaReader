@@ -46,7 +46,7 @@ function bmrInit( bmrData ) {
 		const uuid = event.currentTarget.id;
 		const manga = bmrData.tracking[ uuid ];
 
-		window.location.assign( window.parsers.helpers.validUrl( manga.nextUrl ) );
+		window.location.assign( window.parsers.helpers.validUrl( manga.nextChapterUrl ) );
 	} );
 
 	$( '#manga-table' ).on( 'click', '.manga-markRead button', ( event ) => {
