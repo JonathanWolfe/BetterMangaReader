@@ -156,13 +156,13 @@ const events = {
 					name: parsedChapter.chapterInfo.name,
 					url: parsedChapter.chapterInfo.mangaUrl,
 
-					readTo: parsedChapter.chapterInfo.number,
+					readTo: parsedChapter.chapterInfo.number.toString(),
 					readToUrl: parsedChapter.chapterInfo.chapterUrl,
 
-					nextChapter: nextChapter.number,
+					nextChapter: nextChapter.number.toString(),
 					nextChapterUrl: nextChapter.url,
 
-					latestChapter: latestChapter.number,
+					latestChapter: latestChapter.number.toString(),
 					latestChapterUrl: latestChapter.url,
 				};
 			}
