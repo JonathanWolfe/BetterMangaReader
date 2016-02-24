@@ -128,6 +128,9 @@ const events = {
 		}, ( response ) => {
 			if ( response && response.type === 'success' ) {
 				parsedChapter = response.value;
+				parsedChapter.chapterListFromChapter = parsedChapter.chapterListFromChapter.sort(
+					( a, b ) => parseFloat( b.number ) - parseFloat( a.number )
+				);
 
 				events.getImagesForChapter( clonedHTML );
 
