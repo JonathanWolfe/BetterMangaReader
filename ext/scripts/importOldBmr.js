@@ -2,7 +2,7 @@
 
 function importOldBmr( bookmark ) {
 	if ( !bookmark ) {
-		throw new Error( 'Missing bookmark for import' )
+		throw new Error( 'Missing bookmark for import' );
 	}
 
 	// Parse the old data
