@@ -50,20 +50,20 @@ function buildControls() {
 	const chapterList = $( 'option', controls );
 	const selectedChapter = chapterList.filter( ':selected' );
 
-	if ( selectedChapter.index() === 0 ) {
+	if ( selectedChapter.index() === chapterList.length - 1 ) {
 		$( '#prev-chapter', controls ).prop( 'disabled', true );
 	}
-	if ( selectedChapter.index() === chapterList.length - 1 ) {
+	if ( selectedChapter.index() === 0 ) {
 		$( '#next-chapter', controls ).prop( 'disabled', true );
 	}
 
 	$( '#prev-chapter:not(:disabled)', controls ).on( 'click', ( ) => {
-		const newLocation = chapterList.eq( selectedChapter.index() - 1 ).val();
+		const newLocation = chapterList.eq( selectedChapter.index() + 1 ).val();
 		window.location.assign( newLocation );
 	} );
 
 	$( '#next-chapter:not(:disabled)', controls ).on( 'click', ( ) => {
-		const newLocation = chapterList.eq( selectedChapter.index() + 1 ).val();
+		const newLocation = chapterList.eq( selectedChapter.index() - 1 ).val();
 		window.location.assign( newLocation );
 	} );
 
