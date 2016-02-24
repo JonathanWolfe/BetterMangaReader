@@ -82,6 +82,13 @@ window.eventHandlers = {
 		if ( found ) {
 			delete window.data.state.tracking[ found ];
 		} else {
+			const manga = message.manga;
+
+			manga.url = window.parsers.helpers.normalizeUrl( manga.url );
+			manga.readToUrl = window.parsers.helpers.normalizeUrl( manga.readToUrl );
+			manga.nextChapterUrl = window.parsers.helpers.normalizeUrl( manga.nextChapterUrl );
+			manga.latestChapterUrl = window.parsers.helpers.normalizeUrl( manga.latestChapterUrl );
+
 			window.data.state.tracking[ window.uuid.v4() ] = message.manga;
 		}
 
