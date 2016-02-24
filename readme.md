@@ -12,7 +12,7 @@ During the beta, it's always helpful if you find any bugs to report them here un
 ## Rewritten version will launch as 0.5.0
 
 ## Preview
-![Manga List](https://raw.githubusercontent.com/JonathanWolfe/BetterMangaReader/master/screenshots/manga-list.jpg)
+![Manga List](https://raw.githubusercontent.com/JonathanWolfe/BetterMangaReader/master/screenshots/bmr-manga-list.png)
 
 ## Things left to do for the next version
 - [ ] Add notifications
