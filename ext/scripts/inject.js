@@ -164,6 +164,8 @@ const events = {
 };
 
 function init() {
+	// The parens are because .clone() returns the orignal not the clone
+	// but the statement whole returns the clone. Thanks jQuery.
 	const clonedHTML = ( $( 'body' ).clone() ).bmrLiteSanitize().html();
 
 	chrome.runtime.onMessage.addListener( function processMessage( message, sender ) {
