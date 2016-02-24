@@ -189,7 +189,7 @@ function initStorage() {
 					readToUrl: 'readms.com/r/bleach/663/3237/1/',
 
 					nextChapter: '663',
-					nextUrl: 'readms.com/r/bleach/663/3237/1/',
+					nextChapterUrl: 'readms.com/r/bleach/663/3237/1/',
 
 					latestChapter: '663',
 					latestChapterUrl: 'readms.com/r/bleach/663/3237/1/',
@@ -202,7 +202,7 @@ function initStorage() {
 					readToUrl: 'readms.com/r/fairy_tail/473/3232/1',
 
 					nextChapter: '474',
-					nextUrl: 'readms.com/r/fairy_tail/474/3232/1',
+					nextChapterUrl: 'readms.com/r/fairy_tail/474/3232/1',
 
 					latestChapter: '474',
 					latestChapterUrl: 'readms.com/r/fairy_tail/474/3244/1/',
@@ -215,7 +215,7 @@ function initStorage() {
 					readToUrl: 'mangatown.com/manga/one_piece/v02/c012/',
 
 					nextChapter: '13',
-					nextUrl: 'mangatown.com/manga/one_piece/v02/c013/',
+					nextChapterUrl: 'mangatown.com/manga/one_piece/v02/c013/',
 
 					latestChapter: '816',
 					latestChapterUrl: 'mangatown.com/manga/one_piece/v69/c816/',
@@ -228,7 +228,7 @@ function initStorage() {
 					readToUrl: 'mangatown.com/manga/the_gamer/c118/',
 
 					nextChapter: '119',
-					nextUrl: 'mangatown.com/manga/the_gamer/c119/',
+					nextChapterUrl: 'mangatown.com/manga/the_gamer/c119/',
 
 					latestChapter: '120',
 					latestChapterUrl: 'mangatown.com/manga/the_gamer/c120/',
@@ -241,7 +241,7 @@ function initStorage() {
 					readToUrl: 'mangahere.co/manga/uq_holder/c106/',
 
 					nextChapter: '107',
-					nextUrl: 'mangahere.co/manga/uq_holder/c107/',
+					nextChapterUrl: 'mangahere.co/manga/uq_holder/c107/',
 
 					latestChapter: '112',
 					latestChapterUrl: 'mangahere.co/manga/uq_holder/c112/',
