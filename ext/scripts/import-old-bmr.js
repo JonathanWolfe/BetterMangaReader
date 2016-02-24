@@ -32,9 +32,12 @@ function importOldBmr( bookmark ) {
 	// Save the changes,
 	// then delete the bookmark so we don't do this again
 	return new Promise( ( resolve ) => {
-		Promise.all( operations ).then( window.data.saveChanges ).then( ( ) => {
-			chrome.bookmarks.remove( bookmark.id, resolve );
-		} );
+		Promise.all( operations )
+			.then( window.parsers.checkForReleases )
+			.then( window.data.saveChanges )
+			.then( ( ) => {
+				chrome.bookmarks.remove( bookmark.id, resolve );
+			} );
 	} );
 }
 

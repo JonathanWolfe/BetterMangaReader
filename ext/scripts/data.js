@@ -141,21 +141,13 @@ function initStorage() {
 	 * @return {State} A promise resolving with the global state
 	 */
 	function getFresh() {
-		const defaultResponse = {
-			editDate: ( new Date() ).toISOString(),
-			tracking: {},
-		};
-
 		return new Promise( ( resolve, reject ) => {
 			chrome.storage.sync.get( null, ( response ) => {
-				response = Object.keys( response ).length ? response : defaultResponse;
-
-				window.data.state = response;
-				window.data.primeIndexes();
-
-				window.data.updateUnreadCount();
-
-				resolve( response );
+				window.parsers.checkForReleases( response.compressed )
+					.then( window.data.primeIndexes )
+					.then( window.data.updateUnreadCount )
+					.then( ( ) => console.log( 'Got Fresh from Chrome Sync' ) )
+					.then( ( ) => resolve( window.data.state ) );
 			} );
 		} );
 	}
@@ -166,10 +158,21 @@ function initStorage() {
 	 */
 	function saveChanges() {
 		return new Promise( ( resolve, reject ) => {
-			window.data.state.editDate = ( new Date() ).toISOString();
-			console.log( 'Saving to Chrome Storage', window.data.state );
+			const compressed = [ ];
 
-			chrome.storage.sync.set( window.data.state, ( ) => window.data.getFresh().then( resolve ) );
+			Object.keys( window.data.state.tracking ).forEach( ( uuid ) => {
+				const manga = window.data.state.tracking[ uuid ];
+
+				compressed.push( {
+					name: manga.name,
+					url: manga.url,
+					readTo: manga.readTo,
+				} );
+			} );
+
+			console.log( 'Saving to Chrome Storage', { compressed } );
+
+			chrome.storage.sync.set( { compressed }, resolve );
 		} );
 	}
 
