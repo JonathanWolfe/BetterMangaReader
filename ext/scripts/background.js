@@ -21,6 +21,15 @@ chrome.browserAction.onClicked.addListener( ( ) => {
 
 } );
 
+function checkForNew() {
+	return new Promise( ( resolve ) => {
+		// Check for new releases every 10 minutes
+		window.parsers.checkForReleases().then(
+			( ) => window.setInterval( window.parsers.checkForReleases, 10 * 60 * 1000 )
+		).then( resolve );
+	} );
+}
+
 // Load any data that may exist
 window.data.getFresh().then( ( state ) => {
 	// Check if they have an old version of BMR
@@ -28,16 +37,14 @@ window.data.getFresh().then( ( state ) => {
 
 		// Any old version found?
 		if ( results.length ) {
-			window.importOldBmr( results[ 0 ] );
+			return window.importOldBmr( results[ 0 ] ).then( checkForNew );
 		}
 
 		// Load the example manga if they didn't have any old BMR data
 		if ( !results.length && !Object.keys( state.tracking ).length ) {
-			window.data.loadExample();
+			return window.data.loadExample().then( checkForNew );
 		}
 
-		// Check for new releases every 10 minutes
-		window.setInterval( 10 * 60 * 1000, window.parsers.checkForReleases );
-
+		return checkForNew();
 	} );
 } );
