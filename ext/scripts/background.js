@@ -36,5 +36,8 @@ window.data.getFresh().then( ( state ) => {
 			window.data.loadExample();
 		}
 
+		// Check for new releases every 10 minutes
+		window.setInterval( 10 * 60 * 1000, window.parsers.checkForReleases );
+
 	} );
 } );
