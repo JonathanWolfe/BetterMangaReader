@@ -28,7 +28,8 @@ function buildControls() {
 
 	const iconURL = chrome.runtime.getURL( '../icons/icon19.png' );
 
-	const bmrControls = `<div id="bmr-controls" class="bettermangareader">
+	const bmrControls = `
+		<div id="bmr-controls" class="bettermangareader">
 			<img src="${iconURL}" alt="BetterMangaReader" />
 			<div class="form pure-form">
 				<button id="prev-chapter" class="pure-button pure-button-primary">&laquo;</button>
@@ -38,7 +39,8 @@ function buildControls() {
 				<button id="next-chapter" class="pure-button pure-button-primary">&raquo;</button>
 				<button id="tracking" class="pure-button pure-button-disabled" disabled></button>
 			</div>
-		</div>`;
+		</div>
+	`;
 
 	$( 'body' ).append( bmrControls );
 
