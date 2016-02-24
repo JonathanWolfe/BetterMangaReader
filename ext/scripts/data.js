@@ -62,7 +62,7 @@ function initStorage() {
 	 * @return {Manga}           the found Manga object, or undefined
 	 */
 	function getByUrl( mangaUrl ) {
-		window.data.getByKey( 'url', window.parsers.helpers.normalizeUrl( mangaUrl ) );
+		return window.data.getByKey( 'url', window.parsers.helpers.normalizeUrl( mangaUrl ) );
 	}
 
 	/**
@@ -71,7 +71,7 @@ function initStorage() {
 	 * @return {Manga}            The found Manga object, or undefined
 	 */
 	function getByName( mangaName ) {
-		window.data.getByKey( 'name', mangaName.toLowerCase().trim() );
+		return window.data.getByKey( 'name', mangaName.toLowerCase().trim() );
 	}
 
 	/**
