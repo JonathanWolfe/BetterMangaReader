@@ -65,7 +65,7 @@ window.parsers = {
 
 			const checking = window.parsers.helpers.getHtmlFromUrl( window.parsers.helpers.validUrl( manga.url ) )
 				.then( parser.getChaptersListFromProfile )
-				.then( expandChapterInfo.bind( manga ) );
+				.then( ( chapters ) => expandChapterInfo( manga, chapters ) );
 
 			promises.push( checking );
 		}
