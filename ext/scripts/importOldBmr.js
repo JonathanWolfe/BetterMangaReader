@@ -1,6 +1,10 @@
 'use strict';
 
 function importOldBmr( bookmark ) {
+	if ( !bookmark ) {
+		throw new Error( 'Missing bookmark for import' )
+	}
+
 	// Parse the old data
 	const raw = bookmark.url.slice( 23, -2 );
 	const parsed = JSON.parse( raw );
