@@ -83,14 +83,16 @@ function initStorage() {
 	function mangaIsTracked( ...searchTerm ) {
 		let found = false;
 
-		searchTerm.forEach( ( term ) => {
+		for ( let i = 0; i < searchTerm.length; i += 1 ) {
+			const term = searchTerm[ i ];
 			const urlMatched = window.data.getByUrl( term );
 			const nameMatched = window.data.getByName( term );
 
 			if ( urlMatched || nameMatched ) {
 				found = true;
+				break;
 			}
-		} );
+		}
 
 		return found;
 	}
