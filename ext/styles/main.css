@@ -28,6 +28,12 @@ body {
 	font-size : 1.4rem;
 }
 
+#load-example {
+    text-align: center;
+    margin: 0 auto;
+    width: auto;
+    display: block;
+}
 
 /* -- Material Design Table style -------------- */
 
