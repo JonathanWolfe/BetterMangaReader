@@ -21,9 +21,12 @@ chrome.browserAction.onClicked.addListener( ( ) => {
 
 } );
 
-function checkForNew() {
-	window.checkInterval = window.setInterval( window.parsers.checkForReleases, 10 * 60 * 1000 );
-}
+chrome.browserAction.setBadgeText( { text: '...' } );
+chrome.browserAction.setBadgeBackgroundColor( { color: '#777' } );
+chrome.browserAction.setTitle( { title: `Initializing BMR...` } );
 
 // Load any data that may exist
-window.data.getFresh().then( checkForNew );
+window.data.getFresh().then( () => {
+	chrome.browserAction.setBadgeBackgroundColor( { color: '#f00' } );
+	window.checkInterval = window.setInterval( window.parsers.checkForReleases, 10 * 60 * 1000 );
+} );
