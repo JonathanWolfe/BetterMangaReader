@@ -21,8 +21,7 @@
 	},
 	"permissions": [
 		"tabs",
-		"storage",
-		"bookmarks"
+		"storage"
 	],
 	"content_scripts": [ {
 		"matches": [
