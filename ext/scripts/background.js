@@ -21,9 +21,9 @@ chrome.browserAction.onClicked.addListener( ( ) => {
 
 } );
 
-chrome.browserAction.setBadgeText( { text: '...' } );
+chrome.browserAction.setBadgeText( { text: '?' } );
 chrome.browserAction.setBadgeBackgroundColor( { color: '#777' } );
-chrome.browserAction.setTitle( { title: `Initializing BMR...` } );
+chrome.browserAction.setTitle( { title: `Initializing BMR` } );
 
 // Load any data that may exist
 window.data.getFresh().then( () => {
