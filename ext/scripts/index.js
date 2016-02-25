@@ -56,7 +56,7 @@ function bmrInit() {
 		const uuid = event.currentTarget.id;
 		const manga = bgPage.data.state.tracking[ uuid ];
 
-		window.location.assign( window.parsers.helpers.validUrl( manga.nextChapterUrl ) );
+		window.location.assign( bgPage.parsers.helpers.validUrl( manga.nextChapterUrl ) );
 	} );
 
 	$( '#manga-table' ).on( 'click', '.manga-markRead button', ( event ) => {
@@ -65,8 +65,8 @@ function bmrInit() {
 
 		const uuid = $( event.target ).data( 'uuid' );
 
-		return window.data.markRead( uuid )
-			.then( window.data.getFresh )
+		return bgPage.data.markRead( uuid )
+			.then( bgPage.data.getFresh )
 			.then( bmrInit );
 	} );
 }
