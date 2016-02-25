@@ -39,6 +39,21 @@ function normalizeUrl( url ) {
 	return normalized;
 }
 
+function normalizeAllFields( manga ) {
+	manga.url = normalizeUrl( manga.url );
+
+	manga.readTo = manga.readTo.toString();
+	manga.readToUrl = normalizeUrl( manga.readToUrl );
+
+	manga.nextChapter = manga.nextChapter.toString();
+	manga.nextChapterUrl = normalizeUrl( manga.nextChapterUrl );
+
+	manga.latestChapter = manga.latestChapter.toString();
+	manga.latestChapterUrl = normalizeUrl( manga.latestChapterUrl );
+
+	return manga;
+}
+
 /**
  * Retrieves the HTML of a URL
  * @param  {String} url URL to scrape
@@ -127,19 +142,19 @@ function makeExpansion( manga, parsedHTML ) {
 	}
 
 	// Build our tracking object
-	const forTracking = {
+	const forTracking = normalizeAllFields( {
 		name: manga.name,
-		url: normalizeUrl( manga.url ),
+		url: manga.url,
 
-		readTo: currentRead.toString(),
-		readToUrl: normalizeUrl( currentChapter.url ),
+		readTo: currentRead,
+		readToUrl: currentChapter.url,
 
-		nextChapter: nextChapter.number.toString(),
-		nextChapterUrl: normalizeUrl( nextChapter.url ),
+		nextChapter: nextChapter.number,
+		nextChapterUrl: nextChapter.url,
 
-		latestChapter: latestChapter.number.toString(),
-		latestChapterUrl: normalizeUrl( latestChapter.url ),
-	};
+		latestChapter: latestChapter.number,
+		latestChapterUrl: latestChapter.url,
+	} );
 
 	// Generate a UUID and add it to the state
 	return forTracking;
@@ -206,6 +221,7 @@ window.parsers = {
 	helpers: {
 		validUrl,
 		normalizeUrl,
+		normalizeAllFields,
 		getHtmlFromUrl,
 	},
 
