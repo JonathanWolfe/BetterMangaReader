@@ -98,6 +98,16 @@ window.eventHandlers = {
 		} );
 	},
 
+	setReadChapter: ( message, sender ) => {
+		const manga = window.parsers.helpers.normalizeAllFields( message.manga );
+		const uuid = window.data.getByUrl( manga.url );
+		window.data.state.tracking[ uuid ] = manga;
+
+		console.log( 'Updated Read Chapter', manga );
+
+		return window.data.saveChanges();
+	},
+
 };
 
 chrome.runtime.onMessage.addListener( function processMessage( message, sender, sendResponse ) {
