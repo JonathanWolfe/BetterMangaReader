@@ -11,6 +11,11 @@ function toggleTrackingButton( isTracking ) {
 	if ( isTracking ) {
 		button.addClass( 'pure-button-error' )
 			.removeClass( 'pure-button-success' );
+
+		chrome.runtime.sendMessage( {
+			action: 'setReadChapter',
+			manga: parsedChapter.forTracking,
+		} );
 	} else {
 		button.removeClass( 'pure-button-error' )
 			.addClass( 'pure-button-success' );
