@@ -79,24 +79,21 @@ window.eventHandlers = {
 
 		const found = urlMatched || nameMatched || false;
 
+		let manga = message.manga;
+
 		if ( found ) {
+			manga = window.data.state.tracking[ found ];
 			delete window.data.state.tracking[ found ];
 		} else {
-			const manga = message.manga;
-
-			manga.url = window.parsers.helpers.normalizeUrl( manga.url );
-			manga.readToUrl = window.parsers.helpers.normalizeUrl( manga.readToUrl );
-			manga.nextChapterUrl = window.parsers.helpers.normalizeUrl( manga.nextChapterUrl );
-			manga.latestChapterUrl = window.parsers.helpers.normalizeUrl( manga.latestChapterUrl );
-
-			window.data.state.tracking[ window.uuid.v4() ] = message.manga;
+			manga = window.parsers.helpers.normalizeAllFields( message.manga );
+			window.data.state.tracking[ window.uuid.v4() ] = manga;
 		}
 
 		window.data.saveChanges().then( ( state ) => {
 			chrome.tabs.sendMessage( sender.tab.id, {
 				type: 'success',
 				action: 'toggleTrackingButton',
-				value: window.data.mangaIsTracked( message.manga.url, message.manga.name ),
+				value: window.data.mangaIsTracked( manga.url, manga.name ),
 			} );
 		} );
 	},
