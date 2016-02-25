@@ -62,7 +62,7 @@ function initStorage() {
 	 * @return {Manga}           the found Manga object, or undefined
 	 */
 	function getByUrl( mangaUrl ) {
-		return window.data.getByKey( 'url', window.parsers.helpers.normalizeUrl( mangaUrl ) );
+		return getByKey( 'url', window.parsers.helpers.normalizeUrl( mangaUrl ) );
 	}
 
 	/**
@@ -71,7 +71,7 @@ function initStorage() {
 	 * @return {Manga}            The found Manga object, or undefined
 	 */
 	function getByName( mangaName ) {
-		return window.data.getByKey( 'name', mangaName.toLowerCase().trim() );
+		return getByKey( 'name', mangaName.toLowerCase().trim() );
 	}
 
 	/**
@@ -85,10 +85,11 @@ function initStorage() {
 
 		for ( let i = 0; i < searchTerm.length; i += 1 ) {
 			const term = searchTerm[ i ];
-			const urlMatched = window.data.getByUrl( term );
-			const nameMatched = window.data.getByName( term );
+			const urlMatched = getByUrl( term );
+			const nameMatched = getByName( term );
 
 			if ( urlMatched || nameMatched ) {
+				console.log( 'found' );
 				found = true;
 				break;
 			}
@@ -124,16 +125,26 @@ function initStorage() {
 	}
 
 	/**
-	 * Mark a manga as having been read to current chapter
-	 * @param  {String} uuid UUID of the manga to update
-	 * @return {Promise}     Promise of data.saveChanges()
+	 * Create a mock state object from an Array of compressed manga objects
+	 * @param  {Array} compressed Array of compressed manga objects
+	 * @return {Object}           Returns a state object
 	 */
-	function markRead( uuid ) {
-		if ( window.data.state.tracking[ uuid ] ) {
-			window.data.state.tracking[ uuid ].readTo = window.data.state.tracking[ uuid ].latestChapter;
-			return window.data.saveChanges();
-		}
-		return Promise.resolve( false );
+	function createMockState( compressed ) {
+		const promises = compressed.map( ( manga ) => window.parsers.updateMangaInfo( manga ) );
+
+		return Promise.all( promises )
+			.then( ( mangas ) => {
+				const mockState = {
+					editDate: ( new Date() ).toISOString(),
+					tracking: {},
+				};
+
+				mangas.forEach( ( manga ) => {
+					mockState.tracking[ window.uuid.v4() ] = manga;
+				} );
+
+				return mockState;
+			} );
 	}
 
 	/**
@@ -141,39 +152,84 @@ function initStorage() {
 	 * @return {State} A promise resolving with the global state
 	 */
 	function getFresh() {
-		return new Promise( ( resolve, reject ) => {
+		console.log( 'Updating state from Chrome Storage' );
+
+		return new Promise( ( resolve ) => {
 			chrome.storage.sync.get( null, ( response ) => {
-				window.parsers.checkForReleases( response.compressed )
-					.then( window.data.primeIndexes )
-					.then( window.data.updateUnreadCount )
-					.then( ( ) => console.log( 'Got Fresh from Chrome Sync' ) )
+
+				createMockState( response.compressed )
+					.then( ( mockState ) => {
+						window.data.state = mockState;
+						return window.data.state;
+					} )
+					.then( primeIndexes )
+					.then( updateUnreadCount )
 					.then( ( ) => resolve( window.data.state ) );
+
 			} );
 		} );
+	}
+
+	/**
+	 * Compress the full sized state down to it's smallest form
+	 * because Chrome hates people
+	 * @param  {Array|Object} expanded A state object or an array of full sized manga tracking objects
+	 * @return {Array}                 Array of the most compressed the manga data can be
+	 */
+	function compressForStorage( expanded ) {
+		let data = expanded || window.data.state;
+
+		if ( data.tracking ) {
+			const uuids = Object.keys( data.tracking );
+			data = uuids.map( ( uuid ) => data.tracking[ uuid ] );
+		}
+
+		const compressed = data.map( ( item ) => {
+			const shortened = {
+				name: item.name,
+				url: item.url,
+				readTo: item.readTo,
+			};
+
+			return shortened;
+		} );
+
+		console.group( 'Compressed Manga Data' );
+		console.table( compressed );
+		console.groupEnd();
+
+		return compressed;
 	}
 
 	/**
 	 * Save state changes to Chrome's Sync storage
 	 * @return {State} A promise resolving with the global state from Chrome
 	 */
-	function saveChanges() {
-		return new Promise( ( resolve, reject ) => {
-			const compressed = [ ];
+	function saveChanges( state ) {
+		const expanded = state || window.data.state;
 
-			Object.keys( window.data.state.tracking ).forEach( ( uuid ) => {
-				const manga = window.data.state.tracking[ uuid ];
-
-				compressed.push( {
-					name: manga.name,
-					url: manga.url,
-					readTo: manga.readTo,
-				} );
-			} );
+		return new Promise( ( resolve ) => {
+			const compressed = compressForStorage( expanded );
 
 			console.log( 'Saving to Chrome Storage', { compressed } );
 
 			chrome.storage.sync.set( { compressed }, resolve );
-		} );
+		} )
+			.then( primeIndexes )
+			.then( updateUnreadCount );
+	}
+
+	/**
+	 * Mark a manga as having been read to current chapter
+	 * @param  {String} uuid UUID of the manga to update
+	 * @return {Promise}     Promise of data.saveChanges()
+	 */
+	function markRead( uuid ) {
+		if ( window.data.state.tracking[ uuid ] ) {
+			window.data.state.tracking[ uuid ].readTo = window.data.state.tracking[ uuid ].latestChapter;
+			return saveChanges();
+		}
+		return Promise.resolve( false );
 	}
 
 	/**
@@ -181,83 +237,30 @@ function initStorage() {
 	 * @return {Promise} A promise resolving with nothing and logs upon completion
 	 */
 	function loadExample() {
-		window.data.state = {
-			editDate: ( new Date() ).toISOString(),
-			tracking: {
-				'd9266b7b-8eb5-4b50-9c77-feccc3fe3f6e': {
-					name: 'Bleach',
-					url: 'mangastream.com/manga/bleach/',
+		const compressed = [
+			{ name: 'Bleach', url: 'mangastream.com/manga/bleach/', readTo: '663' },
+			{ name: 'Fairy Tail', url: 'mangastream.com/manga/fairy_tail/', readTo: '473' },
+			{ name: 'One Piece', url: 'mangatown.com/manga/one_piece/', readTo: '12' },
+			{ name: 'The Gamer', url: 'mangatown.com/manga/the_gamer/', readTo: '118' },
+			{ name: 'UQ Holder!', url: 'mangahere.co/manga/uq_holder/', readTo: '106' },
+		];
 
-					readTo: '663',
-					readToUrl: 'readms.com/r/bleach/663/3237/1/',
+		console.group( 'Example Manga to be loaded' );
+		console.table( compressed );
+		console.groupEnd();
 
-					nextChapter: '663',
-					nextChapterUrl: 'readms.com/r/bleach/663/3237/1/',
-
-					latestChapter: '663',
-					latestChapterUrl: 'readms.com/r/bleach/663/3237/1/',
-				},
-				'0f6a891f-140b-473c-b438-8a388d29e3a6': {
-					name: 'Fairy Tail',
-					url: 'mangastream.com/manga/fairy_tail/',
-
-					readTo: '473',
-					readToUrl: 'readms.com/r/fairy_tail/473/3232/1',
-
-					nextChapter: '474',
-					nextChapterUrl: 'readms.com/r/fairy_tail/474/3232/1',
-
-					latestChapter: '474',
-					latestChapterUrl: 'readms.com/r/fairy_tail/474/3244/1/',
-				},
-				'5e7b7a5d-97ef-4007-a187-a8c2b6a79d91': {
-					name: 'One Piece',
-					url: 'mangatown.com/manga/one_piece/',
-
-					readTo: '12',
-					readToUrl: 'mangatown.com/manga/one_piece/v02/c012/',
-
-					nextChapter: '13',
-					nextChapterUrl: 'mangatown.com/manga/one_piece/v02/c013/',
-
-					latestChapter: '816',
-					latestChapterUrl: 'mangatown.com/manga/one_piece/v69/c816/',
-				},
-				'2c9404c8-341b-49ba-99a2-ef3a002b8bd7': {
-					name: 'The Gamer',
-					url: 'mangatown.com/manga/the_gamer/',
-
-					readTo: '118',
-					readToUrl: 'mangatown.com/manga/the_gamer/c118/',
-
-					nextChapter: '119',
-					nextChapterUrl: 'mangatown.com/manga/the_gamer/c119/',
-
-					latestChapter: '120',
-					latestChapterUrl: 'mangatown.com/manga/the_gamer/c120/',
-				},
-				'3580deb4-bef0-4319-aaf0-edf73492c5c9': {
-					name: 'UQ Holder!',
-					url: 'mangahere.co/manga/uq_holder/',
-
-					readTo: '106',
-					readToUrl: 'mangahere.co/manga/uq_holder/c106/',
-
-					nextChapter: '107',
-					nextChapterUrl: 'mangahere.co/manga/uq_holder/c107/',
-
-					latestChapter: '112',
-					latestChapterUrl: 'mangahere.co/manga/uq_holder/c112/',
-				},
-			},
-		};
-
-		return window.data.saveChanges().then( ( ) => console.log( 'Done loading example' ) );
+		return createMockState( compressed )
+			.then( saveChanges )
+			.then( ( ) => console.log( 'Done loading example', window.data.state ) )
+			.then( getFresh );
 	}
 
 	return {
 
-		state: {},
+		state: {
+			editDate: ( new Date() ).toISOString(),
+			tracking: {},
+		},
 
 		indexes: {
 			name: {},
@@ -280,6 +283,7 @@ function initStorage() {
 
 		mangaIsTracked,
 
+		compressForStorage,
 		saveChanges,
 		loadExample,
 
@@ -287,3 +291,7 @@ function initStorage() {
 }
 
 window.data = initStorage();
+// chrome.storage.sync.clear( ( ) => {
+// 	window.data.loadExample()
+// 		.then( ( ) => chrome.browserAction.setBadgeBackgroundColor( { color: '#f00' } ) );
+// } );
