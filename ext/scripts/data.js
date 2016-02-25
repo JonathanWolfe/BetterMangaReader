@@ -194,7 +194,7 @@ function initStorage() {
 			return shortened;
 		} );
 
-		console.group( 'Compressed Manga Data' );
+		console.groupCollapsed( 'Compressed Manga Data' );
 		console.table( compressed );
 		console.groupEnd();
 
@@ -245,7 +245,7 @@ function initStorage() {
 			{ name: 'UQ Holder!', url: 'mangahere.co/manga/uq_holder/', readTo: '106' },
 		];
 
-		console.group( 'Example Manga to be loaded' );
+		console.groupCollapsed( 'Example Manga to be loaded' );
 		console.table( compressed );
 		console.groupEnd();
 

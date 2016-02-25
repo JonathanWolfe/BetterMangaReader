@@ -46,7 +46,7 @@ function createMangaTable() {
 }
 
 function bmrInit() {
-	console.group( `Tracked Manga as of ${bgPage.data.state.editDate}` );
+	console.groupCollapsed( `Tracked Manga as of ${bgPage.data.state.editDate}` );
 	console.table( bgPage.data.state.tracking );
 	console.groupEnd();
 
