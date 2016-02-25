@@ -26,21 +26,4 @@ function checkForNew() {
 }
 
 // Load any data that may exist
-window.data.getFresh().then( ( ) => {
-	// Check if they have an old version of BMR
-	chrome.bookmarks.search( 'BMR Backup', ( results ) => {
-
-		// Any old version found?
-		if ( results.length ) {
-			return window.importOldBmr( results[ 0 ] ).then( checkForNew );
-		}
-
-		if ( !results.length &&
-				window.data.state.tracking &&
-				!Object.keys( window.data.state.tracking ) ) {
-			return window.data.loadExample().then( checkForNew );
-		}
-
-		return checkForNew();
-	} );
-} );
+window.data.getFresh().then( checkForNew );
