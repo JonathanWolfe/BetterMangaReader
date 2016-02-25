@@ -102,7 +102,7 @@ window.eventHandlers = {
 
 chrome.runtime.onMessage.addListener( function processMessage( message, sender, sendResponse ) {
 
-	console.group( `message recieved - ${message.action}` );
+	console.groupCollapsed( `message recieved - ${message.action}` );
 	console.log( 'message', message );
 	console.log( 'sender', sender );
 	console.groupEnd();
