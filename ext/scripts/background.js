@@ -26,7 +26,7 @@ chrome.browserAction.setBadgeBackgroundColor( { color: '#777' } );
 chrome.browserAction.setTitle( { title: `Initializing BMR` } );
 
 // Load any data that may exist
-window.data.getFresh().then( () => {
+window.data.getFresh().then( ( ) => {
 	chrome.browserAction.setBadgeBackgroundColor( { color: '#f00' } );
-	window.checkInterval = window.setInterval( window.parsers.checkForReleases, 10 * 60 * 1000 );
+	window.checkInterval = window.setInterval( window.parsers.updateAllManga, 10 * 60 * 1000 );
 } );
