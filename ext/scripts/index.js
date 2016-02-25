@@ -1,15 +1,25 @@
 'use strict';
 
+const bgPage = chrome.extension.getBackgroundPage();
+
 function sortByMangaName( a, b ) {
 	return $( '.manga-name', a ).text().localeCompare( $( '.manga-name', b ).text() );
 }
 
-function createMangaTable( bmrData ) {
+function createMangaTable() {
 	const mangaTable = $( '#manga-table tbody' );
 	const rows = [ ];
 
-	Object.keys( bmrData.tracking ).forEach( ( uuid ) => {
-		const manga = bmrData.tracking[ uuid ];
+	if ( typeof bgPage.data.state.tracking === 'undefined' ) {
+		$( '#load-example' ).on( 'click', ( event ) => {
+			bgPage.data.loadExample().then( chrome.tabs.reload );
+		} );
+	} else {
+		$( '#load-example' ).hide();
+	}
+
+	Object.keys( bgPage.data.state.tracking ).forEach( ( uuid ) => {
+		const manga = bgPage.data.state.tracking[ uuid ];
 		const row = $( `
 				<tr id="${uuid}">
 					<td class="manga-markRead">
@@ -35,16 +45,16 @@ function createMangaTable( bmrData ) {
 	mangaTable.append( read );
 }
 
-function bmrInit( bmrData ) {
-	console.group( `Tracked Manga as of ${bmrData.editDate}` );
-	console.table( bmrData.tracking );
+function bmrInit() {
+	console.group( `Tracked Manga as of ${bgPage.data.state.editDate}` );
+	console.table( bgPage.data.state.tracking );
 	console.groupEnd();
 
-	createMangaTable( bmrData );
+	createMangaTable( bgPage.data.state );
 
 	$( '#manga-table' ).on( 'click', 'tbody tr', ( event ) => {
 		const uuid = event.currentTarget.id;
-		const manga = bmrData.tracking[ uuid ];
+		const manga = bgPage.data.state.tracking[ uuid ];
 
 		window.location.assign( window.parsers.helpers.validUrl( manga.nextChapterUrl ) );
 	} );
@@ -61,10 +71,8 @@ function bmrInit( bmrData ) {
 	} );
 }
 
-const bgPage = chrome.extension.getBackgroundPage();
-
 if ( bgPage ) {
-	bmrInit( bgPage.data.state );
+	bmrInit();
 } else {
 	console.error( 'Failed to connect to background page' );
 }
