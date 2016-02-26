@@ -177,18 +177,18 @@ function initStorage() {
 	 * @return {Array}                 Array of the most compressed the manga data can be
 	 */
 	function compressForStorage( expanded ) {
-		let data;
+		let state = expanded;
 
 		if ( !expanded.tracking ) {
-			data = window.data.state;
+			state = window.data.state;
 		}
 
-		const uuids = Object.keys( data.tracking );
-		data = uuids.map( ( uuid ) => data.tracking[ uuid ] );
+		const uuids = Object.keys( state.tracking );
+		state = uuids.map( ( uuid ) => state.tracking[ uuid ] );
 
-		console.log( 'In case of error: ', data );
+		console.log( 'In case of error: ', state );
 
-		const compressed = data.map( ( item ) => {
+		const compressed = state.map( ( item ) => {
 			const shortened = {
 				name: item.name,
 				url: item.url,
