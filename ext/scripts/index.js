@@ -10,12 +10,12 @@ function createMangaTable() {
 	const mangaTable = $( '#manga-table tbody' );
 	const rows = [ ];
 
-	if ( typeof bgPage.data.state.tracking === 'undefined' ) {
-		$( '#load-example' ).on( 'click', ( event ) => {
-			bgPage.data.loadExample().then( chrome.tabs.reload );
-		} );
-	} else {
+	if ( Object.keys( bgPage.data.state.tracking ).length ) {
 		$( '#load-example' ).hide();
+	} else {
+		$( '#load-example' ).on( 'click', ( event ) => {
+			bgPage.data.loadExample().then( () => chrome.tabs.reload() );
+		} );
 	}
 
 	Object.keys( bgPage.data.state.tracking ).forEach( ( uuid ) => {
