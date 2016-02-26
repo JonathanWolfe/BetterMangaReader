@@ -130,7 +130,11 @@ function initStorage() {
 	 * @return {Object}           Returns a state object
 	 */
 	function createMockState( compressed ) {
-		const promises = compressed.map( ( manga ) => window.parsers.updateMangaInfo( manga ) );
+		let promises = [];
+
+		if ( compressed ) {
+			promises = compressed.map( ( manga ) => window.parsers.updateMangaInfo( manga ) );
+		}
 
 		return Promise.all( promises )
 			.then( ( mangas ) => {
