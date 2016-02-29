@@ -159,7 +159,7 @@ function initStorage() {
 	 */
 	function saveChanges( state ) {
 		// use global state if invalid input
-		const expanded = state.tracking ? state : window.data.state;
+		const expanded = state || window.data.state;
 
 		// Setup a promise
 		return new Promise( ( resolve ) => {
