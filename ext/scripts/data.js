@@ -65,6 +65,14 @@ function initStorage() {
 					mockState.tracking[ window.uuid.v4() ] = manga;
 				} );
 
+				console.groupCollapsed( 'Inflated Manga Data' );
+				console.table( Object.keys( mockState.tracking ).map( ( uuid ) => {
+					const toLog = mockState.tracking[ uuid ];
+					toLog.uuid = uuid;
+					return toLog;
+				} ) );
+				console.groupEnd();
+
 				return mockState;
 			} );
 	}
