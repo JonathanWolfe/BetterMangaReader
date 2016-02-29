@@ -23,7 +23,7 @@ window.eventHandlers = {
 		const chapterInfo = parser.getChapterInfo( parsedHTML );
 		const chapterListFromChapter = parser.getChaptersListFromChapter( parsedHTML );
 		const imageFromPage = parser.getImageFromPage( parsedHTML );
-		const isTracked = window.data.mangaIsTracked( chapterInfo.mangaUrl, chapterInfo.name );
+		const isTracked = window.query.mangaIsTracked( chapterInfo.mangaUrl, chapterInfo.name );
 		const pages = parser.getPages( parsedHTML );
 		const scanContainer = parser.scanContainer();
 
@@ -74,8 +74,8 @@ window.eventHandlers = {
 	},
 
 	toggleTracking: ( message, sender ) => {
-		const urlMatched = window.data.getByUrl( message.manga.url );
-		const nameMatched = window.data.getByName( message.manga.name );
+		const urlMatched = window.query.getByUrl( message.manga.url );
+		const nameMatched = window.query.getByName( message.manga.name );
 
 		const found = urlMatched || nameMatched || false;
 
@@ -93,17 +93,15 @@ window.eventHandlers = {
 			chrome.tabs.sendMessage( sender.tab.id, {
 				type: 'success',
 				action: 'toggleTrackingButton',
-				value: window.data.mangaIsTracked( manga.url, manga.name ),
+				value: window.query.mangaIsTracked( manga.url, manga.name ),
 			} );
 		} );
 	},
 
 	setReadChapter: ( message, sender ) => {
 		const manga = window.parsers.helpers.normalizeAllFields( message.manga );
-		const uuid = window.data.getByUrl( manga.url );
+		const uuid = window.query.getByUrl( manga.url );
 		window.data.state.tracking[ uuid ] = manga;
-
-		console.log( 'Updated Read Chapter', manga );
 
 		return window.data.saveChanges();
 	},
