@@ -1,6 +1,6 @@
 'use strict';
 
-window.eventHandlers = {
+const eventHandlers = {
 
 	parserForUrl: ( message, sender ) => window.parsers.findByUrl( sender.url ),
 
@@ -108,24 +108,24 @@ window.eventHandlers = {
 
 };
 
-chrome.runtime.onMessage.addListener( function processMessage( message, sender, sendResponse ) {
+function processMessage( message, sender, sendResponse ) {
 
 	console.groupCollapsed( `message recieved - ${message.action}` );
 	console.log( 'message', message );
 	console.log( 'sender', sender );
 	console.groupEnd();
 
-	if ( window.eventHandlers[ message.action ] ) {
+	if ( eventHandlers[ message.action ] ) {
 
-		if ( typeof window.eventHandlers[ message.action ] === 'function' ) {
+		if ( typeof eventHandlers[ message.action ] === 'function' ) {
 			sendResponse( {
 				type: 'success',
-				value: window.eventHandlers[ message.action ].call( this, message, sender ),
+				value: eventHandlers[ message.action ].call( null, message, sender ),
 			} );
 		} else {
 			sendResponse( {
 				type: 'success',
-				value: window.eventHandlers[ message.action ],
+				value: eventHandlers[ message.action ],
 			} );
 		}
 
@@ -135,5 +135,7 @@ chrome.runtime.onMessage.addListener( function processMessage( message, sender, 
 			value: `No event handler for the action "${message.action}"`,
 		} );
 	}
+}
 
-} );
+// initialize
+chrome.runtime.onMessage.addListener( processMessage );

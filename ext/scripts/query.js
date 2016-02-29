@@ -6,15 +6,30 @@ function initQuery() {
 	 * @return {Object} The finalized indexes
 	 */
 	function primeIndexes() {
-		window.query.indexes.name = { };
-		window.query.indexes.url = { };
+		// save typing
+		const mangas = window.data.state.tracking;
 
-		Object.keys( window.data.state.tracking ).forEach( ( uuid ) => {
-			const current = window.data.state.tracking[ uuid ];
+		// base values
+		const names = { };
+		const urls = { };
 
-			window.query.indexes.name[ current.name.toLowerCase().trim() ] = uuid;
-			window.query.indexes.url[ window.parsers.helpers.normalizeUrl( current.url ) ] = uuid;
+		// loop over all mangas
+		Object.keys( mangas ).forEach( ( uuid ) => {
+			// current manga
+			const current = mangas[ uuid ];
+			// processed name
+			const name = current.name.toLowerCase().trim();
+			// processed url
+			const url = window.parsers.helpers.normalizeUrl( current.url );
+
+			// add to index as key with value as manga UUID
+			names[ name ] = uuid;
+			urls[ url ] = uuid;
 		} );
+
+		// update global indexes
+		window.query.indexes.name = names;
+		window.query.indexes.url = urls;
 
 		return window.query.indexes;
 	}
@@ -35,9 +50,11 @@ function initQuery() {
 	 * @return {Manga}              The found Manga object, or undefined
 	 */
 	function getByKey( key, searchValue ) {
+		// Key exists to search by
 		if ( typeof window.query.indexes[ key ] === 'undefined' ) {
 			throw new Error( `Invalid Query Key: ${key}` );
 		}
+		// return what we find, if anything
 		return window.query.indexes[ key ][ searchValue ];
 	}
 
@@ -66,15 +83,23 @@ function initQuery() {
 	 * @return {Boolean}            Whether the manga was found
 	 */
 	function mangaIsTracked( ...searchTerm ) {
+		// default value
 		let found = false;
 
+		// loop over all search terms
 		for ( let i = 0; i < searchTerm.length; i += 1 ) {
+			// current search term
 			const term = searchTerm[ i ];
+			// found a match on the URL?
 			const urlMatched = getByUrl( term );
+			// found a match on the name?
 			const nameMatched = getByName( term );
 
+			// found either by name or url?
 			if ( urlMatched || nameMatched ) {
+				// update return value
 				found = true;
+				// break out of loop
 				break;
 			}
 		}
@@ -84,20 +109,22 @@ function initQuery() {
 
 	return {
 
+		// set base index values
 		indexes: {
 			name: {},
 			url: {},
 		},
-		primeIndexes,
+		primeIndexes, // expose function
 
-		fetch,
-		getByUrl,
-		getByName,
-		getByKey,
+		fetch, // expose function
+		getByUrl, // expose function
+		getByName, // expose function
+		getByKey, // expose function
 
-		mangaIsTracked,
+		mangaIsTracked, // expose function
 
 	};
 }
 
+// initialize
 window.query = initQuery();
