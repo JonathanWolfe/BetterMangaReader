@@ -2,100 +2,18 @@
 
 function initStorage() {
 	/**
-	 * Prime the indexes for use
-	 * @return {Object} The finalized indexes
-	 */
-	function primeIndexes() {
-		window.data.indexes.name = { };
-		window.data.indexes.url = { };
-
-		Object.keys( window.data.state.tracking ).forEach( ( uuid ) => {
-			const current = window.data.state.tracking[ uuid ];
-
-			window.data.indexes.name[ current.name.toLowerCase().trim() ] = uuid;
-			window.data.indexes.url[ window.parsers.helpers.normalizeUrl( current.url ) ] = uuid;
-		} );
-
-		return window.data.indexes;
-	}
-
-	/**
 	 * Determine how much of our Chrome Sync capactiy is used
 	 * @return {Number} Percentage of capactiy used
 	 */
 	function capacityUsed() {
 		return new Promise( ( resolve ) => {
 			chrome.storage.sync.getBytesInUse( null, ( bytes ) => {
-				const megaBytes = bytes / 1000000;
-				const percentFull = megaBytes * 100;
+				const used = bytes / chrome.storage.sync.QUOTA_BYTES;
+				const percentFull = used * 100;
 
 				resolve( percentFull.toFixed( 2 ) );
 			} );
 		} );
-	}
-
-	/**
-	 * Grab a manga from our tracked ones
-	 * @param  {String} uuid UUID of the manga to find
-	 * @return {Manga}       The found Manga object, or undefined
-	 */
-	function fetch( uuid ) {
-		return window.data.state.tracking[ uuid ];
-	}
-
-	/**
-	 * Find a Manga by the value of the provided key
-	 * @param  {String} key         Field to search in
-	 * @param  {String} searchValue Needle trying to find
-	 * @return {Manga}              The found Manga object, or undefined
-	 */
-	function getByKey( key, searchValue ) {
-		if ( typeof window.data.indexes[ key ] === 'undefined' ) {
-			throw new Error( `Invalid Query Key: ${key}` );
-		}
-		return window.data.indexes[ key ][ searchValue ];
-	}
-
-	/**
-	 * Find a Manga by it's URL
-	 * @param  {String} mangaUrl URL of the manga to find
-	 * @return {Manga}           the found Manga object, or undefined
-	 */
-	function getByUrl( mangaUrl ) {
-		return getByKey( 'url', window.parsers.helpers.normalizeUrl( mangaUrl ) );
-	}
-
-	/**
-	 * Find a Manga by it's Name
-	 * @param  {String} mangaName Name of the manga to find
-	 * @return {Manga}            The found Manga object, or undefined
-	 */
-	function getByName( mangaName ) {
-		return getByKey( 'name', mangaName.toLowerCase().trim() );
-	}
-
-	/**
-	 * Determine if a manga is being tracked
-	 * Multiple search terms can be provided as additional arguments
-	 * @param  {String}  searchTerm Needle to search for
-	 * @return {Boolean}            Whether the manga was found
-	 */
-	function mangaIsTracked( ...searchTerm ) {
-		let found = false;
-
-		for ( let i = 0; i < searchTerm.length; i += 1 ) {
-			const term = searchTerm[ i ];
-			const urlMatched = getByUrl( term );
-			const nameMatched = getByName( term );
-
-			if ( urlMatched || nameMatched ) {
-				console.log( 'found' );
-				found = true;
-				break;
-			}
-		}
-
-		return found;
 	}
 
 	/**
@@ -130,7 +48,7 @@ function initStorage() {
 	 * @return {Object}           Returns a state object
 	 */
 	function createMockState( compressed ) {
-		let promises = [];
+		let promises = [ ];
 
 		if ( compressed ) {
 			promises = compressed.map( ( manga ) => window.parsers.updateMangaInfo( manga ) );
@@ -166,7 +84,7 @@ function initStorage() {
 						window.data.state = mockState;
 						return window.data.state;
 					} )
-					.then( primeIndexes )
+					.then( window.query.primeIndexes )
 					.then( updateUnreadCount )
 					.then( ( ) => resolve( window.data.state ) );
 
@@ -189,8 +107,6 @@ function initStorage() {
 
 		const uuids = Object.keys( state.tracking );
 		state = uuids.map( ( uuid ) => state.tracking[ uuid ] );
-
-		console.log( 'In case of error: ', state );
 
 		const compressed = state.map( ( item ) => {
 			const shortened = {
@@ -223,7 +139,7 @@ function initStorage() {
 
 			chrome.storage.sync.set( { compressed }, resolve );
 		} )
-			.then( primeIndexes )
+			.then( window.query.primeIndexes )
 			.then( updateUnreadCount );
 	}
 
@@ -270,27 +186,13 @@ function initStorage() {
 			tracking: {},
 		},
 
-		indexes: {
-			name: {},
-			url: {},
-		},
-		primeIndexes,
-
 		updateUnreadCount,
 
 		capacityUsed,
 
-		fetch,
 		markRead,
 
 		getFresh,
-
-		getByUrl,
-		getByName,
-		getByKey,
-
-		mangaIsTracked,
-
 		compressForStorage,
 		saveChanges,
 		loadExample,
@@ -299,7 +201,3 @@ function initStorage() {
 }
 
 window.data = initStorage();
-// chrome.storage.sync.clear( ( ) => {
-// 	window.data.loadExample()
-// 		.then( ( ) => chrome.browserAction.setBadgeBackgroundColor( { color: '#f00' } ) );
-// } );
