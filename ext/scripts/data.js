@@ -85,27 +85,34 @@ function initStorage() {
 		console.log( 'Updating state from Chrome Storage' );
 
 		return new Promise( ( resolve ) => {
+			// Get the whole storage
 			chrome.storage.sync.get( null, ( response ) => {
 				console.log( 'Raw Chrome Storage Response', response );
 
+				// placeholder
 				let data = { };
 
+				// Old system of storage
 				if ( response.compressed ) {
+					// turn aray into object
 					response.compressed.forEach( ( item, index ) => {
 						data[ index ] = item;
 					} );
 				} else {
+					// inject response directly into placeholder
 					data = response;
 				}
 
+				// Un-compress the mangas
 				inflateCompressed( data )
 					.then( ( mockState ) => {
+						// Set the mock state as the real state
 						window.data.state = mockState;
 						return window.data.state;
 					} )
-					.then( window.query.primeIndexes )
-					.then( updateUnreadCount )
-					.then( ( ) => resolve( window.data.state ) );
+					.then( window.query.primeIndexes ) // re-prime our query indexes
+					.then( updateUnreadCount ) // update the badge icon
+					.then( ( ) => resolve( window.data.state ) ); // return the state
 
 			} );
 		} );
@@ -118,28 +125,27 @@ function initStorage() {
 	 * @return {Object}                 Array of the most compressed the manga data can be
 	 */
 	function compressForStorage( expanded ) {
-		let state;
-
-		if ( !expanded.tracking ) {
-			state = window.data.state;
-		} else {
-			state = expanded;
-		}
-
+		// use the global state if input is invalid
+		const state = expanded.tracking ? expanded : window.data.state;
+		// keys to loop over
 		const uuids = Object.keys( state.tracking );
+		// placeholder
 		const compressed = { };
 
+		// compress each manga for storage
 		uuids.forEach( ( uuid, index ) => {
 			const item = state.tracking[ uuid ];
+			// only data we can't re-create is name, url, and readTo
 			const shortened = {
 				name: item.name,
 				url: item.url,
 				readTo: item.readTo,
 			};
-
+			// add it to our placeholder
 			compressed[ index ] = shortened;
 		} );
 
+		// log for debugging
 		console.groupCollapsed( 'Compressed Manga Data' );
 		console.table( Object.keys( compressed ).map( ( index ) => compressed[ index ] ) );
 		console.groupEnd();
@@ -152,17 +158,22 @@ function initStorage() {
 	 * @return {State} A promise resolving with the global state from Chrome
 	 */
 	function saveChanges( state ) {
-		const expanded = state || window.data.state;
+		// use global state if invalid input
+		const expanded = state.tracking ? state : window.data.state;
 
+		// Setup a promise
 		return new Promise( ( resolve ) => {
+			// compress the mangas for storage
 			const compressed = compressForStorage( expanded );
-
+			// log for debugging
 			console.log( 'Saving to Chrome Storage', compressed );
-
+			// clear the storage
+			// then set it to the new compressed state
+			// then resolve the promise
 			chrome.storage.sync.clear( ( ) => chrome.storage.sync.set( compressed, resolve ) );
 		} )
-			.then( window.query.primeIndexes )
-			.then( updateUnreadCount );
+			.then( window.query.primeIndexes ) // update the indexes
+			.then( updateUnreadCount ); // update the badge icon number
 	}
 
 	/**
@@ -171,10 +182,14 @@ function initStorage() {
 	 * @return {Promise}     Promise of data.saveChanges()
 	 */
 	function markRead( uuid ) {
+		// if it exists
 		if ( window.data.state.tracking[ uuid ] ) {
+			// set readTo to equal the latestChapter
 			window.data.state.tracking[ uuid ].readTo = window.data.state.tracking[ uuid ].latestChapter;
+			// save
 			return saveChanges();
 		}
+		// didn't exists so just resolve with a thenable
 		return Promise.resolve( false );
 	}
 
@@ -183,6 +198,7 @@ function initStorage() {
 	 * @return {Promise} A promise resolving with nothing and logs upon completion
 	 */
 	function loadExample() {
+		// data to load
 		const compressed = {
 			0: { name: 'Bleach', url: 'mangastream.com/manga/bleach/', readTo: '663' },
 			1: { name: 'Fairy Tail', url: 'mangastream.com/manga/fairy_tail/', readTo: '473' },
@@ -190,37 +206,40 @@ function initStorage() {
 			3: { name: 'The Gamer', url: 'mangatown.com/manga/the_gamer/', readTo: '118' },
 			4: { name: 'UQ Holder!', url: 'mangahere.co/manga/uq_holder/', readTo: '106' },
 		};
-
+		// logs for debugging
 		console.groupCollapsed( 'Example Manga to be loaded' );
 		console.table( compressed );
 		console.groupEnd();
 
+		// inflate our compressed example data
 		return inflateCompressed( compressed )
-			.then( saveChanges )
-			.then( ( ) => console.log( 'Done loading example', window.data.state ) )
-			.then( getFresh );
+			.then( saveChanges ) // save our example
+			.then( ( ) => console.log( 'Done loading example', window.data.state ) ) // log for debugging
+			.then( getFresh ); // get fresh from the DB for insurance
 	}
 
 	return {
 
+		// set the state defaults
 		state: {
 			editDate: ( new Date() ).toISOString(),
 			tracking: {},
 		},
 
-		updateUnreadCount,
+		updateUnreadCount, // expose function
 
-		capacityUsed,
+		capacityUsed, // expose function
 
-		markRead,
+		markRead, // expose function
 
-		getFresh,
-		compressForStorage,
-		inflateCompressed,
-		saveChanges,
-		loadExample,
+		getFresh, // expose function
+		compressForStorage, // expose function
+		inflateCompressed, // expose function
+		saveChanges, // expose function
+		loadExample, // expose function
 
 	};
 }
 
+// Initialize
 window.data = initStorage();

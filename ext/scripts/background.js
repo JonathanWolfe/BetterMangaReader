@@ -21,12 +21,17 @@ chrome.browserAction.onClicked.addListener( ( ) => {
 
 } );
 
+// Add a loading badge text
 chrome.browserAction.setBadgeText( { text: '?' } );
+// A neutral grey
 chrome.browserAction.setBadgeBackgroundColor( { color: '#777' } );
+// Hover text if anybody checks
 chrome.browserAction.setTitle( { title: `Initializing BMR` } );
 
 // Load any data that may exist
 window.data.getFresh().then( ( ) => {
+	// set badge color back to red
 	chrome.browserAction.setBadgeBackgroundColor( { color: '#f00' } );
+	// check for updates every 10 minutes
 	window.checkInterval = window.setInterval( window.parsers.updateAllManga, 10 * 60 * 1000 );
 } );
