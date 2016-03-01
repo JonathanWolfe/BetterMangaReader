@@ -66,11 +66,7 @@ function initStorage() {
 				} );
 
 				console.groupCollapsed( 'Inflated Manga Data' );
-				console.table( Object.keys( mockState.tracking ).map( ( uuid ) => {
-					const toLog = mockState.tracking[ uuid ];
-					toLog.uuid = uuid;
-					return toLog;
-				} ) );
+				console.table( mockState.tracking );
 				console.groupEnd();
 
 				return mockState;
@@ -147,7 +143,7 @@ function initStorage() {
 
 		// log for debugging
 		console.groupCollapsed( 'Compressed Manga Data' );
-		console.table( Object.keys( compressed ).map( ( index ) => compressed[ index ] ) );
+		console.table( compressed );
 		console.groupEnd();
 
 		return compressed;
