@@ -28,6 +28,14 @@ body {
 	font-size : 1.4rem;
 }
 
+.text-align-left {
+	text-align: left;
+}
+
+.text-align-right {
+	text-align: right;
+}
+
 #load-example {
     text-align: center;
     margin: 0 auto;
