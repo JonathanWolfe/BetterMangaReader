@@ -72,8 +72,8 @@ function buildControls() {
 		window.location.assign( newLocation );
 	} );
 
-	$( 'select', controls ).on( 'change', ( ) => {
-		const newLocation = $( 'option', this ).filter( ':selected' ).val();
+	$( 'select', controls ).on( 'change', ( event ) => {
+		const newLocation = $( 'option', event.target ).filter( ':selected' ).val();
 		window.location.assign( newLocation );
 	} );
 
