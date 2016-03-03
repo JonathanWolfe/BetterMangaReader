@@ -57,7 +57,8 @@ function initParser() {
 		 */
 		getChapterInfo: ( HTML ) => {
 			const name = $( '.dropdown-toggle .visible-desktop:first', HTML ).text().trim();
-			const number = parseFloat( $( '.page a', HTML ).attr( 'href' ).split( '/r/' )[ 1 ].split( '/' )[ 1 ] );
+			const hrefSplit = $( '.page a', HTML ).attr( 'href' ).split( '/r/' );
+			const number = hrefSplit[ 1 ] ? parseFloat( hrefSplit[ 1 ].split( '/' )[ 1 ] ) : 'Special';
 			const mangaUrl = $( '.btn-group .dropdown-menu:first a:last', HTML ).attr( 'href' );
 			const chapterUrl = $( '.dropdown-menu:last a:first', HTML ).attr( 'href' );
 

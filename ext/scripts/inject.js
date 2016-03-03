@@ -28,7 +28,7 @@ function buildControls() {
 		const isCurrent = parseFloat( chapter.number ) === parseFloat( parsedChapter.chapterInfo.number );
 		const selected = isCurrent ? 'selected' : '';
 
-		return `<option value="${chapter.url}" ${selected}>Chapter ${chapter.number} &mdash; ${chapter.title}</option>`;
+		return `<option value="${chapter.url}" ${selected}>Chapter ${chapter.number || 'Special'} &mdash; ${chapter.title}</option>`;
 	} ).join( '' );
 
 	const iconURL = chrome.runtime.getURL( '../icons/icon19.png' );
@@ -164,10 +164,10 @@ const events = {
 					readTo: parsedChapter.chapterInfo.number.toString(),
 					readToUrl: parsedChapter.chapterInfo.chapterUrl,
 
-					nextChapter: nextChapter.number.toString(),
+					nextChapter: ( nextChapter.number || 'Special' ).toString(),
 					nextChapterUrl: nextChapter.url,
 
-					latestChapter: latestChapter.number.toString(),
+					latestChapter: ( latestChapter.number || 'Special' ).toString(),
 					latestChapterUrl: latestChapter.url,
 				};
 			}
