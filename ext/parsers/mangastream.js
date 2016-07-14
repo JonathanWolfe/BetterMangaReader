@@ -19,9 +19,10 @@ function initParser() {
 			const elements = $( '.subnav .controls .btn-group:first .dropdown-menu li', HTML ).toArray().slice( 0, -2 );
 
 			elements.forEach( ( element ) => {
-				const title = $( '.visible-desktop', element ).text().trim().split( ' - ' )[ 1 ];
+				const fullText = $( 'span:first', element ).text().trim().split( ' - ' )
+				const title = fullText[ 1 ].trim();
 				const url = $( 'a', element ).attr( 'href' );
-				const number = parseFloat( $( '.visible-phone', element ).text().trim() );
+				const number = parseFloat( fullText[0].trim() );
 
 				chapters.push( { number, title, url } );
 			} );
@@ -56,7 +57,7 @@ function initParser() {
 		 * @return {Object}      Info object
 		 */
 		getChapterInfo: ( HTML ) => {
-			const name = $( '.dropdown-toggle .visible-desktop:first', HTML ).text().trim();
+			const name = $( '.btn-reader-chapter > a span:first', HTML ).text().trim();
 			const hrefSplit = $( '.page a', HTML ).attr( 'href' ).split( '/r/' );
 			const number = hrefSplit[ 1 ] ? parseFloat( hrefSplit[ 1 ].split( '/' )[ 1 ] ) : 'Special';
 			const mangaUrl = $( '.btn-group .dropdown-menu:first a:last', HTML ).attr( 'href' );
