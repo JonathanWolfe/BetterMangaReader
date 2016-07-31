@@ -2,7 +2,7 @@
 
 // Open or Focus the BMR tab
 // Called when the user clicks on the browser action icon.
-chrome.browserAction.onClicked.addListener( ( ) => {
+chrome.browserAction.onClicked.addListener( () => {
 
 	// Get what the url for the extension page will be
 	const optionsUrl = chrome.extension.getURL( 'html/index.html' );
@@ -29,7 +29,7 @@ chrome.browserAction.setBadgeBackgroundColor( { color: '#777' } );
 chrome.browserAction.setTitle( { title: `Initializing BMR` } );
 
 // Load any data that may exist
-window.data.getFresh().then( ( ) => {
+window.data.getFresh().then( () => {
 	// set badge color back to red
 	chrome.browserAction.setBadgeBackgroundColor( { color: '#f00' } );
 	// check for updates every 10 minutes

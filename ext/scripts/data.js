@@ -26,7 +26,7 @@ function initStorage() {
 		Object.keys( window.data.state.tracking ).forEach( ( uuid ) => {
 			const manga = window.data.state.tracking[ uuid ];
 
-			if ( parseFloat( manga.readTo ) < parseFloat( manga.latestChapter ) ) {
+			if ( manga && parseFloat( manga.readTo ) < parseFloat( manga.latestChapter ) ) {
 				unread += 1;
 			}
 		} );
@@ -108,7 +108,7 @@ function initStorage() {
 					} )
 					.then( window.query.primeIndexes ) // re-prime our query indexes
 					.then( updateUnreadCount ) // update the badge icon
-					.then( ( ) => resolve( window.data.state ) ); // return the state
+					.then( () => resolve( window.data.state ) ); // return the state
 
 			} );
 		} );
@@ -131,14 +131,16 @@ function initStorage() {
 		// compress each manga for storage
 		uuids.forEach( ( uuid, index ) => {
 			const item = state.tracking[ uuid ];
+			if ( item ) {
 			// only data we can't re-create is name, url, and readTo
-			const shortened = {
-				name: item.name,
-				url: item.url,
-				readTo: item.readTo,
-			};
+				const shortened = {
+					name: item.name,
+					url: item.url,
+					readTo: item.readTo,
+				};
 			// add it to our placeholder
-			compressed[ index ] = shortened;
+				compressed[ index ] = shortened;
+			}
 		} );
 
 		// log for debugging
@@ -166,7 +168,7 @@ function initStorage() {
 			// clear the storage
 			// then set it to the new compressed state
 			// then resolve the promise
-			chrome.storage.sync.clear( ( ) => chrome.storage.sync.set( compressed, resolve ) );
+			chrome.storage.sync.clear( () => chrome.storage.sync.set( compressed, resolve ) );
 		} )
 			.then( window.query.primeIndexes ) // update the indexes
 			.then( updateUnreadCount ); // update the badge icon number
@@ -210,7 +212,7 @@ function initStorage() {
 		// inflate our compressed example data
 		return inflateCompressed( compressed )
 			.then( saveChanges ) // save our example
-			.then( ( ) => console.log( 'Done loading example', window.data.state ) ) // log for debugging
+			.then( () => console.log( 'Done loading example', window.data.state ) ) // log for debugging
 			.then( getFresh ); // get fresh from the DB for insurance
 	}
 

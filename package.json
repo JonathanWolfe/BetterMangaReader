@@ -1,23 +1,23 @@
 {
-	"name": "bettermangareader",
-	"version": "0.5.13",
-	"description": "Keep track of your manga, be notified of updates, and have a better reading experience",
-	"private": true,
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/JonathanWolfe/BetterMangaReader.git"
-	},
-	"bugs": {
-		"url": "https://github.com/JonathanWolfe/BetterMangaReader/issues"
-	},
-	"homepage": "https://github.com/JonathanWolfe/BetterMangaReader#readme",
-	"main": "index.html",
-	"scripts": {},
-	"author": "Jon Wolfe",
-	"license": "MIT",
-	"devDependencies": {
-		"babel-eslint": "latest",
-		"eslint": "latest",
-		"eslint-config-airbnb": "latest"
-	}
+  "name": "bettermangareader",
+  "version": "0.5.13",
+  "description": "Keep track of your manga, be notified of updates, and have a better reading experience",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/JonathanWolfe/BetterMangaReader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JonathanWolfe/BetterMangaReader/issues"
+  },
+  "homepage": "https://github.com/JonathanWolfe/BetterMangaReader#readme",
+  "main": "index.html",
+  "scripts": {},
+  "author": "Jon Wolfe",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "latest",
+    "eslint-config-airbnb-base": "latest",
+    "eslint-plugin-import": "latest"
+  }
 }

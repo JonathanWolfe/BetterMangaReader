@@ -17,14 +17,16 @@ function initQuery() {
 		Object.keys( mangas ).forEach( ( uuid ) => {
 			// current manga
 			const current = mangas[ uuid ];
-			// processed name
-			const name = current.name.toLowerCase().trim();
-			// processed url
-			const url = window.parsers.helpers.normalizeUrl( current.url );
+			if ( current ) {
+				// processed name
+				const name = current.name.toLowerCase().trim();
+				// processed url
+				const url = window.parsers.helpers.normalizeUrl( current.url );
 
-			// add to index as key with value as manga UUID
-			names[ name ] = uuid;
-			urls[ url ] = uuid;
+				// add to index as key with value as manga UUID
+				names[ name ] = uuid;
+				urls[ url ] = uuid;
+			}
 		} );
 
 		// update global indexes

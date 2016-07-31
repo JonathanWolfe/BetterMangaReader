@@ -19,10 +19,10 @@ function initParser() {
 			const elements = $( '.subnav .controls .btn-group:first .dropdown-menu li', HTML ).toArray().slice( 0, -2 );
 
 			elements.forEach( ( element ) => {
-				const fullText = $( 'span:first', element ).text().trim().split( ' - ' )
+				const fullText = $( 'span:first', element ).text().trim().split( ' - ' );
 				const title = fullText[ 1 ].trim();
 				const url = $( 'a', element ).attr( 'href' );
-				const number = parseFloat( fullText[0].trim() );
+				const number = parseFloat( fullText[ 0 ].trim() );
 
 				chapters.push( { number, title, url } );
 			} );
@@ -95,7 +95,7 @@ function initParser() {
 		 * The returned element will be totally emptied.
 		 * @return {Selector}      CSS Element Selector
 		 */
-		scanContainer: ( ) => '.page',
+		scanContainer: () => '.page',
 
 
 		/**

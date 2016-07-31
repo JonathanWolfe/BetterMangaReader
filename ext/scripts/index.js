@@ -29,7 +29,7 @@ function createMangaTable() {
 		// when clicked
 		$( '#load-example' ).on( 'click', ( event ) => {
 			// load the example data then refresh currently viewed tab
-			bgPage.data.loadExample().then( ( ) => chrome.tabs.reload() );
+			bgPage.data.loadExample().then( () => chrome.tabs.reload() );
 		} );
 	}
 
@@ -95,7 +95,7 @@ function bmrInit() {
 	createMangaTable( state );
 
 	// Open the next chapter URL when clicking on a manga's row
-	$( '#manga-table' ).on( 'click', 'tbody tr', ( event ) => {
+	$( document ).on( 'click', 'tbody tr', ( event ) => {
 		const uuid = event.currentTarget.id;
 		const manga = state.tracking[ uuid ];
 
@@ -103,7 +103,7 @@ function bmrInit() {
 	} );
 
 	// Update the manga as being fully read
-	$( '#manga-table' ).on( 'click', '.manga-markRead button', ( event ) => {
+	$( document ).on( 'click', '.manga-markRead button', ( event ) => {
 		// don't bubble up and activate the manga row handler
 		event.preventDefault();
 		event.stopImmediatePropagation();

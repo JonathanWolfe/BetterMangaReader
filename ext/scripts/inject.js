@@ -62,12 +62,12 @@ function buildControls() {
 		$( '#next-chapter', controls ).prop( 'disabled', true );
 	}
 
-	$( '#prev-chapter:not(:disabled)', controls ).on( 'click', ( ) => {
+	$( '#prev-chapter:not(:disabled)', controls ).on( 'click', () => {
 		const newLocation = chapterList.eq( selectedChapter.index() + 1 ).val();
 		window.location.assign( newLocation );
 	} );
 
-	$( '#next-chapter:not(:disabled)', controls ).on( 'click', ( ) => {
+	$( '#next-chapter:not(:disabled)', controls ).on( 'click', () => {
 		const newLocation = chapterList.eq( selectedChapter.index() - 1 ).val();
 		window.location.assign( newLocation );
 	} );
@@ -77,7 +77,7 @@ function buildControls() {
 		window.location.assign( newLocation );
 	} );
 
-	$( '#tracking', controls ).on( 'click', ( ) => {
+	$( '#tracking', controls ).on( 'click', () => {
 		$( '#tracking', controls )
 			.removeClass( 'pure-button-success pure-button-error' )
 			.addClass( 'pure-button-disabled' )
@@ -204,7 +204,7 @@ function init() {
 	} );
 }
 
-$( document ).ready( ( ) => {
+$( document ).ready( () => {
 	addBMRLoading();
 	window.setTimeout( init, 1000 );
 } );

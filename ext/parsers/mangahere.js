@@ -113,7 +113,7 @@ function initParser() {
 		 * The returned element will be totally emptied.
 		 * @return {Selector}      CSS Element Selector
 		 */
-		scanContainer: ( ) => '#viewer',
+		scanContainer: () => '#viewer',
 
 
 		/**

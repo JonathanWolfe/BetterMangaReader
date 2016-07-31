@@ -67,11 +67,16 @@ function getHtmlFromUrl( url ) {
 	// fetch the given url
 	return window.fetch( url ).then(
 		// convert to text
-		( response ) => response.text().then(
-			// create a html element in memory and sanitize it
-			( HTML ) => $( '<html />' ).append( HTML ).bmrLiteSanitize()
-		)
-	);
+		( response ) => {
+			if ( response.ok ) {
+				return response.text().then(
+					// create a html element in memory and sanitize it
+					( HTML ) => $( '<html />' ).append( HTML ).bmrLiteSanitize()
+				);
+			} else {
+				return Promise.reject( new Error( `Mirror Returned ${response.status}: ${response.statusText}` ) );
+			}
+		} );
 }
 
 /**
@@ -183,10 +188,11 @@ function makeExpansion( manga, parsedHTML ) {
  * @return {Object}       An uncompressed manga object
  */
 function expandMangaInfo( manga ) {
+	console.log( 'expanding manga', manga );
+
 	// Get the HTML of the Manga's Profile page
 	return getHtmlFromUrl( validUrl( manga.url ) )
-		.then( ( parsedHTML ) => makeExpansion( manga, parsedHTML ) ) // Expand the manga to a valid structure
-		.catch( ( ) => manga ); // Return our input if fails
+		.then( ( parsedHTML ) => makeExpansion( manga, parsedHTML ) ); // Expand the manga to a valid structure
 }
 
 /**
@@ -206,29 +212,46 @@ function updateMangaInfo( manga ) {
 	// Get the HTML from the manga's profile page
 	return getHtmlFromUrl( validUrl( manga.url ) )
 		.then( parser.getChaptersListFromProfile ) // Get the manga's chapters
-		.then( ( chapters ) => expandMangaInfo( manga, chapters ) ); // expand the manga info to be valid
+		.then( ( chapters ) => expandMangaInfo( manga, chapters ) ) // expand the manga info to be valid
+		.catch( ( err ) => console.error( err ) );
 }
 
 /**
  * Update every manga in the state to the latest info
  * @return {Object} The updated state
  */
-function updateAllManga() {
+function updateAllManga( mangas ) {
 	console.log( 'Checking for Releases' );
 
-	// Get the manga UUIDs to loop over
-	const uuids = Object.keys( window.data.state.tracking );
-	// Loop over each uuid
-	// Update the manga's info to the latest
-	const promises = uuids.map( ( uuid ) => updateMangaInfo( window.data.state.tracking[ uuid ] )
-		.then( ( expanded ) => {
-			// overwrite the old with the updated
-			window.data.state.tracking[ uuid ] = expanded;
-		} )
-	);
+	function mangaLoop( uuids, callback ) {
+		if ( Array.isArray( uuids ) ) {
+			const uuid = uuids.pop();
+			console.log( 'checking', uuid );
+
+			updateMangaInfo( window.data.state.tracking[ uuid ] )
+				.then( ( expanded ) => {
+					// overwrite the old with the updated
+					window.data.state.tracking[ uuid ] = expanded;
+
+					if ( uuids.length ) {
+						mangaLoop( uuids, callback );
+					} else {
+						callback();
+					}
+				} );
+		}
+	}
+
+	const done = new Promise( ( resolve, reject ) => {
+		// Get the manga UUIDs to loop over
+		const uuids = mangas || Object.keys( window.data.state.tracking );
+		mangaLoop( uuids, resolve );
+	} );
 
 	// Save when all manga are done updating
-	return Promise.all( promises ).then( window.data.saveChanges );
+	return done.then( () => {
+		console.log( 'data.state', window.data.state );
+	} ).then( window.data.saveChanges );
 }
 
 // initialize
