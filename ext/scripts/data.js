@@ -48,29 +48,7 @@ function initStorage() {
 	 * @return {Object}           Returns a state object
 	 */
 	function inflateCompressed( compressed ) {
-		let promises = [ ];
-
-		if ( compressed ) {
-			promises = Object.keys( compressed ).map( ( index ) => window.parsers.updateMangaInfo( compressed[ index ] ) );
-		}
-
-		return Promise.all( promises )
-			.then( ( mangas ) => {
-				const mockState = {
-					editDate: ( new Date() ).toISOString(),
-					tracking: {},
-				};
-
-				mangas.forEach( ( manga ) => {
-					mockState.tracking[ window.uuid.v4() ] = manga;
-				} );
-
-				console.groupCollapsed( 'Inflated Manga Data' );
-				console.table( mockState.tracking );
-				console.groupEnd();
-
-				return mockState;
-			} );
+		return window.parsers.updateAllManga( compressed );
 	}
 
 	/**
@@ -101,11 +79,6 @@ function initStorage() {
 
 				// Un-compress the mangas
 				inflateCompressed( data )
-					.then( ( mockState ) => {
-						// Set the mock state as the real state
-						window.data.state = mockState;
-						return window.data.state;
-					} )
 					.then( window.query.primeIndexes ) // re-prime our query indexes
 					.then( updateUnreadCount ) // update the badge icon
 					.then( () => resolve( window.data.state ) ); // return the state
@@ -197,21 +170,27 @@ function initStorage() {
 	 */
 	function loadExample() {
 		// data to load
-		const compressed = {
-			0: { name: 'Bleach', url: 'mangastream.com/manga/bleach/', readTo: '663' },
-			1: { name: 'Fairy Tail', url: 'mangastream.com/manga/fairy_tail/', readTo: '473' },
-			2: { name: 'One Piece', url: 'mangatown.com/manga/one_piece/', readTo: '12' },
-			3: { name: 'The Gamer', url: 'mangatown.com/manga/the_gamer/', readTo: '118' },
-			4: { name: 'UQ Holder!', url: 'mangahere.co/manga/uq_holder/', readTo: '106' },
-		};
+		const compressed = [
+			{ name: 'Bleach', url: 'mangastream.com/manga/bleach/', readTo: '663' },
+			{ name: 'Fairy Tail', url: 'mangastream.com/manga/fairy_tail/', readTo: '473' },
+			{ name: 'One Piece', url: 'mangatown.com/manga/one_piece/', readTo: '12' },
+			{ name: 'The Gamer', url: 'mangatown.com/manga/the_gamer/', readTo: '118' },
+			{ name: 'UQ Holder!', url: 'mangahere.co/manga/uq_holder/', readTo: '106' },
+		];
+
+		const loadReady = {};
+
+		compressed.forEach( ( manga ) => {
+			loadReady[ window.uuid.v4() ] = manga;
+		} );
+
 		// logs for debugging
 		console.groupCollapsed( 'Example Manga to be loaded' );
-		console.table( compressed );
+		console.table( loadReady );
 		console.groupEnd();
 
 		// inflate our compressed example data
-		return inflateCompressed( compressed )
-			.then( saveChanges ) // save our example
+		return inflateCompressed( loadReady )
 			.then( () => console.log( 'Done loading example', window.data.state ) ) // log for debugging
 			.then( getFresh ); // get fresh from the DB for insurance
 	}
