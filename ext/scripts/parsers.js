@@ -161,6 +161,11 @@ function makeExpansion( manga, parsedHTML ) {
 	// Didn't find the chapter in the list? Set it to the latest chapter
 	if ( !nextChapter ) {
 		nextChapter = latestChapter;
+		currentChapter = {
+			number: currentRead,
+			title: 'Chapter No Longer Hosted',
+			url: manga.url,
+		};
 	}
 
 	// Build our tracking object
