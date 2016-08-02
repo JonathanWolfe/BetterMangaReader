@@ -74,7 +74,10 @@ function getHtmlFromUrl( url ) {
 					( HTML ) => $( '<html />' ).append( HTML ).bmrLiteSanitize()
 				);
 			} else {
-				return Promise.reject( new Error( `Mirror Returned ${response.status}: ${response.statusText}` ) );
+				const err = new Error( `Mirror Returned ${response.status}: ${response.statusText}` );
+				console.error( err );
+
+				return Promise.reject( err );
 			}
 		} );
 }
@@ -188,37 +191,16 @@ function makeExpansion( manga, parsedHTML ) {
 }
 
 /**
- * Expand a manga from crompressed to full usefullness
- * @param  {Object} manga A compressed manga object
- * @return {Object}       An uncompressed manga object
- */
-function expandMangaInfo( manga ) {
-	console.log( 'expanding manga', manga );
-
-	// Get the HTML of the Manga's Profile page
-	return getHtmlFromUrl( validUrl( manga.url ) )
-		.then( ( parsedHTML ) => makeExpansion( manga, parsedHTML ) ); // Expand the manga to a valid structure
-}
-
-/**
  * Update a manga with the latest info
  * @param  {Object} manga The manga to update
  * @return {Object}       The manga updated with the latest info
  */
 function updateMangaInfo( manga ) {
-	// find the parser for this manga
-	const parser = findByUrl( manga.url );
+	console.log( 'updating manga', manga );
 
-	if ( !parser ) {
-		console.error( 'Failed to find parser for: ', manga );
-		return false;
-	}
-
-	// Get the HTML from the manga's profile page
+	// Get the HTML of the Manga's Profile page
 	return getHtmlFromUrl( validUrl( manga.url ) )
-		.then( parser.getChaptersListFromProfile ) // Get the manga's chapters
-		.then( ( chapters ) => expandMangaInfo( manga, chapters ) ) // expand the manga info to be valid
-		.catch( ( err ) => console.error( err ) );
+		.then( ( parsedHTML ) => makeExpansion( manga, parsedHTML ) ); // Expand the manga to a valid structure
 }
 
 /**
@@ -229,34 +211,52 @@ function updateAllManga( mangas ) {
 	console.log( 'Checking for Releases' );
 
 	function mangaLoop( uuids, callback ) {
-		if ( Array.isArray( uuids ) ) {
+		if ( !Array.isArray( uuids ) ) {
+			const err = new Error( `Tried to iterate over something that wasn't an array` );
+			callback( err );
+		} else if ( !uuids.length ) {
+			callback();
+		} else {
 			const uuid = uuids.pop();
+			let manga;
+
+			if ( mangas ) {
+				manga = mangas[ uuid ];
+			} else {
+				manga = window.data.state.tracking[ uuid ];
+			}
+
 			console.log( 'checking', uuid );
 
-			updateMangaInfo( window.data.state.tracking[ uuid ] )
-				.then( ( expanded ) => {
-					// overwrite the old with the updated
-					window.data.state.tracking[ uuid ] = expanded;
+			updateMangaInfo( manga ).then( ( expanded ) => {
+				// overwrite the old with the updated
+				const saveAs = window.query.getByUrl( expanded.url ) || uuid;
+				window.data.state.tracking[ saveAs ] = expanded;
 
-					if ( uuids.length ) {
-						mangaLoop( uuids, callback );
-					} else {
-						callback();
-					}
-				} );
+				if ( uuids.length ) {
+					mangaLoop( uuids, callback );
+				} else {
+					callback();
+				}
+			} );
 		}
 	}
 
 	const done = new Promise( ( resolve, reject ) => {
 		// Get the manga UUIDs to loop over
-		const uuids = mangas || Object.keys( window.data.state.tracking );
+		let uuids;
+
+		if ( mangas ) {
+			uuids = Object.keys( mangas );
+		} else {
+			uuids = Object.keys( window.data.state.tracking );
+		}
+
 		mangaLoop( uuids, resolve );
 	} );
 
 	// Save when all manga are done updating
-	return done.then( () => {
-		console.log( 'data.state', window.data.state );
-	} ).then( window.data.saveChanges );
+	return done.then( window.data.saveChanges );
 }
 
 // initialize
@@ -265,8 +265,6 @@ window.parsers = {
 	register, // expose function
 
 	findByUrl, // expose function
-
-	expandMangaInfo, // expose function
 
 	updateMangaInfo, // expose function
 	updateAllManga, // expose function
