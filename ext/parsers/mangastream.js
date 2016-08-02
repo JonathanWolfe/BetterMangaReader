@@ -15,7 +15,7 @@ function initParser() {
 		 * @return {Array}      Array of Chapters found on the page
 		 */
 		getChaptersListFromChapter: ( HTML ) => {
-			const chapters = [ ];
+			const chapters = [];
 			const elements = $( '.subnav .controls .btn-group:first .dropdown-menu li', HTML ).toArray().slice( 0, -2 );
 
 			elements.forEach( ( element ) => {
@@ -37,7 +37,7 @@ function initParser() {
 		 * @return {Promise}       Resolves to an array of Chapters in the [Number, Title, Url] format
 		 */
 		getChaptersListFromProfile: ( HTML ) => {
-			const chapters = [ ];
+			const chapters = [];
 
 			$( '.table-striped a', HTML ).each( ( index, element ) => {
 				const title = $( element ).text().trim();
@@ -78,7 +78,7 @@ function initParser() {
 		 * @return {Array}      The list of the pages in this chapter to be used later when making the image urls.
 		 */
 		getPages: ( HTML ) => {
-			const pages = [ ];
+			const pages = [];
 			const lastPage = $( '.dropdown-menu:last li:last a', HTML ).attr( 'href' );
 			const numPages = lastPage.split( '/' ).pop();
 

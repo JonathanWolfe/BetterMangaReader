@@ -10,8 +10,8 @@ function initQuery() {
 		const mangas = window.data.state.tracking;
 
 		// base values
-		const names = { };
-		const urls = { };
+		const names = {};
+		const urls = {};
 
 		// loop over all mangas
 		Object.keys( mangas ).forEach( ( uuid ) => {

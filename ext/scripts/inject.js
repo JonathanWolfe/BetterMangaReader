@@ -115,7 +115,7 @@ const events = {
 
 	putImagesForChapter: ( images ) => {
 		const scanContainer = $( parsedChapter.scanContainer );
-		const scans = [ ];
+		const scans = [];
 		scanContainer.empty();
 
 		for ( let i = 0; i < parsedChapter.pages.length; i += 1 ) {

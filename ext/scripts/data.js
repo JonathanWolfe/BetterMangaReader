@@ -86,7 +86,7 @@ function initStorage() {
 				console.log( 'Raw Chrome Storage Response', response );
 
 				// placeholder
-				let data = { };
+				let data = {};
 
 				// Old system of storage
 				if ( response.compressed ) {
@@ -126,7 +126,7 @@ function initStorage() {
 		// keys to loop over
 		const uuids = Object.keys( state.tracking );
 		// placeholder
-		const compressed = { };
+		const compressed = {};
 
 		// compress each manga for storage
 		uuids.forEach( ( uuid, index ) => {

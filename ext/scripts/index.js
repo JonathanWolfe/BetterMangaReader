@@ -19,7 +19,7 @@ function createMangaTable() {
 	const uuids = Object.keys( mangas );
 
 	// placeholder
-	const rows = [ ];
+	const rows = [];
 
 	// Do they have any manga?
 	if ( uuids.length ) {

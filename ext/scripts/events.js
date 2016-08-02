@@ -44,7 +44,7 @@ const eventHandlers = {
 			pages = parser.getPages( parsedHTML );
 		}
 
-		const pagePromises = [ ];
+		const pagePromises = [];
 
 		for ( let i = 0; i < pages.length; i += 1 ) {
 			pagePromises.push(
