@@ -8,7 +8,7 @@ This is still in beta, and as such is limited to only working on:
 
 During the beta, it's always helpful if you find any bugs to report them here under the issues tab and maybe if you're feeling spry, knock out a couple of the fixes yourself and submit a pull request.
 
-## Chrome Store Version - 0.5.14 Beta - [Install Link](https://chrome.google.com/webstore/detail/bettermangareader/gecohlfddhgfhkadmdghjjmijdpabmlp?hl=en&gl=US)
+## Chrome Store Version - 0.5.15 Beta - [Install Link](https://chrome.google.com/webstore/detail/bettermangareader/gecohlfddhgfhkadmdghjjmijdpabmlp?hl=en&gl=US)
 
 ## Preview
 ![Manga List](https://raw.githubusercontent.com/JonathanWolfe/BetterMangaReader/master/screenshots/bmr-manga-list.png)
