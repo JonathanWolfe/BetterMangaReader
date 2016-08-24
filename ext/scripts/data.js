@@ -43,15 +43,6 @@ function initStorage() {
 	}
 
 	/**
-	 * Create a mock state object from an Array of compressed manga objects
-	 * @param  {Object} compressed Array of compressed manga objects
-	 * @return {Object}           Returns a state object
-	 */
-	function inflateCompressed( compressed ) {
-		return window.parsers.updateAllManga( compressed );
-	}
-
-	/**
 	 * Update the state with Chrome's synced version
 	 * @return {State} A promise resolving with the global state
 	 */
@@ -78,7 +69,7 @@ function initStorage() {
 				}
 
 				// Un-compress the mangas
-				inflateCompressed( data )
+				window.parsers.updateAllManga( data )
 					.then( window.query.primeIndexes ) // re-prime our query indexes
 					.then( updateUnreadCount ) // update the badge icon
 					.then( () => resolve( window.data.state ) ); // return the state
@@ -88,60 +79,17 @@ function initStorage() {
 	}
 
 	/**
-	 * Compress the full sized state down to it's smallest form
-	 * because Chrome hates people
-	 * @param  {Object} expanded A state object or an array of full sized manga tracking objects
-	 * @return {Object}                 Array of the most compressed the manga data can be
-	 */
-	function compressForStorage( expanded ) {
-		// use the global state if input is invalid
-		const state = expanded.tracking ? expanded : window.data.state;
-		// keys to loop over
-		const uuids = Object.keys( state.tracking );
-		// placeholder
-		const compressed = {};
-
-		// compress each manga for storage
-		uuids.forEach( ( uuid, index ) => {
-			const item = state.tracking[ uuid ];
-			if ( item ) {
-			// only data we can't re-create is name, url, and readTo
-				const shortened = {
-					name: item.name,
-					url: item.url,
-					readTo: item.readTo,
-				};
-			// add it to our placeholder
-				compressed[ index ] = shortened;
-			}
-		} );
-
-		// log for debugging
-		console.groupCollapsed( 'Compressed Manga Data' );
-		console.table( compressed );
-		console.groupEnd();
-
-		return compressed;
-	}
-
-	/**
 	 * Save state changes to Chrome's Sync storage
-	 * @return {State} A promise resolving with the global state from Chrome
 	 */
-	function saveChanges( state ) {
+	function saveChanges() {
 		// use global state if invalid input
-		const expanded = state || window.data.state;
+		const state = window.data.state;
 
 		// Setup a promise
 		return new Promise( ( resolve ) => {
-			// compress the mangas for storage
-			const compressed = compressForStorage( expanded );
-			// log for debugging
-			console.log( 'Saving to Chrome Storage', compressed );
 			// clear the storage
-			// then set it to the new compressed state
 			// then resolve the promise
-			chrome.storage.sync.clear( () => chrome.storage.sync.set( compressed, resolve ) );
+			chrome.storage.sync.clear( () => chrome.storage.sync.set( state, resolve ) );
 		} )
 			.then( window.query.primeIndexes ) // update the indexes
 			.then( updateUnreadCount ); // update the badge icon number
@@ -170,29 +118,17 @@ function initStorage() {
 	 */
 	function loadExample() {
 		// data to load
-		const compressed = [
-			{ name: 'Bleach', url: 'mangastream.com/manga/bleach/', readTo: '663' },
-			{ name: 'Fairy Tail', url: 'mangastream.com/manga/fairy_tail/', readTo: '473' },
-			{ name: 'One Piece', url: 'mangatown.com/manga/one_piece/', readTo: '12' },
-			{ name: 'The Gamer', url: 'mangatown.com/manga/the_gamer/', readTo: '118' },
-			{ name: 'UQ Holder!', url: 'mangahere.co/manga/uq_holder/', readTo: '106' },
-		];
-
-		const loadReady = {};
-
-		compressed.forEach( ( manga ) => {
-			loadReady[ window.uuid.v4() ] = manga;
-		} );
+		const example = JSON.parse( '{"0":{"name":"UQ Holder!","url":"mangahere.co/manga/uq_holder/","readTo":"106","readToUrl":"mangahere.co/manga/uq_holder/c106/","nextChapter":"107","nextChapterUrl":"mangahere.co/manga/uq_holder/c107/","latestChapter":"128","latestChapterUrl":"mangahere.co/manga/uq_holder/c128/"},"1":{"name":"The Gamer","url":"mangatown.com/manga/the_gamer/","readTo":"118","readToUrl":"mangatown.com/manga/the_gamer/c118/","nextChapter":"119","nextChapterUrl":"mangatown.com/manga/the_gamer/c119/","latestChapter":"136","latestChapterUrl":"mangatown.com/manga/the_gamer/c136/"},"2":{"name":"Fairy Tail","url":"mangastream.com/manga/fairy_tail/","readTo":"473","readToUrl":"mangastream.com/manga/fairy_tail/","nextChapter":"498","nextChapterUrl":"mangastream.com/r/fairy_tail/498/3623/1/","latestChapter":"498","latestChapterUrl":"mangastream.com/r/fairy_tail/498/3623/1/"},"3":{"name":"Bleach","url":"mangastream.com/manga/bleach/","readTo":"663","readToUrl":"mangastream.com/manga/bleach/","nextChapter":"686","nextChapterUrl":"mangastream.com/r/bleach/686/3613/1/","latestChapter":"686","latestChapterUrl":"mangastream.com/r/bleach/686/3613/1/"},"4":{"name":"Gosu","url":"mangatown.com/manga/gosu/","readTo":"51","readToUrl":"mangatown.com/manga/gosu/c051/","nextChapter":"51","nextChapterUrl":"mangatown.com/manga/gosu/c051/","latestChapter":"51","latestChapterUrl":"mangatown.com/manga/gosu/c051/"},"5":{"name":"Magi - Sinbad no Bouken","url":"mangatown.com/manga/magi_sinbad_no_bouken/","readTo":"115","readToUrl":"mangatown.com/manga/magi_sinbad_no_bouken/c115/","nextChapter":"115","nextChapterUrl":"mangatown.com/manga/magi_sinbad_no_bouken/c115/","latestChapter":"115","latestChapterUrl":"mangatown.com/manga/magi_sinbad_no_bouken/c115/"},"6":{"name":"Tomo-chan wa Onnanoko!","url":"mangatown.com/manga/tomo_chan_wa_onnanoko/","readTo":"394","readToUrl":"mangatown.com/manga/tomo_chan_wa_onnanoko/c394/","nextChapter":"394","nextChapterUrl":"mangatown.com/manga/tomo_chan_wa_onnanoko/c394/","latestChapter":"394","latestChapterUrl":"mangatown.com/manga/tomo_chan_wa_onnanoko/c394/"},"7":{"name":"Dou Po Cang Qiong","url":"mangatown.com/manga/dou_po_cang_qiong/","readTo":"170","readToUrl":"mangatown.com/manga/dou_po_cang_qiong/c170/","nextChapter":"170","nextChapterUrl":"mangatown.com/manga/dou_po_cang_qiong/c170/","latestChapter":"170","latestChapterUrl":"mangatown.com/manga/dou_po_cang_qiong/c170/"},"8":{"name":"Yin Zhi Shoumuren","url":"mangatown.com/manga/yin_zhi_shoumuren/","readTo":"128","readToUrl":"mangatown.com/manga/yin_zhi_shoumuren/c128/","nextChapter":"128","nextChapterUrl":"mangatown.com/manga/yin_zhi_shoumuren/c128/","latestChapter":"128","latestChapterUrl":"mangatown.com/manga/yin_zhi_shoumuren/c128/"}}' );
 
 		// logs for debugging
 		console.groupCollapsed( 'Example Manga to be loaded' );
-		console.table( loadReady );
+		console.table( example );
 		console.groupEnd();
 
-		// inflate our compressed example data
-		return inflateCompressed( loadReady )
-			.then( () => console.log( 'Done loading example', window.data.state ) ) // log for debugging
-			.then( getFresh ); // get fresh from the DB for insurance
+		// Set our example as the manga list
+		window.data.state.tracking = example;
+
+		return window.parsers.updateAllManga().then( getFresh ); // get fresh from the DB for insurance
 	}
 
 	return {
@@ -210,8 +146,6 @@ function initStorage() {
 		markRead, // expose function
 
 		getFresh, // expose function
-		compressForStorage, // expose function
-		inflateCompressed, // expose function
 		saveChanges, // expose function
 		loadExample, // expose function
 
