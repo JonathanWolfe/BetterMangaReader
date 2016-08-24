@@ -37,19 +37,19 @@ body {
 }
 
 .button-xsmall {
-	font-size: 70%;
+	font-size: 70% !important;
 }
 
 .button-small {
-	font-size: 85%;
+	font-size: 85% !important;
 }
 
 .button-large {
-	font-size: 110%;
+	font-size: 115% !important;
 }
 
 .button-xlarge {
-	font-size: 125%;
+	font-size: 125% !important;
 }
 
 /* -- Material Design Table style -------------- */
