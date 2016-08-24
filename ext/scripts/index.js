@@ -26,11 +26,7 @@ function createMangaTable() {
 		// Hide the load example button
 		$( '#load-example' ).hide();
 	} else {
-		// when clicked
-		$( '#load-example' ).on( 'click', ( event ) => {
-			// load the example data then refresh currently viewed tab
-			bgPage.data.loadExample().then( () => chrome.tabs.reload() );
-		} );
+		$( '#load-example' ).show();
 	}
 
 	// loop over every manga
@@ -90,6 +86,16 @@ function bmrInit() {
 	$( '#number-of-manga span' ).text( Object.keys( state.tracking ).length );
 	// Show the capactiy used
 	bgPage.data.capacityUsed().then( ( percent ) => $( '#capacity-used span' ).text( percent ) );
+
+	// when clicked
+	$( '#load-example' ).on( 'click', ( event ) => {
+		// load the example data then refresh currently viewed tab
+		bgPage.data.loadExample().then( () => chrome.tabs.reload() );
+	} );
+
+	$( '#refresh' ).on( 'click', ( event ) => {
+		bgPage.parsers.updateAllManga().then( () => chrome.tabs.reload() );
+	} );
 
 	// create the manga table
 	createMangaTable( state );
