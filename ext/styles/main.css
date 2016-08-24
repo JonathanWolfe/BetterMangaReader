@@ -36,11 +36,20 @@ body {
 	text-align: right;
 }
 
-#load-example {
-    text-align: center;
-    margin: 0 auto;
-    width: auto;
-    display: block;
+.button-xsmall {
+	font-size: 70%;
+}
+
+.button-small {
+	font-size: 85%;
+}
+
+.button-large {
+	font-size: 110%;
+}
+
+.button-xlarge {
+	font-size: 125%;
 }
 
 /* -- Material Design Table style -------------- */
