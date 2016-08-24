@@ -140,10 +140,10 @@ function makeExpansion( manga, parsedHTML ) {
 	);
 
 	// Latest Chapter is the first chapter in the sorted list
-	const latestChapter = chapters[ 0 ];
+	let latestChapter = chapters[ 0 ] || manga.latestChapter;
 	// Placeholders
-	let currentChapter;
-	let nextChapter;
+	let currentChapter = manga.currentChapter;
+	let nextChapter = manga.nextChapter;
 	const currentRead = manga.readTo || manga.latestRead;
 
 	// Loop over all the chapters looking for the latest read
@@ -159,6 +159,15 @@ function makeExpansion( manga, parsedHTML ) {
 			// Stop Looping, we got what we wanted
 			break;
 		}
+	}
+
+	// Didn't find the chapter in the list? Set it to the latest chapter
+	if ( !latestChapter ) {
+		latestChapter = {
+			number: currentRead,
+			title: 'Invalid info obtained from source',
+			url: manga.url,
+		};
 	}
 
 	// Didn't find the chapter in the list? Set it to the latest chapter
@@ -234,7 +243,13 @@ function updateAllManga( mangas ) {
 				window.data.state.tracking[ saveAs ] = expanded;
 
 				if ( uuids.length ) {
-					mangaLoop( uuids, callback );
+					window.setTimeout( () => mangaLoop( uuids, callback ), 100 );
+				} else {
+					callback();
+				}
+			}, ( err ) => {
+				if ( uuids.length ) {
+					window.setTimeout( () => mangaLoop( uuids, callback ), 100 );
 				} else {
 					callback();
 				}
