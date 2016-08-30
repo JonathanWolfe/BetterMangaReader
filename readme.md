@@ -1,6 +1,8 @@
 # BetterMangaReader
 Enjoy a better manga reading experience and with less hassle by letting us keep track of all your mangas and letting you know when each have been updated. BMR also displays every page of your manga onto one page so that you can just scroll downward to keep reading instead of going page to page, one by one.
 
+## No Longer Maintained - Do Not Use
+
 This is still in beta, and as such is limited to only working on:
 - MangaHere
 - MangaTown
